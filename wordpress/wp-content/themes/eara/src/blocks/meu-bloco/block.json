@@ -1,0 +1,15 @@
+{
+  "apiVersion": 2,
+  "name": "eara/meu-bloco",
+  "title": "Meu Bloco Personalizado",
+  "category": "eara",
+  "icon": "smiley",
+  "description": "Um bloco personalizado de exemplo",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "meu-tema",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./style.scss"
+}
