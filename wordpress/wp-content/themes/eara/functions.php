@@ -50,3 +50,28 @@ add_action('init', function () {
 add_action('enqueue_block_editor_assets', function () {
     configurar_blocos_gutenberg_automaticos();
 });
+
+
+
+function enqueue_mantine_styles()
+{
+    // Carrega apenas no admin para editores de bloco
+    if (is_admin()) {
+        wp_enqueue_script(
+            'mantine-blocks',
+            plugins_url('build/index.js', __FILE__),
+            array('wp-blocks', 'wp-element', 'wp-block-editor'),
+            '1.0.0'
+        );
+
+        // Você precisaria incluir os estilos do Mantine
+        // Isso pode ser feito via CDN ou build local
+        wp_enqueue_style(
+            'mantine-core',
+            'https://cdn.jsdelivr.net/npm/@mantine/core@7.x.x/styles.css',
+            array(),
+            '5.0.0'
+        );
+    }
+}
+add_action('enqueue_block_assets', 'enqueue_mantine_styles');
