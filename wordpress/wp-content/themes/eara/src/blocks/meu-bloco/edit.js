@@ -1,5 +1,5 @@
 const { RichText, InspectorControls, ColorPalette } = wp.blockEditor;
-const { PanelBody, SelectControl, ToggleControl } = wp.components;
+const { PanelBody, SelectControl, ToggleControl, TextControl } = wp.components;
 const { __ } = wp.i18n;
 
 import { Button, MantineProvider } from "@mantine/core";
@@ -28,7 +28,7 @@ export default function Edit(props) {
     <MantineProvider>
       <InspectorControls>
         <PanelBody title={__("Configurações do Bloco", "eara")}>
-          <SelectControl
+          {/* <SelectControl
             label={__("Alinhamento", "eara")}
             value={alignment}
             options={[
@@ -43,7 +43,16 @@ export default function Edit(props) {
             label={__("Mostrar borda", "eara")}
             checked={showBorder}
             onChange={onChangeShowBorder}
-          />
+          /> */}
+
+          <TextControl
+          tagName="div"
+          className="meu-bloco-conteudo"
+          label="Chart Label"
+          value={content}
+          onChange={onChangeContent}
+        //   placeholder={__("Digite seu texto aqui...", "eara")}
+        />
 
           <div>
             <p>{__("Cor do texto", "eara")}</p>
@@ -63,19 +72,20 @@ export default function Edit(props) {
           onChange={onChangeContent}
           placeholder={__("Digite seu texto aqui...", "eara")}
         />
-        <Button>Hello</Button>
+    
         <RingProgress
           label={
             <Text size="xs" ta="center">
-              Application data usage
+              {content}
             </Text>
           }
           sections={[
-            { value: 40, color: "red" },
-            { value: 15, color: "orange" },
-            { value: 15, color: "grape" },
+            { value: 40, color: "#8fbf29" },
+            { value: 15, color: "#557218" },
+            { value: 15, color: "#283583" },
           ]}
         />
+        <Button>Olá</Button>
       </div>
     </MantineProvider>
   );

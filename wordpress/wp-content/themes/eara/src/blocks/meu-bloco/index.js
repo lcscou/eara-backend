@@ -9,10 +9,10 @@ import edit from "./edit";
 import save from "./save";
 
 registerBlockType("eara/meu-bloco", {
-  title: __("Meu Bloco Personalizado", "eara"),
+  title: __("Chart", "eara"),
   description: __("Um bloco personalizado de exemplo", "eara"),
   category: "eara",
-  icon: "smiley",
+  icon: "chart-pie",
   keywords: [__("personalizado", "eara"), __("exemplo", "eara")],
   attributes: {
     content: {

@@ -15667,7 +15667,8 @@ const {
 const {
   PanelBody,
   SelectControl,
-  ToggleControl
+  ToggleControl,
+  TextControl
 } = wp.components;
 const {
   __
@@ -15710,24 +15711,13 @@ function Edit(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(InspectorControls, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
         title: __("Configurações do Bloco", "eara"),
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SelectControl, {
-          label: __("Alinhamento", "eara"),
-          value: alignment,
-          options: [{
-            label: __("Esquerda", "eara"),
-            value: "left"
-          }, {
-            label: __("Centro", "eara"),
-            value: "center"
-          }, {
-            label: __("Direita", "eara"),
-            value: "right"
-          }],
-          onChange: onChangeAlignment
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
-          label: __("Mostrar borda", "eara"),
-          checked: showBorder,
-          onChange: onChangeShowBorder
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
+          tagName: "div",
+          className: "meu-bloco-conteudo",
+          label: "Chart Label",
+          value: content,
+          onChange: onChangeContent
+          //   placeholder={__("Digite seu texto aqui...", "eara")}
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             children: __("Cor do texto", "eara")
@@ -15749,24 +15739,24 @@ function Edit(props) {
         value: content,
         onChange: onChangeContent,
         placeholder: __("Digite seu texto aqui...", "eara")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Button, {
-        children: "Hello"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.RingProgress, {
         label: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Text, {
           size: "xs",
           ta: "center",
-          children: "Application data usage"
+          children: content
         }),
         sections: [{
           value: 40,
-          color: "red"
+          color: "#8fbf29"
         }, {
           value: 15,
-          color: "orange"
+          color: "#557218"
         }, {
           value: 15,
-          color: "grape"
+          color: "#283583"
         }]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Button, {
+        children: "Ol\xE1"
       })]
     })]
   });
@@ -15968,10 +15958,10 @@ const {
 
 
 registerBlockType("eara/meu-bloco", {
-  title: __("Meu Bloco Personalizado", "eara"),
+  title: __("Chart", "eara"),
   description: __("Um bloco personalizado de exemplo", "eara"),
   category: "eara",
-  icon: "smiley",
+  icon: "chart-pie",
   keywords: [__("personalizado", "eara"), __("exemplo", "eara")],
   attributes: {
     content: {

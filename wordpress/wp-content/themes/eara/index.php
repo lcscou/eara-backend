@@ -7,5 +7,7 @@
         endwhile;
     endif;
     ?>
+
+    <?php echo print_r($wp_post_types) ;?>
 </main>
 <?php get_footer(); ?>

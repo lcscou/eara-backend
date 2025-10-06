@@ -1,7 +1,7 @@
 {
   "apiVersion": 2,
   "name": "eara/meu-bloco",
-  "title": "Meu Bloco Personalizado",
+  "title": "Chart",
   "category": "eara",
   "icon": "smiley",
   "description": "Um bloco personalizado de exemplo",

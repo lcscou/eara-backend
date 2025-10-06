@@ -75,3 +75,5 @@ function enqueue_mantine_styles()
     }
 }
 add_action('enqueue_block_assets', 'enqueue_mantine_styles');
+
+

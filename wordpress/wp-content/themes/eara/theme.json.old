@@ -9,7 +9,7 @@
     },
     "typography": {
       "fontFamilies": [
-        { "fontFamily": "Inter, sans-serif", "slug": "inter", "name": "Inter" }
+        { "fontFamily": "Arial, sans-serif", "slug": "arial", "name": "Inter" }
       ]
     }
   }

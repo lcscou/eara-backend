@@ -1,0 +1,54 @@
+# Node / Yarn
+node_modules/
+yarn.lock
+npm-debug.log*
+
+# Composer
+vendor/
+composer.lock
+
+# WordPress - ignorar tudo, exceto o que interessa
+wordpress/*
+!wordpress/wp-content/
+wordpress/wp-content/*
+!wordpress/wp-content/themes/
+!wordpress/wp-content/plugins/
+
+# Só versionar o tema e plugin customizados
+wordpress/wp-content/themes/*
+!wordpress/wp-content/themes/eara/
+wordpress/wp-content/plugins/*
+!wordpress/wp-content/plugins/eara-blocks/
+
+# Uploads, cache e temporários não vão para o git
+wordpress/wp-content/uploads/
+wordpress/wp-content/cache/
+wordpress/wp-content/upgrade/
+wordpress/wp-content/advanced-cache.php
+wordpress/wp-content/backups/
+wordpress/wp-content/object-cache.php
+wordpress/wp-content/*.log
+
+# Docker
+db_data/
+*.pid
+*.seed
+*.bak
+*.swp
+
+# Logs
+*.log
+*.err
+*.sql
+*.sqlite
+*.tar.gz
+
+# VSCode
+.vscode/*
+!.vscode/launch.json
+
+# Sistema
+.DS_Store
+Thumbs.db
+.idea/
+.env
