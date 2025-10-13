@@ -14,7 +14,6 @@ services:
       XDEBUG_MODE: debug
       XDEBUG_CONFIG: client_host=host.docker.internal client_port=9003
     volumes:
-
       - ./wordpress:/var/www/html
       - ./php.ini:/usr/local/etc/php/php.ini
       - ./xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
@@ -68,16 +67,16 @@ services:
       - db
     entrypoint: wp
 
-  ngrok:
-    image: wernight/ngrok
-    container_name: wordpress_ngrok
-    ports:
-      - "4040:4040"
-    environment:
-      NGROK_PORT: wordpress:80
-      NGROK_AUTH: ${NGROK_AUTH}
-    depends_on:
-      - wordpress
+  # ngrok:
+  #   image: wernight/ngrok
+  #   container_name: wordpress_ngrok
+  #   ports:
+  #     - "4040:4040"
+  #   environment:
+  #     NGROK_PORT: wordpress:80
+  #     NGROK_AUTH: ${NGROK_AUTH}
+  #   depends_on:
+  #     - wordpress
 
 volumes:
   db_data:
