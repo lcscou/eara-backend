@@ -1,4 +1,7 @@
 <?php
+
+include_once TEMPLATEPATH . '/inc/scf.php';
+include_once TEMPLATEPATH . '/inc/theme.php';
 function adicionar_categoria_eara_blocos($categories)
 {
     $category_exists = array_filter($categories, function ($category) {
@@ -78,12 +81,3 @@ add_action('enqueue_block_assets', 'enqueue_mantine_styles');
 
 
 
-function eara_registrar_menus()
-{
-    register_nav_menus(array(
-        'main-menu-left' => __('Main Menu - Left', 'eara'),
-        'main-menu-right' => __('Main Menu - Right', 'eara'),
-        'main-footer' => __('Main footer', 'eara'),
-    ));
-}
-add_action('after_setup_theme', 'eara_registrar_menus');
