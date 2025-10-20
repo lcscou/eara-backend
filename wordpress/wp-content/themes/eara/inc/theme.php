@@ -1,9 +1,5 @@
 <?php
-
-
 add_theme_support('post-thumbnails');
-
-
 function add_file_types_to_uploads($file_types)
 {
     $new_filetypes = array();
@@ -12,9 +8,6 @@ function add_file_types_to_uploads($file_types)
     return $file_types;
 }
 add_filter('upload_mimes', 'add_file_types_to_uploads');
-
-
-
 function eara_registrar_menus()
 {
     register_nav_menus(array(
@@ -24,6 +17,3 @@ function eara_registrar_menus()
     ));
 }
 add_action('after_setup_theme', 'eara_registrar_menus');
-
-
-
