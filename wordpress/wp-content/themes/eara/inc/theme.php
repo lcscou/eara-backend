@@ -17,3 +17,26 @@ function eara_registrar_menus()
     ));
 }
 add_action('after_setup_theme', 'eara_registrar_menus');
+
+
+add_theme_support('wp-block-styles');
+add_theme_support('editor-styles');
+add_theme_support('responsive-embeds');
+add_theme_support('align-wide');
+
+add_theme_support('editor-styles');
+add_editor_style('editor-style.css');
+
+add_action('enqueue_block_editor_assets', function () {
+    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap', [], null);
+});
+
+
+
+// add_action('enqueue_block_editor_assets', function () {
+//     wp_enqueue_style(
+//         'your-theme-or-plugin-editor-styles',
+//         get_template_directory_uri() . '/build/editor.css',
+//         filemtime(get_template_directory() . '/build/editor.css')
+//     );
+// });

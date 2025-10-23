@@ -1,0 +1,20 @@
+.root[data-variant="menu"], .root[data-variant="menu"]:hover {
+  background-color: unset;
+  padding-left: 0;
+  padding-right: 0 !important;
+  margin: 0;
+  color: var(--mantine-primary-color-9);
+  font-weight: bold;
+}
+
+
+
+.root[data-variant="menu"]:hover{
+    opacity: 0.9;
+}
+
+.root[data-variant="menu"] .section{
+    margin-left: 2px;
+}
+
+

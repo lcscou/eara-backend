@@ -1,0 +1,55 @@
+{
+    "key": "group_68faa7b040f61",
+    "title": "General Menu",
+    "fields": [
+        {
+            "key": "field_68faa7b0ecdb1",
+            "label": "Menu Text Color",
+            "name": "menu_text_color",
+            "aria-label": "",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "312f86",
+            "enable_opacity": 0,
+            "return_format": "string",
+            "allow_in_bindings": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "menuTextColor",
+            "graphql_non_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "nav_menu",
+                "operator": "==",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "show_in_graphql": 1,
+    "graphql_field_name": "menuGeral",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "Menu",
+        "MenuItem"
+    ],
+    "modified": 1761258465
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/Hero/index.css","mappings":";;;AAAA;EACE;EACA;EACA;AACF,C","sources":["webpack://eara-theme/./src/blocks/Hero/editor.scss"],"sourcesContent":[".hero {\n  width: 100%;\n  height: 500px;\n  background-color: #c54444 !important;\n}"],"names":[],"sourceRoot":""}

@@ -3,12 +3,37 @@
     "title": "Menu",
     "fields": [
         {
+            "key": "field_68faa66f878f3",
+            "label": "IsMegaMenu",
+            "name": "ismegamenu",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Is Mega Menu? (Only works in first level menu item)",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "ismegamenu",
+            "graphql_non_null": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_68f62b2534de6",
             "label": "Content",
             "name": "content",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Only works in footer menu item",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -26,6 +51,31 @@
             "graphql_description": "",
             "graphql_field_name": "content",
             "graphql_non_null": 0
+        },
+        {
+            "key": "field_68faa8e318297",
+            "label": "Hidden",
+            "name": "hidden",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check If you want a colum without title (Only works in a second level menu item)",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "hidden",
+            "graphql_non_null": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -33,7 +83,7 @@
             {
                 "param": "nav_menu_item",
                 "operator": "==",
-                "value": "location\/main-footer"
+                "value": "all"
             }
         ]
     ],
@@ -52,5 +102,5 @@
     "graphql_types": [
         "MenuItem"
     ],
-    "modified": 1760964251
+    "modified": 1761257887
 }

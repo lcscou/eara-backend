@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/button",
+  "title": "Button",
+  "category": "eara",
+  "icon": "button",
+
+  "description": "You can choose between several styles of buttons",
+  "supports": {
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "label": "Eara Button"
+    }
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Eara Button"
+    },
+    "link": {
+      "default": "#",
+      "type": "string"
+    },
+    "taget": {
+      "default": "_self",
+      "type": "string"
+    },
+    "alignment": {
+      "default": "none",
+      "type": "string"
+    },
+    "variant": {
+      "default": "filled",
+      "type": "string"
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}
