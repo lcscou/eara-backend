@@ -14,8 +14,8 @@ add_action('rest_api_init', function () {
 /** options page acf */
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
-        'page_title' => 'Salutem Settings',
-        'menu_title' => 'Salutem Settings',
+        'page_title' => 'Eara Settings',
+        'menu_title' => 'Eara Settings',
     ));
 }
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
