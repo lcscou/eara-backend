@@ -126,6 +126,31 @@
             "graphql_description": "",
             "graphql_field_name": "organizer",
             "graphql_non_null": 0
+        },
+        {
+            "key": "field_6901f746981d4",
+            "label": "Category",
+            "name": "category",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "category",
+            "graphql_non_null": 0
         }
     ],
     "location": [
@@ -150,5 +175,5 @@
     "graphql_field_name": "customFields",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1761338569
+    "modified": 1761736546
 }
