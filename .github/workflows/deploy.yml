@@ -18,4 +18,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
         local-dir: ./wordpress/wp-content/themes/eara/
-        server-dir: ./wp-content/themes/eara/
+        server-dir: ./eara/wp-content/themes/eara/
