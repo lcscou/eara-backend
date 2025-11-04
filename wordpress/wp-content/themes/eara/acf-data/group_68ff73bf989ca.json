@@ -178,6 +178,50 @@
             "graphql_non_null": 0
         },
         {
+            "key": "field_690a8aad6be5d",
+            "label": "Credits Website",
+            "name": "credit_website",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "creditWebsite",
+            "graphql_non_null": 0
+        },
+        {
+            "key": "field_690a8afb6be5e",
+            "label": "Credits More Info",
+            "name": "credits_more_info",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "creditsMoreInfo",
+            "graphql_non_null": 0
+        },
+        {
             "key": "field_68ffb1a067369",
             "label": "Research area",
             "name": "research_area",
@@ -373,5 +417,5 @@
     "graphql_field_name": "cfMediaBank",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1761588826
+    "modified": 1762298647
 }
