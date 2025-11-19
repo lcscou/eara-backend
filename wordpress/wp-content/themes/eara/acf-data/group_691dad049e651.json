@@ -1,84 +1,9 @@
 {
-    "key": "group_68f77d4b4b082",
-    "title": "Events",
+    "key": "group_691dad049e651",
+    "title": "Members",
     "fields": [
         {
-            "key": "field_68f77df9b9a5b",
-            "label": "Order",
-            "name": "order",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "min": "",
-            "max": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "order",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_68f77d83b9a58",
-            "label": "Start Date",
-            "name": "start_date",
-            "aria-label": "",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y g:i a",
-            "return_format": "F j, Y g:i a",
-            "first_day": 1,
-            "default_to_current_date": 0,
-            "allow_in_bindings": 0,
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "startDate",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_68f77dd5b9a59",
-            "label": "End Date",
-            "name": "end_date",
-            "aria-label": "",
-            "type": "date_time_picker",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "display_format": "F j, Y g:i a",
-            "return_format": "F j, Y g:i a",
-            "first_day": 1,
-            "default_to_current_date": 0,
-            "allow_in_bindings": 0,
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "endDate",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_691d86356ded1",
+            "key": "field_691dad05453dc",
             "label": "Country",
             "name": "country",
             "aria-label": "",
@@ -327,11 +252,11 @@
             "save_options": 0
         },
         {
-            "key": "field_68f77de4b9a5a",
-            "label": "Location",
-            "name": "location",
+            "key": "field_691dc0f01273d",
+            "label": "Website",
+            "name": "website",
             "aria-label": "",
-            "type": "textarea",
+            "type": "url",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -341,89 +266,11 @@
                 "id": ""
             },
             "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "location",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_68f77d4bb9a57",
-            "label": "Organizer",
-            "name": "organizer",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
             "allow_in_bindings": 0,
             "placeholder": "",
-            "prepend": "",
-            "append": "",
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "organizer",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_6901f746981d4",
-            "label": "Category",
-            "name": "category",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "category",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_6901fa9f36d9f",
-            "label": "Description",
-            "name": "description",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "description",
+            "graphql_field_name": "website",
             "graphql_non_null": 0
         }
     ],
@@ -432,7 +279,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "events"
+                "value": "members"
             }
         ]
     ],
@@ -446,8 +293,8 @@
     "description": "",
     "show_in_rest": 0,
     "show_in_graphql": 1,
-    "graphql_field_name": "customFields",
+    "graphql_field_name": "AcfMembers",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1763544933
+    "modified": 1763557678
 }

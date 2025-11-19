@@ -1,13 +1,13 @@
 {
-    "key": "group_68f77d4b4b082",
-    "title": "Events",
+    "key": "group_69148d3addfb3",
+    "title": "News",
     "fields": [
         {
-            "key": "field_68f77df9b9a5b",
-            "label": "Order",
-            "name": "order",
+            "key": "field_69148d3b0091e",
+            "label": "Animal",
+            "name": "animal",
             "aria-label": "",
-            "type": "number",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,25 +16,34 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "post_type": [
+                "animals"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
             "min": "",
             "max": "",
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": "",
+            "elements": "",
+            "bidirectional": 0,
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "order",
-            "graphql_non_null": 0
+            "graphql_field_name": "animal",
+            "graphql_connection_type": "one_to_many",
+            "bidirectional_target": []
         },
         {
-            "key": "field_68f77d83b9a58",
-            "label": "Start Date",
-            "name": "start_date",
+            "key": "field_69148d650091f",
+            "label": "Disease",
+            "name": "disease",
             "aria-label": "",
-            "type": "date_time_picker",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -43,22 +52,34 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y g:i a",
-            "return_format": "F j, Y g:i a",
-            "first_day": 1,
-            "default_to_current_date": 0,
+            "post_type": [
+                "diseases"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
             "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "startDate",
-            "graphql_non_null": 0
+            "graphql_field_name": "disease",
+            "graphql_connection_type": "one_to_many",
+            "bidirectional_target": []
         },
         {
-            "key": "field_68f77dd5b9a59",
-            "label": "End Date",
-            "name": "end_date",
+            "key": "field_69148e98f382e",
+            "label": "Related News",
+            "name": "related_news",
             "aria-label": "",
-            "type": "date_time_picker",
+            "type": "relationship",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -67,18 +88,30 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y g:i a",
-            "return_format": "F j, Y g:i a",
-            "first_day": 1,
-            "default_to_current_date": 0,
+            "post_type": [
+                "news"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
             "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "endDate",
-            "graphql_non_null": 0
+            "graphql_field_name": "relatedNews",
+            "graphql_connection_type": "one_to_many",
+            "bidirectional_target": []
         },
         {
-            "key": "field_691d86356ded1",
+            "key": "field_691d8b9881ac2",
             "label": "Country",
             "name": "country",
             "aria-label": "",
@@ -314,7 +347,7 @@
             "default_value": false,
             "return_format": "value",
             "multiple": 0,
-            "allow_null": 1,
+            "allow_null": 0,
             "allow_in_bindings": 0,
             "ui": 0,
             "show_in_graphql": 1,
@@ -327,11 +360,11 @@
             "save_options": 0
         },
         {
-            "key": "field_68f77de4b9a5a",
-            "label": "Location",
-            "name": "location",
+            "key": "field_69148e78f382d",
+            "label": "EARA Member",
+            "name": "eara_member",
             "aria-label": "",
-            "type": "textarea",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -340,91 +373,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
+            "message": "",
+            "default_value": 0,
             "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "",
+            "ui": 0,
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "location",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_68f77d4bb9a57",
-            "label": "Organizer",
-            "name": "organizer",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "organizer",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_6901f746981d4",
-            "label": "Category",
-            "name": "category",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "category",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_6901fa9f36d9f",
-            "label": "Description",
-            "name": "description",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
-            "placeholder": "",
-            "new_lines": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "description",
-            "graphql_non_null": 0
+            "graphql_field_name": "earaMember",
+            "graphql_non_null": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -432,7 +390,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "events"
+                "value": "news"
             }
         ]
     ],
@@ -446,8 +404,8 @@
     "description": "",
     "show_in_rest": 0,
     "show_in_graphql": 1,
-    "graphql_field_name": "customFields",
+    "graphql_field_name": "AcfNews",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1763544933
+    "modified": 1763544553
 }

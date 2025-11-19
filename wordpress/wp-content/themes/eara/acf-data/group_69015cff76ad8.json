@@ -3,6 +3,25 @@
     "title": "Theme Settings",
     "fields": [
         {
+            "key": "field_691d835c8eac6",
+            "label": "General",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "graphql_field_name": "general",
+            "placement": "top",
+            "endpoint": 0,
+            "selected": 0
+        },
+        {
             "key": "field_69015d00b6dfb",
             "label": "MediaBank Intro",
             "name": "mediabank_intro",
@@ -50,5 +69,5 @@
     "graphql_field_name": "themeSettings",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1761697062
+    "modified": 1763543840
 }
