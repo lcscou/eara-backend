@@ -40,7 +40,7 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             'compare' => '=',
         ];
     }
-    if (isset($args['where']['speciesFeatured']) && $info->fieldName === 'mediaBank') {
+    if (isset($args['where']['speciesFeatured']) && $info->fieldName === 'mediasBank') {
         $query_args['meta_query'][] = [
             'key' => 'species_featured',
             'value' => $args['where']['speciesFeatured'],
@@ -61,7 +61,7 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             'compare' => 'LIKE',
         ];
     }
-    // filtrar por taxonomia chamada category-news quando estiver na query news
+    
     if (isset($args['where']['category']) && $info->fieldName === 'allNews') {
         $query_args['tax_query'][] = [
             'taxonomy' => 'categories-news',
