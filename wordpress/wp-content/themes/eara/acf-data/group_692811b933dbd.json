@@ -1,0 +1,54 @@
+{
+    "key": "group_692811b933dbd",
+    "title": "Taxonomy Institution",
+    "fields": [
+        {
+            "key": "field_692811b9556eb",
+            "label": "Website",
+            "name": "website",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "website",
+            "graphql_non_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "institution"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "show_in_graphql": 1,
+    "graphql_field_name": "AcfTaxonomyInstitution",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "CaseStudies",
+        "Institution"
+    ],
+    "modified": 1764233835
+}

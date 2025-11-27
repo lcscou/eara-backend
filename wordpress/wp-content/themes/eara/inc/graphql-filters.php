@@ -24,13 +24,21 @@ add_action('graphql_register_types', function () {
         'type' => 'String',
         'description' => 'Filter Members by country field',
     ]);
+    register_graphql_field('RootQueryToCaseStudiesConnectionWhereArgs', 'institution', [
+        'type' => 'String',
+        'description' => 'Filter Case Studies by institution field',
+    ]);
+
 });
 add_filter('graphql_post_object_connection_query_args', function ($query_args, $source, $args, $context, $info) {
+
+
     if (isset($args['where']['organizer']) && $info->fieldName === 'allEvents') {
         $query_args['meta_query'][] = [
             'key' => 'organizer',
             'value' => $args['where']['organizer'],
             'compare' => '=',
+
         ];
     }
     if (isset($args['where']['category']) && $info->fieldName === 'allEvents') {
@@ -61,12 +69,19 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             'compare' => 'LIKE',
         ];
     }
-    
+
     if (isset($args['where']['category']) && $info->fieldName === 'allNews') {
         $query_args['tax_query'][] = [
             'taxonomy' => 'categories-news',
             'field' => 'slug',
             'terms' => $args['where']['category'],
+        ];
+    }
+    if (isset($args['where']['institution']) && $info->fieldName === 'allCaseStudies') {
+        $query_args['tax_query'][] = [
+            'taxonomy' => 'institution',
+            'field' => 'slug',
+            'terms' => $args['where']['institution'],
         ];
     }
     return $query_args;

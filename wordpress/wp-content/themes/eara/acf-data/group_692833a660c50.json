@@ -1,0 +1,187 @@
+{
+    "key": "group_692833a660c50",
+    "title": "Ticker fields",
+    "fields": [
+        {
+            "key": "field_692834eb58d79",
+            "label": "Message",
+            "name": "message",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "message",
+            "graphql_non_null": 0
+        },
+        {
+            "key": "field_692833a7c30d1",
+            "label": "Order",
+            "name": "order",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "order",
+            "graphql_non_null": 0
+        },
+        {
+            "key": "field_692833cfc30d2",
+            "label": "Link",
+            "name": "link",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "link",
+            "graphql_non_null": 0,
+            "sub_fields": [
+                {
+                    "key": "field_69283412c30d3",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "KNOW MORE",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "label",
+                    "graphql_non_null": 0
+                },
+                {
+                    "key": "field_69283431c30d4",
+                    "label": "URI",
+                    "name": "uri",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "uri",
+                    "graphql_non_null": 0
+                }
+            ]
+        },
+        {
+            "key": "field_69283474c30d5",
+            "label": "Recurrence",
+            "name": "recurrence",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "every-day": "Every Day",
+                "once-a-week": "Once a Week",
+                "once-a-month": "Once a Month"
+            },
+            "default_value": "every-day",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "recurrence",
+            "graphql_non_null": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "ticker"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "show_in_graphql": 1,
+    "graphql_field_name": "acfTicker",
+    "map_graphql_types_from_location_rules": 0,
+    "graphql_types": "",
+    "modified": 1764245655
+}
