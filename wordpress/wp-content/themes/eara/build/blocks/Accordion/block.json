@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/accordion",
+  "title": "Accordion",
+  "category": "eara",
+  "icon": "list-view",
+  "description": "An accordion item with expandable content.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Accordion Item"
+    },
+    "defaultOpened": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js"
+}

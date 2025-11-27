@@ -18,23 +18,63 @@
   "attributes": {
     "label": {
       "type": "string",
-      "default": "Eara Button"
+      "default": "Button"
     },
     "link": {
-      "default": "#",
-      "type": "string"
+      "type": "string",
+      "default": "#"
     },
-    "taget": {
-      "default": "_self",
-      "type": "string"
-    },
-    "alignment": {
-      "default": "none",
-      "type": "string"
+    "target": {
+      "type": "string",
+      "default": "_self"
     },
     "variant": {
-      "default": "filled",
-      "type": "string"
+      "type": "string",
+      "default": "filled"
+    },
+    "size": {
+      "type": "string",
+      "default": "sm"
+    },
+    "color": {
+      "type": "string",
+      "default": "blue"
+    },
+    "radius": {
+      "type": "string",
+      "default": "sm"
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
+    },
+    "compact": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "loading": {
+      "type": "boolean",
+      "default": false
+    },
+    "uppercase": {
+      "type": "boolean",
+      "default": false
+    },
+    "leftIcon": {
+      "type": "string",
+      "default": ""
+    },
+    "rightIcon": {
+      "type": "string",
+      "default": ""
+    },
+    "gradient": {
+      "type": "object",
+      "default": {}
     }
   },
   "textdomain": "eara",

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/accordion-container",
+  "title": "Accordion Container",
+  "category": "eara",
+  "icon": "list-view",
+  "description": "A container for accordion items with expandable content, like Mantine Accordion.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "default": "default"
+    },
+    "radius": {
+      "type": "string",
+      "default": "sm"
+    },
+    "chevronPosition": {
+      "type": "string",
+      "default": "right"
+    },
+    "chevronSize": {
+      "type": "string",
+      "default": "md"
+    },
+    "disableChevronRotation": {
+      "type": "boolean",
+      "default": false
+    },
+    "multiple": {
+      "type": "boolean",
+      "default": false
+    },
+    "loop": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}

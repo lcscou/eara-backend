@@ -1,5 +1,13 @@
-.hero {
-  width: 100%;
-  height: 500px;
-  background-color: #c54444 !important;
+/* Editor styles for Button block */
+.wp-block-eara-button {
+  /* Ensure button is visible and interactive in editor */
+  display: inline-block;
+  
+  /* Add some margin for easier selection */
+  margin: 0.5rem 0;
+  
+  /* Make sure the Mantine button renders properly */
+  .mantine-Button-root {
+    cursor: pointer;
+  }
 }

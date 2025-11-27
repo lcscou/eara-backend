@@ -1,0 +1,323 @@
+/* Mantine-like Button styles */
+
+:root {
+  /* Mantine color palette */
+  --mantine-color-blue-6: #228be6;
+  --mantine-color-blue-7: #1c7ed6;
+  --mantine-color-blue-5: #339af0;
+  --mantine-color-blue-0: #e7f5ff;
+  --mantine-color-blue-1: #d0ebff;
+  
+  --mantine-color-red-6: #fa5252;
+  --mantine-color-red-7: #f03e3e;
+  --mantine-color-red-5: #ff6b6b;
+  --mantine-color-red-0: #fff5f5;
+  
+  --mantine-color-green-6: #40c057;
+  --mantine-color-green-7: #37b24d;
+  --mantine-color-green-0: #ebfbee;
+  
+  --mantine-color-yellow-6: #fab005;
+  --mantine-color-yellow-7: #f59f00;
+  --mantine-color-yellow-0: #fff9db;
+  
+  --mantine-color-orange-6: #fd7e14;
+  --mantine-color-orange-7: #f76707;
+  --mantine-color-orange-0: #fff4e6;
+  
+  --mantine-color-pink-6: #f06595;
+  --mantine-color-pink-7: #e64980;
+  --mantine-color-pink-0: #fff0f6;
+  
+  --mantine-color-grape-6: #9775fa;
+  --mantine-color-grape-7: #845ef7;
+  --mantine-color-grape-0: #f3f0ff;
+  
+  --mantine-color-violet-6: #7950f2;
+  --mantine-color-violet-7: #7048e8;
+  --mantine-color-violet-0: #f3f0ff;
+  
+  --mantine-color-indigo-6: #5c7cfa;
+  --mantine-color-indigo-7: #4c6ef5;
+  --mantine-color-indigo-0: #edf2ff;
+  
+  --mantine-color-cyan-6: #15aabf;
+  --mantine-color-cyan-7: #1098ad;
+  --mantine-color-cyan-0: #e3fafc;
+  
+  --mantine-color-teal-6: #12b886;
+  --mantine-color-teal-7: #0ca678;
+  --mantine-color-teal-0: #e6fcf5;
+  
+  --mantine-color-lime-6: #82c91e;
+  --mantine-color-lime-7: #74b816;
+  --mantine-color-lime-0: #f4fce3;
+  
+  --mantine-color-gray-6: #868e96;
+  --mantine-color-gray-7: #495057;
+  --mantine-color-gray-0: #f8f9fa;
+  --mantine-color-gray-1: #f1f3f5;
+  
+  --mantine-color-dark-6: #373a40;
+  --mantine-color-dark-7: #2b2e33;
+  --mantine-color-dark-0: #c9cccf;
+  
+  /* Spacing */
+  --mantine-spacing-xs: 0.625rem;
+  --mantine-spacing-sm: 0.75rem;
+  --mantine-spacing-md: 1rem;
+  --mantine-spacing-lg: 1.25rem;
+  --mantine-spacing-xl: 2rem;
+  
+  /* Font sizes */
+  --mantine-font-size-xs: 0.75rem;
+  --mantine-font-size-sm: 0.875rem;
+  --mantine-font-size-md: 1rem;
+  --mantine-font-size-lg: 1.125rem;
+  --mantine-font-size-xl: 1.25rem;
+  
+  /* Radius */
+  --mantine-radius-xs: 0.125rem;
+  --mantine-radius-sm: 0.25rem;
+  --mantine-radius-md: 0.5rem;
+  --mantine-radius-lg: 1rem;
+  --mantine-radius-xl: 2rem;
+}
+
+.eara-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  border: 0;
+  text-decoration: none;
+  transition: all 150ms ease;
+  
+  &:focus {
+    outline: 2px solid var(--mantine-color-blue-6);
+    outline-offset: 2px;
+  }
+  
+  &--full-width {
+    display: flex;
+    width: 100%;
+  }
+  
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    height: 100%;
+  }
+  
+  &__loader {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1em;
+    height: 1em;
+    
+    svg {
+      width: 100%;
+      height: 100%;
+      animation: rotate 1s linear infinite;
+    }
+  }
+  
+  &__left-icon,
+  &__right-icon {
+    display: inline-flex;
+    align-items: center;
+  }
+  
+  &__label {
+    white-space: nowrap;
+  }
+  
+  /* Loading state */
+  &--loading {
+    pointer-events: none;
+    
+    .eara-button__label {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Disabled state */
+  &[data-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  /* Size variants */
+  &[data-size="xs"],
+  &[data-size="compact-xs"] {
+    height: 1.875rem;
+    padding: 0 0.875rem;
+    font-size: var(--mantine-font-size-xs);
+  }
+  
+  &[data-size="sm"],
+  &[data-size="compact-sm"] {
+    height: 2.25rem;
+    padding: 0 1.125rem;
+    font-size: var(--mantine-font-size-sm);
+  }
+  
+  &[data-size="md"],
+  &[data-size="compact-md"] {
+    height: 2.625rem;
+    padding: 0 1.375rem;
+    font-size: var(--mantine-font-size-md);
+  }
+  
+  &[data-size="lg"],
+  &[data-size="compact-lg"] {
+    height: 3.125rem;
+    padding: 0 1.625rem;
+    font-size: var(--mantine-font-size-lg);
+  }
+  
+  &[data-size="xl"],
+  &[data-size="compact-xl"] {
+    height: 3.75rem;
+    padding: 0 2rem;
+    font-size: var(--mantine-font-size-xl);
+  }
+  
+  /* Compact sizes - reduced padding */
+  &[data-size^="compact-"] {
+    &[data-size="compact-xs"] { padding: 0 0.4375rem; }
+    &[data-size="compact-sm"] { padding: 0 0.5625rem; }
+    &[data-size="compact-md"] { padding: 0 0.6875rem; }
+    &[data-size="compact-lg"] { padding: 0 0.8125rem; }
+    &[data-size="compact-xl"] { padding: 0 1rem; }
+  }
+  
+  /* Radius */
+  &[data-radius="xs"] { border-radius: var(--mantine-radius-xs); }
+  &[data-radius="sm"] { border-radius: var(--mantine-radius-sm); }
+  &[data-radius="md"] { border-radius: var(--mantine-radius-md); }
+  &[data-radius="lg"] { border-radius: var(--mantine-radius-lg); }
+  &[data-radius="xl"] { border-radius: var(--mantine-radius-xl); }
+}
+
+/* Color and variant combinations */
+@mixin button-variant($color) {
+  /* Filled variant */
+  &[data-variant="filled"][data-color="#{$color}"] {
+    background-color: var(--mantine-color-#{$color}-6);
+    color: white;
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: var(--mantine-color-#{$color}-7);
+    }
+  }
+  
+  /* Light variant */
+  &[data-variant="light"][data-color="#{$color}"] {
+    background-color: var(--mantine-color-#{$color}-0);
+    color: var(--mantine-color-#{$color}-6);
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: var(--mantine-color-#{$color}-1);
+    }
+  }
+  
+  /* Outline variant */
+  &[data-variant="outline"][data-color="#{$color}"] {
+    background-color: transparent;
+    border: 1px solid var(--mantine-color-#{$color}-6);
+    color: var(--mantine-color-#{$color}-6);
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: var(--mantine-color-#{$color}-0);
+    }
+  }
+  
+  /* Subtle variant */
+  &[data-variant="subtle"][data-color="#{$color}"] {
+    background-color: transparent;
+    color: var(--mantine-color-#{$color}-6);
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: var(--mantine-color-#{$color}-0);
+    }
+  }
+}
+
+.eara-button {
+  @include button-variant('blue');
+  @include button-variant('red');
+  @include button-variant('green');
+  @include button-variant('yellow');
+  @include button-variant('orange');
+  @include button-variant('pink');
+  @include button-variant('grape');
+  @include button-variant('violet');
+  @include button-variant('indigo');
+  @include button-variant('cyan');
+  @include button-variant('teal');
+  @include button-variant('lime');
+  @include button-variant('gray');
+  @include button-variant('dark');
+  
+  /* Default variant */
+  &[data-variant="default"] {
+    background-color: var(--mantine-color-gray-0);
+    border: 1px solid var(--mantine-color-gray-1);
+    color: #000;
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: var(--mantine-color-gray-1);
+    }
+  }
+  
+  /* Transparent variant */
+  &[data-variant="transparent"] {
+    background-color: transparent;
+    color: inherit;
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+  
+  /* White variant */
+  &[data-variant="white"] {
+    background-color: white;
+    color: #000;
+    border: 1px solid var(--mantine-color-gray-1);
+    
+    &:hover:not([data-disabled="true"]) {
+      background-color: var(--mantine-color-gray-0);
+    }
+  }
+  
+  /* Gradient variant */
+  &[data-variant="gradient"] {
+    background: linear-gradient(45deg, var(--mantine-color-blue-6), var(--mantine-color-cyan-6));
+    color: white;
+    border: 0;
+    
+    &:hover:not([data-disabled="true"]) {
+      opacity: 0.9;
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

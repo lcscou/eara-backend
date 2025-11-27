@@ -86,4 +86,18 @@ add_action('admin_head', function () {
     </script>";
 });
 
+// Enqueue accordion frontend JavaScript
+function enqueue_accordion_script() {
+    if (!is_admin()) {
+        wp_enqueue_script(
+            'eara-accordion-frontend',
+            get_template_directory_uri() . '/build/blocks/Accordion/frontend.js',
+            array(),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'enqueue_accordion_script');
+
 

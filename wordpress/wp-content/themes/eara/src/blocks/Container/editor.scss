@@ -1,0 +1,12 @@
+/* Editor styles for Container block */
+.wp-block-eara-container {
+  /* Add visual border in editor to show container boundaries */
+  border: 1px dashed #ccc;
+  min-height: 50px;
+  
+  /* Ensure inner blocks are visible */
+  .block-editor-inner-blocks,
+  .block-editor-block-list__layout {
+    min-height: 50px;
+  }
+}

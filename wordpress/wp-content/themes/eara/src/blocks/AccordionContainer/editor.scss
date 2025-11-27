@@ -1,0 +1,16 @@
+/* Editor styles for Accordion Container block */
+.wp-block-eara-accordion-container {
+  border: 1px dashed #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+  
+  .block-editor-inner-blocks,
+  .block-editor-block-list__layout {
+    min-height: 50px;
+  }
+  
+  /* Ensure Mantine accordion renders properly in editor */
+  .mantine-Accordion-root {
+    border: none;
+  }
+}

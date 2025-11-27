@@ -1,0 +1,90 @@
+/* Mantine-like Container styles */
+.eara-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* Default padding */
+  --container-p: md;
+  
+  /* Mantine spacing scale */
+  --mantine-spacing-xs: 0.625rem;   /* 10px */
+  --mantine-spacing-sm: 0.75rem;    /* 12px */
+  --mantine-spacing-md: 1rem;       /* 16px */
+  --mantine-spacing-lg: 1.25rem;    /* 20px */
+  --mantine-spacing-xl: 2rem;       /* 32px */
+  
+  /* Mantine container max-widths */
+  --mantine-container-xs: 33.75rem;  /* 540px */
+  --mantine-container-sm: 45rem;     /* 720px */
+  --mantine-container-md: 60rem;     /* 960px */
+  --mantine-container-lg: 75rem;     /* 1200px */
+  --mantine-container-xl: 87.5rem;   /* 1400px */
+  
+  /* Apply max-width based on size */
+  &:not(.eara-container--fluid) {
+    &[data-size="xs"] {
+      max-width: var(--mantine-container-xs);
+    }
+    
+    &[data-size="sm"] {
+      max-width: var(--mantine-container-sm);
+    }
+    
+    &[data-size="md"] {
+      max-width: var(--mantine-container-md);
+    }
+    
+    &[data-size="lg"] {
+      max-width: var(--mantine-container-lg);
+    }
+    
+    &[data-size="xl"] {
+      max-width: var(--mantine-container-xl);
+    }
+  }
+  
+  /* Fluid containers take full width */
+  &.eara-container--fluid {
+    max-width: 100%;
+  }
+  
+  /* Padding application */
+  padding: var(--container-py, var(--container-p, var(--mantine-spacing-md))) 
+           var(--container-px, var(--container-p, var(--mantine-spacing-md)));
+  
+  /* Support for spacing keywords in custom properties */
+  &[style*="--container-p: xs"],
+  &[style*="--container-px: xs"],
+  &[style*="--container-py: xs"] {
+    --container-p: var(--mantine-spacing-xs);
+  }
+  
+  &[style*="--container-p: sm"],
+  &[style*="--container-px: sm"],
+  &[style*="--container-py: sm"] {
+    --container-p: var(--mantine-spacing-sm);
+  }
+  
+  &[style*="--container-p: md"],
+  &[style*="--container-px: md"],
+  &[style*="--container-py: md"] {
+    --container-p: var(--mantine-spacing-md);
+  }
+  
+  &[style*="--container-p: lg"],
+  &[style*="--container-px: lg"],
+  &[style*="--container-py: lg"] {
+    --container-p: var(--mantine-spacing-lg);
+  }
+  
+  &[style*="--container-p: xl"],
+  &[style*="--container-px: xl"],
+  &[style*="--container-py: xl"] {
+    --container-p: var(--mantine-spacing-xl);
+  }
+  
+  &[style*="--container-p: 0"] {
+    --container-p: 0;
+  }
+}

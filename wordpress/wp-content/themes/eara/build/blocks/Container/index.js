@@ -2,415 +2,26 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@mantine/core/esm/components/Button/Button.mjs":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Button/Button.mjs ***!
-  \*********************************************************************/
+/***/ "./node_modules/@mantine/core/esm/components/Container/Container.mjs":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@mantine/core/esm/components/Container/Container.mjs ***!
+  \***************************************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Button: function() { return /* binding */ Button; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var _core_utils_units_converters_rem_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core/utils/units-converters/rem.mjs */ "./node_modules/@mantine/core/esm/core/utils/units-converters/rem.mjs");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var _core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/utils/get-size/get-size.mjs */ "./node_modules/@mantine/core/esm/core/utils/get-size/get-size.mjs");
-/* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../core/factory/polymorphic-factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/polymorphic-factory.mjs");
-/* harmony import */ var _Loader_Loader_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../Loader/Loader.mjs */ "./node_modules/@mantine/core/esm/components/Loader/Loader.mjs");
-/* harmony import */ var _Transition_Transition_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../Transition/Transition.mjs */ "./node_modules/@mantine/core/esm/components/Transition/Transition.mjs");
-/* harmony import */ var _UnstyledButton_UnstyledButton_mjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../UnstyledButton/UnstyledButton.mjs */ "./node_modules/@mantine/core/esm/components/UnstyledButton/UnstyledButton.mjs");
-/* harmony import */ var _ButtonGroup_ButtonGroup_mjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./ButtonGroup/ButtonGroup.mjs */ "./node_modules/@mantine/core/esm/components/Button/ButtonGroup/ButtonGroup.mjs");
-/* harmony import */ var _ButtonGroupSection_ButtonGroupSection_mjs__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./ButtonGroupSection/ButtonGroupSection.mjs */ "./node_modules/@mantine/core/esm/components/Button/ButtonGroupSection/ButtonGroupSection.mjs");
-/* harmony import */ var _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./Button.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Button/Button.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const loaderTransition = {
-  in: { opacity: 1, transform: `translate(-50%, calc(-50% + ${(0,_core_utils_units_converters_rem_mjs__WEBPACK_IMPORTED_MODULE_1__.rem)(1)}))` },
-  out: { opacity: 0, transform: "translate(-50%, -200%)" },
-  common: { transformOrigin: "center" },
-  transitionProperty: "transform, opacity"
-};
-const defaultProps = {};
-const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_4__.createVarsResolver)(
-  (theme, { radius, color, gradient, variant, size, justify, autoContrast }) => {
-    const colors = theme.variantColorResolver({
-      color: color || theme.primaryColor,
-      theme,
-      gradient,
-      variant: variant || "filled",
-      autoContrast
-    });
-    return {
-      root: {
-        "--button-justify": justify,
-        "--button-height": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_3__.getSize)(size, "button-height"),
-        "--button-padding-x": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_3__.getSize)(size, "button-padding-x"),
-        "--button-fz": size?.includes("compact") ? (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_3__.getFontSize)(size.replace("compact-", "")) : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_3__.getFontSize)(size),
-        "--button-radius": radius === void 0 ? void 0 : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_3__.getRadius)(radius),
-        "--button-bg": color || variant ? colors.background : void 0,
-        "--button-hover": color || variant ? colors.hover : void 0,
-        "--button-color": colors.color,
-        "--button-bd": color || variant ? colors.border : void 0,
-        "--button-hover-color": color || variant ? colors.hoverColor : void 0
-      }
-    };
-  }
-);
-const Button = (0,_core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_9__.polymorphicFactory)((_props, ref) => {
-  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_6__.useProps)("Button", defaultProps, _props);
-  const {
-    style,
-    vars,
-    className,
-    color,
-    disabled,
-    children,
-    leftSection,
-    rightSection,
-    fullWidth,
-    variant,
-    radius,
-    loading,
-    loaderProps,
-    gradient,
-    classNames,
-    styles,
-    unstyled,
-    "data-disabled": dataDisabled,
-    autoContrast,
-    mod,
-    ...others
-  } = props;
-  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_7__.useStyles)({
-    name: "Button",
-    props,
-    classes: _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_15__["default"],
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    vars,
-    varsResolver
-  });
-  const hasLeftSection = !!leftSection;
-  const hasRightSection = !!rightSection;
-  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(
-    _UnstyledButton_UnstyledButton_mjs__WEBPACK_IMPORTED_MODULE_12__.UnstyledButton,
-    {
-      ref,
-      ...getStyles("root", { active: !disabled && !loading && !dataDisabled }),
-      unstyled,
-      variant,
-      disabled: disabled || loading,
-      mod: [
-        {
-          disabled: disabled || dataDisabled,
-          loading,
-          block: fullWidth,
-          "with-left-section": hasLeftSection,
-          "with-right-section": hasRightSection
-        },
-        mod
-      ],
-      ...others,
-      children: [
-        /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Transition_Transition_mjs__WEBPACK_IMPORTED_MODULE_11__.Transition, { mounted: !!loading, transition: loaderTransition, duration: 150, children: (transitionStyles) => /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box, { component: "span", ...getStyles("loader", { style: transitionStyles }), "aria-hidden": true, children: /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-          _Loader_Loader_mjs__WEBPACK_IMPORTED_MODULE_10__.Loader,
-          {
-            color: "var(--button-color)",
-            size: "calc(var(--button-height) / 1.8)",
-            ...loaderProps
-          }
-        ) }) }),
-        /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", { ...getStyles("inner"), children: [
-          leftSection && /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box, { component: "span", ...getStyles("section"), mod: { position: "left" }, children: leftSection }),
-          /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box, { component: "span", mod: { loading }, ...getStyles("label"), children }),
-          rightSection && /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box, { component: "span", ...getStyles("section"), mod: { position: "right" }, children: rightSection })
-        ] })
-      ]
-    }
-  );
-});
-Button.classes = _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_15__["default"];
-Button.displayName = "@mantine/core/Button";
-Button.Group = _ButtonGroup_ButtonGroup_mjs__WEBPACK_IMPORTED_MODULE_13__.ButtonGroup;
-Button.GroupSection = _ButtonGroupSection_ButtonGroupSection_mjs__WEBPACK_IMPORTED_MODULE_14__.ButtonGroupSection;
-
-
-//# sourceMappingURL=Button.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Button/Button.module.css.mjs":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Button/Button.module.css.mjs ***!
-  \********************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ classes; }
-/* harmony export */ });
-'use client';
-var classes = {"root":"m_77c9d27d","inner":"m_80f1301b","label":"m_811560b9","section":"m_a74036a","loader":"m_a25b86ee","group":"m_80d6d844","groupSection":"m_70be2a01"};
-
-
-//# sourceMappingURL=Button.module.css.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Button/ButtonGroup/ButtonGroup.mjs":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Button/ButtonGroup/ButtonGroup.mjs ***!
-  \**************************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ButtonGroup: function() { return /* binding */ ButtonGroup; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var _core_utils_units_converters_rem_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../core/utils/units-converters/rem.mjs */ "./node_modules/@mantine/core/esm/core/utils/units-converters/rem.mjs");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../core/factory/factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/factory.mjs");
-/* harmony import */ var _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Button.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Button/Button.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const defaultProps = {
-  orientation: "horizontal"
-};
-const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)((_, { borderWidth }) => ({
-  group: { "--button-border-width": (0,_core_utils_units_converters_rem_mjs__WEBPACK_IMPORTED_MODULE_1__.rem)(borderWidth) }
-}));
-const ButtonGroup = (0,_core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__.factory)((_props, ref) => {
-  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("ButtonGroup", defaultProps, _props);
-  const {
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    orientation,
-    vars,
-    borderWidth,
-    variant,
-    mod,
-    ...others
-  } = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("ButtonGroup", defaultProps, _props);
-  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__.useStyles)({
-    name: "ButtonGroup",
-    props,
-    classes: _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"],
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    vars,
-    varsResolver,
-    rootSelector: "group"
-  });
-  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-    _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__.Box,
-    {
-      ...getStyles("group"),
-      ref,
-      variant,
-      mod: [{ "data-orientation": orientation }, mod],
-      role: "group",
-      ...others
-    }
-  );
-});
-ButtonGroup.classes = _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"];
-ButtonGroup.displayName = "@mantine/core/ButtonGroup";
-
-
-//# sourceMappingURL=ButtonGroup.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Button/ButtonGroupSection/ButtonGroupSection.mjs":
-/*!****************************************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Button/ButtonGroupSection/ButtonGroupSection.mjs ***!
-  \****************************************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   ButtonGroupSection: function() { return /* binding */ ButtonGroupSection; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var _core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../core/utils/get-size/get-size.mjs */ "./node_modules/@mantine/core/esm/core/utils/get-size/get-size.mjs");
-/* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../core/factory/factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/factory.mjs");
-/* harmony import */ var _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Button.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Button/Button.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const defaultProps = {};
-const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)(
-  (theme, { radius, color, gradient, variant, autoContrast, size }) => {
-    const colors = theme.variantColorResolver({
-      color: color || theme.primaryColor,
-      theme,
-      gradient,
-      variant: variant || "filled",
-      autoContrast
-    });
-    return {
-      groupSection: {
-        "--section-height": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "section-height"),
-        "--section-padding-x": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "section-padding-x"),
-        "--section-fz": size?.includes("compact") ? (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getFontSize)(size.replace("compact-", "")) : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getFontSize)(size),
-        "--section-radius": radius === void 0 ? void 0 : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getRadius)(radius),
-        "--section-bg": color || variant ? colors.background : void 0,
-        "--section-color": colors.color,
-        "--section-bd": color || variant ? colors.border : void 0
-      }
-    };
-  }
-);
-const ButtonGroupSection = (0,_core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__.factory)((_props, ref) => {
-  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("ButtonGroupSection", defaultProps, _props);
-  const {
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    vars,
-    variant,
-    gradient,
-    radius,
-    autoContrast,
-    ...others
-  } = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("ButtonGroupSection", defaultProps, _props);
-  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__.useStyles)({
-    name: "ButtonGroupSection",
-    props,
-    classes: _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"],
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    vars,
-    varsResolver,
-    rootSelector: "groupSection"
-  });
-  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__.Box, { ...getStyles("groupSection"), ref, variant, ...others });
-});
-ButtonGroupSection.classes = _Button_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"];
-ButtonGroupSection.displayName = "@mantine/core/ButtonGroupSection";
-
-
-//# sourceMappingURL=ButtonGroupSection.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Loader/Loader.mjs":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Loader/Loader.mjs ***!
-  \*********************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Loader: function() { return /* binding */ Loader; },
-/* harmony export */   defaultLoaders: function() { return /* binding */ defaultLoaders; }
+/* harmony export */   Container: function() { return /* binding */ Container; }
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var _core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/utils/get-size/get-size.mjs */ "./node_modules/@mantine/core/esm/core/utils/get-size/get-size.mjs");
 /* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
 /* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_color_functions_get_theme_color_get_theme_color_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/MantineProvider/color-functions/get-theme-color/get-theme-color.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/color-functions/get-theme-color/get-theme-color.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../core/factory/factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/factory.mjs");
-/* harmony import */ var _loaders_Bars_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./loaders/Bars.mjs */ "./node_modules/@mantine/core/esm/components/Loader/loaders/Bars.mjs");
-/* harmony import */ var _loaders_Dots_mjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./loaders/Dots.mjs */ "./node_modules/@mantine/core/esm/components/Loader/loaders/Dots.mjs");
-/* harmony import */ var _loaders_Oval_mjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./loaders/Oval.mjs */ "./node_modules/@mantine/core/esm/components/Loader/loaders/Oval.mjs");
-/* harmony import */ var _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./Loader.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Loader/Loader.module.css.mjs");
+/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
+/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
+/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
+/* harmony import */ var _core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/factory/factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/factory.mjs");
+/* harmony import */ var _Container_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Container.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Container/Container.module.css.mjs");
 'use client';
 
 
@@ -430,46 +41,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-const defaultLoaders = {
-  bars: _loaders_Bars_mjs__WEBPACK_IMPORTED_MODULE_10__.Bars,
-  oval: _loaders_Oval_mjs__WEBPACK_IMPORTED_MODULE_12__.Oval,
-  dots: _loaders_Dots_mjs__WEBPACK_IMPORTED_MODULE_11__.Dots
-};
-const defaultProps = {
-  loaders: defaultLoaders,
-  type: "oval"
-};
-const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)((theme, { size, color }) => ({
+const defaultProps = {};
+const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)((_, { size, fluid }) => ({
   root: {
-    "--loader-size": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "loader-size"),
-    "--loader-color": color ? (0,_core_MantineProvider_color_functions_get_theme_color_get_theme_color_mjs__WEBPACK_IMPORTED_MODULE_5__.getThemeColor)(color, theme) : void 0
+    "--container-size": fluid ? void 0 : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "container-size")
   }
 }));
-const Loader = (0,_core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_9__.factory)((_props, ref) => {
-  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_6__.useProps)("Loader", defaultProps, _props);
-  const {
-    size,
-    color,
-    type,
-    vars,
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    loaders,
-    variant,
-    children,
-    ...others
-  } = props;
-  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_7__.useStyles)({
-    name: "Loader",
+const Container = (0,_core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__.factory)((_props, ref) => {
+  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("Container", defaultProps, _props);
+  const { classNames, className, style, styles, unstyled, vars, fluid, mod, ...others } = props;
+  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__.useStyles)({
+    name: "Container",
+    classes: _Container_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"],
     props,
-    classes: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_13__["default"],
     className,
     style,
     classNames,
@@ -478,35 +62,21 @@ const Loader = (0,_core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_9__.factory
     vars,
     varsResolver
   });
-  if (children) {
-    return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box, { ...getStyles("root"), ref, ...others, children });
-  }
-  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-    _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box,
-    {
-      ...getStyles("root"),
-      ref,
-      component: loaders[type],
-      variant,
-      size,
-      ...others
-    }
-  );
+  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__.Box, { ref, mod: [{ fluid }, mod], ...getStyles("root"), ...others });
 });
-Loader.defaultLoaders = defaultLoaders;
-Loader.classes = _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_13__["default"];
-Loader.displayName = "@mantine/core/Loader";
+Container.classes = _Container_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"];
+Container.displayName = "@mantine/core/Container";
 
 
-//# sourceMappingURL=Loader.mjs.map
+//# sourceMappingURL=Container.mjs.map
 
 
 /***/ }),
 
-/***/ "./node_modules/@mantine/core/esm/components/Loader/Loader.module.css.mjs":
-/*!********************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Loader/Loader.module.css.mjs ***!
-  \********************************************************************************/
+/***/ "./node_modules/@mantine/core/esm/components/Container/Container.module.css.mjs":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@mantine/core/esm/components/Container/Container.module.css.mjs ***!
+  \**************************************************************************************/
 /***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -514,625 +84,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ classes; }
 /* harmony export */ });
 'use client';
-var classes = {"root":"m_5ae2e3c","barsLoader":"m_7a2bd4cd","bar":"m_870bb79","bars-loader-animation":"m_5d2b3b9d","dotsLoader":"m_4e3f22d7","dot":"m_870c4af","loader-dots-animation":"m_aac34a1","ovalLoader":"m_b34414df","oval-loader-animation":"m_f8e89c4b"};
+var classes = {"root":"m_7485cace"};
 
 
-//# sourceMappingURL=Loader.module.css.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Loader/loaders/Bars.mjs":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Loader/loaders/Bars.mjs ***!
-  \***************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Bars: function() { return /* binding */ Bars; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Loader/Loader.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Bars = (0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(({ className, ...others }, ref) => /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_3__.Box, { component: "span", className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(_Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].barsLoader, className), ...others, ref, children: [
-  /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].bar }),
-  /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].bar }),
-  /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].bar })
-] }));
-Bars.displayName = "@mantine/core/Bars";
-
-
-//# sourceMappingURL=Bars.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Loader/loaders/Dots.mjs":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Loader/loaders/Dots.mjs ***!
-  \***************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Dots: function() { return /* binding */ Dots; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Loader/Loader.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Dots = (0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(({ className, ...others }, ref) => /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_3__.Box, { component: "span", className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(_Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].dotsLoader, className), ...others, ref, children: [
-  /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].dot }),
-  /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].dot }),
-  /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { className: _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].dot })
-] }));
-Dots.displayName = "@mantine/core/Dots";
-
-
-//# sourceMappingURL=Dots.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Loader/loaders/Oval.mjs":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Loader/loaders/Oval.mjs ***!
-  \***************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Oval: function() { return /* binding */ Oval; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Loader/Loader.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Oval = (0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(({ className, ...others }, ref) => /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_3__.Box, { component: "span", className: (0,clsx__WEBPACK_IMPORTED_MODULE_2__["default"])(_Loader_module_css_mjs__WEBPACK_IMPORTED_MODULE_4__["default"].ovalLoader, className), ...others, ref }));
-Oval.displayName = "@mantine/core/Oval";
-
-
-//# sourceMappingURL=Oval.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Transition/Transition.mjs":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Transition/Transition.mjs ***!
-  \*****************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Transition: function() { return /* binding */ Transition; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_Mantine_context_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/MantineProvider/Mantine.context.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/Mantine.context.mjs");
-/* harmony import */ var _get_transition_styles_get_transition_styles_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./get-transition-styles/get-transition-styles.mjs */ "./node_modules/@mantine/core/esm/components/Transition/get-transition-styles/get-transition-styles.mjs");
-/* harmony import */ var _use_transition_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./use-transition.mjs */ "./node_modules/@mantine/core/esm/components/Transition/use-transition.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function Transition({
-  keepMounted,
-  transition = "fade",
-  duration = 250,
-  exitDuration = duration,
-  mounted,
-  children,
-  timingFunction = "ease",
-  onExit,
-  onEntered,
-  onEnter,
-  onExited,
-  enterDelay,
-  exitDelay
-}) {
-  const env = (0,_core_MantineProvider_Mantine_context_mjs__WEBPACK_IMPORTED_MODULE_3__.useMantineEnv)();
-  const { transitionDuration, transitionStatus, transitionTimingFunction } = (0,_use_transition_mjs__WEBPACK_IMPORTED_MODULE_5__.useTransition)({
-    mounted,
-    exitDuration,
-    duration,
-    timingFunction,
-    onExit,
-    onEntered,
-    onEnter,
-    onExited,
-    enterDelay,
-    exitDelay
-  });
-  if (transitionDuration === 0 || env === "test") {
-    return mounted ? /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: children({}) }) : keepMounted ? children({ display: "none" }) : null;
-  }
-  return transitionStatus === "exited" ? keepMounted ? children({ display: "none" }) : null : /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, { children: children(
-    (0,_get_transition_styles_get_transition_styles_mjs__WEBPACK_IMPORTED_MODULE_4__.getTransitionStyles)({
-      transition,
-      duration: transitionDuration,
-      state: transitionStatus,
-      timingFunction: transitionTimingFunction
-    })
-  ) });
-}
-Transition.displayName = "@mantine/core/Transition";
-
-
-//# sourceMappingURL=Transition.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Transition/get-transition-styles/get-transition-styles.mjs":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Transition/get-transition-styles/get-transition-styles.mjs ***!
-  \**************************************************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   getTransitionStyles: function() { return /* binding */ getTransitionStyles; }
-/* harmony export */ });
-/* harmony import */ var _transitions_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../transitions.mjs */ "./node_modules/@mantine/core/esm/components/Transition/transitions.mjs");
-'use client';
-
-
-const transitionStatuses = {
-  entering: "in",
-  entered: "in",
-  exiting: "out",
-  exited: "out",
-  "pre-exiting": "out",
-  "pre-entering": "out"
-};
-function getTransitionStyles({
-  transition,
-  state,
-  duration,
-  timingFunction
-}) {
-  const shared = {
-    WebkitBackfaceVisibility: "hidden",
-    willChange: "transform, opacity",
-    transitionDuration: `${duration}ms`,
-    transitionTimingFunction: timingFunction
-  };
-  if (typeof transition === "string") {
-    if (!(transition in _transitions_mjs__WEBPACK_IMPORTED_MODULE_0__.transitions)) {
-      return {};
-    }
-    return {
-      transitionProperty: _transitions_mjs__WEBPACK_IMPORTED_MODULE_0__.transitions[transition].transitionProperty,
-      ...shared,
-      ..._transitions_mjs__WEBPACK_IMPORTED_MODULE_0__.transitions[transition].common,
-      ..._transitions_mjs__WEBPACK_IMPORTED_MODULE_0__.transitions[transition][transitionStatuses[state]]
-    };
-  }
-  return {
-    transitionProperty: transition.transitionProperty,
-    ...shared,
-    ...transition.common,
-    ...transition[transitionStatuses[state]]
-  };
-}
-
-
-//# sourceMappingURL=get-transition-styles.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Transition/transitions.mjs":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Transition/transitions.mjs ***!
-  \******************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   transitions: function() { return /* binding */ transitions; }
-/* harmony export */ });
-'use client';
-const popIn = (from) => ({
-  in: { opacity: 1, transform: "scale(1)" },
-  out: { opacity: 0, transform: `scale(.9) translateY(${from === "bottom" ? 10 : -10}px)` },
-  transitionProperty: "transform, opacity"
-});
-const transitions = {
-  fade: {
-    in: { opacity: 1 },
-    out: { opacity: 0 },
-    transitionProperty: "opacity"
-  },
-  "fade-up": {
-    in: { opacity: 1, transform: "translateY(0)" },
-    out: { opacity: 0, transform: "translateY(30px)" },
-    transitionProperty: "opacity, transform"
-  },
-  "fade-down": {
-    in: { opacity: 1, transform: "translateY(0)" },
-    out: { opacity: 0, transform: "translateY(-30px)" },
-    transitionProperty: "opacity, transform"
-  },
-  "fade-left": {
-    in: { opacity: 1, transform: "translateX(0)" },
-    out: { opacity: 0, transform: "translateX(30px)" },
-    transitionProperty: "opacity, transform"
-  },
-  "fade-right": {
-    in: { opacity: 1, transform: "translateX(0)" },
-    out: { opacity: 0, transform: "translateX(-30px)" },
-    transitionProperty: "opacity, transform"
-  },
-  scale: {
-    in: { opacity: 1, transform: "scale(1)" },
-    out: { opacity: 0, transform: "scale(0)" },
-    common: { transformOrigin: "top" },
-    transitionProperty: "transform, opacity"
-  },
-  "scale-y": {
-    in: { opacity: 1, transform: "scaleY(1)" },
-    out: { opacity: 0, transform: "scaleY(0)" },
-    common: { transformOrigin: "top" },
-    transitionProperty: "transform, opacity"
-  },
-  "scale-x": {
-    in: { opacity: 1, transform: "scaleX(1)" },
-    out: { opacity: 0, transform: "scaleX(0)" },
-    common: { transformOrigin: "left" },
-    transitionProperty: "transform, opacity"
-  },
-  "skew-up": {
-    in: { opacity: 1, transform: "translateY(0) skew(0deg, 0deg)" },
-    out: { opacity: 0, transform: "translateY(-20px) skew(-10deg, -5deg)" },
-    common: { transformOrigin: "top" },
-    transitionProperty: "transform, opacity"
-  },
-  "skew-down": {
-    in: { opacity: 1, transform: "translateY(0) skew(0deg, 0deg)" },
-    out: { opacity: 0, transform: "translateY(20px) skew(-10deg, -5deg)" },
-    common: { transformOrigin: "bottom" },
-    transitionProperty: "transform, opacity"
-  },
-  "rotate-left": {
-    in: { opacity: 1, transform: "translateY(0) rotate(0deg)" },
-    out: { opacity: 0, transform: "translateY(20px) rotate(-5deg)" },
-    common: { transformOrigin: "bottom" },
-    transitionProperty: "transform, opacity"
-  },
-  "rotate-right": {
-    in: { opacity: 1, transform: "translateY(0) rotate(0deg)" },
-    out: { opacity: 0, transform: "translateY(20px) rotate(5deg)" },
-    common: { transformOrigin: "top" },
-    transitionProperty: "transform, opacity"
-  },
-  "slide-down": {
-    in: { opacity: 1, transform: "translateY(0)" },
-    out: { opacity: 0, transform: "translateY(-100%)" },
-    common: { transformOrigin: "top" },
-    transitionProperty: "transform, opacity"
-  },
-  "slide-up": {
-    in: { opacity: 1, transform: "translateY(0)" },
-    out: { opacity: 0, transform: "translateY(100%)" },
-    common: { transformOrigin: "bottom" },
-    transitionProperty: "transform, opacity"
-  },
-  "slide-left": {
-    in: { opacity: 1, transform: "translateX(0)" },
-    out: { opacity: 0, transform: "translateX(100%)" },
-    common: { transformOrigin: "left" },
-    transitionProperty: "transform, opacity"
-  },
-  "slide-right": {
-    in: { opacity: 1, transform: "translateX(0)" },
-    out: { opacity: 0, transform: "translateX(-100%)" },
-    common: { transformOrigin: "right" },
-    transitionProperty: "transform, opacity"
-  },
-  pop: {
-    ...popIn("bottom"),
-    common: { transformOrigin: "center center" }
-  },
-  "pop-bottom-left": {
-    ...popIn("bottom"),
-    common: { transformOrigin: "bottom left" }
-  },
-  "pop-bottom-right": {
-    ...popIn("bottom"),
-    common: { transformOrigin: "bottom right" }
-  },
-  "pop-top-left": {
-    ...popIn("top"),
-    common: { transformOrigin: "top left" }
-  },
-  "pop-top-right": {
-    ...popIn("top"),
-    common: { transformOrigin: "top right" }
-  }
-};
-
-
-//# sourceMappingURL=transitions.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Transition/use-transition.mjs":
-/*!*********************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Transition/use-transition.mjs ***!
-  \*********************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   useTransition: function() { return /* binding */ useTransition; }
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "react-dom");
-/* harmony import */ var _mantine_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mantine/hooks */ "./node_modules/@mantine/hooks/esm/use-did-update/use-did-update.mjs");
-/* harmony import */ var _mantine_hooks__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/hooks */ "./node_modules/@mantine/hooks/esm/use-reduced-motion/use-reduced-motion.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_MantineThemeProvider_MantineThemeProvider_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/MantineProvider/MantineThemeProvider/MantineThemeProvider.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineThemeProvider/MantineThemeProvider.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-function useTransition({
-  duration,
-  exitDuration,
-  timingFunction,
-  mounted,
-  onEnter,
-  onExit,
-  onEntered,
-  onExited,
-  enterDelay,
-  exitDelay
-}) {
-  const theme = (0,_core_MantineProvider_MantineThemeProvider_MantineThemeProvider_mjs__WEBPACK_IMPORTED_MODULE_6__.useMantineTheme)();
-  const shouldReduceMotion = (0,_mantine_hooks__WEBPACK_IMPORTED_MODULE_3__.useReducedMotion)();
-  const reduceMotion = theme.respectReducedMotion ? shouldReduceMotion : false;
-  const [transitionDuration, setTransitionDuration] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(reduceMotion ? 0 : duration);
-  const [transitionStatus, setStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(mounted ? "entered" : "exited");
-  const transitionTimeoutRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(-1);
-  const delayTimeoutRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(-1);
-  const rafRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(-1);
-  function clearAllTimeouts() {
-    window.clearTimeout(transitionTimeoutRef.current);
-    window.clearTimeout(delayTimeoutRef.current);
-    cancelAnimationFrame(rafRef.current);
-  }
-  const handleStateChange = (shouldMount) => {
-    clearAllTimeouts();
-    const preHandler = shouldMount ? onEnter : onExit;
-    const handler = shouldMount ? onEntered : onExited;
-    const newTransitionDuration = reduceMotion ? 0 : shouldMount ? duration : exitDuration;
-    setTransitionDuration(newTransitionDuration);
-    if (newTransitionDuration === 0) {
-      typeof preHandler === "function" && preHandler();
-      typeof handler === "function" && handler();
-      setStatus(shouldMount ? "entered" : "exited");
-    } else {
-      rafRef.current = requestAnimationFrame(() => {
-        react_dom__WEBPACK_IMPORTED_MODULE_1__.flushSync(() => {
-          setStatus(shouldMount ? "pre-entering" : "pre-exiting");
-        });
-        rafRef.current = requestAnimationFrame(() => {
-          typeof preHandler === "function" && preHandler();
-          setStatus(shouldMount ? "entering" : "exiting");
-          transitionTimeoutRef.current = window.setTimeout(() => {
-            typeof handler === "function" && handler();
-            setStatus(shouldMount ? "entered" : "exited");
-          }, newTransitionDuration);
-        });
-      });
-    }
-  };
-  const handleTransitionWithDelay = (shouldMount) => {
-    clearAllTimeouts();
-    const delay = shouldMount ? enterDelay : exitDelay;
-    if (typeof delay !== "number") {
-      handleStateChange(shouldMount);
-      return;
-    }
-    delayTimeoutRef.current = window.setTimeout(
-      () => {
-        handleStateChange(shouldMount);
-      },
-      shouldMount ? enterDelay : exitDelay
-    );
-  };
-  (0,_mantine_hooks__WEBPACK_IMPORTED_MODULE_2__.useDidUpdate)(() => {
-    handleTransitionWithDelay(mounted);
-  }, [mounted]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
-    () => () => {
-      clearAllTimeouts();
-    },
-    []
-  );
-  return {
-    transitionDuration,
-    transitionStatus,
-    transitionTimingFunction: timingFunction || "ease"
-  };
-}
-
-
-//# sourceMappingURL=use-transition.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/UnstyledButton/UnstyledButton.mjs":
-/*!*************************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/UnstyledButton/UnstyledButton.mjs ***!
-  \*************************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   UnstyledButton: function() { return /* binding */ UnstyledButton; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/factory/polymorphic-factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/polymorphic-factory.mjs");
-/* harmony import */ var _UnstyledButton_module_css_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./UnstyledButton.module.css.mjs */ "./node_modules/@mantine/core/esm/components/UnstyledButton/UnstyledButton.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const defaultProps = {
-  __staticSelector: "UnstyledButton"
-};
-const UnstyledButton = (0,_core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_6__.polymorphicFactory)(
-  (_props, ref) => {
-    const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_3__.useProps)("UnstyledButton", defaultProps, _props);
-    const {
-      className,
-      component = "button",
-      __staticSelector,
-      unstyled,
-      classNames,
-      styles,
-      style,
-      ...others
-    } = props;
-    const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_4__.useStyles)({
-      name: __staticSelector,
-      props,
-      classes: _UnstyledButton_module_css_mjs__WEBPACK_IMPORTED_MODULE_7__["default"],
-      className,
-      style,
-      classNames,
-      styles,
-      unstyled
-    });
-    return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
-      _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_5__.Box,
-      {
-        ...getStyles("root", { focusable: true }),
-        component,
-        ref,
-        type: component === "button" ? "button" : void 0,
-        ...others
-      }
-    );
-  }
-);
-UnstyledButton.classes = _UnstyledButton_module_css_mjs__WEBPACK_IMPORTED_MODULE_7__["default"];
-UnstyledButton.displayName = "@mantine/core/UnstyledButton";
-
-
-//# sourceMappingURL=UnstyledButton.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/UnstyledButton/UnstyledButton.module.css.mjs":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/UnstyledButton/UnstyledButton.module.css.mjs ***!
-  \************************************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ classes; }
-/* harmony export */ });
-'use client';
-var classes = {"root":"m_87cf2631"};
-
-
-//# sourceMappingURL=UnstyledButton.module.css.mjs.map
+//# sourceMappingURL=Container.module.css.mjs.map
 
 
 /***/ }),
@@ -4371,42 +3326,6 @@ function factory(ui) {
 
 /***/ }),
 
-/***/ "./node_modules/@mantine/core/esm/core/factory/polymorphic-factory.mjs":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/core/factory/polymorphic-factory.mjs ***!
-  \*****************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   polymorphicFactory: function() { return /* binding */ polymorphicFactory; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var _factory_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/factory.mjs");
-'use client';
-
-
-
-
-function polymorphicFactory(ui) {
-  const Component = (0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef)(ui);
-  Component.withProps = (fixedProps) => {
-    const Extended = (0,react__WEBPACK_IMPORTED_MODULE_1__.forwardRef)((props, ref) => /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Component, { ...fixedProps, ...props, ref }));
-    Extended.extend = Component.extend;
-    Extended.displayName = `WithProps(${Component.displayName})`;
-    return Extended;
-  };
-  Component.extend = _factory_mjs__WEBPACK_IMPORTED_MODULE_2__.identity;
-  return Component;
-}
-
-
-//# sourceMappingURL=polymorphic-factory.mjs.map
-
-
-/***/ }),
-
 /***/ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs ***!
@@ -5455,43 +4374,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/@mantine/hooks/esm/use-did-update/use-did-update.mjs":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@mantine/hooks/esm/use-did-update/use-did-update.mjs ***!
-  \***************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   useDidUpdate: function() { return /* binding */ useDidUpdate; }
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-'use client';
-
-
-function useDidUpdate(fn, dependencies) {
-  const mounted = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(false);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(
-    () => () => {
-      mounted.current = false;
-    },
-    []
-  );
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (mounted.current) {
-      return fn();
-    }
-    mounted.current = true;
-    return void 0;
-  }, dependencies);
-}
-
-
-//# sourceMappingURL=use-did-update.mjs.map
-
-
-/***/ }),
-
 /***/ "./node_modules/@mantine/hooks/esm/use-isomorphic-effect/use-isomorphic-effect.mjs":
 /*!*****************************************************************************************!*\
   !*** ./node_modules/@mantine/hooks/esm/use-isomorphic-effect/use-isomorphic-effect.mjs ***!
@@ -5514,83 +4396,6 @@ const useIsomorphicEffect = typeof document !== "undefined" ? react__WEBPACK_IMP
 
 /***/ }),
 
-/***/ "./node_modules/@mantine/hooks/esm/use-media-query/use-media-query.mjs":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@mantine/hooks/esm/use-media-query/use-media-query.mjs ***!
-  \*****************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   useMediaQuery: function() { return /* binding */ useMediaQuery; }
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-'use client';
-
-
-function attachMediaListener(query, callback) {
-  try {
-    query.addEventListener("change", callback);
-    return () => query.removeEventListener("change", callback);
-  } catch (e) {
-    query.addListener(callback);
-    return () => query.removeListener(callback);
-  }
-}
-function getInitialValue(query, initialValue) {
-  if (typeof window !== "undefined" && "matchMedia" in window) {
-    return window.matchMedia(query).matches;
-  }
-  return false;
-}
-function useMediaQuery(query, initialValue, { getInitialValueInEffect } = {
-  getInitialValueInEffect: true
-}) {
-  const [matches, setMatches] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(
-    getInitialValueInEffect ? initialValue : getInitialValue(query)
-  );
-  const queryRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if ("matchMedia" in window) {
-      queryRef.current = window.matchMedia(query);
-      setMatches(queryRef.current.matches);
-      return attachMediaListener(queryRef.current, (event) => setMatches(event.matches));
-    }
-    return void 0;
-  }, [query]);
-  return matches;
-}
-
-
-//# sourceMappingURL=use-media-query.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/hooks/esm/use-reduced-motion/use-reduced-motion.mjs":
-/*!***********************************************************************************!*\
-  !*** ./node_modules/@mantine/hooks/esm/use-reduced-motion/use-reduced-motion.mjs ***!
-  \***********************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   useReducedMotion: function() { return /* binding */ useReducedMotion; }
-/* harmony export */ });
-/* harmony import */ var _use_media_query_use_media_query_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../use-media-query/use-media-query.mjs */ "./node_modules/@mantine/hooks/esm/use-media-query/use-media-query.mjs");
-'use client';
-
-
-function useReducedMotion(initialValue, options) {
-  return (0,_use_media_query_use_media_query_mjs__WEBPACK_IMPORTED_MODULE_0__.useMediaQuery)("(prefers-reduced-motion: reduce)", initialValue, options);
-}
-
-
-//# sourceMappingURL=use-reduced-motion.mjs.map
-
-
-/***/ }),
-
 /***/ "./node_modules/clsx/dist/clsx.mjs":
 /*!*****************************************!*\
   !*** ./node_modules/clsx/dist/clsx.mjs ***!
@@ -5605,20 +4410,20 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
 
 /***/ }),
 
-/***/ "./src/blocks/Button/block.json":
-/*!**************************************!*\
-  !*** ./src/blocks/Button/block.json ***!
-  \**************************************/
+/***/ "./src/blocks/Container/block.json":
+/*!*****************************************!*\
+  !*** ./src/blocks/Container/block.json ***!
+  \*****************************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/button","title":"Button","category":"eara","icon":"button","description":"You can choose between several styles of buttons","supports":{"html":false},"example":{"attributes":{"label":"Eara Button"}},"attributes":{"label":{"type":"string","default":"Button"},"link":{"type":"string","default":"#"},"target":{"type":"string","default":"_self"},"variant":{"type":"string","default":"filled"},"size":{"type":"string","default":"sm"},"color":{"type":"string","default":"blue"},"radius":{"type":"string","default":"sm"},"fullWidth":{"type":"boolean","default":false},"compact":{"type":"boolean","default":false},"disabled":{"type":"boolean","default":false},"loading":{"type":"boolean","default":false},"uppercase":{"type":"boolean","default":false},"leftIcon":{"type":"string","default":""},"rightIcon":{"type":"string","default":""},"gradient":{"type":"object","default":{}}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/container","title":"Container","category":"eara","icon":"container","description":"A customizable container block for grouping content.","supports":{"html":false},"example":{"attributes":{"size":"xl"}},"attributes":{"size":{"type":"string","default":"md"},"fluid":{"type":"boolean","default":false},"p":{"type":"string","default":"md"},"px":{"type":"string","default":""},"py":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
 
 /***/ }),
 
-/***/ "./src/blocks/Button/edit.js":
-/*!***********************************!*\
-  !*** ./src/blocks/Button/edit.js ***!
-  \***********************************/
+/***/ "./src/blocks/Container/edit.js":
+/*!**************************************!*\
+  !*** ./src/blocks/Container/edit.js ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -5626,11 +4431,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": function() { return /* binding */ Edit; }
 /* harmony export */ });
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineProvider.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Container/Container.mjs");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
 const {
   InspectorControls,
+  InnerBlocks,
   useBlockProps
 } = wp.blockEditor;
 const {
@@ -5650,20 +4456,11 @@ function Edit(props) {
     setAttributes
   } = props;
   const {
-    label,
-    link,
-    target,
-    variant,
     size,
-    color,
-    radius,
-    fullWidth,
-    compact,
-    disabled,
-    loading,
-    uppercase,
-    leftIcon,
-    rightIcon
+    fluid,
+    p,
+    px,
+    py
   } = attributes;
   const blockProps = useBlockProps();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -5671,78 +4468,9 @@ function Edit(props) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_0__.MantineProvider, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(InspectorControls, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
-          title: __("Button Content", "eara"),
-          initialOpen: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
-            label: __("Label", "eara"),
-            value: label,
-            onChange: v => setAttributes({
-              label: v
-            }),
-            help: __("The text displayed on the button", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
-            label: __("Link URL", "eara"),
-            value: link,
-            onChange: v => setAttributes({
-              link: v
-            }),
-            placeholder: "https://example.com"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
-            label: __("Link Target", "eara"),
-            value: target,
-            options: [{
-              label: "Same Window (_self)",
-              value: "_self"
-            }, {
-              label: "New Window (_blank)",
-              value: "_blank"
-            }, {
-              label: "Parent Frame (_parent)",
-              value: "_parent"
-            }, {
-              label: "Top Frame (_top)",
-              value: "_top"
-            }],
-            onChange: v => setAttributes({
-              target: v
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
-          title: __("Appearance", "eara"),
+          title: __("Container Settings", "eara"),
           initialOpen: true,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
-            label: __("Variant", "eara"),
-            value: variant,
-            options: [{
-              label: "Filled",
-              value: "filled"
-            }, {
-              label: "Light",
-              value: "light"
-            }, {
-              label: "Outline",
-              value: "outline"
-            }, {
-              label: "Default",
-              value: "default"
-            }, {
-              label: "Subtle",
-              value: "subtle"
-            }, {
-              label: "Transparent",
-              value: "transparent"
-            }, {
-              label: "White",
-              value: "white"
-            }, {
-              label: "Gradient",
-              value: "gradient"
-            }],
-            onChange: v => setAttributes({
-              variant: v
-            }),
-            help: __("Button visual style", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
             label: __("Size", "eara"),
             value: size,
             options: [{
@@ -5760,78 +4488,29 @@ function Edit(props) {
             }, {
               label: "Extra Large (xl)",
               value: "xl"
-            }, {
-              label: "Compact XS",
-              value: "compact-xs"
-            }, {
-              label: "Compact SM",
-              value: "compact-sm"
-            }, {
-              label: "Compact MD",
-              value: "compact-md"
-            }, {
-              label: "Compact LG",
-              value: "compact-lg"
-            }, {
-              label: "Compact XL",
-              value: "compact-xl"
             }],
-            onChange: v => setAttributes({
-              size: v
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
-            label: __("Color", "eara"),
-            value: color,
+            onChange: value => setAttributes({
+              size: value
+            }),
+            help: __("Maximum width of the container. Ignored if fluid is enabled.", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
+            label: __("Fluid", "eara"),
+            checked: fluid,
+            onChange: value => setAttributes({
+              fluid: value
+            }),
+            help: __("Enable to make container take 100% width.", "eara")
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
+          title: __("Padding", "eara"),
+          initialOpen: false,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
+            label: __("Padding (all sides)", "eara"),
+            value: p,
             options: [{
-              label: "Blue",
-              value: "blue"
+              label: "None",
+              value: "0"
             }, {
-              label: "Red",
-              value: "red"
-            }, {
-              label: "Green",
-              value: "green"
-            }, {
-              label: "Yellow",
-              value: "yellow"
-            }, {
-              label: "Orange",
-              value: "orange"
-            }, {
-              label: "Pink",
-              value: "pink"
-            }, {
-              label: "Purple",
-              value: "grape"
-            }, {
-              label: "Violet",
-              value: "violet"
-            }, {
-              label: "Indigo",
-              value: "indigo"
-            }, {
-              label: "Cyan",
-              value: "cyan"
-            }, {
-              label: "Teal",
-              value: "teal"
-            }, {
-              label: "Lime",
-              value: "lime"
-            }, {
-              label: "Gray",
-              value: "gray"
-            }, {
-              label: "Dark",
-              value: "dark"
-            }],
-            onChange: v => setAttributes({
-              color: v
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
-            label: __("Radius", "eara"),
-            value: radius,
-            options: [{
               label: "Extra Small (xs)",
               value: "xs"
             }, {
@@ -5846,95 +4525,35 @@ function Edit(props) {
             }, {
               label: "Extra Large (xl)",
               value: "xl"
-            }, {
-              label: "Full (pill)",
-              value: "xl"
             }],
-            onChange: v => setAttributes({
-              radius: v
-            }),
-            help: __("Border radius of the button", "eara")
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
-          title: __("Icon Settings", "eara"),
-          initialOpen: false,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
-            label: __("Left Icon (emoji or symbol)", "eara"),
-            value: leftIcon,
-            onChange: v => setAttributes({
-              leftIcon: v
-            }),
-            placeholder: "e.g., \u2190, \u2713, \uD83D\uDE80",
-            help: __("Add an icon or emoji before the label", "eara")
+            onChange: value => setAttributes({
+              p: value
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
-            label: __("Right Icon (emoji or symbol)", "eara"),
-            value: rightIcon,
-            onChange: v => setAttributes({
-              rightIcon: v
+            label: __("Horizontal Padding (px)", "eara"),
+            value: px,
+            onChange: value => setAttributes({
+              px: value
             }),
-            placeholder: "e.g., \u2192, \u2713, \uD83D\uDE80",
-            help: __("Add an icon or emoji after the label", "eara")
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
-          title: __("Options", "eara"),
-          initialOpen: false,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
-            label: __("Full Width", "eara"),
-            checked: fullWidth,
-            onChange: v => setAttributes({
-              fullWidth: v
+            help: __("Custom horizontal padding (e.g., 20px, 2rem). Overrides padding setting.", "eara"),
+            placeholder: "e.g., 20px or md"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
+            label: __("Vertical Padding (py)", "eara"),
+            value: py,
+            onChange: value => setAttributes({
+              py: value
             }),
-            help: __("Make button take 100% width of container", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
-            label: __("Uppercase", "eara"),
-            checked: uppercase,
-            onChange: v => setAttributes({
-              uppercase: v
-            }),
-            help: __("Transform text to uppercase", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
-            label: __("Disabled", "eara"),
-            checked: disabled,
-            onChange: v => setAttributes({
-              disabled: v
-            }),
-            help: __("Disable button interactions", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
-            label: __("Loading State", "eara"),
-            checked: loading,
-            onChange: v => setAttributes({
-              loading: v
-            }),
-            help: __("Show loading spinner", "eara")
+            help: __("Custom vertical padding (e.g., 20px, 2rem). Overrides padding setting.", "eara"),
+            placeholder: "e.g., 20px or md"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        style: {
-          display: 'inline-block'
-        },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Button, {
-          variant: variant,
-          size: size,
-          color: color,
-          radius: radius,
-          fullWidth: fullWidth,
-          disabled: disabled,
-          loading: loading,
-          style: {
-            textTransform: uppercase ? 'uppercase' : 'none'
-          },
-          children: [leftIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            style: {
-              marginRight: '8px'
-            },
-            children: leftIcon
-          }), label, rightIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            style: {
-              marginLeft: '8px'
-            },
-            children: rightIcon
-          })]
-        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Container, {
+        size: fluid ? "100%" : size,
+        fluid: fluid,
+        p: p,
+        px: px || undefined,
+        py: py || undefined,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(InnerBlocks, {})
       })]
     })
   });
@@ -5942,10 +4561,10 @@ function Edit(props) {
 
 /***/ }),
 
-/***/ "./src/blocks/Button/editor.scss":
-/*!***************************************!*\
-  !*** ./src/blocks/Button/editor.scss ***!
-  \***************************************/
+/***/ "./src/blocks/Container/editor.scss":
+/*!******************************************!*\
+  !*** ./src/blocks/Container/editor.scss ***!
+  \******************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -5954,10 +4573,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/Button/save.js":
-/*!***********************************!*\
-  !*** ./src/blocks/Button/save.js ***!
-  \***********************************/
+/***/ "./src/blocks/Container/save.js":
+/*!**************************************!*\
+  !*** ./src/blocks/Container/save.js ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -5967,83 +4586,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
 
+const {
+  InnerBlocks
+} = wp.blockEditor;
 function Save(props) {
   const {
     attributes
   } = props;
   const {
-    label,
-    link,
-    target,
-    variant,
     size,
-    color,
-    radius,
-    fullWidth,
-    disabled,
-    loading,
-    uppercase,
-    leftIcon,
-    rightIcon
+    fluid,
+    p,
+    px,
+    py
   } = attributes;
-  const Element = link && link !== '#' ? 'a' : 'button';
-  const elementProps = Element === 'a' ? {
-    href: link,
-    target: target,
-    rel: target === '_blank' ? 'noopener noreferrer' : undefined
-  } : {
-    type: 'button',
-    disabled: disabled
-  };
-  const className = `eara-button ${fullWidth ? 'eara-button--full-width' : ''} ${loading ? 'eara-button--loading' : ''}`;
-  const styles = {
-    '--button-variant': variant,
-    '--button-size': size,
-    '--button-color': color,
-    '--button-radius': radius
-  };
-  if (uppercase) {
-    styles.textTransform = 'uppercase';
+
+  // Build class names based on Mantine Container structure
+  const className = `eara-container ${fluid ? 'eara-container--fluid' : ''}`;
+
+  // Build inline styles
+  const styles = {};
+  if (!fluid && size) {
+    styles['--container-size'] = size;
   }
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Element, {
+  if (px) {
+    styles['--container-px'] = px;
+  }
+  if (py) {
+    styles['--container-py'] = py;
+  }
+  if (p && !px && !py) {
+    styles['--container-p'] = p;
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: className,
-    style: styles,
-    "data-variant": variant,
+    style: Object.keys(styles).length > 0 ? styles : undefined,
     "data-size": size,
-    "data-color": color,
-    "data-radius": radius,
-    "data-disabled": disabled,
-    "data-loading": loading,
-    ...elementProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("span", {
-      className: "eara-button__inner",
-      children: [loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-        className: "eara-button__loader",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
-          viewBox: "0 0 24 24",
-          fill: "none",
-          xmlns: "http://www.w3.org/2000/svg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("circle", {
-            cx: "12",
-            cy: "12",
-            r: "10",
-            stroke: "currentColor",
-            strokeWidth: "2",
-            strokeLinecap: "round",
-            strokeDasharray: "50 50"
-          })
-        })
-      }), leftIcon && !loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-        className: "eara-button__left-icon",
-        children: leftIcon
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-        className: "eara-button__label",
-        children: label
-      }), rightIcon && !loading && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-        className: "eara-button__right-icon",
-        children: rightIcon
-      })]
-    })
+    "data-fluid": fluid,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(InnerBlocks.Content, {})
   });
 }
 
@@ -6056,16 +4636,6 @@ function Save(props) {
 /***/ (function(module) {
 
 module.exports = window["React"];
-
-/***/ }),
-
-/***/ "react-dom":
-/*!***************************!*\
-  !*** external "ReactDOM" ***!
-  \***************************/
-/***/ (function(module) {
-
-module.exports = window["ReactDOM"];
 
 /***/ }),
 
@@ -6150,15 +4720,15 @@ module.exports = window["ReactJSXRuntime"];
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
 !function() {
-/*!************************************!*\
-  !*** ./src/blocks/Button/index.js ***!
-  \************************************/
+/*!***************************************!*\
+  !*** ./src/blocks/Container/index.js ***!
+  \***************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./block.json */ "./src/blocks/Button/block.json");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/blocks/Button/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/blocks/Button/save.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./block.json */ "./src/blocks/Container/block.json");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit */ "./src/blocks/Container/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./save */ "./src/blocks/Container/save.js");
 /* harmony import */ var _mantine_core_styles_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/core/styles.css */ "./node_modules/@mantine/core/styles.css");
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/Button/editor.scss");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/Container/editor.scss");
 const {
   registerBlockType
 } = wp.blocks;

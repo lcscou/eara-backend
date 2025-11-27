@@ -1,0 +1,56 @@
+/* Mantine-like Group styles */
+
+:root {
+  --mantine-spacing-xs: 0.625rem;
+  --mantine-spacing-sm: 0.75rem;
+  --mantine-spacing-md: 1rem;
+  --mantine-spacing-lg: 1.25rem;
+  --mantine-spacing-xl: 2rem;
+}
+
+.eara-group {
+  display: flex;
+  flex-direction: row;
+  
+  /* Justify (horizontal alignment) */
+  &[data-justify="flex-start"] { justify-content: flex-start; }
+  &[data-justify="center"] { justify-content: center; }
+  &[data-justify="flex-end"] { justify-content: flex-end; }
+  &[data-justify="space-between"] { justify-content: space-between; }
+  &[data-justify="space-around"] { justify-content: space-around; }
+  &[data-justify="space-evenly"] { justify-content: space-evenly; }
+  
+  /* Align (vertical alignment) */
+  &[data-align="flex-start"] { align-items: flex-start; }
+  &[data-align="center"] { align-items: center; }
+  &[data-align="flex-end"] { align-items: flex-end; }
+  &[data-align="baseline"] { align-items: baseline; }
+  &[data-align="stretch"] { align-items: stretch; }
+  
+  /* Gap */
+  &[data-gap="xs"] { gap: var(--mantine-spacing-xs); }
+  &[data-gap="sm"] { gap: var(--mantine-spacing-sm); }
+  &[data-gap="md"] { gap: var(--mantine-spacing-md); }
+  &[data-gap="lg"] { gap: var(--mantine-spacing-lg); }
+  &[data-gap="xl"] { gap: var(--mantine-spacing-xl); }
+  &[data-gap="0"] { gap: 0; }
+  
+  /* Wrap */
+  &[data-wrap="wrap"] { flex-wrap: wrap; }
+  &[data-wrap="nowrap"] { flex-wrap: nowrap; }
+  &[data-wrap="wrap-reverse"] { flex-wrap: wrap-reverse; }
+  
+  /* Grow - all children grow equally */
+  &[data-grow="true"] {
+    > * {
+      flex-grow: 1;
+    }
+    
+    /* Prevent grow overflow */
+    &[data-prevent-grow-overflow="true"] {
+      > * {
+        min-width: 0;
+      }
+    }
+  }
+}
