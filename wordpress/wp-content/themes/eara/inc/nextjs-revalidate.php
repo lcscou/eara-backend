@@ -1,135 +1,83 @@
 <?php 
 
-// Triggers revalidation on post status transition (covers publish, trash, delete)
-add_action('transition_post_status', 'nextjs_revalidate_on_status_change', 10, 3);
+add_action('save_post', 'eara_clear_cache_hook', 10, 3);
+add_action('deleted_post', 'eara_clear_cache_hook');
+add_action('trashed_post', 'eara_clear_cache_hook');
+add_action('wp_trash_post', 'eara_clear_cache_hook');
+add_action('untrash_post', 'eara_clear_cache_hook');
+add_action('transition_post_status', 'eara_clear_cache_transition', 10, 3);
+add_action('wp_create_nav_menu', 'eara_clear_cache_hook');
+add_action('wp_update_nav_menu', 'eara_clear_cache_hook');
+add_action('delete_nav_menu', 'eara_clear_cache_hook');
 
-// Triggers revalidation when post is permanently deleted
-add_action('before_delete_post', 'nextjs_revalidate_on_delete');
-
-// Triggers revalidation when menus are updated
-add_action('wp_update_nav_menu', 'nextjs_revalidate_menus');
-
-// Global array to track revalidation calls and prevent duplicates in the same request
-global $nextjs_revalidation_queue;
-$nextjs_revalidation_queue = [];
-
-function nextjs_revalidate_on_status_change($new_status, $old_status, $post) {
-    // Ignora se não houve mudança real de status
-    if ($new_status === $old_status) {
-        return;
-    }
-    
-    // Ignora revisões, auto-saves, e tipos de post que não precisam de revalidação
-    if (wp_is_post_revision($post->ID) || wp_is_post_autosave($post->ID)) {
-        return;
-    }
-    
-    // Ignora attachments e nav_menu_item
-    if (in_array($post->post_type, ['attachment', 'nav_menu_item', 'revision'])) {
-        return;
-    }
-    
-    // Só revalida em transições relevantes
-    $relevant_statuses = ['publish', 'trash', 'draft', 'pending'];
-    if (!in_array($new_status, $relevant_statuses) && !in_array($old_status, $relevant_statuses)) {
-        return;
-    }
-    
-    // Agenda a revalidação ao invés de executar imediatamente
-    nextjs_queue_revalidation($post->post_name, $post->post_type);
-}
-
-function nextjs_revalidate_on_delete($post_id) {
-    $post = get_post($post_id);
-    if (!$post || in_array($post->post_type, ['attachment', 'nav_menu_item', 'revision'])) {
-        return;
-    }
-    
-    nextjs_queue_revalidation($post->post_name, $post->post_type);
-}
-
-function nextjs_revalidate_menus($menu_id = null) {
-    nextjs_queue_revalidation('menus', 'menus');
-}
-
-function nextjs_queue_revalidation($slug, $type) {
-    global $nextjs_revalidation_queue;
-    
-    // Cria uma chave única para este item
-    $key = md5($slug . '|' . $type);
-    
-    // Se já está na fila, ignora
-    if (isset($nextjs_revalidation_queue[$key])) {
-        return;
-    }
-    
-    // Adiciona à fila
-    $nextjs_revalidation_queue[$key] = [
-        'slug' => $slug,
-        'type' => $type,
-    ];
-    
-    // Agenda o processamento da fila no shutdown
-    // Isso garante que todas as operações do WordPress terminem antes
-    if (count($nextjs_revalidation_queue) === 1) {
-        add_action('shutdown', 'nextjs_process_revalidation_queue', 999);
+function eara_clear_cache_hook() {
+    if ( defined('DOING_AJAX') && DOING_AJAX ) {
+        eara_perform_cache_request();
+    } else {
+        eara_perform_cache_request();
     }
 }
 
-function nextjs_process_revalidation_queue() {
-    global $nextjs_revalidation_queue;
-    
-    if (empty($nextjs_revalidation_queue)) {
-        return;
+function eara_clear_cache_transition($new_status, $old_status, $post) {
+    if ($new_status !== $old_status) {
+        eara_perform_cache_request();
     }
-    
-    $url = getenv('NEXTJS_REVALIDATE_URL') ?: 'https://eara-frontend.vercel.app/api/revalidate';
-    $secret = getenv('NEXTJS_REVALIDATE_SECRET');
-    
-    if (empty($secret)) {
-        error_log('NextJS: Secret not configured!');
-        return;
-    }
-    
-    // Agrupa os paths e types para enviar em batch
-    $paths_to_revalidate = [];
-    $types_set = [];
-    
-    foreach ($nextjs_revalidation_queue as $item) {
-        $slug = $item['slug'];
-        $type = $item['type'];
-        
-        // Adiciona o path específico
-        if ($slug !== $type) {
-            $paths_to_revalidate[] = '/' . $slug;
-        }
-        
-        // Adiciona o type à lista (sem duplicatas)
-        $types_set[$type] = true;
-    }
-    
-    // Adiciona as páginas de listagem dos tipos
-    foreach (array_keys($types_set) as $type) {
-        if ($type !== 'menus') {
-            $paths_to_revalidate[] = '/' . $type;
-        }
-    }
-    
-    // Envia uma única requisição com todos os paths
-    wp_remote_post($url, [
-        'headers' => [
-            'Content-Type' => 'application/json',
-            'x-revalidate-secret' => $secret
-        ],
-        'body' => json_encode([
-            'paths' => array_unique($paths_to_revalidate),
-            'types' => array_keys($types_set),
-        ]),
-        'timeout' => 5,
-        'blocking' => false,
-        'sslverify' => false,
-    ]);
-    
-    // Limpa a fila
-    $nextjs_revalidation_queue = [];
 }
+
+function eara_perform_cache_request() {
+    $endpoint = 'https://eara-frontend.vercel.app/api/clear-cache';
+    $response = wp_remote_get($endpoint, array('timeout' => 10));
+    if (is_wp_error($response)) {
+        $message = 'Something went wrong at clearing cache try manually: https://eara-frontend.vercel.app/api/clear-cache';
+        set_transient('eara_clear_cache_notice', array('type' => 'error', 'text' => $message), 60);
+        return;
+    }
+    $code = wp_remote_retrieve_response_code($response);
+    $body = wp_remote_retrieve_body($response);
+    $decoded = json_decode($body, true);
+    if ($code === 200 && isset($decoded['success']) && $decoded['success'] === true) {
+        set_transient('eara_clear_cache_notice', array('type' => 'success', 'text' => 'All Caches cleared successfully'), 60);
+        return;
+    }
+    set_transient('eara_clear_cache_notice', array('type' => 'error', 'text' => 'Something went wrong at clearing cache try manually: https://eara-frontend.vercel.app/api/clear-cache'), 60);
+}
+
+add_action('admin_notices', 'eara_show_cache_notice');
+function eara_show_cache_notice() {
+    $n = get_transient('eara_clear_cache_notice');
+    if (empty($n) || !is_array($n)) {
+        return;
+    }
+    $type = $n['type'] === 'success' ? 'notice-success' : 'notice-error';
+    $text = esc_html($n['text']);
+    $nonce = wp_create_nonce('eara_dismiss_notice');
+    echo '<div id="eara-cache-notice" class="notice ' . $type . ' is-dismissible" data-eara-nonce="' . $nonce . '"><p>' . $text . '</p></div>';
+    add_action('admin_footer', 'eara_notice_dismiss_script');
+}
+
+add_action('wp_ajax_eara_dismiss_cache_notice', 'eara_dismiss_cache_ajax');
+function eara_dismiss_cache_ajax() {
+    check_ajax_referer('eara_dismiss_notice');
+    delete_transient('eara_clear_cache_notice');
+    wp_send_json_success();
+}
+
+function eara_notice_dismiss_script() {
+    ?>
+    <script>
+    (function(){
+        var el = document.getElementById('eara-cache-notice');
+        if (!el) return;
+        var nonce = el.getAttribute('data-eara-nonce');
+        el.addEventListener('click', function(e){
+            if (!e.target.classList.contains('notice-dismiss')) return;
+            var fd = new FormData();
+            fd.append('action', 'eara_dismiss_cache_notice');
+            fd.append('_ajax_nonce', nonce);
+            navigator.sendBeacon ? navigator.sendBeacon(ajaxurl, fd) : fetch(ajaxurl, {method:'POST', body:fd, credentials:'same-origin'});
+        });
+    })();
+    </script>
+    <?php
+}
+
