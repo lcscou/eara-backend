@@ -115,10 +115,10 @@ function nextjs_process_revalidation_queue()
 
     // Adiciona as páginas de listagem dos tipos
     foreach (array_keys($types_set) as $type) {
-        if ($type === 'menus' || $type === 'tickers') {
-            $paths_to_revalidate[] = '/';
-        } else {
+        if ($type !== 'menus') {
             $paths_to_revalidate[] = '/' . $type;
+        } else {
+            $paths_to_revalidate[] = '/';
         }
     }
 
