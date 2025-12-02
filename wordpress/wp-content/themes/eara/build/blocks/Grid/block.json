@@ -1,39 +1,38 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "eara/container",
-  "title": "Container",
+  "name": "eara/grid",
+  "title": "Grid",
   "category": "eara",
-  "icon": "screenoptions",
-  "description": "A customizable container block for grouping content.",
+  "icon": "grid-view",
+  "description": "Flexbox grid system with customizable columns and gaps, like Mantine Grid.",
   "supports": {
     "html": false
   },
-  "example": {
-    "attributes": {
-      "size": "xl"
-    }
-  },
   "attributes": {
-    "size": {
+    "columns": {
+      "type": "number",
+      "default": 12
+    },
+    "gutter": {
       "type": "string",
       "default": "md"
     },
-    "fluid": {
+    "grow": {
       "type": "boolean",
       "default": false
     },
-    "p": {
+    "justify": {
       "type": "string",
-      "default": "md"
+      "default": "flex-start"
     },
-    "px": {
+    "align": {
       "type": "string",
-      "default": ""
+      "default": "stretch"
     },
-    "py": {
+    "overflow": {
       "type": "string",
-      "default": ""
+      "default": "visible"
     }
   },
   "textdomain": "eara",

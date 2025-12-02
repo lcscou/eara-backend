@@ -11,4 +11,6 @@ import './blocks/Hero';
 import './blocks/Accordion';
 import './blocks/AccordionContainer';
 import './blocks/Group';
+import './blocks/Grid';
+import './blocks/GridCol';
 import './blocks/meu-bloco';

@@ -4,7 +4,7 @@
   "name": "eara/container",
   "title": "Container",
   "category": "eara",
-  "icon": "container",
+  "icon": "screenoptions",
 
   "description": "A customizable container block for grouping content.",
   "supports": {

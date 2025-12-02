@@ -1,0 +1,10 @@
+/* Editor styles for Grid Col block */
+.wp-block-eara-grid-col {
+  border: 1px dashed #aaa;
+  min-height: 50px;
+  
+  .block-editor-inner-blocks,
+  .block-editor-block-list__layout {
+    min-height: 50px;
+  }
+}

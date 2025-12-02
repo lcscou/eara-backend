@@ -4416,7 +4416,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*****************************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/container","title":"Container","category":"eara","icon":"container","description":"A customizable container block for grouping content.","supports":{"html":false},"example":{"attributes":{"size":"xl"}},"attributes":{"size":{"type":"string","default":"md"},"fluid":{"type":"boolean","default":false},"p":{"type":"string","default":"md"},"px":{"type":"string","default":""},"py":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/container","title":"Container","category":"eara","icon":"screenoptions","description":"A customizable container block for grouping content.","supports":{"html":false},"example":{"attributes":{"size":"xl"}},"attributes":{"size":{"type":"string","default":"md"},"fluid":{"type":"boolean","default":false},"p":{"type":"string","default":"md"},"px":{"type":"string","default":""},"py":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
 
 /***/ }),
 

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/grid-col",
+  "title": "Grid Column",
+  "category": "eara",
+  "icon": "columns",
+  "description": "A column within a Grid, like Mantine Grid.Col.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "span": {
+      "type": "number",
+      "default": 12
+    },
+    "offset": {
+      "type": "number",
+      "default": 0
+    },
+    "order": {
+      "type": "number",
+      "default": 0
+    },
+    "spanXs": {
+      "type": "number",
+      "default": 0
+    },
+    "spanSm": {
+      "type": "number",
+      "default": 0
+    },
+    "spanMd": {
+      "type": "number",
+      "default": 0
+    },
+    "spanLg": {
+      "type": "number",
+      "default": 0
+    },
+    "spanXl": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}

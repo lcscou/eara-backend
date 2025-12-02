@@ -1,10 +1,11 @@
 const { registerBlockType } = wp.blocks;
-const { RichText } = wp.blockEditor;
 import block from "./block.json";
 const { __ } = wp.i18n;
 import edit from "./edit";
 import save from "./save";
-import'./editor.scss';
+import '@mantine/core/styles.css';
+import './editor.scss';
+
 registerBlockType(block.name, {
   title: __(block.title, "eara"),
   description: __(block.description, "eara"),
