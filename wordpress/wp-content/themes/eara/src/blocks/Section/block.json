@@ -18,7 +18,7 @@
       "type": "string",
       "default": ""
     },
-    "className": {
+    "backgroundColor": {
       "type": "string",
       "default": ""
     },

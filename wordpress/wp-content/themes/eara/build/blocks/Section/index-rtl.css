@@ -7794,11 +7794,6 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Section/editor.scss ***!
   \*******************************************************************************************************************************************************************************************************************************************************/
-/* Editor styles for Section block */
-.wp-block-eara-section {
-  border: 2px dashed #e0e0e0;
-  margin: 2rem 0;
-}
-.wp-block-eara-section .mantine-Container-root {
-  padding: 1rem;
+.gt_border-bottom {
+  border-bottom: 1px solid #dee2e6 !important;
 }

@@ -4785,7 +4785,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \***************************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/section","title":"Section","category":"eara","icon":"layout","description":"A section container with title, subtitle, and customizable spacing.","supports":{"html":false},"attributes":{"title":{"type":"string","default":""},"subtitle":{"type":"string","default":""},"className":{"type":"string","default":""},"description":{"type":"string","default":""},"py":{"type":"string","default":"xl"},"noTitle":{"type":"boolean","default":false},"containerSize":{"type":"string","default":"lg"}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/section","title":"Section","category":"eara","icon":"layout","description":"A section container with title, subtitle, and customizable spacing.","supports":{"html":false},"attributes":{"title":{"type":"string","default":""},"subtitle":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"description":{"type":"string","default":""},"py":{"type":"string","default":"xl"},"noTitle":{"type":"boolean","default":false},"containerSize":{"type":"string","default":"lg"}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
 
 /***/ }),
 
@@ -4831,15 +4831,14 @@ function Edit(props) {
   const {
     title,
     subtitle,
-    className,
+    backgroundColor,
     description,
     py,
     noTitle,
+    className,
     containerSize
   } = attributes;
-  const blockProps = useBlockProps({
-    className: className
-  });
+  const blockProps = useBlockProps();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     ...blockProps,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_0__.MantineProvider, {
@@ -4910,12 +4909,12 @@ function Edit(props) {
             }),
             help: __("Top and bottom padding of the section", "eara")
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
-            label: __("Custom CSS Class", "eara"),
-            value: className,
+            label: __("Background Color", "eara"),
+            value: backgroundColor,
             onChange: v => setAttributes({
-              className: v
+              backgroundColor: v
             }),
-            help: __("Add custom CSS class names", "eara")
+            help: __("Background color of the section", "eara")
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
           title: __("Content", "eara"),
@@ -4945,11 +4944,17 @@ function Edit(props) {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
-        class: "py-20",
+        class: "py-20 ",
+        style: {
+          backgroundColor: backgroundColor || "transparent"
+        },
         children: [!noTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "w-full items-start gap-20 sm:flex",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "w-fit border-b border-b-gray-400 py-2 pl-20 sm:pl-40",
+            style: {
+              borderBottom: "1px solid #dee2e6"
+            },
+            className: " w-fit  border-b border-b-gray-400 py-2 pl-20 sm:pl-40",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
               className: "uppercase",
               children: subtitle

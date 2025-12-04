@@ -16,16 +16,15 @@ export default function Edit(props) {
   const {
     title,
     subtitle,
-    className,
+    backgroundColor,
     description,
     py,
     noTitle,
+    className,
     containerSize,
   } = attributes;
 
-  const blockProps = useBlockProps({
-    className: className,
-  });
+  const blockProps = useBlockProps();
 
   return (
     <div {...blockProps}>
@@ -71,10 +70,10 @@ export default function Edit(props) {
             />
 
             <TextControl
-              label={__("Custom CSS Class", "eara")}
-              value={className}
-              onChange={(v) => setAttributes({ className: v })}
-              help={__("Add custom CSS class names", "eara")}
+              label={__("Background Color", "eara")}
+              value={backgroundColor}
+              onChange={(v) => setAttributes({ backgroundColor: v })}
+              help={__("Background color of the section", "eara")}
             />
           </PanelBody>
 
@@ -103,10 +102,16 @@ export default function Edit(props) {
           </PanelBody>
         </InspectorControls>
 
-        <section class="py-20">
+        <section
+          class="py-20 "
+          style={{ backgroundColor: backgroundColor || "transparent" }}
+        >
           {!noTitle && (
             <div className="w-full items-start gap-20 sm:flex">
-              <div className="w-fit border-b border-b-gray-400 py-2 pl-20 sm:pl-40">
+              <div
+                style={{ borderBottom: "1px solid #dee2e6" }}
+                className=" w-fit  border-b border-b-gray-400 py-2 pl-20 sm:pl-40"
+              >
                 <small className="uppercase">{subtitle}</small>
               </div>
               <div className="sm:px-unset mt-5 max-w-2xl grow px-[16px] sm:mt-0">
