@@ -69,12 +69,14 @@ export const theme = createTheme({
       // classNames: classes,
       defaultProps: {
         radius: '100px',
+  
       },
     },
     Title: {
       // classNames: TitleClasses,
       styles: {
         root: {
+          lineHeight: '110%',
           fontWeight: 500,
         },
       },

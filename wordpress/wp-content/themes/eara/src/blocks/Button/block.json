@@ -36,6 +36,10 @@
       "type": "string",
       "default": "sm"
     },
+    "width": {
+      "type": "string",
+      "default": ""
+    },
     "color": {
       "type": "string",
       "default": "blue"

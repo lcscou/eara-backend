@@ -15,4 +15,5 @@ import './blocks/Grid';
 import './blocks/GridCol';
 import './blocks/HeroCarousel';
 import './blocks/HeroSlide';
+import './blocks/Section';
 import './blocks/meu-bloco';

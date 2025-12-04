@@ -23,6 +23,7 @@ export default function Edit(props) {
     color, 
     radius, 
     fullWidth, 
+    width,
     compact,
     disabled,
     loading,
@@ -98,6 +99,14 @@ export default function Edit(props) {
               ]}
               onChange={(v) => setAttributes({ size: v })}
             />
+
+               <TextControl
+              label={__("Width", "eara")}
+              value={width}
+              onChange={(w) => setAttributes({ width: w })}
+              help={__("Button width", "eara")}
+            />
+        
 
             <SelectControl
               label={__("Color", "eara")}
@@ -191,6 +200,7 @@ export default function Edit(props) {
             size={size}
             color={color}
             radius={radius}
+            w={width}
             fullWidth={fullWidth}
             disabled={disabled}
             loading={loading}
