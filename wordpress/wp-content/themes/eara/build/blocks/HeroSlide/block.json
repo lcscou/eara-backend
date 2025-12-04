@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/hero-slide",
+  "title": "Hero Slide",
+  "category": "eara",
+  "icon": "format-image",
+  "description": "Individual slide for Hero Carousel with background images and content positioning.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "backgroundImageDesktop": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    },
+    "backgroundImageMobile": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    },
+    "contentAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "contentVerticalAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "contentPosition": {
+      "type": "string",
+      "default": "relative"
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 0
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "minHeight": {
+      "type": "string",
+      "default": "auto"
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}

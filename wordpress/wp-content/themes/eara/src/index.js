@@ -13,4 +13,6 @@ import './blocks/AccordionContainer';
 import './blocks/Group';
 import './blocks/Grid';
 import './blocks/GridCol';
+import './blocks/HeroCarousel';
+import './blocks/HeroSlide';
 import './blocks/meu-bloco';
