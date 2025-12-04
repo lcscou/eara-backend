@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/latest-news",
+  "title": "Latest News",
+  "category": "eara",
+  "icon": "newspaper",
+  "description": "Display the 3 latest news posts with title, featured image and author",
+  "supports": {
+    "html": false
+  },
+  "example": {},
+  "attributes": {
+    "postsPerPage": {
+      "type": "number",
+      "default": 3
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    }
+  }
+}

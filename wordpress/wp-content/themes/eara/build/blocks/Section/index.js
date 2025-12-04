@@ -4785,7 +4785,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \***************************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/section","title":"Section","category":"eara","icon":"layout","description":"A section container with title, subtitle, and customizable spacing.","supports":{"html":false},"attributes":{"title":{"type":"string","default":""},"subtitle":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"description":{"type":"string","default":""},"py":{"type":"string","default":"xl"},"noTitle":{"type":"boolean","default":false},"containerSize":{"type":"string","default":"lg"}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/section","title":"Section","category":"eara","icon":"layout","description":"A section container with title, subtitle, and customizable spacing.","supports":{"html":false},"attributes":{"title":{"type":"string","default":""},"subtitle":{"type":"string","default":""},"backgroundColor":{"type":"string","default":""},"description":{"type":"string","default":""},"py":{"type":"string","default":"xl"},"noTitle":{"type":"boolean","default":false},"containerSize":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./editor.scss","style":"file:./styles.scss"}');
 
 /***/ }),
 
