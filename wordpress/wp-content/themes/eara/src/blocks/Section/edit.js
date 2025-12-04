@@ -1,9 +1,5 @@
-const {
-  InspectorControls,
-  InnerBlocks,
-  RichText,
-  useBlockProps,
-} = wp.blockEditor;
+const { InspectorControls, InnerBlocks, RichText, useBlockProps } =
+  wp.blockEditor;
 const {
   PanelBody,
   TextControl,
@@ -17,7 +13,15 @@ import { MantineProvider, Container, Title, Text } from "@mantine/core";
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
-  const { title, subtitle, className, description, py, noTitle, containerSize } = attributes;
+  const {
+    title,
+    subtitle,
+    className,
+    description,
+    py,
+    noTitle,
+    containerSize,
+  } = attributes;
 
   const blockProps = useBlockProps({
     className: className,
@@ -99,10 +103,33 @@ export default function Edit(props) {
           </PanelBody>
         </InspectorControls>
 
-        <div style={{ paddingTop: py === '0' ? 0 : undefined, paddingBottom: py === '0' ? 0 : undefined }}>
-          <Container size={containerSize}>
+        <section class="py-20">
+          {!noTitle && (
+            <div className="w-full items-start gap-20 sm:flex">
+              <div className="w-fit border-b border-b-gray-400 py-2 pl-20 sm:pl-40">
+                <small className="uppercase">{subtitle}</small>
+              </div>
+              <div className="sm:px-unset mt-5 max-w-2xl grow px-[16px] sm:mt-0">
+                <Title order={2} className="text-primaryColor">
+                  {title}
+                </Title>
+                {description && <Text mt={15}>{description}</Text>}
+              </div>
+            </div>
+          )}
+          <Container
+            {...(containerSize == "none"
+              ? { px: 0, fluid: true }
+              : { size: containerSize })}
+            mt={60}
+          >
+            <InnerBlocks />
+          </Container>
+        </section>
+
+        {/* <Container size={containerSize}>
             {!noTitle && (title || subtitle || description) && (
-              <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+              <div className="bg-red-200" style={{ marginBottom: '2rem', textAlign: 'center' }}>
                 {subtitle && (
                   <Text size="sm" c="dimmed" fw={600} tt="uppercase" mb="xs">
                     {subtitle}
@@ -122,8 +149,7 @@ export default function Edit(props) {
             )}
             
             <InnerBlocks />
-          </Container>
-        </div>
+          </Container> */}
       </MantineProvider>
     </div>
   );

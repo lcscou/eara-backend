@@ -25,10 +25,18 @@ add_theme_support('responsive-embeds');
 add_theme_support('align-wide');
 
 add_theme_support('editor-styles');
-add_editor_style('editor-style.css');
+add_editor_style('/build/editor.css');
 
 add_action('enqueue_block_editor_assets', function () {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap', [], null);
+    
+    // Enqueue Tailwind CSS for editor
+    // wp_enqueue_style(
+    //     'eara-editor-styles',
+    //     get_template_directory_uri() . '/build/editor.css',
+    //     [],
+    //     filemtime(get_template_directory() . '/build/editor.css')
+    // );
 });
 
 

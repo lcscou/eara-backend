@@ -1,5 +1,61 @@
-  /* @tailwind base;
-  @tailwind components;
-  @tailwind utilities; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+body {
+  background-color: white;
+}
 
+/* headings: {
+    sizes: {
+      h1: { fontSize: '3.815rem', lineHeight: '1' },
+      h2: { fontSize: '3.052rem', lineHeight: '1' },
+      h3: { fontSize: '2.441rem', lineHeight: '1' },
+      h4: { fontSize: '1.953rem', lineHeight: '1' },
+      h5: { fontSize: '1.563rem', lineHeight: '1' },
+      h6: { fontSize: '1.25rem', lineHeight: '1' },
+    },
+  }, */
+
+.mantine-Title-root[data-order="6"],
+h6 {
+  line-height: 115% !important;
+  font-size: 1.25rem !important;
+}
+.mantine-Title-root[data-order="5"],
+h5 {
+  line-height: 115% !important;
+  font-size: 1.563rem !important;
+}
+.mantine-Title-root[data-order="4"],
+h4 {
+  line-height: 115% !important;
+  font-size: 1.953rem !important;
+}
+.mantine-Title-root[data-order="3"],
+h3 {
+  line-height: 115% !important;
+  font-size: 2.441rem !important;
+}
+.mantine-Title-root[data-order="2"],
+h2 {
+  font-size: 3.052rem !important;
+  line-height: 110% !important;
+}
+.mantine-Title-root[data-order="1"],
+h1 {
+  font-size: 3.815rem !important;
+  line-height: 110% !important;
+}
+@media (max-width: 768px) {
+  .mantine-Title-root[data-order="1"],
+  h1 {
+    font-size: calc(3.815rem - 1rem) !important;
+    line-height: 110% !important;
+  }
+  .mantine-Title-root[data-order="2"],
+  h2 {
+    font-size: calc(3.052rem - 1rem) !important;
+    line-height: 110% !important;
+  }
+}

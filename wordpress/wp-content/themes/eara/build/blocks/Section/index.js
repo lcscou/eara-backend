@@ -4944,38 +4944,37 @@ function Edit(props) {
             rows: 4
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        style: {
-          paddingTop: py === '0' ? 0 : undefined,
-          paddingBottom: py === '0' ? 0 : undefined
-        },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Container, {
-          size: containerSize,
-          children: [!noTitle && (title || subtitle || description) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            style: {
-              marginBottom: '2rem',
-              textAlign: 'center'
-            },
-            children: [subtitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Text, {
-              size: "sm",
-              c: "dimmed",
-              fw: 600,
-              tt: "uppercase",
-              mb: "xs",
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
+        class: "py-20",
+        children: [!noTitle && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "w-full items-start gap-20 sm:flex",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "w-fit border-b border-b-gray-400 py-2 pl-20 sm:pl-40",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("small", {
+              className: "uppercase",
               children: subtitle
-            }), title && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Title, {
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "sm:px-unset mt-5 max-w-2xl grow px-[16px] sm:mt-0",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Title, {
               order: 2,
-              mb: "md",
+              className: "text-primaryColor",
               children: title
             }), description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Text, {
-              size: "lg",
-              c: "dimmed",
-              maw: 700,
-              mx: "auto",
+              mt: 15,
               children: description
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(InnerBlocks, {})]
-        })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Container, {
+          ...(containerSize == "none" ? {
+            px: 0,
+            fluid: true
+          } : {
+            size: containerSize
+          }),
+          mt: 60,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(InnerBlocks, {})
+        })]
       })]
     })
   });
