@@ -82,6 +82,6 @@
   },
   "textdomain": "eara",
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./editor.scss",
-  "style": "file:./styles.scss"
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
 }
