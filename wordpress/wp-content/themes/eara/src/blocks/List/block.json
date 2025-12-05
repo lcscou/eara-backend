@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/list",
+  "title": "List",
+  "category": "eara",
+  "icon": "list-view",
+  "description": "A customizable list block with icon support, size, color, spacing and list style options",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "withIcon": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "string",
+      "enum": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    "color": {
+      "type": "string",
+      "default": "blue"
+    },
+    "spacing": {
+      "type": "string",
+      "enum": ["xs", "sm", "md", "lg", "xl"],
+      "default": "md"
+    },
+    "listStyleType": {
+      "type": "string",
+      "enum": ["disc", "circle", "square", "decimal", "lower-alpha", "upper-alpha"],
+      "default": "disc"
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

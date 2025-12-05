@@ -1,3 +1,6 @@
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@mantine/core/styles.css ***!
+  \*******************************************************************************************************************************************************************************************/
 /* ----- CSS reset ----- */
 *,
 *::before,
@@ -7788,13 +7791,135 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
       background-color: var(--mantine-color-dark-8);
 }
 
-.wp-block-eara-button{display:inline-block;margin:.5rem 0}.wp-block-eara-button .mantine-Button-root{cursor:pointer}
-.wp-block-eara-container{border:1px dashed #ccc;min-height:50px}.wp-block-eara-container .block-editor-inner-blocks,.wp-block-eara-container .block-editor-block-list__layout{min-height:50px}
-.wp-block-eara-accordion{margin:.5rem 0}.wp-block-eara-accordion .mantine-Accordion-root{border:1px dashed #ccc}.wp-block-eara-accordion .mantine-Accordion-control{cursor:pointer}.wp-block-eara-accordion .mantine-Accordion-panel{min-height:50px}.wp-block-eara-accordion [contenteditable=true]{outline:none}.wp-block-eara-accordion-container{border:1px dashed #ccc;padding:1rem;margin:1rem 0}.wp-block-eara-accordion-container .block-editor-inner-blocks,.wp-block-eara-accordion-container .block-editor-block-list__layout{min-height:50px}
-.wp-block-eara-accordion-container{border:1px dashed #ccc;padding:1rem;margin:1rem 0}.wp-block-eara-accordion-container .block-editor-inner-blocks,.wp-block-eara-accordion-container .block-editor-block-list__layout{min-height:50px}.wp-block-eara-accordion-container .mantine-Accordion-root{border:none}
-.wp-block-eara-group{border:1px dashed #ccc;padding:.5rem;margin:.5rem 0;min-height:50px}.wp-block-eara-group .mantine-Group-root{min-height:50px}.wp-block-eara-group .block-editor-inner-blocks,.wp-block-eara-group .block-editor-block-list__layout{display:flex;flex-wrap:inherit;gap:inherit;align-items:inherit;justify-content:inherit}
-.wp-block-eara-grid{border:1px dashed #ccc;padding:.5rem;margin:.5rem 0;min-height:50px}.wp-block-eara-grid .mantine-Grid-root{min-height:50px}
-.wp-block-eara-grid-col{border:1px dashed #aaa;min-height:50px}.wp-block-eara-grid-col .block-editor-inner-blocks,.wp-block-eara-grid-col .block-editor-block-list__layout{min-height:50px}
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Button/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Button block */
+.wp-block-eara-button {
+  /* Ensure button is visible and interactive in editor */
+  display: inline-block;
+  /* Add some margin for easier selection */
+  margin: 0.5rem 0;
+  /* Make sure the Mantine button renders properly */
+}
+.wp-block-eara-button .mantine-Button-root {
+  cursor: pointer;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Container/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Container block */
+.wp-block-eara-container {
+  /* Add visual border in editor to show container boundaries */
+  border: 1px dashed #ccc;
+  min-height: 50px;
+  /* Ensure inner blocks are visible */
+}
+.wp-block-eara-container .block-editor-inner-blocks,
+.wp-block-eara-container .block-editor-block-list__layout {
+  min-height: 50px;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Accordion/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Accordion block */
+.wp-block-eara-accordion {
+  margin: 0.5rem 0;
+  /* Ensure Mantine accordion renders properly in editor */
+}
+.wp-block-eara-accordion .mantine-Accordion-root {
+  border: 1px dashed #ccc;
+}
+.wp-block-eara-accordion .mantine-Accordion-control {
+  cursor: pointer;
+}
+.wp-block-eara-accordion .mantine-Accordion-panel {
+  min-height: 50px;
+}
+.wp-block-eara-accordion {
+  /* Make RichText editable */
+}
+.wp-block-eara-accordion [contenteditable=true] {
+  outline: none;
+}
+
+.wp-block-eara-accordion-container {
+  border: 1px dashed #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.wp-block-eara-accordion-container .block-editor-inner-blocks,
+.wp-block-eara-accordion-container .block-editor-block-list__layout {
+  min-height: 50px;
+}
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/AccordionContainer/editor.scss ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Accordion Container block */
+.wp-block-eara-accordion-container {
+  border: 1px dashed #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.wp-block-eara-accordion-container .block-editor-inner-blocks,
+.wp-block-eara-accordion-container .block-editor-block-list__layout {
+  min-height: 50px;
+}
+.wp-block-eara-accordion-container {
+  /* Ensure Mantine accordion renders properly in editor */
+}
+.wp-block-eara-accordion-container .mantine-Accordion-root {
+  border: none;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Group/editor.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Group block */
+.wp-block-eara-group {
+  border: 1px dashed #ccc;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  min-height: 50px;
+}
+.wp-block-eara-group .mantine-Group-root {
+  min-height: 50px;
+}
+.wp-block-eara-group .block-editor-inner-blocks,
+.wp-block-eara-group .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: inherit;
+  gap: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Grid/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Grid block */
+.wp-block-eara-grid {
+  border: 1px dashed #ccc;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  min-height: 50px;
+}
+.wp-block-eara-grid .mantine-Grid-root {
+  min-height: 50px;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/GridCol/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Grid Col block */
+.wp-block-eara-grid-col {
+  border: 1px dashed #aaa;
+  min-height: 50px;
+}
+.wp-block-eara-grid-col .block-editor-inner-blocks,
+.wp-block-eara-grid-col .block-editor-block-list__layout {
+  min-height: 50px;
+}
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@mantine/carousel/styles.css ***!
+  \***********************************************************************************************************************************************************************************************/
 .m_17884d0f {
   --carousel-height: auto;
   position: relative;
@@ -7968,12 +8093,377 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
       margin-inline-end: var(--carousel-slide-gap);
     }
 
-.wp-block-eara-hero-carousel{margin:2rem 0}.wp-block-eara-hero-carousel .mantine-Carousel-root{width:100%}.wp-block-eara-hero-carousel .mantine-Carousel-viewport{border-radius:0}
-.wp-block-eara-hero-slide .block-editor-inner-blocks,.wp-block-eara-hero-slide .block-editor-block-list__layout{width:100%}
-.gt_border-bottom{border-bottom:1px solid #dee2e6 !important}
-.wp-block-eara-latest-news{padding:1rem 0}.wp-block-eara-latest-news .mantine-Card-root{transition:transform .2s ease,box-shadow .2s ease}.wp-block-eara-latest-news .mantine-Card-root:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.12)}.wp-block-eara-latest-news .mantine-Image-root{-o-object-fit:cover;object-fit:cover}@media(max-width: 768px){.wp-block-eara-latest-news{grid-template-columns:1fr !important}}
-.wp-block-eara-latest-news .mantine-Skeleton-root{background:linear-gradient(-90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{0%{background-position:-100% 0}100%{background-position:300% 0}}
-.wp-block-eara-latest-events{padding:1rem 0}.wp-block-eara-latest-events .mantine-Card-root{transition:transform .2s ease,box-shadow .2s ease}.wp-block-eara-latest-events .mantine-Card-root:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.12)}.wp-block-eara-latest-events .mantine-Badge-root{text-transform:uppercase;font-size:.75rem;font-weight:600}@media(max-width: 768px){.wp-block-eara-latest-events{grid-template-columns:1fr !important}}
-.wp-block-eara-latest-events .mantine-Skeleton-root{background:linear-gradient(-90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{0%{background-position:-100% 0}100%{background-position:300% 0}}
-.eara-card{border:1px solid #e9ecef;border-radius:8px;overflow:hidden;background:#fff;transition:all .3s ease}.eara-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.12)}.eara-card__image{width:100%;height:200px;overflow:hidden}.eara-card__image img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;display:block}.eara-card__content{padding:1.5rem}.eara-card__badge{display:inline-block;padding:.25rem .75rem;border-radius:4px;font-size:.75rem;font-weight:600;text-transform:uppercase;margin-bottom:.75rem}.eara-card__badge[data-variant=member]{background-color:#e7f5ff;color:#228be6}.eara-card__badge[data-variant=news]{background-color:#ebfbee;color:#40c057}.eara-card__badge[data-variant=animals]{background-color:#fff9db;color:#fab005}.eara-card__badge[data-variant=team]{background-color:#fff0f6;color:#e64980}.eara-card__header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}.eara-card__title{margin:0;font-size:1.25rem;font-weight:600;color:#212529}.eara-card__icon{font-size:1.5rem;line-height:1}.eara-card__description{color:#666;line-height:1.6}.eara-card__description p{margin:.5rem 0}.eara-card--member{border-right:4px solid #228be6}.eara-card--news{border-right:4px solid #40c057}.eara-card--animals{border-right:4px solid #fab005}.eara-card--team{border-right:4px solid #e64980}@media(max-width: 768px){.eara-card__image{height:150px}.eara-card__content{padding:1rem}.eara-card__title{font-size:1.1rem}}
-.wp-block-eara-card .card-description{margin-top:1rem}.wp-block-eara-card .card-description p{margin:.5rem 0;color:#666}.wp-block-eara-card .mantine-Card-root{transition:all .3s ease}.wp-block-eara-card--member .mantine-Card-root{border-right:4px solid #228be6}.wp-block-eara-card--news .mantine-Card-root{border-right:4px solid #40c057}.wp-block-eara-card--animals .mantine-Card-root{border-right:4px solid #fab005}.wp-block-eara-card--team .mantine-Card-root{border-right:4px solid #e64980}.wp-block-eara-card .mantine-Image-root img{-o-object-fit:cover;object-fit:cover;width:100%}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/HeroCarousel/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Hero Carousel */
+.wp-block-eara-hero-carousel {
+  margin: 2rem 0;
+}
+.wp-block-eara-hero-carousel .mantine-Carousel-root {
+  width: 100%;
+}
+.wp-block-eara-hero-carousel .mantine-Carousel-viewport {
+  border-radius: 0;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/HeroSlide/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Hero Slide */
+.wp-block-eara-hero-slide .block-editor-inner-blocks,
+.wp-block-eara-hero-slide .block-editor-block-list__layout {
+  width: 100%;
+}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Section/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+.gt_border-bottom {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/LatestNews/styles.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-latest-news {
+  padding: 1rem 0;
+}
+.wp-block-eara-latest-news .mantine-Card-root {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wp-block-eara-latest-news .mantine-Card-root:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+.wp-block-eara-latest-news .mantine-Image-root {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .wp-block-eara-latest-news {
+    grid-template-columns: 1fr !important;
+  }
+}
+/*!**********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/LatestNews/editor.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-latest-news .mantine-Skeleton-root {
+  background: linear-gradient(-90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/LatestEvents/styles.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-latest-events {
+  padding: 1rem 0;
+}
+.wp-block-eara-latest-events .mantine-Card-root {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.wp-block-eara-latest-events .mantine-Card-root:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+.wp-block-eara-latest-events .mantine-Badge-root {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .wp-block-eara-latest-events {
+    grid-template-columns: 1fr !important;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/LatestEvents/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-latest-events .mantine-Skeleton-root {
+  background: linear-gradient(-90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Card/styles.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.eara-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  transition: all 0.3s ease;
+}
+.eara-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+.eara-card__image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.eara-card__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.eara-card__content {
+  padding: 1.5rem;
+}
+.eara-card__badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.eara-card__badge[data-variant=member] {
+  background-color: #e7f5ff;
+  color: #228be6;
+}
+.eara-card__badge[data-variant=news] {
+  background-color: #ebfbee;
+  color: #40c057;
+}
+.eara-card__badge[data-variant=animals] {
+  background-color: #fff9db;
+  color: #fab005;
+}
+.eara-card__badge[data-variant=team] {
+  background-color: #fff0f6;
+  color: #e64980;
+}
+.eara-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.eara-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+.eara-card__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.eara-card__description {
+  color: #666;
+  line-height: 1.6;
+}
+.eara-card__description p {
+  margin: 0.5rem 0;
+}
+.eara-card--member {
+  border-right: 4px solid #228be6;
+}
+.eara-card--news {
+  border-right: 4px solid #40c057;
+}
+.eara-card--animals {
+  border-right: 4px solid #fab005;
+}
+.eara-card--team {
+  border-right: 4px solid #e64980;
+}
+
+@media (max-width: 768px) {
+  .eara-card__image {
+    height: 150px;
+  }
+  .eara-card__content {
+    padding: 1rem;
+  }
+  .eara-card__title {
+    font-size: 1.1rem;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Card/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-card .card-description {
+  margin-top: 1rem;
+}
+.wp-block-eara-card .card-description p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+.wp-block-eara-card .mantine-Card-root {
+  transition: all 0.3s ease;
+}
+.wp-block-eara-card--member .mantine-Card-root {
+  border-right: 4px solid #228be6;
+}
+.wp-block-eara-card--news .mantine-Card-root {
+  border-right: 4px solid #40c057;
+}
+.wp-block-eara-card--animals .mantine-Card-root {
+  border-right: 4px solid #fab005;
+}
+.wp-block-eara-card--team .mantine-Card-root {
+  border-right: 4px solid #e64980;
+}
+.wp-block-eara-card .mantine-Image-root img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/List/styles.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.eara-list {
+  list-style-type: var(--list-style, disc);
+  padding-right: 1.5rem;
+  margin: 0;
+}
+.eara-list--sm {
+  font-size: 0.875rem;
+}
+.eara-list--sm li {
+  margin-bottom: calc(0.25rem * var(--spacing-multiplier, 1));
+}
+.eara-list--md {
+  font-size: 1rem;
+}
+.eara-list--md li {
+  margin-bottom: calc(0.5rem * var(--spacing-multiplier, 1));
+}
+.eara-list--lg {
+  font-size: 1.125rem;
+}
+.eara-list--lg li {
+  margin-bottom: calc(0.75rem * var(--spacing-multiplier, 1));
+}
+.eara-list li {
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+.eara-list li[data-spacing=xs] {
+  margin-bottom: 0.25rem;
+}
+.eara-list li[data-spacing=sm] {
+  margin-bottom: 0.5rem;
+}
+.eara-list li[data-spacing=md] {
+  margin-bottom: 0.75rem;
+}
+.eara-list li[data-spacing=lg] {
+  margin-bottom: 1rem;
+}
+.eara-list li[data-spacing=xl] {
+  margin-bottom: 1.25rem;
+}
+.eara-list[data-color=blue] li::marker {
+  color: #228be6;
+}
+.eara-list[data-color=red] li::marker {
+  color: #fa5252;
+}
+.eara-list[data-color=green] li::marker {
+  color: #40c057;
+}
+.eara-list[data-color=yellow] li::marker {
+  color: #fab005;
+}
+.eara-list[data-color=purple] li::marker {
+  color: #9c36b5;
+}
+.eara-list[data-color=black] li::marker {
+  color: #212529;
+}
+.eara-list[data-color=gray] li::marker {
+  color: #868e96;
+}
+.eara-list[data-with-icon=true] li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.eara-list[data-with-icon=true] li::before {
+  content: "✓";
+  flex-shrink: 0;
+  font-weight: bold;
+  margin-top: 0.125rem;
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/List/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-list .eara-list {
+  list-style: disc;
+  padding-right: 1.5rem;
+}
+.wp-block-eara-list--sm {
+  font-size: 0.875rem;
+}
+.wp-block-eara-list--md {
+  font-size: 1rem;
+}
+.wp-block-eara-list--lg {
+  font-size: 1.125rem;
+}
+.wp-block-eara-list [data-color=blue] {
+  color: #228be6;
+}
+.wp-block-eara-list [data-color=red] {
+  color: #fa5252;
+}
+.wp-block-eara-list [data-color=green] {
+  color: #40c057;
+}
+.wp-block-eara-list [data-color=yellow] {
+  color: #fab005;
+}
+.wp-block-eara-list [data-color=purple] {
+  color: #9c36b5;
+}
+.wp-block-eara-list [data-color=black] {
+  color: #212529;
+}
+.wp-block-eara-list [data-color=gray] {
+  color: #868e96;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/ListItem/styles.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.eara-list li {
+  transition: background-color 0.2s ease;
+}
+.eara-list li:hover {
+  background-color: rgba(34, 139, 230, 0.05);
+}
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/ListItem/editor.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-list-item {
+  list-style: inherit;
+  margin: 0;
+  padding: 0;
+}
+.wp-block-eara-list-item span {
+  word-break: break-word;
+}

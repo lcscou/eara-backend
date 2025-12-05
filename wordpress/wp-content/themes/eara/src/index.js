@@ -16,3 +16,5 @@ import './blocks/Section';
 import './blocks/LatestNews';
 import './blocks/LatestEvents';
 import './blocks/Card';
+import './blocks/List';
+import './blocks/ListItem';

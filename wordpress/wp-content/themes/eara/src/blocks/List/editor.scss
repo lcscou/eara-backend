@@ -1,0 +1,46 @@
+.wp-block-eara-list {
+  .eara-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+
+  &--sm {
+    font-size: 0.875rem;
+  }
+
+  &--md {
+    font-size: 1rem;
+  }
+
+  &--lg {
+    font-size: 1.125rem;
+  }
+
+  [data-color="blue"] {
+    color: #228be6;
+  }
+
+  [data-color="red"] {
+    color: #fa5252;
+  }
+
+  [data-color="green"] {
+    color: #40c057;
+  }
+
+  [data-color="yellow"] {
+    color: #fab005;
+  }
+
+  [data-color="purple"] {
+    color: #9c36b5;
+  }
+
+  [data-color="black"] {
+    color: #212529;
+  }
+
+  [data-color="gray"] {
+    color: #868e96;
+  }
+}

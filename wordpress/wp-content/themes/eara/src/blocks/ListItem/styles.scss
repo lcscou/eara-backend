@@ -1,0 +1,13 @@
+li {
+  &:not(.wp-block-eara-list-item) {
+    // Only style actual list items, not editor elements
+  }
+}
+
+.eara-list li {
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(34, 139, 230, 0.05);
+  }
+}
