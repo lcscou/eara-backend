@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/card",
+  "title": "Card",
+  "category": "eara",
+  "icon": "id-alt",
+  "description": "A customizable card block with multiple variants for members, news, animals, and team",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "default": "member",
+      "enum": [
+        "member",
+        "news",
+        "animals",
+        "team"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "link": {
+      "type": "string",
+      "default": ""
+    },
+    "featuredImage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    },
+    "icon": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

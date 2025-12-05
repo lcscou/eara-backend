@@ -1,0 +1,35 @@
+.wp-block-eara-card {
+  .card-description {
+    margin-top: 1rem;
+    
+    p {
+      margin: 0.5rem 0;
+      color: #666;
+    }
+  }
+
+  .mantine-Card-root {
+    transition: all 0.3s ease;
+  }
+
+  &--member .mantine-Card-root {
+    border-left: 4px solid #228be6;
+  }
+
+  &--news .mantine-Card-root {
+    border-left: 4px solid #40c057;
+  }
+
+  &--animals .mantine-Card-root {
+    border-left: 4px solid #fab005;
+  }
+
+  &--team .mantine-Card-root {
+    border-left: 4px solid #e64980;
+  }
+
+  .mantine-Image-root img {
+    object-fit: cover;
+    width: 100%;
+  }
+}

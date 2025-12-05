@@ -14,3 +14,5 @@ import './blocks/HeroCarousel';
 import './blocks/HeroSlide';
 import './blocks/Section';
 import './blocks/LatestNews';
+import './blocks/LatestEvents';
+import './blocks/Card';
