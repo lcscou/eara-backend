@@ -15,6 +15,7 @@
       "default": "layout-1",
       "enum": [
         "layout-1",
+        "layout-2",
         "member",
         "news",
         "animals",

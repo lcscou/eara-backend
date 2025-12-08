@@ -1,11 +1,14 @@
 .wp-block-eara-card {
   .card-description {
     margin-top: 1rem;
-    
+
     p {
       margin: 0.5rem 0;
       color: #666;
     }
+  }
+  .eara-card-layout-2 img {
+    object-fit: contain !important;
   }
 
   .mantine-Card-root {

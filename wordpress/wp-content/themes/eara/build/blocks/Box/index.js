@@ -8,7 +8,7 @@
   \***********************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/box","title":"Box","category":"eara","icon":"format-aside","description":"A simple container box with optional link, background, and spacing.","supports":{"html":false},"attributes":{"backgroundColor":{"type":"string","default":""},"padding":{"type":"string","default":""},"borderRadius":{"type":"string","default":"20px"},"border":{"type":"string","default":""},"margin":{"type":"string","default":""},"href":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/box","title":"Box","category":"eara","icon":"format-aside","description":"A simple container box with optional link, background, and spacing.","supports":{"html":false},"attributes":{"backgroundColor":{"type":"string","default":""},"padding":{"type":"string","default":""},"px":{"type":"string","default":""},"py":{"type":"string","default":""},"borderRadius":{"type":"string","default":"20px"},"border":{"type":"string","default":""},"margin":{"type":"string","default":""},"href":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./index.css"}');
 
 /***/ }),
 
@@ -22,9 +22,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Edit; }
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/Box/editor.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__);
 const {
   __
 } = wp.i18n;
@@ -37,6 +37,8 @@ const {
   PanelBody,
   TextControl
 } = wp.components;
+
+
 function Edit({
   attributes,
   setAttributes
@@ -49,56 +51,66 @@ function Edit({
   } = attributes;
   const style = {
     backgroundColor: backgroundColor || undefined,
-    padding: padding || "20px",
+    padding: `${attributes.px} ${attributes.py}` || padding || undefined,
     margin: margin || "0",
+    px: attributes.px || undefined,
+    py: attributes.py || undefined,
     border: attributes.border || undefined,
     borderRadius: attributes.borderRadius || "20px"
   };
   const blockProps = useBlockProps({
     style
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     ...blockProps,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(PanelBody, {
+    className: "root",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(InspectorControls, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(PanelBody, {
         title: __("Box Settings", "eara"),
         initialOpen: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
           label: __("Background Color", "eara"),
           value: backgroundColor,
           onChange: value => setAttributes({
             backgroundColor: value
           }),
           placeholder: __("e.g. #f0f0f0 or rgba(0,0,0,0.05)", "eara")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
           label: __("Border Radius", "eara"),
           value: attributes.borderRadius,
           onChange: value => setAttributes({
             borderRadius: value
           }),
           placeholder: __("e.g. 6px", "eara")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
           label: __("Border", "eara"),
           value: attributes.border,
           onChange: value => setAttributes({
             border: value
           }),
           placeholder: __("e.g. 1px solid #ccc", "eara")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
-          label: __("Padding", "eara"),
-          value: padding,
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
+          label: __("Padding X", "eara"),
+          value: attributes.px,
           onChange: value => setAttributes({
-            padding: value
+            px: value
           }),
-          placeholder: __("e.g. 20px 16px", "eara")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
+          placeholder: __("e.g. 20px", "eara")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
+          label: __("Padding Y", "eara"),
+          value: attributes.py,
+          onChange: value => setAttributes({
+            py: value
+          }),
+          placeholder: __("e.g. 20px", "eara")
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
           label: __("Margin", "eara"),
           value: margin,
           onChange: value => setAttributes({
             margin: value
           }),
           placeholder: __("e.g. 0 auto", "eara")
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(TextControl, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TextControl, {
           label: __("Link URL (optional)", "eara"),
           value: href,
           onChange: value => setAttributes({
@@ -107,25 +119,36 @@ function Edit({
           placeholder: __("https://example.com", "eara")
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       style: {
         border: "1px dashed #d0d0d0",
         borderRadius: "6px",
-        padding: "12px",
-        display: "flex",
-        flexDirection: "column"
+        padding: "12px"
       },
-      children: [href && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+      className: "eara-box_wrapper",
+      children: [href && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
         style: {
           marginBottom: "8px",
           fontSize: "12px",
           color: "#555"
         },
         children: [__("This box will link to:", "eara"), " ", href]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(InnerBlocks, {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(InnerBlocks, {})]
     })]
   });
 }
+
+/***/ }),
+
+/***/ "./src/blocks/Box/editor.scss":
+/*!************************************!*\
+  !*** ./src/blocks/Box/editor.scss ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 

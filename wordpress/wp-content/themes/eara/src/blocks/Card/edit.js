@@ -7,6 +7,7 @@ import {
   Text,
   Group,
   Badge,
+  Title,
   ActionIcon,
 } from "@mantine/core";
 import {
@@ -32,10 +33,9 @@ export default function Edit(props) {
   });
 
   const variantOptions = [
-    { label: __("Member", "eara"), value: "member" },
-    { label: __("News", "eara"), value: "news" },
-    { label: __("Animals", "eara"), value: "animals" },
-    { label: __("Team", "eara"), value: "team" },
+    { label: __("Layout 1", "eara"), value: "layout-1" },
+    { label: __("Layout 2", "eara"), value: "layout-2" },
+
   ];
 
   const orientationOptions = [
@@ -145,36 +145,63 @@ export default function Edit(props) {
           </PanelBody>
         </InspectorControls>
 
-        <Card shadow="sm" padding="lg" radius="md" withBorder>
-          {featuredImage.url && (
-            <Card.Section>
-              <Image
-                src={featuredImage.url}
-                height={200}
-                alt={featuredImage.alt || title}
+        {variant === "layout-1" && (
+          <Card shadow="sm" padding="lg" radius="md" withBorder>
+            {featuredImage.url && (
+              <Card.Section>
+                <Image
+                  src={featuredImage.url}
+                  height={200}
+                  alt={featuredImage.alt || title}
+                />
+              </Card.Section>
+            )}
+
+            <Group justify="space-between" mt="md" mb="xs">
+              <Text fw={500} size="lg">
+                {title || __("Card Title", "eara")}
+              </Text>
+              {icon && <Text size="xl">{icon}</Text>}
+            </Group>
+
+            <div className="card-description">
+              <InnerBlocks
+                allowedBlocks={["core/paragraph", "core/heading", "core/list"]}
+                template={[
+                  [
+                    "core/paragraph",
+                    { placeholder: __("Add card description...", "eara") },
+                  ],
+                ]}
               />
-            </Card.Section>
-          )}
-
-          <Group justify="space-between" mt="md" mb="xs">
-            <Text fw={500} size="lg">
-              {title || __("Card Title", "eara")}
-            </Text>
-            {icon && <Text size="xl">{icon}</Text>}
-          </Group>
-
-          <div className="card-description">
-            <InnerBlocks
-              allowedBlocks={["core/paragraph", "core/heading", "core/list"]}
-              template={[
-                [
-                  "core/paragraph",
-                  { placeholder: __("Add card description...", "eara") },
-                ],
-              ]}
+            </div>
+          </Card>
+        )}
+        {variant === "layout-2" && (
+          <div className="rounded-2xl bg-white p-10 eara-card-layout-2">
+            <Image
+              src={featuredImage.url}
+              width={220}
+              height={200}
+              alt="Logo"
+              className="mb-10"
             />
+            <Title order={6} mb={15}>
+              {title || __("Card Title", "eara")}
+            </Title>
+            <Text>
+              <InnerBlocks
+                allowedBlocks={["core/paragraph", "core/heading", "core/list"]}
+                template={[
+                  [
+                    "core/paragraph",
+                    { placeholder: __("Add card description...", "eara") },
+                  ],
+                ]}
+              />
+            </Text>
           </div>
-        </Card>
+        )}
       </MantineProvider>
     </div>
   );

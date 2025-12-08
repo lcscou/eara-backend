@@ -8331,6 +8331,10 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
   margin: 0.5rem 0;
   color: #666;
 }
+.wp-block-eara-card .eara-card-layout-2 img {
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+}
 .wp-block-eara-card .mantine-Card-root {
   transition: all 0.3s ease;
 }

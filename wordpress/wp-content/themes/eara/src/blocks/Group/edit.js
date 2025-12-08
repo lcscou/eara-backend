@@ -105,7 +105,7 @@ export default function Edit(props) {
           wrap={wrap}
           preventGrowOverflow={preventGrowOverflow}
         >
-          <InnerBlocks />
+          <InnerBlocks  />
         </Group>
       </MantineProvider>
     </div>

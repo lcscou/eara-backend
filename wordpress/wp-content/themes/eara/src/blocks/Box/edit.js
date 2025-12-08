@@ -1,14 +1,16 @@
 const { __ } = wp.i18n;
 const { InspectorControls, InnerBlocks, useBlockProps } = wp.blockEditor;
 const { PanelBody, TextControl } = wp.components;
-
+import "./editor.scss";
 export default function Edit({ attributes, setAttributes }) {
   const { backgroundColor, padding, margin, href } = attributes;
 
   const style = {
     backgroundColor: backgroundColor || undefined,
-    padding: padding || "20px",
+    padding: `${attributes.px} ${attributes.py}` || padding || undefined,
     margin: margin || "0",
+    px: attributes.px || undefined,
+    py: attributes.py || undefined,
     border: attributes.border || undefined,
     borderRadius: attributes.borderRadius || "20px",
   };
@@ -16,7 +18,7 @@ export default function Edit({ attributes, setAttributes }) {
   const blockProps = useBlockProps({ style });
 
   return (
-    <div {...blockProps}>
+    <div {...blockProps} className="root">
       <InspectorControls>
         <PanelBody title={__("Box Settings", "eara")} initialOpen={true}>
           <TextControl
@@ -38,11 +40,24 @@ export default function Edit({ attributes, setAttributes }) {
             placeholder={__("e.g. 1px solid #ccc", "eara")}
           />
 
-          <TextControl
+          {/* <TextControl
             label={__("Padding", "eara")}
             value={padding}
             onChange={(value) => setAttributes({ padding: value })}
             placeholder={__("e.g. 20px 16px", "eara")}
+          /> */}
+
+          <TextControl
+            label={__("Padding X", "eara")}
+            value={attributes.px}
+            onChange={(value) => setAttributes({ px: value })}
+            placeholder={__("e.g. 20px", "eara")}
+          />
+          <TextControl
+            label={__("Padding Y", "eara")}
+            value={attributes.py}
+            onChange={(value) => setAttributes({ py: value })}
+            placeholder={__("e.g. 20px", "eara")}
           />
 
           <TextControl
@@ -66,17 +81,17 @@ export default function Edit({ attributes, setAttributes }) {
           border: "1px dashed #d0d0d0",
           borderRadius: "6px",
           padding: "12px",
-          display: "flex",
-          flexDirection: "column",
         }}
+        className="eara-box_wrapper"
       >
         {href && (
           <div style={{ marginBottom: "8px", fontSize: "12px", color: "#555" }}>
             {__("This box will link to:", "eara")} {href}
           </div>
         )}
-
-        <InnerBlocks />
+       
+          <InnerBlocks />
+       
       </div>
     </div>
   );
