@@ -7804,4 +7804,23 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
 }
 .wp-block-eara-button .mantine-Button-root {
   cursor: pointer;
+  border-radius: 100px;
+}
+.wp-block-eara-button .withArrow:hover {
+  transition: all 0.3s ease;
+}
+.wp-block-eara-button .withArrow {
+  background-color: var(--color-primaryColor);
+}
+.wp-block-eara-button .withArrow:hover .arrowIcon svg path {
+  /* transform: translateX(4px); */
+  animation: bounce-in-right 0.2s alternate ease-in-out 2;
+  /* margin-left: 10px; */
+}
+.wp-block-eara-button .link {
+  text-decoration: none;
+  transition: all 1.3s ease;
+}
+.wp-block-eara-button .link:hover svg {
+  margin-right: 10px;
 }

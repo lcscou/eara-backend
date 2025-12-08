@@ -2,12 +2,44 @@
 .wp-block-eara-button {
   /* Ensure button is visible and interactive in editor */
   display: inline-block;
-  
+
   /* Add some margin for easier selection */
   margin: 0.5rem 0;
-  
+
   /* Make sure the Mantine button renders properly */
   .mantine-Button-root {
     cursor: pointer;
+    border-radius: 100px;
+  }
+
+  .withArrow:hover {
+    transition: all 0.3s ease;
+  }
+  .withArrow{
+    background-color: var(--color-primaryColor);
+  }
+
+  .withArrow:hover .arrowIcon svg path {
+    /* transform: translateX(4px); */
+    animation: bounce-in-right 0.2s alternate ease-in-out 2;
+    /* margin-left: 10px; */
+  }
+
+  .link {
+    text-decoration: none;
+    transition: all 1.3s ease;
+  }
+
+  .link:hover svg {
+    margin-left: 10px;
+  }
+
+  @-webkit-keyframes bounce-in-right {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(4px);
+    }
   }
 }

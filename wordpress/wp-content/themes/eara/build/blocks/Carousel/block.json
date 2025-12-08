@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/carousel",
+  "title": "Carousel",
+  "category": "eara",
+  "icon": "slides",
+  "description": "A carousel container for displaying multiple items in a slideshow.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "withControls": {
+      "type": "boolean",
+      "default": true
+    },
+    "withIndicators": {
+      "type": "boolean",
+      "default": true
+    },
+    "slideGap": {
+      "type": "string",
+      "default": "md"
+    },
+    "slideSize": {
+      "type": "string",
+      "default": "100%"
+    },
+    "height": {
+      "type": "string",
+      "default": "400px"
+    },
+    "initialSlide": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

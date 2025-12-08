@@ -5591,6 +5591,138 @@ function useReducedMotion(initialValue, options) {
 
 /***/ }),
 
+/***/ "./node_modules/@tabler/icons-react/dist/esm/createReactComponent.mjs":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@tabler/icons-react/dist/esm/createReactComponent.mjs ***!
+  \****************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ createReactComponent; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _defaultAttributes_mjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./defaultAttributes.mjs */ "./node_modules/@tabler/icons-react/dist/esm/defaultAttributes.mjs");
+/**
+ * @license @tabler/icons-react v3.35.0 - MIT
+ *
+ * This source code is licensed under the MIT license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+
+const createReactComponent = (type, iconName, iconNamePascal, iconNode) => {
+  const Component = (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(
+    ({ color = "currentColor", size = 24, stroke = 2, title, className, children, ...rest }, ref) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(
+      "svg",
+      {
+        ref,
+        ..._defaultAttributes_mjs__WEBPACK_IMPORTED_MODULE_1__["default"][type],
+        width: size,
+        height: size,
+        className: [`tabler-icon`, `tabler-icon-${iconName}`, className].join(" "),
+        ...type === "filled" ? {
+          fill: color
+        } : {
+          strokeWidth: stroke,
+          stroke: color
+        },
+        ...rest
+      },
+      [
+        title && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("title", { key: "svg-title" }, title),
+        ...iconNode.map(([tag, attrs]) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(tag, attrs)),
+        ...Array.isArray(children) ? children : [children]
+      ]
+    )
+  );
+  Component.displayName = `${iconNamePascal}`;
+  return Component;
+};
+
+
+//# sourceMappingURL=createReactComponent.mjs.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@tabler/icons-react/dist/esm/defaultAttributes.mjs":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@tabler/icons-react/dist/esm/defaultAttributes.mjs ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ defaultAttributes; }
+/* harmony export */ });
+/**
+ * @license @tabler/icons-react v3.35.0 - MIT
+ *
+ * This source code is licensed under the MIT license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+var defaultAttributes = {
+  outline: {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 2,
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
+  },
+  filled: {
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 24,
+    height: 24,
+    viewBox: "0 0 24 24",
+    fill: "currentColor",
+    stroke: "none"
+  }
+};
+
+
+//# sourceMappingURL=defaultAttributes.mjs.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArrowRight.mjs":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@tabler/icons-react/dist/esm/icons/IconArrowRight.mjs ***!
+  \****************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconNode: function() { return /* binding */ __iconNode; },
+/* harmony export */   "default": function() { return /* binding */ IconArrowRight; }
+/* harmony export */ });
+/* harmony import */ var _createReactComponent_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createReactComponent.mjs */ "./node_modules/@tabler/icons-react/dist/esm/createReactComponent.mjs");
+/**
+ * @license @tabler/icons-react v3.35.0 - MIT
+ *
+ * This source code is licensed under the MIT license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconNode = [["path", { "d": "M5 12l14 0", "key": "svg-0" }], ["path", { "d": "M13 18l6 -6", "key": "svg-1" }], ["path", { "d": "M13 6l6 6", "key": "svg-2" }]];
+const IconArrowRight = (0,_createReactComponent_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])("outline", "arrow-right", "ArrowRight", __iconNode);
+
+
+//# sourceMappingURL=IconArrowRight.mjs.map
+
+
+/***/ }),
+
 /***/ "./node_modules/clsx/dist/clsx.mjs":
 /*!*****************************************!*\
   !*** ./node_modules/clsx/dist/clsx.mjs ***!
@@ -5625,10 +5757,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": function() { return /* binding */ Edit; }
 /* harmony export */ });
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineProvider.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.mjs");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _tabler_icons_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @tabler/icons-react */ "./node_modules/@tabler/icons-react/dist/esm/icons/IconArrowRight.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineProvider.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Button/Button.mjs");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
 const {
   InspectorControls,
   useBlockProps
@@ -5642,6 +5776,8 @@ const {
 const {
   __
 } = wp.i18n;
+
+
 
 
 function Edit(props) {
@@ -5664,31 +5800,32 @@ function Edit(props) {
     loading,
     uppercase,
     leftIcon,
-    rightIcon
+    rightIcon,
+    className
   } = attributes;
   const blockProps = useBlockProps();
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_0__.MantineProvider, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(InspectorControls, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.MantineProvider, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(InspectorControls, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
           title: __("Button Content", "eara"),
           initialOpen: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
             label: __("Label", "eara"),
             value: label,
             onChange: v => setAttributes({
               label: v
             }),
             help: __("The text displayed on the button", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
             label: __("Link URL", "eara"),
             value: link,
             onChange: v => setAttributes({
               link: v
             }),
             placeholder: "https://example.com"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SelectControl, {
             label: __("Link Target", "eara"),
             value: target,
             options: [{
@@ -5707,43 +5844,38 @@ function Edit(props) {
             onChange: v => setAttributes({
               target: v
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
+            label: __("ClassName", "eara"),
+            value: className,
+            onChange: v => setAttributes({
+              className: v
+            }),
+            placeholder: "e.g., my-custom-button"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
           title: __("Appearance", "eara"),
           initialOpen: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SelectControl, {
             label: __("Variant", "eara"),
             value: variant,
             options: [{
               label: "Filled",
               value: "filled"
             }, {
-              label: "Light",
-              value: "light"
-            }, {
               label: "Outline",
               value: "outline"
             }, {
-              label: "Default",
-              value: "default"
+              label: "Link",
+              value: "link"
             }, {
-              label: "Subtle",
-              value: "subtle"
-            }, {
-              label: "Transparent",
-              value: "transparent"
-            }, {
-              label: "White",
-              value: "white"
-            }, {
-              label: "Gradient",
-              value: "gradient"
+              label: "With Arrow",
+              value: "with-arrow"
             }],
             onChange: v => setAttributes({
               variant: v
             }),
             help: __("Button visual style", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SelectControl, {
             label: __("Size", "eara"),
             value: size,
             options: [{
@@ -5780,93 +5912,18 @@ function Edit(props) {
             onChange: v => setAttributes({
               size: v
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
             label: __("Width", "eara"),
             value: width,
             onChange: w => setAttributes({
               width: w
             }),
             help: __("Button width", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
-            label: __("Color", "eara"),
-            value: color,
-            options: [{
-              label: "Blue",
-              value: "blue"
-            }, {
-              label: "Red",
-              value: "red"
-            }, {
-              label: "Green",
-              value: "green"
-            }, {
-              label: "Yellow",
-              value: "yellow"
-            }, {
-              label: "Orange",
-              value: "orange"
-            }, {
-              label: "Pink",
-              value: "pink"
-            }, {
-              label: "Purple",
-              value: "grape"
-            }, {
-              label: "Violet",
-              value: "violet"
-            }, {
-              label: "Indigo",
-              value: "indigo"
-            }, {
-              label: "Cyan",
-              value: "cyan"
-            }, {
-              label: "Teal",
-              value: "teal"
-            }, {
-              label: "Lime",
-              value: "lime"
-            }, {
-              label: "Gray",
-              value: "gray"
-            }, {
-              label: "Dark",
-              value: "dark"
-            }],
-            onChange: v => setAttributes({
-              color: v
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SelectControl, {
-            label: __("Radius", "eara"),
-            value: radius,
-            options: [{
-              label: "Extra Small (xs)",
-              value: "xs"
-            }, {
-              label: "Small (sm)",
-              value: "sm"
-            }, {
-              label: "Medium (md)",
-              value: "md"
-            }, {
-              label: "Large (lg)",
-              value: "lg"
-            }, {
-              label: "Extra Large (xl)",
-              value: "xl"
-            }, {
-              label: "Full (pill)",
-              value: "xl"
-            }],
-            onChange: v => setAttributes({
-              radius: v
-            }),
-            help: __("Border radius of the button", "eara")
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
           title: __("Icon Settings", "eara"),
           initialOpen: false,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
             label: __("Left Icon (emoji or symbol)", "eara"),
             value: leftIcon,
             onChange: v => setAttributes({
@@ -5874,7 +5931,7 @@ function Edit(props) {
             }),
             placeholder: "e.g., \u2190, \u2713, \uD83D\uDE80",
             help: __("Add an icon or emoji before the label", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(TextControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
             label: __("Right Icon (emoji or symbol)", "eara"),
             value: rightIcon,
             onChange: v => setAttributes({
@@ -5883,31 +5940,31 @@ function Edit(props) {
             placeholder: "e.g., \u2192, \u2713, \uD83D\uDE80",
             help: __("Add an icon or emoji after the label", "eara")
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(PanelBody, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
           title: __("Options", "eara"),
           initialOpen: false,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
             label: __("Full Width", "eara"),
             checked: fullWidth,
             onChange: v => setAttributes({
               fullWidth: v
             }),
             help: __("Make button take 100% width of container", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
             label: __("Uppercase", "eara"),
             checked: uppercase,
             onChange: v => setAttributes({
               uppercase: v
             }),
             help: __("Transform text to uppercase", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
             label: __("Disabled", "eara"),
             checked: disabled,
             onChange: v => setAttributes({
               disabled: v
             }),
             help: __("Disable button interactions", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ToggleControl, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
             label: __("Loading State", "eara"),
             checked: loading,
             onChange: v => setAttributes({
@@ -5916,34 +5973,142 @@ function Edit(props) {
             help: __("Show loading spinner", "eara")
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         style: {
-          display: 'inline-block'
+          display: "inline-block"
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_1__.Button, {
-          variant: variant,
-          size: size,
-          color: color,
-          radius: radius,
+        children: [variant == "filled" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          ...(link ? {
+            component: "a"
+          } : {}),
+          ...(link ? {
+            href: "javascript:void(0)"
+          } : {}),
+          ...(link && target ? {
+            target: target
+          } : {}),
+          // fw="medium"
           w: width,
-          fullWidth: fullWidth,
-          disabled: disabled,
-          loading: loading,
-          style: {
-            textTransform: uppercase ? 'uppercase' : 'none'
+          className: className,
+          tt: "uppercase",
+          size: "lg",
+          styles: {
+            root: {
+              backgroundColor: props.bg?.toString() || "var(--color-primaryColor)",
+              borderRadius: props.radius?.toString() || "100px"
+            },
+            label: {
+              fontWeight: "400",
+              fontSize: "13px",
+              letterSpacing: ".8px"
+            }
           },
-          children: [leftIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            style: {
-              marginRight: '8px'
+          ...props,
+          children: props.children || label
+        }), variant == "outline" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          ...(link ? {
+            component: "a"
+          } : {}),
+          ...(link ? {
+            href: "javascript:void(0)"
+          } : {}),
+          ...(link && target ? {
+            target: target
+          } : {}),
+          variant: "outline",
+          w: width,
+          tt: "uppercase",
+          className: className,
+          size: "lg",
+          c: "white"
+          // leftSection={leftSection}
+          ,
+          styles: {
+            root: {
+              borderColor: props.bd?.toString() || "white"
             },
-            children: leftIcon
-          }), label, rightIcon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            style: {
-              marginLeft: '8px'
+            label: {
+              fontWeight: "400",
+              fontSize: "13px",
+              letterSpacing: ".8px"
+            }
+          },
+          ...props,
+          children: props.children || label
+        }), variant == "link" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Button
+        // leftSection={leftSection}
+        , {
+          ...(link ? {
+            component: "a"
+          } : {}),
+          ...(link ? {
+            href: "javascript:void(0)"
+          } : {}),
+          ...(link && target ? {
+            target: target
+          } : {}),
+          rightSection: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_0__["default"], {
+            size: 16
+          }),
+          unstyled: true,
+          tt: "uppercase",
+          className: "link hover:opacity-85",
+          size: "lg",
+          c: "var(--color-primaryColor)",
+          styles: {
+            inner: {
+              width: "fit-content",
+              display: "flex",
+              alignItems: "center",
+              gap: 15,
+              borderBottom: "1px solid var(--color-primaryColor)"
             },
-            children: rightIcon
-          })]
-        })
+            root: {
+              borderColor: "white",
+              width: "fit-content"
+            },
+            label: {
+              fontWeight: "400",
+              fontSize: "13px",
+              letterSpacing: ".8px"
+            }
+          },
+          ...props,
+          children: props.children || label
+        }), variant == "with-arrow" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Button, {
+          className: "withArrow",
+          ...(link ? {
+            component: "a"
+          } : {}),
+          ...(link ? {
+            href: "javascript:void(0)"
+          } : {}),
+          ...(link && target ? {
+            target: target
+          } : {}),
+          rightSection: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "arrowIcon flex aspect-square h-[48.4px] items-center justify-center rounded-full p-1",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_tabler_icons_react__WEBPACK_IMPORTED_MODULE_0__["default"], {
+              className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__["default"])("bg-secondaryColor h-full w-full rounded-full p-2 text-black")
+            })
+          }),
+          variant: "filled",
+          tt: "uppercase",
+          size: "lg",
+          c: "white",
+          styles: {
+            root: {
+              paddingRight: "0px"
+            },
+            label: {
+              fontWeight: "400",
+              fontSize: "13px",
+              letterSpacing: ".8px"
+            }
+          },
+          ...props,
+          children: props.children || label
+        })]
       })]
     })
   });

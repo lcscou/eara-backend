@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/box",
+  "title": "Box",
+  "category": "eara",
+  "icon": "format-aside",
+  "description": "A simple container box with optional link, background, and spacing.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": ""
+    },
+    "padding": {
+      "type": "string",
+      "default": ""
+    },
+    "borderRadius": {
+      "type": "string",
+      "default": ""
+    },
+    "border": {
+      "type": "string",
+      "default": ""
+    },
+    "margin": {
+      "type": "string",
+      "default": ""
+    },
+    "href": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js"
+}

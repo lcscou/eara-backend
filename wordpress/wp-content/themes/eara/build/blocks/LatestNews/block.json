@@ -4,7 +4,7 @@
   "name": "eara/latest-news",
   "title": "Latest News",
   "category": "eara",
-  "icon": "newspaper",
+  "icon": "welcome-widgets-menus",
   "description": "Display the 3 latest news posts with title, featured image and author",
   "supports": {
     "html": false

@@ -171,6 +171,15 @@
 .hidden {
   display: none;
 }
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+.h-\[48\.4px\] {
+  height: 48.4px;
+}
+.h-full {
+  height: 100%;
+}
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -187,8 +196,17 @@
 .items-start {
   align-items: flex-start;
 }
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
 .gap-20 {
   gap: 5rem;
+}
+.rounded-full {
+  border-radius: 9999px;
 }
 .border {
   border-width: 1px;
@@ -203,6 +221,16 @@
 .bg-red-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 202 202 / var(--tw-bg-opacity, 1));
+}
+.bg-secondaryColor {
+  --tw-bg-opacity: 1;
+  background-color: rgb(143 191 41 / var(--tw-bg-opacity, 1));
+}
+.p-1 {
+  padding: 0.25rem;
+}
+.p-2 {
+  padding: 0.5rem;
 }
 .px-\[16px\] {
   padding-right: 16px;
@@ -222,6 +250,10 @@
 .uppercase {
   text-transform: uppercase;
 }
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
 .text-primaryColor {
   --tw-text-opacity: 1;
   color: rgb(49 47 134 / var(--tw-text-opacity, 1));
@@ -235,10 +267,31 @@
   outline-style: solid;
 }
 
+@theme {
+  --color-primaryColor: #312f86;
+  --color-secondaryColor: #8fbf29;
+  --color-earaDark: #272727;
+  --color-earaDark-lighter: #272727;
+  --color-earaBgLight: #ededfa;
+  --color-earaBgDark: #e2e2e5;
+  --color-earaGrayLight: #eaeaea;
+  --color-backgroundMenu: rgba(255, 255, 255, 0.45);
+}
+
+:root {
+  --color-primaryColor: #312f86;
+  --color-secondaryColor: #8fbf29;
+  --color-earaDark: #272727;
+  --color-earaDark-lighter: #272727;
+  --color-earaBgLight: #ededfa;
+  --color-earaBgDark: #e2e2e5;
+  --color-earaGrayLight: #eaeaea;
+  --color-backgroundMenu: rgba(255, 255, 255, 0.45);
+}
+
 body {
   background-color: white;
 }
-
 /* headings: {
     sizes: {
       h1: { fontSize: '3.815rem', lineHeight: '1' },
@@ -291,6 +344,9 @@ h1 {
     font-size: calc(3.052rem - 1rem) !important;
     line-height: 110% !important;
   }
+}
+.hover\:opacity-85:hover {
+  opacity: 0.85;
 }
 @media (min-width: 640px) {
   .sm\:mt-0 {

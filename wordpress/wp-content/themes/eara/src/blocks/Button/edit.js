@@ -1,35 +1,28 @@
-const {
-  InspectorControls,
-  useBlockProps,
-} = wp.blockEditor;
-const {
-  PanelBody,
-  SelectControl,
-  ToggleControl,
-  TextControl,
-} = wp.components;
+const { InspectorControls, useBlockProps } = wp.blockEditor;
+const { PanelBody, SelectControl, ToggleControl, TextControl } = wp.components;
 const { __ } = wp.i18n;
-
+import { IconArrowRight } from "@tabler/icons-react";
 import { MantineProvider, Button } from "@mantine/core";
-
+import clsx from "clsx";
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
-  const { 
-    label, 
-    link, 
-    target, 
-    variant, 
-    size, 
-    color, 
-    radius, 
-    fullWidth, 
+  const {
+    label,
+    link,
+    target,
+    variant,
+    size,
+    color,
+    radius,
+    fullWidth,
     width,
     compact,
     disabled,
     loading,
     uppercase,
     leftIcon,
-    rightIcon
+    rightIcon,
+    className,
   } = attributes;
 
   const blockProps = useBlockProps();
@@ -62,6 +55,13 @@ export default function Edit(props) {
               ]}
               onChange={(v) => setAttributes({ target: v })}
             />
+
+            <TextControl
+              label={__("ClassName", "eara")}
+              value={className}
+              onChange={(v) => setAttributes({ className: v })}
+              placeholder="e.g., my-custom-button"
+            />
           </PanelBody>
 
           <PanelBody title={__("Appearance", "eara")} initialOpen={true}>
@@ -70,13 +70,9 @@ export default function Edit(props) {
               value={variant}
               options={[
                 { label: "Filled", value: "filled" },
-                { label: "Light", value: "light" },
                 { label: "Outline", value: "outline" },
-                { label: "Default", value: "default" },
-                { label: "Subtle", value: "subtle" },
-                { label: "Transparent", value: "transparent" },
-                { label: "White", value: "white" },
-                { label: "Gradient", value: "gradient" },
+                { label: "Link", value: "link" },
+                { label: "With Arrow", value: "with-arrow" },
               ]}
               onChange={(v) => setAttributes({ variant: v })}
               help={__("Button visual style", "eara")}
@@ -100,15 +96,14 @@ export default function Edit(props) {
               onChange={(v) => setAttributes({ size: v })}
             />
 
-               <TextControl
+            <TextControl
               label={__("Width", "eara")}
               value={width}
               onChange={(w) => setAttributes({ width: w })}
               help={__("Button width", "eara")}
             />
-        
 
-            <SelectControl
+            {/* <SelectControl
               label={__("Color", "eara")}
               value={color}
               options={[
@@ -128,9 +123,9 @@ export default function Edit(props) {
                 { label: "Dark", value: "dark" },
               ]}
               onChange={(v) => setAttributes({ color: v })}
-            />
+            /> */}
 
-            <SelectControl
+            {/* <SelectControl
               label={__("Radius", "eara")}
               value={radius}
               options={[
@@ -143,7 +138,7 @@ export default function Edit(props) {
               ]}
               onChange={(v) => setAttributes({ radius: v })}
               help={__("Border radius of the button", "eara")}
-            />
+            /> */}
           </PanelBody>
 
           <PanelBody title={__("Icon Settings", "eara")} initialOpen={false}>
@@ -194,9 +189,132 @@ export default function Edit(props) {
           </PanelBody>
         </InspectorControls>
 
-        <div style={{ display: 'inline-block' }}>
-          <Button
-            variant={variant}
+        <div style={{ display: "inline-block" }}>
+          {variant == "filled" && (
+            <Button
+              {...(link ? { component: "a" } : {})}
+              {...(link ? { href: "javascript:void(0)" } : {})}
+              {...(link && target ? { target: target } : {})}
+              // fw="medium"
+              w={width}
+              className={className}
+              tt="uppercase"
+              size="lg"
+              styles={{
+                root: {
+                  backgroundColor:
+                    props.bg?.toString() || "var(--color-primaryColor)",
+                  borderRadius: props.radius?.toString() || "100px",
+                },
+                label: {
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  letterSpacing: ".8px",
+                },
+              }}
+              {...props}
+            >
+              {props.children || label}
+            </Button>
+          )}
+          {variant == "outline" && (
+            <Button
+              {...(link ? { component: "a" } : {})}
+              {...(link ? { href: "javascript:void(0)" } : {})}
+              {...(link && target ? { target: target } : {})}
+              variant="outline"
+              w={width}
+              tt="uppercase"
+              className={className}
+              size="lg"
+              c="white"
+              // leftSection={leftSection}
+              styles={{
+                root: {
+                  borderColor: props.bd?.toString() || "white",
+                },
+                label: {
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  letterSpacing: ".8px",
+                },
+              }}
+              {...props}
+            >
+              {props.children || label}
+            </Button>
+          )}
+          {variant == "link" && (
+            <Button
+              // leftSection={leftSection}
+              {...(link ? { component: "a" } : {})}
+              {...(link ? { href: "javascript:void(0)" } : {})}
+              {...(link && target ? { target: target } : {})}
+              rightSection={<IconArrowRight size={16} />}
+              unstyled
+              tt="uppercase"
+              className="link hover:opacity-85"
+              size="lg"
+              c="var(--color-primaryColor)"
+              styles={{
+                inner: {
+                  width: "fit-content",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 15,
+                  borderBottom: "1px solid var(--color-primaryColor)",
+                },
+                root: {
+                  borderColor: "white",
+                  width: "fit-content",
+                },
+                label: {
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  letterSpacing: ".8px",
+                },
+              }}
+              {...props}
+            >
+              {props.children || label}
+            </Button>
+          )}
+          {variant == "with-arrow" && (
+            <Button
+              className="withArrow"
+              {...(link ? { component: "a" } : {})}
+              {...(link ? { href: "javascript:void(0)" } : {})}
+              {...(link && target ? { target: target } : {})}
+              rightSection={
+                <div className="arrowIcon flex aspect-square h-[48.4px] items-center justify-center rounded-full p-1">
+                  <IconArrowRight
+                    className={clsx(
+                      "bg-secondaryColor h-full w-full rounded-full p-2 text-black"
+                    )}
+                  />
+                </div>
+              }
+              variant="filled"
+              tt="uppercase"
+              size="lg"
+              c="white"
+              styles={{
+                root: {
+                  paddingRight: "0px",
+                },
+                label: {
+                  fontWeight: "400",
+                  fontSize: "13px",
+                  letterSpacing: ".8px",
+                },
+              }}
+              {...props}
+            >
+              {props.children || label}
+            </Button>
+          )}
+          {/* <Button
+            // variant={variant}
             size={size}
             color={color}
             radius={radius}
@@ -204,12 +322,14 @@ export default function Edit(props) {
             fullWidth={fullWidth}
             disabled={disabled}
             loading={loading}
-            style={{ textTransform: uppercase ? 'uppercase' : 'none' }}
+            style={{ textTransform: uppercase ? "uppercase" : "none" }}
           >
-            {leftIcon && <span style={{ marginRight: '8px' }}>{leftIcon}</span>}
+            {leftIcon && <span style={{ marginRight: "8px" }}>{leftIcon}</span>}
             {label}
-            {rightIcon && <span style={{ marginLeft: '8px' }}>{rightIcon}</span>}
-          </Button>
+            {rightIcon && (
+              <span style={{ marginLeft: "8px" }}>{rightIcon}</span>
+            )}
+          </Button> */}
         </div>
       </MantineProvider>
     </div>

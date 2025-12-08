@@ -2,10 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@theme {
+  --color-primaryColor: #312f86;
+  --color-secondaryColor: #8fbf29;
+  --color-earaDark: #272727;
+  --color-earaDark-lighter: #272727;
+  --color-earaBgLight: #ededfa;
+  --color-earaBgDark: #e2e2e5;
+  --color-earaGrayLight: #eaeaea;
+  --color-backgroundMenu: rgba(255, 255, 255, 0.45);
+}
+
+:root {
+  --color-primaryColor: #312f86;
+  --color-secondaryColor: #8fbf29;
+  --color-earaDark: #272727;
+  --color-earaDark-lighter: #272727;
+  --color-earaBgLight: #ededfa;
+  --color-earaBgDark: #e2e2e5;
+  --color-earaGrayLight: #eaeaea;
+  --color-backgroundMenu: rgba(255, 255, 255, 0.45);
+}
+
 body {
   background-color: white;
 }
-
 /* headings: {
     sizes: {
       h1: { fontSize: '3.815rem', lineHeight: '1' },
