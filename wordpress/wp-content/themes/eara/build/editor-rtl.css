@@ -193,6 +193,9 @@
 .grow {
   flex-grow: 1;
 }
+.flex-col {
+  flex-direction: column;
+}
 .items-start {
   align-items: flex-start;
 }
@@ -204,6 +207,9 @@
 }
 .gap-20 {
   gap: 5rem;
+}
+.gap-8 {
+  gap: 2rem;
 }
 .rounded-full {
   border-radius: 9999px;
@@ -349,11 +355,23 @@ h1 {
   opacity: 0.85;
 }
 @media (min-width: 640px) {
+  .sm\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+  .sm\:row-span-4 {
+    grid-row: span 4 / span 4;
+  }
   .sm\:mt-0 {
     margin-top: 0px;
   }
   .sm\:flex {
     display: flex;
+  }
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .sm\:grid-rows-4 {
+    grid-template-rows: repeat(4, minmax(0, 1fr));
   }
   .sm\:pl-40 {
     padding-right: 10rem;

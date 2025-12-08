@@ -2,157 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@mantine/core/esm/components/Badge/Badge.mjs":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Badge/Badge.mjs ***!
-  \*******************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Badge: function() { return /* binding */ Badge; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var _core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/utils/get-size/get-size.mjs */ "./node_modules/@mantine/core/esm/core/utils/get-size/get-size.mjs");
-/* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_color_functions_get_theme_color_get_theme_color_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/MantineProvider/color-functions/get-theme-color/get-theme-color.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/color-functions/get-theme-color/get-theme-color.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../core/factory/polymorphic-factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/polymorphic-factory.mjs");
-/* harmony import */ var _Badge_module_css_mjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Badge.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Badge/Badge.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const defaultProps = {};
-const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)(
-  (theme, { radius, color, gradient, variant, size, autoContrast }) => {
-    const colors = theme.variantColorResolver({
-      color: color || theme.primaryColor,
-      theme,
-      gradient,
-      variant: variant || "filled",
-      autoContrast
-    });
-    return {
-      root: {
-        "--badge-height": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "badge-height"),
-        "--badge-padding-x": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "badge-padding-x"),
-        "--badge-fz": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSize)(size, "badge-fz"),
-        "--badge-radius": radius === void 0 ? void 0 : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getRadius)(radius),
-        "--badge-bg": color || variant ? colors.background : void 0,
-        "--badge-color": color || variant ? colors.color : void 0,
-        "--badge-bd": color || variant ? colors.border : void 0,
-        "--badge-dot-color": variant === "dot" ? (0,_core_MantineProvider_color_functions_get_theme_color_get_theme_color_mjs__WEBPACK_IMPORTED_MODULE_5__.getThemeColor)(color, theme) : void 0
-      }
-    };
-  }
-);
-const Badge = (0,_core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_9__.polymorphicFactory)((_props, ref) => {
-  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_6__.useProps)("Badge", defaultProps, _props);
-  const {
-    classNames,
-    className,
-    style,
-    styles,
-    unstyled,
-    vars,
-    radius,
-    color,
-    gradient,
-    leftSection,
-    rightSection,
-    children,
-    variant,
-    fullWidth,
-    autoContrast,
-    circle,
-    mod,
-    ...others
-  } = props;
-  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_7__.useStyles)({
-    name: "Badge",
-    props,
-    classes: _Badge_module_css_mjs__WEBPACK_IMPORTED_MODULE_10__["default"],
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    vars,
-    varsResolver
-  });
-  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)(
-    _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_8__.Box,
-    {
-      variant,
-      mod: [
-        {
-          block: fullWidth,
-          circle,
-          "with-right-section": !!rightSection,
-          "with-left-section": !!leftSection
-        },
-        mod
-      ],
-      ...getStyles("root", { variant }),
-      ref,
-      ...others,
-      children: [
-        leftSection && /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { ...getStyles("section"), "data-position": "left", children: leftSection }),
-        /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { ...getStyles("label"), children }),
-        rightSection && /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", { ...getStyles("section"), "data-position": "right", children: rightSection })
-      ]
-    }
-  );
-});
-Badge.classes = _Badge_module_css_mjs__WEBPACK_IMPORTED_MODULE_10__["default"];
-Badge.displayName = "@mantine/core/Badge";
-
-
-//# sourceMappingURL=Badge.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Badge/Badge.module.css.mjs":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Badge/Badge.module.css.mjs ***!
-  \******************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ classes; }
-/* harmony export */ });
-'use client';
-var classes = {"root":"m_347db0ec","root--dot":"m_fbd81e3d","label":"m_5add502a","section":"m_91fdda9b"};
-
-
-//# sourceMappingURL=Badge.module.css.mjs.map
-
-
-/***/ }),
-
 /***/ "./node_modules/@mantine/core/esm/components/Card/Card.context.mjs":
 /*!*************************************************************************!*\
   !*** ./node_modules/@mantine/core/esm/components/Card/Card.context.mjs ***!
@@ -5308,16 +5157,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineProvider.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Group/Group.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Badge/Badge.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Card/Card.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Image/Image.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Text/Text.mjs");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Card/Card.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Image/Image.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Text/Text.mjs");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -5334,162 +5182,167 @@ function Edit(props) {
     title,
     link,
     featuredImage,
-    icon
+    icon,
+    orientation
   } = attributes;
-  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__.useBlockProps)({
+  const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.useBlockProps)({
     className: `wp-block-eara-card wp-block-eara-card--${variant}`
   });
   const variantOptions = [{
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Member', 'eara'),
-    value: 'member'
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Member", "eara"),
+    value: "member"
   }, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('News', 'eara'),
-    value: 'news'
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("News", "eara"),
+    value: "news"
   }, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Animals', 'eara'),
-    value: 'animals'
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Animals", "eara"),
+    value: "animals"
   }, {
-    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Team', 'eara'),
-    value: 'team'
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Team", "eara"),
+    value: "team"
+  }];
+  const orientationOptions = [{
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Vertical", "eara"),
+    value: "vertical"
+  }, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Horizontal", "eara"),
+    value: "horizontal"
   }];
   const onSelectImage = media => {
     setAttributes({
       featuredImage: {
         url: media.url,
         id: media.id,
-        alt: media.alt || ''
+        alt: media.alt || ""
       }
     });
   };
   const removeImage = () => {
     setAttributes({
       featuredImage: {
-        url: '',
+        url: "",
         id: 0,
-        alt: ''
+        alt: ""
       }
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
     ...blockProps,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.MantineProvider, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__.InspectorControls, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card Settings', 'eara'),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.MantineProvider, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.InspectorControls, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.PanelBody, {
+          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Card Settings", "eara"),
           initialOpen: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.SelectControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Variant', 'eara'),
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.SelectControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Variant", "eara"),
             value: variant,
             options: variantOptions,
             onChange: value => setAttributes({
               variant: value
             }),
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Choose the card variant style', 'eara')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Title', 'eara'),
+            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choose the card variant style", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.SelectControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Orientation", "eara"),
+            value: orientation,
+            options: orientationOptions,
+            onChange: value => setAttributes({
+              orientation: value
+            }),
+            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Choose the card orientation", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Title", "eara"),
             value: title,
             onChange: value => setAttributes({
               title: value
             }),
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card title', 'eara')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Link URL', 'eara'),
+            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Card title", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Link URL", "eara"),
             value: link,
             onChange: value => setAttributes({
               link: value
             }),
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card link (optional)', 'eara')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.TextControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon', 'eara'),
+            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Card link (optional)", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.TextControl, {
+            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon", "eara"),
             value: icon,
             onChange: value => setAttributes({
               icon: value
             }),
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Icon name or emoji (optional)', 'eara')
+            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Icon name or emoji (optional)", "eara")
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Featured Image', 'eara'),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.PanelBody, {
+          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Featured Image", "eara"),
           initialOpen: false,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__.MediaUploadCheck, {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__.MediaUpload, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.MediaUploadCheck, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.MediaUpload, {
               onSelect: onSelectImage,
-              allowedTypes: ['image'],
+              allowedTypes: ["image"],
               value: featuredImage.id,
               render: ({
                 open
-              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-                children: featuredImage.url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+              }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+                children: featuredImage.url ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
                     src: featuredImage.url,
                     alt: featuredImage.alt,
                     style: {
-                      maxWidth: '100%',
-                      marginBottom: '10px'
+                      maxWidth: "100%",
+                      marginBottom: "10px"
                     }
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Group, {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Group, {
                     gap: "xs",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.Button, {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.Button, {
                       onClick: open,
                       variant: "secondary",
-                      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Replace Image', 'eara')
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.Button, {
+                      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace Image", "eara")
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.Button, {
                       onClick: removeImage,
                       variant: "tertiary",
                       isDestructive: true,
-                      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Image', 'eara')
+                      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Remove Image", "eara")
                     })]
                   })]
-                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_9__.Button, {
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_8__.Button, {
                   onClick: open,
                   variant: "secondary",
-                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Select Image', 'eara')
+                  children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Select Image", "eara")
                 })
               })
             })
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Card, {
         shadow: "sm",
         padding: "lg",
         radius: "md",
         withBorder: true,
-        children: [featuredImage.url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card.Section, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Image, {
+        children: [featuredImage.url && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Card.Section, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Image, {
             src: featuredImage.url,
             height: 200,
             alt: featuredImage.alt || title
           })
-        }), variant && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Badge, {
-          color: "blue",
-          variant: "light",
-          mt: "md",
-          mb: "xs",
-          children: variant
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Group, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Group, {
           justify: "space-between",
           mt: "md",
           mb: "xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Text, {
             fw: 500,
             size: "lg",
-            children: title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Card Title', 'eara')
-          }), icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
+            children: title || (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Card Title", "eara")
+          }), icon && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Text, {
             size: "xl",
             children: icon
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "card-description",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_8__.InnerBlocks, {
-            allowedBlocks: ['core/paragraph', 'core/heading', 'core/list'],
-            template: [['core/paragraph', {
-              placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add card description...', 'eara')
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_7__.InnerBlocks, {
+            allowedBlocks: ["core/paragraph", "core/heading", "core/list"],
+            template: [["core/paragraph", {
+              placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Add card description...", "eara")
             }]]
           })
-        }), link && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Text, {
-          size: "sm",
-          c: "dimmed",
-          mt: "md",
-          children: ["\uD83D\uDD17 ", link]
         })]
       })]
     })

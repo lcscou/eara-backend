@@ -4844,8 +4844,34 @@ function Edit(props) {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_0__.MantineProvider, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(InspectorControls, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
-          title: __("Section Settings", "eara"),
+          title: __("Content", "eara"),
           initialOpen: true,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
+            label: __("Subtitle", "eara"),
+            value: subtitle,
+            onChange: v => setAttributes({
+              subtitle: v
+            }),
+            help: __("Small text above the title", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
+            label: __("Title", "eara"),
+            value: title,
+            onChange: v => setAttributes({
+              title: v
+            }),
+            help: __("Main section title", "eara")
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextareaControl, {
+            label: __("Description", "eara"),
+            value: description,
+            onChange: v => setAttributes({
+              description: v
+            }),
+            help: __("Description text below the title", "eara"),
+            rows: 4
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
+          title: __("Section Settings", "eara"),
+          initialOpen: false,
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ToggleControl, {
             label: __("Hide Title", "eara"),
             checked: noTitle,
@@ -4871,6 +4897,9 @@ function Edit(props) {
             }, {
               label: "Extra Large (xl)",
               value: "xl"
+            }, {
+              label: "None",
+              value: "none"
             }],
             onChange: v => setAttributes({
               containerSize: v
@@ -4916,32 +4945,6 @@ function Edit(props) {
             }),
             help: __("Background color of the section", "eara")
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(PanelBody, {
-          title: __("Content", "eara"),
-          initialOpen: false,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
-            label: __("Subtitle", "eara"),
-            value: subtitle,
-            onChange: v => setAttributes({
-              subtitle: v
-            }),
-            help: __("Small text above the title", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextControl, {
-            label: __("Title", "eara"),
-            value: title,
-            onChange: v => setAttributes({
-              title: v
-            }),
-            help: __("Main section title", "eara")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(TextareaControl, {
-            label: __("Description", "eara"),
-            value: description,
-            onChange: v => setAttributes({
-              description: v
-            }),
-            help: __("Description text below the title", "eara"),
-            rows: 4
-          })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
         class: "py-20 ",
@@ -4961,10 +4964,10 @@ function Edit(props) {
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "sm:px-unset mt-5 max-w-2xl grow px-[16px] sm:mt-0",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Title, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.Title, {
               order: 2,
               className: "text-primaryColor",
-              children: title
+              children: [title, !title && "Section Title"]
             }), description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_2__.Text, {
               mt: 15,
               children: description

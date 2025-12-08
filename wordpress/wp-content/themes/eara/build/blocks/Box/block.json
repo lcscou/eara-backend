@@ -20,7 +20,7 @@
     },
     "borderRadius": {
       "type": "string",
-      "default": ""
+      "default": "20px"
     },
     "border": {
       "type": "string",

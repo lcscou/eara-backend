@@ -28,7 +28,7 @@
     },
     "wrap": {
       "type": "string",
-      "default": "wrap"
+      "default": "no-wrap"
     },
     "preventGrowOverflow": {
       "type": "boolean",

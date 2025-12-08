@@ -4489,7 +4489,7 @@ function r(e){var t,f,n="";if("string"==typeof e||"number"==typeof e)n+=e;else i
   \*************************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/group","title":"Group","category":"eara","icon":"grid-view","description":"Compose elements and components in a horizontal flex container, like Mantine Group.","supports":{"html":false},"attributes":{"justify":{"type":"string","default":"flex-start"},"align":{"type":"string","default":"center"},"gap":{"type":"string","default":"md"},"grow":{"type":"boolean","default":false},"wrap":{"type":"string","default":"wrap"},"preventGrowOverflow":{"type":"boolean","default":true}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/group","title":"Group","category":"eara","icon":"grid-view","description":"Compose elements and components in a horizontal flex container, like Mantine Group.","supports":{"html":false},"attributes":{"justify":{"type":"string","default":"flex-start"},"align":{"type":"string","default":"center"},"gap":{"type":"string","default":"md"},"grow":{"type":"boolean","default":false},"wrap":{"type":"string","default":"no-wrap"},"preventGrowOverflow":{"type":"boolean","default":true}},"textdomain":"eara","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./index.css"}');
 
 /***/ }),
 

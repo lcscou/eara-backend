@@ -5838,7 +5838,7 @@ function Edit(props) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
-        style: containerStyle,
+        className: "grid gap-8 sm:grid-cols-4 sm:grid-rows-4",
         children: loading ? Array.from({
           length: postsPerPage
         }).map((_, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Card, {
@@ -5870,6 +5870,8 @@ function Edit(props) {
           const featuredImage = post._embedded?.['wp:featuredmedia']?.[0];
           const author = post._embedded?.author?.[0];
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Card, {
+            ard: true,
+            className: "sm:col-span-2 sm:row-span-4",
             shadow: "sm",
             padding: "lg",
             radius: "md",

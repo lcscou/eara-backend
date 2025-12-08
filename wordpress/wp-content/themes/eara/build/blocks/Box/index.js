@@ -8,7 +8,7 @@
   \***********************************/
 /***/ (function(module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/box","title":"Box","category":"eara","icon":"format-aside","description":"A simple container box with optional link, background, and spacing.","supports":{"html":false},"attributes":{"backgroundColor":{"type":"string","default":""},"padding":{"type":"string","default":""},"borderRadius":{"type":"string","default":""},"border":{"type":"string","default":""},"margin":{"type":"string","default":""},"href":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"eara/box","title":"Box","category":"eara","icon":"format-aside","description":"A simple container box with optional link, background, and spacing.","supports":{"html":false},"attributes":{"backgroundColor":{"type":"string","default":""},"padding":{"type":"string","default":""},"borderRadius":{"type":"string","default":"20px"},"border":{"type":"string","default":""},"margin":{"type":"string","default":""},"href":{"type":"string","default":""}},"textdomain":"eara","editorScript":"file:./index.js"}');
 
 /***/ }),
 
@@ -49,10 +49,10 @@ function Edit({
   } = attributes;
   const style = {
     backgroundColor: backgroundColor || undefined,
-    padding: padding || undefined,
-    margin: margin || undefined,
+    padding: padding || "20px",
+    margin: margin || "0",
     border: attributes.border || undefined,
-    borderRadius: attributes.borderRadius || '20px'
+    borderRadius: attributes.borderRadius || "20px"
   };
   const blockProps = useBlockProps({
     style
@@ -111,7 +111,9 @@ function Edit({
       style: {
         border: "1px dashed #d0d0d0",
         borderRadius: "6px",
-        padding: "12px"
+        padding: "12px",
+        display: "flex",
+        flexDirection: "column"
       },
       children: [href && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         style: {

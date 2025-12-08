@@ -30,7 +30,30 @@ export default function Edit(props) {
     <div {...blockProps}>
       <MantineProvider>
         <InspectorControls>
-          <PanelBody title={__("Section Settings", "eara")} initialOpen={true}>
+          <PanelBody title={__("Content", "eara")} initialOpen={true}>
+            <TextControl
+              label={__("Subtitle", "eara")}
+              value={subtitle}
+              onChange={(v) => setAttributes({ subtitle: v })}
+              help={__("Small text above the title", "eara")}
+            />
+
+            <TextControl
+              label={__("Title", "eara")}
+              value={title}
+              onChange={(v) => setAttributes({ title: v })}
+              help={__("Main section title", "eara")}
+            />
+
+            <TextareaControl
+              label={__("Description", "eara")}
+              value={description}
+              onChange={(v) => setAttributes({ description: v })}
+              help={__("Description text below the title", "eara")}
+              rows={4}
+            />
+          </PanelBody>
+          <PanelBody title={__("Section Settings", "eara")} initialOpen={false}>
             <ToggleControl
               label={__("Hide Title", "eara")}
               checked={noTitle}
@@ -47,6 +70,7 @@ export default function Edit(props) {
                 { label: "Medium (md)", value: "md" },
                 { label: "Large (lg)", value: "lg" },
                 { label: "Extra Large (xl)", value: "xl" },
+                { label: "None", value: "none" },
               ]}
               onChange={(v) => setAttributes({ containerSize: v })}
               help={__("Maximum width of the section container", "eara")}
@@ -76,30 +100,6 @@ export default function Edit(props) {
               help={__("Background color of the section", "eara")}
             />
           </PanelBody>
-
-          <PanelBody title={__("Content", "eara")} initialOpen={false}>
-            <TextControl
-              label={__("Subtitle", "eara")}
-              value={subtitle}
-              onChange={(v) => setAttributes({ subtitle: v })}
-              help={__("Small text above the title", "eara")}
-            />
-
-            <TextControl
-              label={__("Title", "eara")}
-              value={title}
-              onChange={(v) => setAttributes({ title: v })}
-              help={__("Main section title", "eara")}
-            />
-
-            <TextareaControl
-              label={__("Description", "eara")}
-              value={description}
-              onChange={(v) => setAttributes({ description: v })}
-              help={__("Description text below the title", "eara")}
-              rows={4}
-            />
-          </PanelBody>
         </InspectorControls>
 
         <section
@@ -117,6 +117,7 @@ export default function Edit(props) {
               <div className="sm:px-unset mt-5 max-w-2xl grow px-[16px] sm:mt-0">
                 <Title order={2} className="text-primaryColor">
                   {title}
+                  {!title && "Section Title"}
                 </Title>
                 {description && <Text mt={15}>{description}</Text>}
               </div>

@@ -67,7 +67,7 @@ export default function Edit(props) {
           </PanelBody>
         </InspectorControls>
 
-        <div style={containerStyle}>
+        <div className='grid gap-8 sm:grid-cols-4 sm:grid-rows-4'>
           {loading ? (
             Array.from({ length: postsPerPage }).map((_, i) => (
               <Card key={i} shadow="sm" padding="lg" radius="md" withBorder>
@@ -87,7 +87,7 @@ export default function Edit(props) {
               const author = post._embedded?.author?.[0];
 
               return (
-                <Card key={post.id} shadow="sm" padding="lg" radius="md" withBorder>
+                <Card  ard className="sm:col-span-2 sm:row-span-4" key={post.id} shadow="sm" padding="lg" radius="md" withBorder>
                   {featuredImage && (
                     <Card.Section>
                       <Image

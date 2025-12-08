@@ -7,10 +7,10 @@ export default function Edit({ attributes, setAttributes }) {
 
   const style = {
     backgroundColor: backgroundColor || undefined,
-    padding: padding || undefined,
-    margin: margin || undefined,
+    padding: padding || "20px",
+    margin: margin || "0",
     border: attributes.border || undefined,
-    borderRadius: attributes.borderRadius || '20px',
+    borderRadius: attributes.borderRadius || "20px",
   };
 
   const blockProps = useBlockProps({ style });
@@ -66,6 +66,8 @@ export default function Edit({ attributes, setAttributes }) {
           border: "1px dashed #d0d0d0",
           borderRadius: "6px",
           padding: "12px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         {href && (
@@ -73,6 +75,7 @@ export default function Edit({ attributes, setAttributes }) {
             {__("This box will link to:", "eara")} {href}
           </div>
         )}
+
         <InnerBlocks />
       </div>
     </div>

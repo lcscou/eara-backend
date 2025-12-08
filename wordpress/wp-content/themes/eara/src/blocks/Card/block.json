@@ -12,8 +12,13 @@
   "attributes": {
     "variant": {
       "type": "string",
-      "default": "member",
-      "enum": ["member", "news", "animals", "team"]
+      "default": "layout-1",
+      "enum": ["layout-1","member", "news", "animals", "team"]
+    },
+    "orientation":{
+      "type": "string",
+      "default": "vertical",
+      "enum": ["vertical", "horizontal"]
     },
     "title": {
       "type": "string",
