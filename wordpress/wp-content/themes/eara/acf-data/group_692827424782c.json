@@ -3,6 +3,33 @@
     "title": "Team",
     "fields": [
         {
+            "key": "field_693c6166178f8",
+            "label": "Order",
+            "name": "order",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "ordern",
+            "graphql_non_null": 0
+        },
+        {
             "key": "field_692827433eebf",
             "label": "Role",
             "name": "role",
@@ -43,16 +70,17 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
     "show_in_graphql": 1,
     "graphql_field_name": "AcfTeam",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1764239325
+    "modified": 1765566848
 }

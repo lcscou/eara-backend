@@ -30,8 +30,30 @@ add_action('graphql_register_types', function () {
     ]);
 
 });
+
 add_filter('graphql_post_object_connection_query_args', function ($query_args, $source, $args, $context, $info) {
 
+    // Apply Team ordering from ACF Settings
+    if ($info->fieldName === 'teams' || (isset($query_args['post_type']) && $query_args['post_type'][0] === 'team')) {
+     
+        $team_settings = get_field('team', 'option');
+        
+        if ($team_settings) {
+            $orderby = isset($team_settings['orderby-team']) ? $team_settings['orderby-team'] : 'title';
+            $order = isset($team_settings['order-team']) ? $team_settings['order-team'] : 'ASC';
+            
+            if ($orderby === 'order') {
+                // Order by custom field 'order'
+                $query_args['orderby'] = 'meta_value_num';
+                $query_args['meta_key'] = 'order';
+            } else {
+                // Order by date or title
+                $query_args['orderby'] = $orderby;
+            }
+            
+            $query_args['order'] = $order;
+        }
+    }
 
     if (isset($args['where']['organizer']) && $info->fieldName === 'allEvents') {
         $query_args['meta_query'][] = [
