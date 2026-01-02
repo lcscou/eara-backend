@@ -242,6 +242,451 @@
                     "save_options": 0
                 }
             ]
+        },
+        {
+            "key": "field_695bb83a0368e",
+            "label": "Events",
+            "name": "events",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "events",
+            "graphql_non_null": 0,
+            "sub_fields": [
+                {
+                    "key": "field_695bb83a0368f",
+                    "label": "Order By",
+                    "name": "orderby-events",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "date": "date",
+                        "title": "title",
+                        "order": "order"
+                    },
+                    "default_value": false,
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
+                    "key": "field_695bb83a03690",
+                    "label": "Order",
+                    "name": "order-events",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ASC": "ASC",
+                        "DESC": "DESC"
+                    },
+                    "default_value": "ASC",
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                }
+            ]
+        },
+        {
+            "key": "field_695bb85c03691",
+            "label": "Animals",
+            "name": "animals",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "eventsCopy",
+            "graphql_non_null": 0,
+            "sub_fields": [
+                {
+                    "key": "field_695bb85c03692",
+                    "label": "Order By",
+                    "name": "orderby-animals",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "date": "date",
+                        "title": "title",
+                        "order": "order"
+                    },
+                    "default_value": false,
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderbyEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
+                    "key": "field_695bb85c03693",
+                    "label": "Order",
+                    "name": "order-animals",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ASC": "ASC",
+                        "DESC": "DESC"
+                    },
+                    "default_value": "ASC",
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                }
+            ]
+        },
+        {
+            "key": "field_695bb88703694",
+            "label": "Case Studies",
+            "name": "case-studies",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "eventsCopy",
+            "graphql_non_null": 0,
+            "sub_fields": [
+                {
+                    "key": "field_695bb88703695",
+                    "label": "Order By",
+                    "name": "orderby-case-studies",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "date": "date",
+                        "title": "title",
+                        "order": "order"
+                    },
+                    "default_value": false,
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderbyEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
+                    "key": "field_695bb88703696",
+                    "label": "Order",
+                    "name": "order-case-studies",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ASC": "ASC",
+                        "DESC": "DESC"
+                    },
+                    "default_value": "ASC",
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                }
+            ]
+        },
+        {
+            "key": "field_695bb8be03697",
+            "label": "Diseases",
+            "name": "diseases",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "eventsCopy",
+            "graphql_non_null": 0,
+            "sub_fields": [
+                {
+                    "key": "field_695bb8be03698",
+                    "label": "Order By",
+                    "name": "orderby-diseases",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "date": "date",
+                        "title": "title",
+                        "order": "order"
+                    },
+                    "default_value": false,
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderbyEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
+                    "key": "field_695bb8be03699",
+                    "label": "Order",
+                    "name": "order-diseases",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ASC": "ASC",
+                        "DESC": "DESC"
+                    },
+                    "default_value": "ASC",
+                    "return_format": "",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                }
+            ]
+        },
+        {
+            "key": "field_695bb8e60369a",
+            "label": "Media Bank",
+            "name": "media-bank",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "eventsCopy",
+            "graphql_non_null": 0,
+            "sub_fields": [
+                {
+                    "key": "field_695bb8e60369b",
+                    "label": "Order By",
+                    "name": "orderby-media-bank",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "date": "date",
+                        "title": "title",
+                        "order": "order"
+                    },
+                    "default_value": false,
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderbyEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                },
+                {
+                    "key": "field_695bb8e60369c",
+                    "label": "Order",
+                    "name": "order-media-bank",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "ASC": "ASC",
+                        "DESC": "DESC"
+                    },
+                    "default_value": "ASC",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "orderEvents",
+                    "graphql_non_null": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0
+                }
+            ]
         }
     ],
     "location": [
@@ -267,5 +712,5 @@
     "graphql_field_name": "themeSettings",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767618103
+    "modified": 1767618818
 }
