@@ -55,6 +55,24 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
         }
     }
 
+    if ($info->fieldName === 'allNews' || (isset($query_args['post_type']) && $query_args['post_type'][0] === 'news')) {
+        $news_settings = get_field('news', 'option');
+
+        if ($news_settings) {
+            $orderby = isset($news_settings['orderby-news']) ? $news_settings['orderby-news'] : 'date';
+            $order = isset($news_settings['order-news']) ? $news_settings['order-news'] : 'DESC';
+
+            if ($orderby === 'order') {
+                $query_args['orderby'] = 'meta_value_num';
+                $query_args['meta_key'] = 'order';
+            } else {
+                $query_args['orderby'] = $orderby;
+            }
+
+            $query_args['order'] = $order;
+        }
+    }
+
     if (isset($args['where']['organizer']) && $info->fieldName === 'allEvents') {
         $query_args['meta_query'][] = [
             'key' => 'organizer',
