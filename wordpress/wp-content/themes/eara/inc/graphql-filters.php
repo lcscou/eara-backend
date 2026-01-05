@@ -8,6 +8,10 @@ add_action('graphql_register_types', function () {
         'type' => 'String',
         'description' => 'Filter events by category field',
     ]);
+    register_graphql_field('RootQueryToEventsConnectionWhereArgs', 'locationType', [
+        'type' => 'String',
+        'description' => 'Filter events by location-type field',
+    ]);
     register_graphql_field('RootQueryToMediaBankConnectionWhereArgs', 'speciesFeatured', [
         'type' => 'String',
         'description' => 'Filter media by species_featured field',
@@ -175,6 +179,13 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
         $query_args['meta_query'][] = [
             'key' => 'category',
             'value' => $args['where']['category'],
+            'compare' => '=',
+        ];
+    }
+    if (isset($args['where']['locationType']) && $info->fieldName === 'allEvents') {
+        $query_args['meta_query'][] = [
+            'key' => 'location_type',
+            'value' => $args['where']['locationType'],
             'compare' => '=',
         ];
     }

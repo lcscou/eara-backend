@@ -327,6 +327,36 @@
             "save_options": 0
         },
         {
+            "key": "field_695bbe4b04614",
+            "label": "Location Type",
+            "name": "location_type",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "online": "Online",
+                "in-site": "In Site"
+            },
+            "default_value": "in-site",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 0,
+            "layout": "vertical",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "locationType",
+            "graphql_non_null": 0,
+            "save_other_choice": 0
+        },
+        {
             "key": "field_68f77de4b9a5a",
             "label": "Location",
             "name": "location",
@@ -445,9 +475,10 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
     "show_in_graphql": 1,
     "graphql_field_name": "customFields",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1763544933
+    "modified": 1767620515
 }
