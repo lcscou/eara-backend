@@ -1,38 +1,11 @@
 {
-    "key": "group_695bb735664e1",
-    "title": "Animals",
+    "key": "group_695cfb64ce0c1",
+    "title": "Common Props",
     "fields": [
         {
-            "key": "field_695bb73b4553e",
-            "label": "Order",
-            "name": "order",
-            "aria-label": "",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 0,
-            "min": "",
-            "max": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": "",
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "order",
-            "graphql_non_null": 0
-        },
-        {
-            "key": "field_695d0a517fb82",
+            "key": "field_695cfb65c0894",
             "label": "Page Header Image",
-            "name": "page_header_image",
+            "name": "page-header-image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -62,9 +35,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "post_template",
                 "operator": "==",
-                "value": "animals"
+                "value": "default"
             }
         ]
     ],
@@ -79,8 +52,27 @@
     "show_in_rest": 0,
     "display_title": "",
     "show_in_graphql": 1,
-    "graphql_field_name": "acfAnimal",
-    "map_graphql_types_from_location_rules": 0,
-    "graphql_types": "",
-    "modified": 1767705834
+    "graphql_field_name": "commonProps",
+    "map_graphql_types_from_location_rules": 1,
+    "graphql_types": [
+        "ContentNode",
+        "Animal",
+        "CaseStudies",
+        "Diseases",
+        "Events",
+        "GraphqlDocument",
+        "MediaBank",
+        "MediaItem",
+        "Member",
+        "News",
+        "Office",
+        "Page",
+        "Post",
+        "PressRelease",
+        "ResearchArea",
+        "Team",
+        "Ticker",
+        "DefaultTemplate"
+    ],
+    "modified": 1767702352
 }

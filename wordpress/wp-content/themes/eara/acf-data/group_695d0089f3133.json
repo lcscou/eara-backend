@@ -1,13 +1,13 @@
 {
-    "key": "group_695bb7885effa",
-    "title": "Diseases",
+    "key": "group_695d0089f3133",
+    "title": "Press Release",
     "fields": [
         {
-            "key": "field_695bb78f0c8c5",
-            "label": "Order",
-            "name": "order",
+            "key": "field_695d0a6499d1b",
+            "label": "Page Header Image",
+            "name": "page_header_image",
             "aria-label": "",
-            "type": "number",
+            "type": "image",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,18 +16,20 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 0,
-            "min": "",
-            "max": "",
+            "return_format": "url",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
             "allow_in_bindings": 0,
-            "placeholder": "",
-            "step": "",
-            "prepend": "",
-            "append": "",
+            "preview_size": "medium",
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "order",
-            "graphql_non_null": 0
+            "graphql_field_name": "pageHeaderImage"
         }
     ],
     "location": [
@@ -35,7 +37,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "diseases"
+                "value": "press-releases"
             }
         ]
     ],
@@ -50,8 +52,8 @@
     "show_in_rest": 0,
     "display_title": "",
     "show_in_graphql": 1,
-    "graphql_field_name": "diseases",
+    "graphql_field_name": "acfPressRelease",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767618474
+    "modified": 1767705306
 }

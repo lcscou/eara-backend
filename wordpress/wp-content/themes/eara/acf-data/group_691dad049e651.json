@@ -272,6 +272,35 @@
             "graphql_description": "",
             "graphql_field_name": "website",
             "graphql_non_null": 0
+        },
+        {
+            "key": "field_695d0a2641788",
+            "label": "Page Header Image",
+            "name": "page_header_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "pageHeaderImage"
         }
     ],
     "location": [
@@ -292,9 +321,10 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
     "show_in_graphql": 1,
     "graphql_field_name": "AcfMembers",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1763557678
+    "modified": 1767705138
 }

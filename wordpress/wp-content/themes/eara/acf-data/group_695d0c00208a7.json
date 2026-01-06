@@ -1,9 +1,9 @@
 {
-    "key": "group_69280e301c63f",
-    "title": "Case Studies",
+    "key": "group_695d0c00208a7",
+    "title": "Diseases",
     "fields": [
         {
-            "key": "field_695bb76f29902",
+            "key": "field_695d0c0114cb8",
             "label": "Order",
             "name": "order",
             "aria-label": "",
@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 0,
+            "default_value": "",
             "min": "",
             "max": "",
             "allow_in_bindings": 0,
@@ -30,36 +30,7 @@
             "graphql_non_null": 0
         },
         {
-            "key": "field_69280e31f5494",
-            "label": "Institution",
-            "name": "institution",
-            "aria-label": "",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "institution",
-            "add_term": 1,
-            "save_terms": 1,
-            "load_terms": 1,
-            "return_format": "object",
-            "field_type": "multi_select",
-            "allow_null": 1,
-            "allow_in_bindings": 0,
-            "bidirectional": 0,
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "institution",
-            "multiple": 0,
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_695d09c5c0da6",
+            "key": "field_695d0c1814cb9",
             "label": "Page Header Image",
             "name": "page_header_image",
             "aria-label": "",
@@ -93,7 +64,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "case-studies"
+                "value": "diseases"
             }
         ]
     ],
@@ -108,8 +79,8 @@
     "show_in_rest": 0,
     "display_title": "",
     "show_in_graphql": 1,
-    "graphql_field_name": "AcfCaseStudie",
+    "graphql_field_name": "acfDiseases",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767705063
+    "modified": 1767705651
 }
