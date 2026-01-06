@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/hero-home",
+  "title": "Hero Home",
+  "category": "eara",
+  "icon": "cover-image",
+  "description": "Seção hero 16:9 com imagem de fundo e conteúdo central.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "backgroundImage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    },
+    "innerContainer": {
+      "type": "boolean",
+      "default": true
+    },
+    "overlayColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "overlayOpacity": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

@@ -420,6 +420,31 @@
             "graphql_description": "",
             "graphql_field_name": "location",
             "graphql_non_null": 0
+        },
+        {
+            "key": "field_695d45a09723c",
+            "label": "Is Featured",
+            "name": "is_featured",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "If checked, the image can be used on the homepage.",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "isFeatured",
+            "graphql_non_null": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -445,5 +470,5 @@
     "graphql_field_name": "cfMediaBank",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767618841
+    "modified": 1767720449
 }

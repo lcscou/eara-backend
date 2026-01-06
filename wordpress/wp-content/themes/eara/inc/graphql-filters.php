@@ -16,6 +16,11 @@ add_action('graphql_register_types', function () {
         'type' => 'String',
         'description' => 'Filter media by species_featured field',
     ]);
+    // Filter by ACF true/false field is_featured
+    register_graphql_field('RootQueryToMediaBankConnectionWhereArgs', 'isFeatured', [
+        'type' => 'Boolean',
+        'description' => 'Filter media bank by ACF field is_featured (featured for homepage)',
+    ]);
     register_graphql_field('RootQueryToNewsConnectionWhereArgs', 'category', [
         'type' => 'String',
         'description' => 'Filter News by category field',
@@ -193,6 +198,13 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
         $query_args['meta_query'][] = [
             'key' => 'species_featured',
             'value' => $args['where']['speciesFeatured'],
+            'compare' => '=',
+        ];
+    }
+    if (isset($args['where']['isFeatured']) && ($info->fieldName === 'mediasBank' || $info->fieldName === 'mediaBank' || $info->fieldName === 'allMediaBank')) {
+        $query_args['meta_query'][] = [
+            'key' => 'is_featured',
+            'value' => $args['where']['isFeatured'] ? '1' : '0',
             'compare' => '=',
         ];
     }

@@ -12,6 +12,7 @@ import './blocks/Grid';
 import './blocks/GridCol';
 import './blocks/HeroCarousel';
 import './blocks/HeroSlide';
+import './blocks/HeroHome';
 import './blocks/Section';
 import './blocks/LatestNews';
 import './blocks/LatestEvents';
