@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/tabs",
+  "title": "Tabs",
+  "category": "eara",
+  "icon": "menu",
+  "description": "A customizable tabs block with content panels and featured images",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "tabs": {
+      "type": "array",
+      "default": [
+        {
+          "id": "tab-1",
+          "title": "TAB TITLE 1",
+          "content": "Tab content goes here",
+          "image": {
+            "url": "",
+            "id": 0,
+            "alt": ""
+          }
+        },
+        {
+          "id": "tab-2",
+          "title": "TAB TITLE 2",
+          "content": "Tab content goes here",
+          "image": {
+            "url": "",
+            "id": 0,
+            "alt": ""
+          }
+        },
+        {
+          "id": "tab-3",
+          "title": "TAB TITLE 3",
+          "content": "Tab content goes here",
+          "image": {
+            "url": "",
+            "id": 0,
+            "alt": ""
+          }
+        },
+        {
+          "id": "tab-4",
+          "title": "TAB TITLE 4",
+          "content": "Tab content goes here",
+          "image": {
+            "url": "",
+            "id": 0,
+            "alt": ""
+          }
+        }
+      ]
+    },
+    "activeTab": {
+      "type": "string",
+      "default": "tab-1"
+    },
+    "layout": {
+      "type": "string",
+      "default": "vertical",
+      "enum": ["vertical", "horizontal"]
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

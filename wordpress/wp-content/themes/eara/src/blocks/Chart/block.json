@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/chart",
+  "title": "Chart",
+  "category": "eara",
+  "icon": "chart-area",
+  "description": "Bloco de gráfico com variantes Donut e Line usando Mantine Charts",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "enum": ["donut", "line"],
+      "default": "donut"
+    },
+    "title": {
+      "type": "string",
+      "default": "Chart Title"
+    },
+    "height": {
+      "type": "number",
+      "default": 240
+    },
+    "showLegend": {
+      "type": "boolean",
+      "default": true
+    },
+    "donutThickness": {
+      "type": "number",
+      "default": 22
+    },
+    "donutCenterLabel": {
+      "type": "string",
+      "default": "Group"
+    },
+    "donutData": {
+      "type": "array",
+      "default": [
+        { "name": "Label 1", "value": 25, "color": "#5C7CFA" },
+        { "name": "Label 2", "value": 20, "color": "#22C55E" },
+        { "name": "Label 3", "value": 15, "color": "#0EA5E9" },
+        { "name": "Label 4", "value": 30, "color": "#D946EF" },
+        { "name": "Label 5", "value": 10, "color": "#9CA3AF" }
+      ]
+    },
+    "lineCategories": {
+      "type": "array",
+      "default": ["q1", "q2", "q3", "q4"]
+    },
+    "lineCurve": {
+      "type": "string",
+      "enum": ["linear", "monotone"],
+      "default": "linear"
+    },
+    "lineSeries": {
+      "type": "array",
+      "default": [
+        { "name": "Content", "color": "#4F46E5", "data": [10, 20, 35, 25] },
+        { "name": "Context", "color": "#22C55E", "data": [15, 25, 20, 30] },
+        { "name": "Contact", "color": "#A3E635", "data": [20, 30, 25, 20] }
+      ]
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css",
+  "viewScript": "file:./frontend.js"
+}

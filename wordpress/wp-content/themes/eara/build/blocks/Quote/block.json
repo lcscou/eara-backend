@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/quote",
+  "title": "Quote",
+  "category": "eara",
+  "icon": "format-quote",
+  "description": "A customizable quote block with variants, colors, and optional author avatar",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": "Animals can suffer from many of the same conditions as humans, such as cancer, heart disease, epilepsy and infectious diseases."
+    },
+    "author": {
+      "type": "string",
+      "default": "Quote Author"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "white",
+      "enum": [
+        "white",
+        "light-blue",
+        "light-green",
+        "light-gray"
+      ]
+    },
+    "showAvatar": {
+      "type": "boolean",
+      "default": false
+    },
+    "avatarImage": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    },
+    "variant": {
+      "type": "string",
+      "default": "standard",
+      "enum": [
+        "standard",
+        "highlighted"
+      ]
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}
