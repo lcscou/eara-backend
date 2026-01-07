@@ -3,7 +3,7 @@
 function my_get_countries()
 {
     return array(
-
+        'international' => 'International',
         'afghanistan' => 'Afghanistan',
         'albania' => 'Albania',
         'algeria' => 'Algeria',
