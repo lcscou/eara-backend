@@ -56652,6 +56652,25 @@ function Edit(props) {
     image,
     orientation
   } = attributes;
+  const customColors = [{
+    name: 'Primary Color',
+    color: '#312f86'
+  }, {
+    name: 'Secondary Color',
+    color: '#8fbf29'
+  }, {
+    name: 'Dark',
+    color: '#272727'
+  }, {
+    name: 'BG Light',
+    color: '#ededfa'
+  }, {
+    name: 'BG Dark',
+    color: '#e2e2e5'
+  }, {
+    name: 'Gray Light',
+    color: '#eaeaea'
+  }];
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
     className: `wp-block-eara-section-card orientation-${orientation} p-0`,
     style: {
@@ -56712,6 +56731,28 @@ function Edit(props) {
             onChangeComplete: color => setAttributes({
               backgroundColor: color.hex
             })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            style: {
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '8px',
+              marginTop: '12px'
+            },
+            children: customColors.map(colorItem => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              onClick: () => setAttributes({
+                backgroundColor: colorItem.color
+              }),
+              style: {
+                width: '100%',
+                height: '40px',
+                backgroundColor: colorItem.color,
+                border: backgroundColor === colorItem.color ? '2px solid #000' : '1px solid #ccc',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                title: colorItem.name
+              },
+              title: colorItem.name
+            }, colorItem.color))
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {

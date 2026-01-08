@@ -2,6 +2,40 @@
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "settings": {
+    "color": {
+      "palette": [
+        {
+          "color": "#312f86",
+          "name": "Primary Color",
+          "slug": "primary-color"
+        },
+        {
+          "color": "#8fbf29",
+          "name": "Secondary Color",
+          "slug": "secondary-color"
+        },
+        {
+          "color": "#272727",
+          "name": "Dark",
+          "slug": "eara-dark"
+        },
+        {
+          "color": "#ededfa",
+          "name": "BG Light",
+          "slug": "eara-bg-light"
+        },
+        {
+          "color": "#e2e2e5",
+          "name": "BG Dark",
+          "slug": "eara-bg-dark"
+        },
+        {
+          "color": "#eaeaea",
+          "name": "Gray Light",
+          "slug": "eara-gray-light"
+        }
+      ]
+    },
     "spacing": {
       "padding": true,
       "margin": true

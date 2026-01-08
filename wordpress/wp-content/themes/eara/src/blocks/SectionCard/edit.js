@@ -18,6 +18,15 @@ export default function Edit(props) {
   const { attributes, setAttributes } = props;
   const { backgroundColor, image, orientation } = attributes;
 
+  const customColors = [
+    { name: 'Primary Color', color: '#312f86' },
+    { name: 'Secondary Color', color: '#8fbf29' },
+    { name: 'Dark', color: '#272727' },
+    { name: 'BG Light', color: '#ededfa' },
+    { name: 'BG Dark', color: '#e2e2e5' },
+    { name: 'Gray Light', color: '#eaeaea' },
+  ];
+
   const blockProps = useBlockProps({
     className: `wp-block-eara-section-card orientation-${orientation} p-0`,
     style: {
@@ -70,6 +79,24 @@ export default function Edit(props) {
               color={backgroundColor}
               onChangeComplete={(color) => setAttributes({ backgroundColor: color.hex })}
             />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', marginTop: '12px' }}>
+              {customColors.map((colorItem) => (
+                <button
+                  key={colorItem.color}
+                  onClick={() => setAttributes({ backgroundColor: colorItem.color })}
+                  style={{
+                    width: '100%',
+                    height: '40px',
+                    backgroundColor: colorItem.color,
+                    border: backgroundColor === colorItem.color ? '2px solid #000' : '1px solid #ccc',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    title: colorItem.name,
+                  }}
+                  title={colorItem.name}
+                />
+              ))}
+            </div>
           </div>
 
           <MediaUploadCheck>
