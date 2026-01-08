@@ -1,0 +1,175 @@
+.wp-block-eara-section-card {
+  padding: 3rem 2rem;
+  border-radius: 16px;
+  margin: 2rem 0;
+
+  .section-card-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-card-media {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .mantine-Image-root {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .section-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .section-card-text {
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      color: #4338ca;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong, b {
+        font-weight: 700;
+        color: #1f2937;
+      }
+    }
+  }
+
+  .section-card-button-wrapper {
+    margin-top: 1rem;
+  }
+
+  .section-card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.75rem;
+    background-color: #4338ca;
+    color: white;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #3730a3;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(67, 56, 202, 0.3);
+    }
+
+    .section-card-button-arrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background-color: #a3e635;
+      border-radius: 50%;
+      color: #1f2937;
+      font-size: 14px;
+      font-weight: 700;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover .section-card-button-arrow {
+      transform: translateX(4px);
+    }
+  }
+
+  // Orientation: Image Right
+  &.orientation-right {
+    .section-card-inner {
+      grid-template-columns: 1.2fr 1fr;
+
+      .section-card-media {
+        order: 2;
+      }
+
+      .section-card-content {
+        order: 1;
+      }
+    }
+  }
+
+  // Responsive
+  @media (max-width: 1024px) {
+    padding: 2.5rem 1.5rem;
+
+    .section-card-inner {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+
+    .section-card-inner {
+      grid-template-columns: 1fr !important;
+      gap: 1.5rem;
+
+      .section-card-media,
+      .section-card-content {
+        order: unset !important;
+      }
+    }
+
+    .section-card-text {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

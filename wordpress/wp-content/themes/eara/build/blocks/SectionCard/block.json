@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/section-card",
+  "title": "Section Card",
+  "category": "eara",
+  "icon": "align-pull-left",
+  "description": "A section card with image and content that can be oriented left or right",
+  "supports": {
+    "html": false,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#f5f6fb"
+    },
+    "image": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    },
+    "orientation": {
+      "type": "string",
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

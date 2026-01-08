@@ -1,0 +1,23 @@
+// Editor-specific styles for SectionCard
+.wp-block-eara-section-card {
+  .section-card-placeholder {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+    border-radius: 12px;
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+  .section-card-text {
+    p {
+      margin-bottom: 1rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

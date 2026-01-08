@@ -23,4 +23,4 @@ import './blocks/Gallery';
 import './blocks/List';
 import './blocks/ListItem';
 import './blocks/Chart';
-import './blocks/Chart';
+import './blocks/SectionCard';
