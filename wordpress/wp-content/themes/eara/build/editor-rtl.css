@@ -1,3 +1,6 @@
+/*!********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/editor.css ***!
+  \********************************************************************************************************************************************************************/
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -236,6 +239,10 @@
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
+.bg-\[\#eaeaea\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 234 234 / var(--tw-bg-opacity, 1));
+}
 .p-1 {
   padding: 0.25rem;
 }
@@ -260,15 +267,26 @@
 .pl-20 {
   padding-right: 5rem;
 }
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
 .uppercase {
   text-transform: uppercase;
 }
 .italic {
   font-style: italic;
 }
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+.text-indigo-700 {
+  --tw-text-opacity: 1;
+  color: rgb(67 56 202 / var(--tw-text-opacity, 1));
 }
 .text-primaryColor {
   --tw-text-opacity: 1;
@@ -369,12 +387,19 @@ h1 {
     line-height: 110% !important;
   }
 }
+.hover\:text-indigo-900:hover {
+  --tw-text-opacity: 1;
+  color: rgb(49 46 129 / var(--tw-text-opacity, 1));
+}
 .hover\:opacity-85:hover {
   opacity: 0.85;
 }
 @media (min-width: 640px) {
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
+  }
+  .sm\:row-span-2 {
+    grid-row: span 2 / span 2;
   }
   .sm\:row-span-4 {
     grid-row: span 4 / span 4;

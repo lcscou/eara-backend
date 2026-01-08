@@ -1,1 +1,219 @@
-:root{--accordion-radius: var(--mantine-radius-sm, 0.25rem);--accordion-chevron-size: 1rem;--accordion-transition: 200ms ease}.eara-accordion-container{border:1px solid #dee2e6;border-radius:var(--accordion-radius);background-color:#fff}.eara-accordion-container[data-variant=contained]{background-color:#f8f9fa}.eara-accordion-container[data-variant=contained] .eara-accordion__item{background-color:#fff}.eara-accordion-container[data-variant=contained] .eara-accordion__item:not(:last-child){border-bottom:1px solid #dee2e6}.eara-accordion-container[data-variant=separated]{background-color:rgba(0,0,0,0);border:none}.eara-accordion-container[data-variant=separated] .eara-accordion__item{border:1px solid #dee2e6;border-radius:var(--accordion-radius);margin-bottom:.5rem}.eara-accordion-container[data-variant=separated] .eara-accordion__item:last-child{margin-bottom:0}.eara-accordion-container[data-variant=filled]{background-color:#f8f9fa;border:none}.eara-accordion-container[data-variant=filled] .eara-accordion__item:not(:last-child){border-bottom:1px solid #dee2e6}.eara-accordion-container[data-variant=filled] .eara-accordion__control{background-color:rgba(0,0,0,0)}.eara-accordion-container[data-variant=filled] .eara-accordion__control:hover{background-color:rgba(0,0,0,.05)}.eara-accordion-container[data-variant=default] .eara-accordion__item:not(:last-child){border-bottom:1px solid #dee2e6}.eara-accordion-container[data-chevron-position=left] .eara-accordion__control{flex-direction:row}.eara-accordion-container[data-chevron-position=left] .eara-accordion__chevron{margin-left:.75rem;margin-right:0}.eara-accordion-container[data-disable-chevron-rotation=true] .eara-accordion__item[aria-expanded=true] .eara-accordion__chevron{transform:none}.eara-accordion__item{position:relative;background-color:#fff}.eara-accordion__item[data-disabled=true]{opacity:.6}.eara-accordion__item[data-disabled=true] .eara-accordion__control{cursor:not-allowed;pointer-events:none}.eara-accordion__item[aria-expanded=true] .eara-accordion__panel{max-height:2000px;opacity:1;padding-top:1rem;padding-bottom:1rem}.eara-accordion__item[aria-expanded=true] .eara-accordion__chevron{transform:rotate(-180deg)}.eara-accordion__control{display:flex;align-items:center;justify-content:space-between;width:100%;padding:1rem 1.25rem;background-color:rgba(0,0,0,0);border:none;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:1rem;font-weight:500;text-align:right;color:inherit;transition:background-color var(--accordion-transition)}.eara-accordion__control:hover:not(:disabled){background-color:rgba(0,0,0,.03)}.eara-accordion__control:focus{outline:2px solid var(--mantine-color-blue-6, #228be6);outline-offset:-2px}.eara-accordion__control:disabled{cursor:not-allowed}.eara-accordion__label{flex:1}.eara-accordion__label p{margin:0}.eara-accordion__chevron{display:flex;align-items:center;justify-content:center;width:var(--accordion-chevron-size);height:var(--accordion-chevron-size);margin-right:.75rem;transition:transform var(--accordion-transition);flex-shrink:0}.eara-accordion__chevron svg{width:100%;height:100%}.eara-accordion__panel{max-height:0;overflow:hidden;opacity:0;transition:max-height var(--accordion-transition),opacity var(--accordion-transition),padding var(--accordion-transition)}.eara-accordion__content{padding:0 1.25rem}.eara-accordion__content>*:first-child{margin-top:0}.eara-accordion__content>*:last-child{margin-bottom:0}.eara-accordion-container[data-chevron-size=xs]{--accordion-chevron-size: 0.75rem}.eara-accordion-container[data-chevron-size=sm]{--accordion-chevron-size: 0.875rem}.eara-accordion-container[data-chevron-size=md]{--accordion-chevron-size: 1rem}.eara-accordion-container[data-chevron-size=lg]{--accordion-chevron-size: 1.125rem}.eara-accordion-container[data-chevron-size=xl]{--accordion-chevron-size: 1.5rem}.eara-accordion-container[data-radius=xs]{--accordion-radius: var(--mantine-radius-xs, 0.125rem)}.eara-accordion-container[data-radius=sm]{--accordion-radius: var(--mantine-radius-sm, 0.25rem)}.eara-accordion-container[data-radius=md]{--accordion-radius: var(--mantine-radius-md, 0.5rem)}.eara-accordion-container[data-radius=lg]{--accordion-radius: var(--mantine-radius-lg, 1rem)}.eara-accordion-container[data-radius=xl]{--accordion-radius: var(--mantine-radius-xl, 2rem)}.eara-accordion__item:not([aria-expanded]) .eara-accordion__panel{display:none}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Accordion/styles.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Mantine-like Accordion styles */
+:root {
+  --accordion-radius: var(--mantine-radius-sm, 0.25rem);
+  --accordion-chevron-size: 1rem;
+  --accordion-transition: 200ms ease;
+}
+
+.eara-accordion-container {
+  border: 1px solid #dee2e6;
+  border-radius: var(--accordion-radius);
+  background-color: white;
+  /* Variant: contained */
+}
+.eara-accordion-container[data-variant=contained] {
+  background-color: #f8f9fa;
+}
+.eara-accordion-container[data-variant=contained] .eara-accordion__item {
+  background-color: white;
+}
+.eara-accordion-container[data-variant=contained] .eara-accordion__item:not(:last-child) {
+  border-bottom: 1px solid #dee2e6;
+}
+.eara-accordion-container {
+  /* Variant: separated */
+}
+.eara-accordion-container[data-variant=separated] {
+  background-color: transparent;
+  border: none;
+}
+.eara-accordion-container[data-variant=separated] .eara-accordion__item {
+  border: 1px solid #dee2e6;
+  border-radius: var(--accordion-radius);
+  margin-bottom: 0.5rem;
+}
+.eara-accordion-container[data-variant=separated] .eara-accordion__item:last-child {
+  margin-bottom: 0;
+}
+.eara-accordion-container {
+  /* Variant: filled */
+}
+.eara-accordion-container[data-variant=filled] {
+  background-color: #f8f9fa;
+  border: none;
+}
+.eara-accordion-container[data-variant=filled] .eara-accordion__item:not(:last-child) {
+  border-bottom: 1px solid #dee2e6;
+}
+.eara-accordion-container[data-variant=filled] .eara-accordion__control {
+  background-color: transparent;
+}
+.eara-accordion-container[data-variant=filled] .eara-accordion__control:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.eara-accordion-container {
+  /* Variant: default */
+}
+.eara-accordion-container[data-variant=default] .eara-accordion__item:not(:last-child) {
+  border-bottom: 1px solid #dee2e6;
+}
+.eara-accordion-container {
+  /* Chevron position */
+}
+.eara-accordion-container[data-chevron-position=left] .eara-accordion__control {
+  flex-direction: row;
+}
+.eara-accordion-container[data-chevron-position=left] .eara-accordion__chevron {
+  margin-left: 0.75rem;
+  margin-right: 0;
+}
+.eara-accordion-container {
+  /* Disable chevron */
+}
+.eara-accordion-container[data-disable-chevron-rotation=true] .eara-accordion__item[aria-expanded=true] .eara-accordion__chevron {
+  transform: none;
+}
+
+.eara-accordion__item {
+  position: relative;
+  background-color: white;
+}
+.eara-accordion__item[data-disabled=true] {
+  opacity: 0.6;
+}
+.eara-accordion__item[data-disabled=true] .eara-accordion__control {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.eara-accordion__item {
+  /* Open state */
+}
+.eara-accordion__item[aria-expanded=true] .eara-accordion__panel {
+  max-height: 2000px;
+  opacity: 1;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.eara-accordion__item[aria-expanded=true] .eara-accordion__chevron {
+  transform: rotate(-180deg);
+}
+
+.eara-accordion__control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: right;
+  color: inherit;
+  transition: background-color var(--accordion-transition);
+}
+.eara-accordion__control:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+.eara-accordion__control:focus {
+  outline: 2px solid var(--mantine-color-blue-6, #228be6);
+  outline-offset: -2px;
+}
+.eara-accordion__control:disabled {
+  cursor: not-allowed;
+}
+
+.eara-accordion__label {
+  flex: 1;
+}
+.eara-accordion__label p {
+  margin: 0;
+}
+
+.eara-accordion__chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--accordion-chevron-size);
+  height: var(--accordion-chevron-size);
+  margin-right: 0.75rem;
+  transition: transform var(--accordion-transition);
+  flex-shrink: 0;
+}
+.eara-accordion__chevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+.eara-accordion__panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height var(--accordion-transition), opacity var(--accordion-transition), padding var(--accordion-transition);
+}
+
+.eara-accordion__content {
+  padding: 0 1.25rem;
+  /* Remove top margin from first child */
+}
+.eara-accordion__content > *:first-child {
+  margin-top: 0;
+}
+.eara-accordion__content {
+  /* Remove bottom margin from last child */
+}
+.eara-accordion__content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Size variants */
+.eara-accordion-container[data-chevron-size=xs] {
+  --accordion-chevron-size: 0.75rem;
+}
+
+.eara-accordion-container[data-chevron-size=sm] {
+  --accordion-chevron-size: 0.875rem;
+}
+
+.eara-accordion-container[data-chevron-size=md] {
+  --accordion-chevron-size: 1rem;
+}
+
+.eara-accordion-container[data-chevron-size=lg] {
+  --accordion-chevron-size: 1.125rem;
+}
+
+.eara-accordion-container[data-chevron-size=xl] {
+  --accordion-chevron-size: 1.5rem;
+}
+
+/* Radius variants */
+.eara-accordion-container[data-radius=xs] {
+  --accordion-radius: var(--mantine-radius-xs, 0.125rem);
+}
+
+.eara-accordion-container[data-radius=sm] {
+  --accordion-radius: var(--mantine-radius-sm, 0.25rem);
+}
+
+.eara-accordion-container[data-radius=md] {
+  --accordion-radius: var(--mantine-radius-md, 0.5rem);
+}
+
+.eara-accordion-container[data-radius=lg] {
+  --accordion-radius: var(--mantine-radius-lg, 1rem);
+}
+
+.eara-accordion-container[data-radius=xl] {
+  --accordion-radius: var(--mantine-radius-xl, 2rem);
+}
+
+/* JavaScript enhancement for accordion behavior */
+.eara-accordion__item:not([aria-expanded]) .eara-accordion__panel {
+  display: none;
+}
