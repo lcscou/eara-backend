@@ -55040,8 +55040,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineProvider.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Badge/Badge.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Card/Card.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Skeleton/Skeleton.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Stack/Stack.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Image/Image.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Skeleton/Skeleton.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Text/Text.mjs");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__);
@@ -55068,7 +55068,7 @@ function Edit(props) {
   const [posts, setPosts] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
   const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(true);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.useBlockProps)({
-    className: 'wp-block-eara-latest-events'
+    className: "wp-block-eara-latest-events"
   });
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     // Fetch latest events posts
@@ -55078,7 +55078,7 @@ function Edit(props) {
         const data = await response.json();
         setPosts(Array.isArray(data) ? data : []);
       } catch (error) {
-        console.error('Error fetching events:', error);
+        console.error("Error fetching events:", error);
         setPosts([]);
       } finally {
         setLoading(false);
@@ -55086,96 +55086,141 @@ function Edit(props) {
     };
     fetchPosts();
   }, [postsPerPage]);
-  const containerStyle = {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    gap: '2rem',
-    marginTop: '1rem'
+  const formatDate = dateString => {
+    if (!dateString) return "";
+    const parsed = new Date(dateString);
+    if (Number.isNaN(parsed.getTime())) return dateString;
+    return parsed.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    }).toUpperCase().replace(".", "");
   };
+  const sanitizeExcerpt = excerpt => excerpt ? excerpt.replace(/<[^>]*>/g, "").trim() : "";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
     ...blockProps,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.MantineProvider, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.InspectorControls, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Latest Events Settings', 'eara'),
-          initialOpen: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Number of Events', 'eara'),
-            value: postsPerPage,
-            onChange: v => setAttributes({
-              postsPerPage: v
-            }),
-            min: 1,
-            max: 12,
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('How many events to display', 'eara')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Columns', 'eara'),
-            value: columns,
-            onChange: v => setAttributes({
-              columns: v
-            }),
-            min: 1,
-            max: 4,
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Number of columns in the grid', 'eara')
-          })]
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelBody, {
+          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Latest Events Settings", "eara"),
+          initialOpen: true
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-        style: containerStyle,
+        className: "latest-events-grid",
+        style: {
+          display: "grid",
+          gridTemplateColumns: `repeat(${columns}, 1fr)`,
+          gap: "1.5rem",
+          marginTop: "1rem"
+        },
         children: loading ? Array.from({
           length: postsPerPage
         }).map((_, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
-          shadow: "sm",
-          padding: "lg",
-          radius: "md",
+          className: "latest-event-card",
+          padding: "0",
+          radius: "lg",
           withBorder: true,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Stack, {
-            gap: "xs",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 15,
-              radius: "md",
-              width: "30%"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 24,
-              radius: "md"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 15,
-              radius: "md",
-              width: "100%"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 15,
-              radius: "md",
-              width: "80%"
+          shadow: "sm",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "latest-event-card__inner",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: "latest-event-card__media",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: "100%",
+                radius: "md"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              className: "latest-event-card__body",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "24%",
+                radius: "xl"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 24,
+                radius: "md",
+                mt: "sm"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "40%",
+                radius: "md",
+                mt: "sm"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "90%",
+                radius: "md",
+                mt: "md"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "70%",
+                radius: "md"
+              })]
             })]
           })
         }, i)) : posts.length > 0 ? posts.map(post => {
-          const categories = post._embedded?.['wp:term']?.[0] || [];
-          const excerpt = post.excerpt?.rendered ? post.excerpt.rendered.replace(/<[^>]*>/g, '').trim() : '';
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
-            shadow: "sm",
-            padding: "lg",
-            radius: "md",
+          const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0];
+          const categories = post._embedded?.["wp:term"]?.[0] || [];
+          const categoryName = (categories[0]?.name || post.acf?.category || "").toUpperCase();
+          const excerpt = sanitizeExcerpt(post.content.rendered).substring(0, 100);
+          const startDate = formatDate(post.acf?.start_date || post.date);
+          const location = (post.acf?.location || "").trim();
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
+            className: "latest-event-card bg-white",
+            padding: "0",
+            radius: "lg",
             withBorder: true,
-            children: [categories.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Badge, {
-              color: "blue",
-              variant: "light",
-              mb: "sm",
-              children: categories[0].name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
-              fw: 600,
-              size: "lg",
-              mb: "xs",
-              lineClamp: 2,
-              children: post.title.rendered
-            }), excerpt && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
-              size: "sm",
-              c: "dimmed",
-              lineClamp: 3,
-              children: excerpt
-            })]
+            shadow: "sm",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              className: "latest-event-card__inner bg-white flex",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                className: "latest-event-card__media w-[250px]",
+                children: [categoryName && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Badge, {
+                  className: "latest-event-card__badge",
+                  color: "indigo",
+                  variant: "filled",
+                  radius: "md",
+                  children: categoryName
+                }), featuredImage ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Image, {
+                  src: featuredImage.source_url,
+                  alt: post.title.rendered,
+                  fit: "cover",
+                  height: 230,
+                  radius: "md"
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                  height: 230,
+                  radius: "md"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                className: "latest-event-card__body flex flex-col p-4 justify-center ",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  fw: 600,
+                  size: "xl",
+                  mb: 6,
+                  lineClamp: 2,
+                  children: post.title.rendered
+                }), startDate && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  size: "xs",
+                  fw: 700,
+                  c: "#312f86",
+                  mb: 4,
+                  children: startDate
+                }), location && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  size: "sm",
+                  c: "dimmed",
+                  mb: 6,
+                  children: location.toUpperCase()
+                }), excerpt && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  size: "md",
+                  c: "dimmed",
+                  lh: 1.6,
+                  lineClamp: 3,
+                  children: excerpt
+                })]
+              })]
+            })
           }, post.id);
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
           c: "dimmed",
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No events found', 'eara')
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No events found", "eara")
         })
       })]
     })

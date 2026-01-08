@@ -190,11 +190,26 @@
 .w-full {
   width: 100%;
 }
+.w-\[200px\] {
+  width: 200px;
+}
+.w-\[250px\] {
+  width: 250px;
+}
 .max-w-2xl {
   max-width: 42rem;
 }
+.max-w-\[2\] {
+  max-width: 2;
+}
+.max-w-\[200px\] {
+  max-width: 200px;
+}
 .grow {
   flex-grow: 1;
+}
+.flex-col {
+  flex-direction: column;
 }
 .items-start {
   align-items: flex-start;
@@ -251,6 +266,9 @@
 }
 .p-2 {
   padding: 0.5rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .px-\[16px\] {
   padding-left: 16px;

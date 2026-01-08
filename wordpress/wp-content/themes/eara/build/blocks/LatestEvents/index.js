@@ -357,6 +357,141 @@ CardSection.displayName = "@mantine/core/CardSection";
 
 /***/ }),
 
+/***/ "./node_modules/@mantine/core/esm/components/Image/Image.mjs":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@mantine/core/esm/components/Image/Image.mjs ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Image: function() { return /* binding */ Image; }
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var _core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/utils/get-size/get-size.mjs */ "./node_modules/@mantine/core/esm/core/utils/get-size/get-size.mjs");
+/* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
+/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
+/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
+/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
+/* harmony import */ var _core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/factory/polymorphic-factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/polymorphic-factory.mjs");
+/* harmony import */ var _Image_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Image.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Image/Image.module.css.mjs");
+'use client';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const defaultProps = {};
+const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)((_, { radius, fit }) => ({
+  root: {
+    "--image-radius": radius === void 0 ? void 0 : (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getRadius)(radius),
+    "--image-object-fit": fit
+  }
+}));
+const Image = (0,_core_factory_polymorphic_factory_mjs__WEBPACK_IMPORTED_MODULE_8__.polymorphicFactory)((_props, ref) => {
+  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("Image", defaultProps, _props);
+  const {
+    classNames,
+    className,
+    style,
+    styles,
+    unstyled,
+    vars,
+    onError,
+    src,
+    radius,
+    fit,
+    fallbackSrc,
+    mod,
+    ...others
+  } = props;
+  const [error, setError] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(!src);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => setError(!src), [src]);
+  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__.useStyles)({
+    name: "Image",
+    classes: _Image_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"],
+    props,
+    className,
+    style,
+    classNames,
+    styles,
+    unstyled,
+    vars,
+    varsResolver
+  });
+  if (error && fallbackSrc) {
+    return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
+      _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__.Box,
+      {
+        component: "img",
+        ref,
+        src: fallbackSrc,
+        ...getStyles("root"),
+        onError,
+        mod: ["fallback", mod],
+        ...others
+      }
+    );
+  }
+  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(
+    _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__.Box,
+    {
+      component: "img",
+      ref,
+      ...getStyles("root"),
+      src,
+      onError: (event) => {
+        onError?.(event);
+        setError(true);
+      },
+      mod,
+      ...others
+    }
+  );
+});
+Image.classes = _Image_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"];
+Image.displayName = "@mantine/core/Image";
+
+
+//# sourceMappingURL=Image.mjs.map
+
+
+/***/ }),
+
+/***/ "./node_modules/@mantine/core/esm/components/Image/Image.module.css.mjs":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@mantine/core/esm/components/Image/Image.module.css.mjs ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ classes; }
+/* harmony export */ });
+'use client';
+var classes = {"root":"m_9e117634"};
+
+
+//# sourceMappingURL=Image.module.css.mjs.map
+
+
+/***/ }),
+
 /***/ "./node_modules/@mantine/core/esm/components/Paper/Paper.mjs":
 /*!*******************************************************************!*\
   !*** ./node_modules/@mantine/core/esm/components/Paper/Paper.mjs ***!
@@ -580,114 +715,6 @@ var classes = {"root":"m_18320242","skeleton-fade":"m_299c329c"};
 
 
 //# sourceMappingURL=Skeleton.module.css.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Stack/Stack.mjs":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Stack/Stack.mjs ***!
-  \*******************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Stack: function() { return /* binding */ Stack; }
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var _core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core/utils/get-size/get-size.mjs */ "./node_modules/@mantine/core/esm/core/utils/get-size/get-size.mjs");
-/* harmony import */ var _core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../core/styles-api/create-vars-resolver/create-vars-resolver.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/create-vars-resolver/create-vars-resolver.mjs");
-/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.mjs");
-/* harmony import */ var _core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../core/MantineProvider/use-props/use-props.mjs */ "./node_modules/@mantine/core/esm/core/MantineProvider/use-props/use-props.mjs");
-/* harmony import */ var _core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../core/styles-api/use-styles/use-styles.mjs */ "./node_modules/@mantine/core/esm/core/styles-api/use-styles/use-styles.mjs");
-/* harmony import */ var _core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../core/Box/Box.mjs */ "./node_modules/@mantine/core/esm/core/Box/Box.mjs");
-/* harmony import */ var _core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../core/factory/factory.mjs */ "./node_modules/@mantine/core/esm/core/factory/factory.mjs");
-/* harmony import */ var _Stack_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Stack.module.css.mjs */ "./node_modules/@mantine/core/esm/components/Stack/Stack.module.css.mjs");
-'use client';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const defaultProps = {
-  gap: "md",
-  align: "stretch",
-  justify: "flex-start"
-};
-const varsResolver = (0,_core_styles_api_create_vars_resolver_create_vars_resolver_mjs__WEBPACK_IMPORTED_MODULE_3__.createVarsResolver)((_, { gap, align, justify }) => ({
-  root: {
-    "--stack-gap": (0,_core_utils_get_size_get_size_mjs__WEBPACK_IMPORTED_MODULE_2__.getSpacing)(gap),
-    "--stack-align": align,
-    "--stack-justify": justify
-  }
-}));
-const Stack = (0,_core_factory_factory_mjs__WEBPACK_IMPORTED_MODULE_8__.factory)((_props, ref) => {
-  const props = (0,_core_MantineProvider_use_props_use_props_mjs__WEBPACK_IMPORTED_MODULE_5__.useProps)("Stack", defaultProps, _props);
-  const {
-    classNames,
-    className,
-    style,
-    styles,
-    unstyled,
-    vars,
-    align,
-    justify,
-    gap,
-    variant,
-    ...others
-  } = props;
-  const getStyles = (0,_core_styles_api_use_styles_use_styles_mjs__WEBPACK_IMPORTED_MODULE_6__.useStyles)({
-    name: "Stack",
-    props,
-    classes: _Stack_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"],
-    className,
-    style,
-    classNames,
-    styles,
-    unstyled,
-    vars,
-    varsResolver
-  });
-  return /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_core_Box_Box_mjs__WEBPACK_IMPORTED_MODULE_7__.Box, { ref, ...getStyles("root"), variant, ...others });
-});
-Stack.classes = _Stack_module_css_mjs__WEBPACK_IMPORTED_MODULE_9__["default"];
-Stack.displayName = "@mantine/core/Stack";
-
-
-//# sourceMappingURL=Stack.mjs.map
-
-
-/***/ }),
-
-/***/ "./node_modules/@mantine/core/esm/components/Stack/Stack.module.css.mjs":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@mantine/core/esm/components/Stack/Stack.module.css.mjs ***!
-  \******************************************************************************/
-/***/ (function(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* binding */ classes; }
-/* harmony export */ });
-'use client';
-var classes = {"root":"m_6d731127"};
-
-
-//# sourceMappingURL=Stack.module.css.mjs.map
 
 
 /***/ }),
@@ -5235,8 +5262,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/core/MantineProvider/MantineProvider.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Badge/Badge.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Card/Card.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Skeleton/Skeleton.mjs");
-/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Stack/Stack.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Image/Image.mjs");
+/* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Skeleton/Skeleton.mjs");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/components/Text/Text.mjs");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__);
@@ -5263,7 +5290,7 @@ function Edit(props) {
   const [posts, setPosts] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]);
   const [loading, setLoading] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(true);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.useBlockProps)({
-    className: 'wp-block-eara-latest-events'
+    className: "wp-block-eara-latest-events"
   });
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(() => {
     // Fetch latest events posts
@@ -5273,7 +5300,7 @@ function Edit(props) {
         const data = await response.json();
         setPosts(Array.isArray(data) ? data : []);
       } catch (error) {
-        console.error('Error fetching events:', error);
+        console.error("Error fetching events:", error);
         setPosts([]);
       } finally {
         setLoading(false);
@@ -5281,96 +5308,141 @@ function Edit(props) {
     };
     fetchPosts();
   }, [postsPerPage]);
-  const containerStyle = {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${columns}, 1fr)`,
-    gap: '2rem',
-    marginTop: '1rem'
+  const formatDate = dateString => {
+    if (!dateString) return "";
+    const parsed = new Date(dateString);
+    if (Number.isNaN(parsed.getTime())) return dateString;
+    return parsed.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric"
+    }).toUpperCase().replace(".", "");
   };
+  const sanitizeExcerpt = excerpt => excerpt ? excerpt.replace(/<[^>]*>/g, "").trim() : "";
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
     ...blockProps,
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_3__.MantineProvider, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_9__.InspectorControls, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelBody, {
-          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Latest Events Settings', 'eara'),
-          initialOpen: true,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Number of Events', 'eara'),
-            value: postsPerPage,
-            onChange: v => setAttributes({
-              postsPerPage: v
-            }),
-            min: 1,
-            max: 12,
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('How many events to display', 'eara')
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.RangeControl, {
-            label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Columns', 'eara'),
-            value: columns,
-            onChange: v => setAttributes({
-              columns: v
-            }),
-            min: 1,
-            max: 4,
-            help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Number of columns in the grid', 'eara')
-          })]
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_10__.PanelBody, {
+          title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Latest Events Settings", "eara"),
+          initialOpen: true
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
-        style: containerStyle,
+        className: "latest-events-grid",
+        style: {
+          display: "grid",
+          gridTemplateColumns: `repeat(${columns}, 1fr)`,
+          gap: "1.5rem",
+          marginTop: "1rem"
+        },
         children: loading ? Array.from({
           length: postsPerPage
         }).map((_, i) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
-          shadow: "sm",
-          padding: "lg",
-          radius: "md",
+          className: "latest-event-card",
+          padding: "0",
+          radius: "lg",
           withBorder: true,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Stack, {
-            gap: "xs",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 15,
-              radius: "md",
-              width: "30%"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 24,
-              radius: "md"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 15,
-              radius: "md",
-              width: "100%"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Skeleton, {
-              height: 15,
-              radius: "md",
-              width: "80%"
+          shadow: "sm",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+            className: "latest-event-card__inner",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)("div", {
+              className: "latest-event-card__media",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: "100%",
+                radius: "md"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              className: "latest-event-card__body",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "24%",
+                radius: "xl"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 24,
+                radius: "md",
+                mt: "sm"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "40%",
+                radius: "md",
+                mt: "sm"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "90%",
+                radius: "md",
+                mt: "md"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                height: 14,
+                width: "70%",
+                radius: "md"
+              })]
             })]
           })
         }, i)) : posts.length > 0 ? posts.map(post => {
-          const categories = post._embedded?.['wp:term']?.[0] || [];
-          const excerpt = post.excerpt?.rendered ? post.excerpt.rendered.replace(/<[^>]*>/g, '').trim() : '';
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
-            shadow: "sm",
-            padding: "lg",
-            radius: "md",
+          const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0];
+          const categories = post._embedded?.["wp:term"]?.[0] || [];
+          const categoryName = (categories[0]?.name || post.acf?.category || "").toUpperCase();
+          const excerpt = sanitizeExcerpt(post.content.rendered).substring(0, 100);
+          const startDate = formatDate(post.acf?.start_date || post.date);
+          const location = (post.acf?.location || "").trim();
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_5__.Card, {
+            className: "latest-event-card bg-white",
+            padding: "0",
+            radius: "lg",
             withBorder: true,
-            children: [categories.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Badge, {
-              color: "blue",
-              variant: "light",
-              mb: "sm",
-              children: categories[0].name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
-              fw: 600,
-              size: "lg",
-              mb: "xs",
-              lineClamp: 2,
-              children: post.title.rendered
-            }), excerpt && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
-              size: "sm",
-              c: "dimmed",
-              lineClamp: 3,
-              children: excerpt
-            })]
+            shadow: "sm",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+              className: "latest-event-card__inner bg-white flex",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                className: "latest-event-card__media w-[250px]",
+                children: [categoryName && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_4__.Badge, {
+                  className: "latest-event-card__badge",
+                  color: "indigo",
+                  variant: "filled",
+                  radius: "md",
+                  children: categoryName
+                }), featuredImage ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_6__.Image, {
+                  src: featuredImage.source_url,
+                  alt: post.title.rendered,
+                  fit: "cover",
+                  height: 230,
+                  radius: "md"
+                }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_7__.Skeleton, {
+                  height: 230,
+                  radius: "md"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)("div", {
+                className: "latest-event-card__body flex flex-col p-4 justify-center ",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  fw: 600,
+                  size: "xl",
+                  mb: 6,
+                  lineClamp: 2,
+                  children: post.title.rendered
+                }), startDate && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  size: "xs",
+                  fw: 700,
+                  c: "#312f86",
+                  mb: 4,
+                  children: startDate
+                }), location && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  size: "sm",
+                  c: "dimmed",
+                  mb: 6,
+                  children: location.toUpperCase()
+                }), excerpt && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
+                  size: "md",
+                  c: "dimmed",
+                  lh: 1.6,
+                  lineClamp: 3,
+                  children: excerpt
+                })]
+              })]
+            })
           }, post.id);
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_mantine_core__WEBPACK_IMPORTED_MODULE_8__.Text, {
           c: "dimmed",
-          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('No events found', 'eara')
+          children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("No events found", "eara")
         })
       })]
     })

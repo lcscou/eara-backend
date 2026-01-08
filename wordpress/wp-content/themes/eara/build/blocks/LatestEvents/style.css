@@ -4,22 +4,44 @@
 .wp-block-eara-latest-events {
   padding: 1rem 0;
 }
-.wp-block-eara-latest-events .mantine-Card-root {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.wp-block-eara-latest-events .latest-events-grid {
+  width: 100%;
 }
-.wp-block-eara-latest-events .mantine-Card-root:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+.wp-block-eara-latest-events .latest-event-card {
+  background: #f5f6fb;
+  border-color: #e3e7f3;
+  overflow: hidden;
 }
-.wp-block-eara-latest-events .mantine-Badge-root {
+.wp-block-eara-latest-events .latest-event-card .mantine-Card-section {
+  background: transparent;
+}
+.wp-block-eara-latest-events .latest-event-card:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+.wp-block-eara-latest-events .latest-event-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
   text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.wp-block-eara-latest-events .latest-event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }
 
 @media (max-width: 768px) {
   .wp-block-eara-latest-events {
     grid-template-columns: 1fr !important;
+  }
+  .wp-block-eara-latest-events .latest-event-card__inner {
+    grid-template-columns: 1fr;
+  }
+  .wp-block-eara-latest-events .latest-event-card__media img {
+    height: 200px;
   }
 }
 
