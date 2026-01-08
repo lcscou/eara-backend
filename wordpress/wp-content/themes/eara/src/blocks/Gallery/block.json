@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/gallery",
+  "title": "Gallery",
+  "category": "eara",
+  "icon": "format-gallery",
+  "description": "A customizable gallery block with masonry and grid layouts",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "layout": {
+      "type": "string",
+      "default": "grid",
+      "enum": ["grid", "masonry"]
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "gap": {
+      "type": "number",
+      "default": 16
+    },
+    "imageSize": {
+      "type": "string",
+      "default": "large",
+      "enum": ["thumbnail", "medium", "large", "full"]
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

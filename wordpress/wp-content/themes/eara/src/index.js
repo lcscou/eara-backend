@@ -19,6 +19,7 @@ import './blocks/LatestEvents';
 import './blocks/Card';
 import './blocks/Quote';
 import './blocks/Tabs';
+import './blocks/Gallery';
 import './blocks/List';
 import './blocks/ListItem';
 import './blocks/Chart';
