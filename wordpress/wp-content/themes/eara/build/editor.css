@@ -1,3 +1,6 @@
+/*!********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/editor.css ***!
+  \********************************************************************************************************************************************************************/
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -258,6 +261,9 @@
 .p-4 {
   padding: 1rem;
 }
+.p-0 {
+  padding: 0px;
+}
 .px-\[16px\] {
   padding-left: 16px;
   padding-right: 16px;
@@ -427,3 +433,5 @@ h1 {
   }
 }
 
+
+/*# sourceMappingURL=editor.css.map*/

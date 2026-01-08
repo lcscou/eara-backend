@@ -8746,17 +8746,19 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
   grid-template-columns: 1fr 1.2fr;
   gap: 3rem;
   align-items: center;
-  max-width: 1200px;
   margin: 0 auto;
 }
 .wp-block-eara-section-card .section-card-media {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  height: 100%;
 }
 .wp-block-eara-section-card .section-card-media img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   display: block;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -8768,10 +8770,16 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
 }
 .wp-block-eara-section-card .section-card-content {
   display: flex;
+  padding: 20px 0;
   flex-direction: column;
   gap: 1.5rem;
 }
-.wp-block-eara-section-card .section-card-text h1, .wp-block-eara-section-card .section-card-text h2, .wp-block-eara-section-card .section-card-text h3, .wp-block-eara-section-card .section-card-text h4, .wp-block-eara-section-card .section-card-text h5, .wp-block-eara-section-card .section-card-text h6 {
+.wp-block-eara-section-card .section-card-text h1,
+.wp-block-eara-section-card .section-card-text h2,
+.wp-block-eara-section-card .section-card-text h3,
+.wp-block-eara-section-card .section-card-text h4,
+.wp-block-eara-section-card .section-card-text h5,
+.wp-block-eara-section-card .section-card-text h6 {
   font-weight: 700;
   color: #4338ca;
   margin-bottom: 1rem;
@@ -8795,7 +8803,8 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
 .wp-block-eara-section-card .section-card-text p:last-child {
   margin-bottom: 0;
 }
-.wp-block-eara-section-card .section-card-text p strong, .wp-block-eara-section-card .section-card-text p b {
+.wp-block-eara-section-card .section-card-text p strong,
+.wp-block-eara-section-card .section-card-text p b {
   font-weight: 700;
   color: #1f2937;
 }

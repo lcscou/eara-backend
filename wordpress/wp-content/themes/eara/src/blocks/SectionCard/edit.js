@@ -19,9 +19,9 @@ export default function Edit(props) {
   const { backgroundColor, image, orientation } = attributes;
 
   const blockProps = useBlockProps({
-    className: `wp-block-eara-section-card orientation-${orientation}`,
+    className: `wp-block-eara-section-card orientation-${orientation} p-0`,
     style: {
-      backgroundColor: backgroundColor || '#f5f6fb',
+      backgroundColor: backgroundColor || '#eaeaea',
     },
   });
 

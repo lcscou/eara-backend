@@ -56653,9 +56653,9 @@ function Edit(props) {
     orientation
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-    className: `wp-block-eara-section-card orientation-${orientation}`,
+    className: `wp-block-eara-section-card orientation-${orientation} p-0`,
     style: {
-      backgroundColor: backgroundColor || '#f5f6fb'
+      backgroundColor: backgroundColor || '#eaeaea'
     }
   });
   const orientationOptions = [{

@@ -8,7 +8,8 @@
     grid-template-columns: 1fr 1.2fr;
     gap: 3rem;
     align-items: center;
-    max-width: 1200px;
+    // max-width: 1200px;
+    
     margin: 0 auto;
   }
 
@@ -16,10 +17,12 @@
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    height: 100%;
 
     img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       border-radius: 12px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -34,12 +37,18 @@
 
   .section-card-content {
     display: flex;
+    padding: 20px 0;
     flex-direction: column;
     gap: 1.5rem;
   }
 
   .section-card-text {
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-weight: 700;
       color: #4338ca;
       margin-bottom: 1rem;
@@ -68,7 +77,8 @@
         margin-bottom: 0;
       }
 
-      strong, b {
+      strong,
+      b {
         font-weight: 700;
         color: #1f2937;
       }
