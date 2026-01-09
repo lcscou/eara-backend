@@ -1,0 +1,37 @@
+/* Google Maps Block Frontend Styles */
+
+.wp-block-eara-google-maps {
+  margin: 1.5em 0;
+  width: 100%;
+  
+  iframe {
+    width: 100%;
+    border: none;
+    display: block;
+  }
+  
+  &[style*="border-radius"] {
+    overflow: hidden;
+  }
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .wp-block-eara-google-maps {
+    iframe {
+      height: auto !important;
+      min-height: 300px;
+    }
+  }
+}
+
+/* Alignment support */
+.wp-block-eara-google-maps.alignfull {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+}
+
+.wp-block-eara-google-maps.alignwide {
+  width: 100%;
+}

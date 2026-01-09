@@ -1,0 +1,24 @@
+/* Google Maps Block Editor Styles */
+
+.wp-block-eara-google-maps {
+  margin: 1em 0;
+  
+  .eara-google-maps__wrapper {
+    width: 100%;
+    overflow: hidden;
+    
+    iframe {
+      width: 100% !important;
+      height: auto;
+    }
+  }
+}
+
+/* Ensure responsive maps */
+@media (max-width: 768px) {
+  .wp-block-eara-google-maps {
+    iframe {
+      min-height: 300px;
+    }
+  }
+}
