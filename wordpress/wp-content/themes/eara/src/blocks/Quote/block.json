@@ -37,8 +37,8 @@
     },
     "variant": {
       "type": "string",
-      "default": "standard",
-      "enum": ["standard", "highlighted"]
+      "default": "dark",
+      "enum": ["dark", "light"]
     }
   },
   "textdomain": "eara",

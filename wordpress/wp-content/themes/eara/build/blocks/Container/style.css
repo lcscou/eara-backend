@@ -1,1 +1,70 @@
-.eara-container{width:100%;margin-left:auto;margin-right:auto;--container-p: md;--mantine-spacing-xs: 0.625rem;--mantine-spacing-sm: 0.75rem;--mantine-spacing-md: 1rem;--mantine-spacing-lg: 1.25rem;--mantine-spacing-xl: 2rem;--mantine-container-xs: 33.75rem;--mantine-container-sm: 45rem;--mantine-container-md: 60rem;--mantine-container-lg: 75rem;--mantine-container-xl: 87.5rem}.eara-container:not(.eara-container--fluid)[data-size=xs]{max-width:var(--mantine-container-xs)}.eara-container:not(.eara-container--fluid)[data-size=sm]{max-width:var(--mantine-container-sm)}.eara-container:not(.eara-container--fluid)[data-size=md]{max-width:var(--mantine-container-md)}.eara-container:not(.eara-container--fluid)[data-size=lg]{max-width:var(--mantine-container-lg)}.eara-container:not(.eara-container--fluid)[data-size=xl]{max-width:var(--mantine-container-xl)}.eara-container.eara-container--fluid{max-width:100%}.eara-container{padding:var(--container-py, var(--container-p, var(--mantine-spacing-md))) var(--container-px, var(--container-p, var(--mantine-spacing-md)))}.eara-container[style*="--container-p: xs"],.eara-container[style*="--container-px: xs"],.eara-container[style*="--container-py: xs"]{--container-p: var(--mantine-spacing-xs)}.eara-container[style*="--container-p: sm"],.eara-container[style*="--container-px: sm"],.eara-container[style*="--container-py: sm"]{--container-p: var(--mantine-spacing-sm)}.eara-container[style*="--container-p: md"],.eara-container[style*="--container-px: md"],.eara-container[style*="--container-py: md"]{--container-p: var(--mantine-spacing-md)}.eara-container[style*="--container-p: lg"],.eara-container[style*="--container-px: lg"],.eara-container[style*="--container-py: lg"]{--container-p: var(--mantine-spacing-lg)}.eara-container[style*="--container-p: xl"],.eara-container[style*="--container-px: xl"],.eara-container[style*="--container-py: xl"]{--container-p: var(--mantine-spacing-xl)}.eara-container[style*="--container-p: 0"]{--container-p: 0}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Container/styles.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Mantine-like Container styles */
+.eara-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  /* Default padding */
+  --container-p: md;
+  /* Mantine spacing scale */
+  --mantine-spacing-xs: 0.625rem; /* 10px */
+  --mantine-spacing-sm: 0.75rem; /* 12px */
+  --mantine-spacing-md: 1rem; /* 16px */
+  --mantine-spacing-lg: 1.25rem; /* 20px */
+  --mantine-spacing-xl: 2rem; /* 32px */
+  /* Mantine container max-widths */
+  --mantine-container-xs: 33.75rem; /* 540px */
+  --mantine-container-sm: 45rem; /* 720px */
+  --mantine-container-md: 60rem; /* 960px */
+  --mantine-container-lg: 75rem; /* 1200px */
+  --mantine-container-xl: 87.5rem; /* 1400px */
+  /* Apply max-width based on size */
+}
+.eara-container:not(.eara-container--fluid)[data-size=xs] {
+  max-width: var(--mantine-container-xs);
+}
+.eara-container:not(.eara-container--fluid)[data-size=sm] {
+  max-width: var(--mantine-container-sm);
+}
+.eara-container:not(.eara-container--fluid)[data-size=md] {
+  max-width: var(--mantine-container-md);
+}
+.eara-container:not(.eara-container--fluid)[data-size=lg] {
+  max-width: var(--mantine-container-lg);
+}
+.eara-container:not(.eara-container--fluid)[data-size=xl] {
+  max-width: var(--mantine-container-xl);
+}
+.eara-container {
+  /* Fluid containers take full width */
+}
+.eara-container.eara-container--fluid {
+  max-width: 100%;
+}
+.eara-container {
+  /* Padding application */
+  padding: var(--container-py, var(--container-p, var(--mantine-spacing-md))) var(--container-px, var(--container-p, var(--mantine-spacing-md)));
+  /* Support for spacing keywords in custom properties */
+}
+.eara-container[style*="--container-p: xs"], .eara-container[style*="--container-px: xs"], .eara-container[style*="--container-py: xs"] {
+  --container-p: var(--mantine-spacing-xs);
+}
+.eara-container[style*="--container-p: sm"], .eara-container[style*="--container-px: sm"], .eara-container[style*="--container-py: sm"] {
+  --container-p: var(--mantine-spacing-sm);
+}
+.eara-container[style*="--container-p: md"], .eara-container[style*="--container-px: md"], .eara-container[style*="--container-py: md"] {
+  --container-p: var(--mantine-spacing-md);
+}
+.eara-container[style*="--container-p: lg"], .eara-container[style*="--container-px: lg"], .eara-container[style*="--container-py: lg"] {
+  --container-p: var(--mantine-spacing-lg);
+}
+.eara-container[style*="--container-p: xl"], .eara-container[style*="--container-px: xl"], .eara-container[style*="--container-py: xl"] {
+  --container-p: var(--mantine-spacing-xl);
+}
+.eara-container[style*="--container-p: 0"] {
+  --container-p: 0;
+}
+
+/*# sourceMappingURL=style.css.map*/

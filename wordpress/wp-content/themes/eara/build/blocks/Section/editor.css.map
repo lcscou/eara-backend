@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/Section/editor.css","mappings":";;;AAAA;EACE;AACF,C","sources":["webpack://eara-theme/./src/blocks/Section/editor.scss"],"sourcesContent":[".gt_border-bottom{\n  border-bottom: 1px solid #dee2e6 !important;\n}"],"names":[],"sourceRoot":""}

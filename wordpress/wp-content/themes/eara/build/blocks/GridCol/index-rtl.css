@@ -1,3 +1,6 @@
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@mantine/core/styles.css ***!
+  \*******************************************************************************************************************************************************************************************/
 /* ----- CSS reset ----- */
 *,
 *::before,
@@ -7788,4 +7791,15 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
       background-color: var(--mantine-color-dark-8);
 }
 
-.wp-block-eara-grid-col{border:1px dashed #aaa;min-height:50px}.wp-block-eara-grid-col .block-editor-inner-blocks,.wp-block-eara-grid-col .block-editor-block-list__layout{min-height:50px}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/GridCol/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Grid Col block */
+.wp-block-eara-grid-col {
+  border: 1px dashed #aaa;
+  min-height: 50px;
+}
+.wp-block-eara-grid-col .block-editor-inner-blocks,
+.wp-block-eara-grid-col .block-editor-block-list__layout {
+  min-height: 50px;
+}

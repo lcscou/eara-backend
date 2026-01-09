@@ -40,8 +40,8 @@ export default function Edit(props) {
   ];
 
   const variantOptions = [
-    { label: __("Standard", "eara"), value: "standard" },
-    { label: __("Highlighted", "eara"), value: "highlighted" },
+    { label: __("Dark", "eara"), value: "dark" },
+    { label: __("Light", "eara"), value: "light" },
   ];
 
   const onSelectImage = (media) => {
@@ -155,7 +155,7 @@ export default function Edit(props) {
             backgroundColor: backgroundColorMap[backgroundColor],
             padding: "32px",
             borderRadius: "8px",
-            boxShadow: variant === "highlighted" ? "0 4px 12px rgba(0,0,0,0.1)" : "none",
+            boxShadow: variant === "light" ? "0 4px 12px rgba(0,0,0,0.1)" : "none",
           }}
         >
           <div style={{ marginBottom: "16px" }}>

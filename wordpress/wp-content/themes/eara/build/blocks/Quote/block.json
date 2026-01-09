@@ -42,10 +42,10 @@
     },
     "variant": {
       "type": "string",
-      "default": "standard",
+      "default": "dark",
       "enum": [
-        "standard",
-        "highlighted"
+        "dark",
+        "light"
       ]
     }
   },
