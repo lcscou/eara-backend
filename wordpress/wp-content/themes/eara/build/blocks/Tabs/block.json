@@ -16,7 +16,7 @@
         {
           "id": "tab-1",
           "title": "TAB TITLE 1",
-          "content": "Tab content goes here",
+          "content": "",
           "image": {
             "url": "",
             "id": 0,
@@ -26,7 +26,7 @@
         {
           "id": "tab-2",
           "title": "TAB TITLE 2",
-          "content": "Tab content goes here",
+          "content": "",
           "image": {
             "url": "",
             "id": 0,
@@ -36,7 +36,7 @@
         {
           "id": "tab-3",
           "title": "TAB TITLE 3",
-          "content": "Tab content goes here",
+          "content": "",
           "image": {
             "url": "",
             "id": 0,
@@ -46,7 +46,7 @@
         {
           "id": "tab-4",
           "title": "TAB TITLE 4",
-          "content": "Tab content goes here",
+          "content": "",
           "image": {
             "url": "",
             "id": 0,

@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/Box/editor.css","mappings":";;;AAAA;EACE;AACF,C","sources":["webpack://eara-theme/./src/blocks/Box/editor.scss"],"sourcesContent":[".eara-box_wrapper .block-editor-inner-blocks .block-editor-block-list__layout {\n  display: block !important;\n}\n"],"names":[],"sourceRoot":""}

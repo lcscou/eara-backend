@@ -74,7 +74,7 @@ export default function Edit(props) {
     const newTab = {
       id: newTabId,
       title: __("New Tab", "eara"),
-      content: __("Tab content goes here", "eara"),
+      content: "",
       image: {
         url: "",
         id: 0,
@@ -280,23 +280,10 @@ export default function Edit(props) {
 
             <div className="eara-tabs__text">
               <RichText
-                tagName="h3"
-                value={activeTabData.title}
-                onChange={(value) => updateTab(activeTab, "title", value)}
-                placeholder={__("Tab title...", "eara")}
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "600",
-                  color: "#3A3A6B",
-                  marginBottom: "12px",
-                }}
-              />
-
-              <RichText
                 tagName="div"
                 value={activeTabData.content}
-                onChange={(value) => updateTab(activeTab, "content", value)}
-                placeholder={__("Tab content...", "eara")}
+                onChange={(content) => updateTab(activeTab, "content", content)}
+                placeholder={__("Add content to this tab...", "eara")}
                 multiline="p"
                 style={{
                   fontSize: "14px",
