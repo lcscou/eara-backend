@@ -12,7 +12,7 @@
   "attributes": {
     "withIcon": {
       "type": "boolean",
-      "default": false
+      "default": true
     },
     "size": {
       "type": "string",

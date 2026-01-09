@@ -72,13 +72,13 @@ export default function Edit(props) {
             help={__("Text size of list items", "eara")}
           />
 
-          <SelectControl
+          {/* <SelectControl
             label={__("Color", "eara")}
             value={color}
             options={colorOptions}
             onChange={(value) => setAttributes({ color: value })}
             help={__("Color of list markers and icons", "eara")}
-          />
+          /> */}
 
           <SelectControl
             label={__("Spacing", "eara")}
