@@ -1,2 +1,135 @@
-.eara-card{border:1px solid #e9ecef;border-radius:8px;overflow:hidden;background:#fff;transition:all .3s ease}.eara-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.12)}.eara-card__image{width:100%;height:200px;overflow:hidden}.eara-card__image img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover;display:block}.eara-card__content{padding:1.5rem}.eara-card__badge{display:inline-block;padding:.25rem .75rem;border-radius:4px;font-size:.75rem;font-weight:600;text-transform:uppercase;margin-bottom:.75rem}.eara-card__badge[data-variant=member]{background-color:#e7f5ff;color:#228be6}.eara-card__badge[data-variant=news]{background-color:#ebfbee;color:#40c057}.eara-card__badge[data-variant=animals]{background-color:#fff9db;color:#fab005}.eara-card__badge[data-variant=team]{background-color:#fff0f6;color:#e64980}.eara-card__header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}.eara-card__title{margin:0;font-size:1.25rem;font-weight:600;color:#212529}.eara-card__icon{font-size:1.5rem;line-height:1}.eara-card__description{color:#666;line-height:1.6}.eara-card__description p{margin:.5rem 0}.eara-card--member{border-right:4px solid #228be6}.eara-card--news{border-right:4px solid #40c057}.eara-card--animals{border-right:4px solid #fab005}.eara-card--team{border-right:4px solid #e64980}@media(max-width: 768px){.eara-card__image{height:150px}.eara-card__content{padding:1rem}.eara-card__title{font-size:1.1rem}}
-.wp-block-eara-card .card-description{margin-top:1rem}.wp-block-eara-card .card-description p{margin:.5rem 0;color:#666}.wp-block-eara-card .eara-card-layout-2 img{-o-object-fit:contain !important;object-fit:contain !important}.wp-block-eara-card .mantine-Card-root{transition:all .3s ease}.wp-block-eara-card--member .mantine-Card-root{border-right:4px solid #228be6}.wp-block-eara-card--news .mantine-Card-root{border-right:4px solid #40c057}.wp-block-eara-card--animals .mantine-Card-root{border-right:4px solid #fab005}.wp-block-eara-card--team .mantine-Card-root{border-right:4px solid #e64980}.wp-block-eara-card .mantine-Image-root img{-o-object-fit:cover;object-fit:cover;width:100%}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Card/styles.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.eara-card {
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  transition: all 0.3s ease;
+}
+.eara-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+.eara-card__image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.eara-card__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.eara-card__content {
+  padding: 1.5rem;
+}
+.eara-card__badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.eara-card__badge[data-variant=member] {
+  background-color: #e7f5ff;
+  color: #228be6;
+}
+.eara-card__badge[data-variant=news] {
+  background-color: #ebfbee;
+  color: #40c057;
+}
+.eara-card__badge[data-variant=animals] {
+  background-color: #fff9db;
+  color: #fab005;
+}
+.eara-card__badge[data-variant=team] {
+  background-color: #fff0f6;
+  color: #e64980;
+}
+.eara-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.eara-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #212529;
+}
+.eara-card__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.eara-card__description {
+  color: #666;
+  line-height: 1.6;
+}
+.eara-card__description p {
+  margin: 0.5rem 0;
+}
+.eara-card--member {
+  border-right: 4px solid #228be6;
+}
+.eara-card--news {
+  border-right: 4px solid #40c057;
+}
+.eara-card--animals {
+  border-right: 4px solid #fab005;
+}
+.eara-card--team {
+  border-right: 4px solid #e64980;
+}
+
+@media (max-width: 768px) {
+  .eara-card__image {
+    height: 150px;
+  }
+  .eara-card__content {
+    padding: 1rem;
+  }
+  .eara-card__title {
+    font-size: 1.1rem;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Card/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-card .card-description {
+  margin-top: 1rem;
+}
+.wp-block-eara-card .card-description p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+.wp-block-eara-card .eara-card-layout-2 img {
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+}
+.wp-block-eara-card .mantine-Card-root {
+  transition: all 0.3s ease;
+}
+.wp-block-eara-card--member .mantine-Card-root {
+  border-right: 4px solid #228be6;
+}
+.wp-block-eara-card--news .mantine-Card-root {
+  border-right: 4px solid #40c057;
+}
+.wp-block-eara-card--animals .mantine-Card-root {
+  border-right: 4px solid #fab005;
+}
+.wp-block-eara-card--team .mantine-Card-root {
+  border-right: 4px solid #e64980;
+}
+.wp-block-eara-card .mantine-Image-root img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}

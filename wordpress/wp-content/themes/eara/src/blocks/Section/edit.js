@@ -20,6 +20,7 @@ export default function Edit(props) {
     description,
     py,
     noTitle,
+    background,
     className,
     containerSize,
   } = attributes;
@@ -75,7 +76,7 @@ export default function Edit(props) {
               onChange={(v) => setAttributes({ containerSize: v })}
               help={__("Maximum width of the section container", "eara")}
             />
-
+{/* 
             <SelectControl
               label={__("Vertical Padding", "eara")}
               value={py}
@@ -91,20 +92,20 @@ export default function Edit(props) {
               ]}
               onChange={(v) => setAttributes({ py: v })}
               help={__("Top and bottom padding of the section", "eara")}
-            />
+            /> */}
 
-            <TextControl
+            {/* <TextControl
               label={__("Background Color", "eara")}
               value={backgroundColor}
               onChange={(v) => setAttributes({ backgroundColor: v })}
               help={__("Background color of the section", "eara")}
-            />
+            /> */}
           </PanelBody>
         </InspectorControls>
 
         <section
           class="py-20 "
-          style={{ backgroundColor: backgroundColor || "transparent" }}
+          style={{ backgroundColor: background || "transparent" }}
         >
           {!noTitle && (
             <div className="w-full items-start gap-20 sm:flex">

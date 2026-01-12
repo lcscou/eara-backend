@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/tab-item",
+  "title": "Tab Item",
+  "category": "eara",
+  "icon": "format-aside",
+  "description": "Individual item for Tabs block.",
+  "parent": ["eara/tabs"],
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Tab Title"
+    },
+    "image": {
+      "type": "object",
+      "default": {
+        "url": "",
+        "id": 0,
+        "alt": ""
+      }
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

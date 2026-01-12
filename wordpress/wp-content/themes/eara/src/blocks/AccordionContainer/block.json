@@ -7,8 +7,17 @@
   "icon": "list-view",
   "description": "A container for accordion items with expandable content, like Mantine Accordion.",
   "supports": {
-    "html": false
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    
+    "color": {
+      "background": true
+    }
   },
+
   "attributes": {
     "variant": {
       "type": "string",

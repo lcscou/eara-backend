@@ -7,7 +7,19 @@
   "icon": "format-quote",
   "description": "A customizable quote block with variants, colors, and optional author avatar",
   "supports": {
-    "html": false
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "typography": {
+      "fontSize": true,
+      "textAlign": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    }
   },
   "attributes": {
     "content": {

@@ -1,7 +1,7 @@
-const { RichText } = wp.blockEditor;
+const { RichText, useBlockProps } = wp.blockEditor;
 
 export default function Save({ attributes }) {
-  const { content, author, backgroundColor, showAvatar, avatarImage, variant } = attributes;
+  const { content, author, backgroundColor, showAvatar, avatarImage, variant, style } = attributes;
 
   const backgroundColorMap = {
     white: "#FFFFFF",
@@ -10,20 +10,32 @@ export default function Save({ attributes }) {
     "light-gray": "#F7F7F7",
   };
 
+  const blockProps = useBlockProps.save({
+    className: `eara-quote eara-quote--${backgroundColor} eara-quote--${variant}`,
+    style: {
+      backgroundColor: style?.color?.background || backgroundColorMap[backgroundColor],
+      color: style?.color?.text,
+      paddingTop: style?.spacing?.padding?.top || "32px",
+      paddingRight: style?.spacing?.padding?.right || "32px",
+      paddingBottom: style?.spacing?.padding?.bottom || "32px",
+      paddingLeft: style?.spacing?.padding?.left || "32px",
+      marginTop: style?.spacing?.margin?.top,
+      marginRight: style?.spacing?.margin?.right,
+      marginBottom: style?.spacing?.margin?.bottom,
+      marginLeft: style?.spacing?.margin?.left,
+      borderRadius: "8px",
+      boxShadow: variant === "highlighted" ? "0 4px 12px rgba(0,0,0,0.1)" : "none",
+      fontSize: style?.typography?.fontSize,
+      textAlign: style?.typography?.textAlign,
+    },
+  });
+
   return (
-    <div
-      className={`eara-quote eara-quote--${backgroundColor} eara-quote--${variant}`}
-      style={{
-        backgroundColor: backgroundColorMap[backgroundColor],
-        padding: "32px",
-        borderRadius: "8px",
-        boxShadow: variant === "highlighted" ? "0 4px 12px rgba(0,0,0,0.1)" : "none",
-      }}
-    >
+    <div {...blockProps}>
       <div className="eara-quote__mark">
         <span style={{
-          fontSize: "48px",
-          color: "#3A3A6B",
+          fontSize: style?.typography?.fontSize || "48px",
+          color: style?.color?.text || "#3A3A6B",
           lineHeight: "1",
         }}>
           &ldquo;
@@ -35,6 +47,11 @@ export default function Save({ attributes }) {
           tagName="p"
           value={content}
           className="eara-quote__text"
+          style={{
+            fontSize: style?.typography?.fontSize,
+            color: style?.color?.text,
+            textAlign: style?.typography?.textAlign,
+          }}
         />
       </div>
 

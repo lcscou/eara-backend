@@ -7,7 +7,14 @@
   "icon": "layout",
   "description": "A section container with title, subtitle, and customizable spacing.",
   "supports": {
-    "html": false
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "background": true
+    }
   },
   "attributes": {
     "title": {
@@ -18,17 +25,9 @@
       "type": "string",
       "default": ""
     },
-    "backgroundColor": {
-      "type": "string",
-      "default": ""
-    },
     "description": {
       "type": "string",
       "default": ""
-    },
-    "py": {
-      "type": "string",
-      "default": "xl"
     },
     "noTitle": {
       "type": "boolean",
