@@ -30,6 +30,85 @@
             "show_in_graphql": 1,
             "graphql_description": "",
             "graphql_field_name": "pageHeaderImage"
+        },
+        {
+            "key": "field_69664f3ece1c8",
+            "label": "Documents",
+            "name": "documents",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Document",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "documents",
+            "graphql_non_null": 0,
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_696650a9bda3f",
+                    "label": "Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "title",
+                    "graphql_non_null": 0,
+                    "parent_repeater": "field_69664f3ece1c8"
+                },
+                {
+                    "key": "field_69664f4cce1c9",
+                    "label": "File",
+                    "name": "file",
+                    "aria-label": "",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "allow_in_bindings": 0,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "file",
+                    "parent_repeater": "field_69664f3ece1c8"
+                }
+            ]
         }
     ],
     "location": [
@@ -55,5 +134,5 @@
     "graphql_field_name": "acfPressRelease",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767705306
+    "modified": 1768313449
 }
