@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/modal-content",
+  "title": "Modal Content",
+  "category": "eara",
+  "icon": "welcome-view-site",
+  "description": "Modal content that appears when a ModalTrigger with matching ID is clicked.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "triggerId": {
+      "type": "string",
+      "default": ""
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "centered": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "string",
+      "default": "md",
+      "enum": ["sm", "md", "lg", "xl"]
+    },
+    "withCloseButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "fullScreen": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}

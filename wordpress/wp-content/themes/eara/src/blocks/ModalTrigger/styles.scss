@@ -1,0 +1,9 @@
+/* Modal Trigger Frontend Styles */
+.eara-modal-trigger {
+  display: block;
+  width: 100%;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

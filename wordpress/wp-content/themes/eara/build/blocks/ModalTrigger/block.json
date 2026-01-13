@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/modal-trigger",
+  "title": "Modal Trigger",
+  "category": "eara",
+  "icon": "admin-page",
+  "description": "A container that triggers a modal when clicked. Must have a matching ModalContent block with the same ID.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "triggerId": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css"
+}
