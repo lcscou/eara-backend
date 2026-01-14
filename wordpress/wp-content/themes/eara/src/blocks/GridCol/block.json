@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "eara/grid-col",
-  "title": "Grid Column",
+  "title": "Grid Column (DEPRECATED)",
   "category": "eara",
   "icon": "columns",
   "description": "A column within a Grid, like Mantine Grid.Col.",

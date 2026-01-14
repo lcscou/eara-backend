@@ -7,40 +7,46 @@
   "icon": "format-aside",
   "description": "A simple container box with optional link, background, and spacing.",
   "supports": {
-    "html": false
+    "html": false,
+    "color": {
+      "text": true,
+      "background": true
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "dimensions": {
+      "aspectRatio": true,
+      "height": true,
+      "minHeight": true,
+      "width": true
+    }
   },
   "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": ""
-    },
-    "padding": {
-      "type": "string",
-      "default": ""
-    },
-    "px": {
-      "type": "string",
-      "default": ""
-    },
-    "py": {
+    "href": {
       "type": "string",
       "default": ""
     },
     "borderRadius": {
       "type": "string",
-      "default": "20px"
+      "default": "10px"
     },
-    "border": {
+    "borderColor": {
       "type": "string",
       "default": ""
     },
-    "margin": {
+    "borderWidth": {
       "type": "string",
       "default": ""
     },
-    "href": {
+    "borderStyle": {
       "type": "string",
-      "default": ""
+      "default": "solid"
     }
   },
   "textdomain": "eara",

@@ -1,15 +1,18 @@
 const { InnerBlocks, useBlockProps } = wp.blockEditor;
 
 export default function save({ attributes }) {
-  const { backgroundColor, padding, margin, href } = attributes;
+  const { href, borderRadius, borderColor, borderWidth, borderStyle } = attributes;
 
-  const style = {
-    backgroundColor: backgroundColor || undefined,
-    padding: padding || undefined,
-    margin: margin || undefined,
+  const borderStyles = {
+    border: borderWidth && borderStyle && borderColor 
+      ? `${borderWidth} ${borderStyle} ${borderColor}` 
+      : undefined,
+    borderRadius: borderRadius || undefined,
   };
 
-  const blockProps = useBlockProps.save({ style });
+  const blockProps = useBlockProps.save({
+    style: borderStyles,
+  });
 
   if (href) {
     return (

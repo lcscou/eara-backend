@@ -2,10 +2,10 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "eara/group",
-  "title": "Group",
+  "title": "Group (DEPRECATED)",
   "category": "eara",
   "icon": "grid-view",
-  "description": "Compose elements and components in a horizontal flex container, like Mantine Group.",
+  "description": "This is DEPRECATED please use core/column at design category",
   "supports": {
     "html": false
   },

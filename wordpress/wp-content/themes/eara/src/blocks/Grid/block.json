@@ -2,7 +2,7 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "eara/grid",
-  "title": "Grid",
+  "title": "Grid (DEPRECATED)",
   "category": "eara",
   "icon": "grid-view",
   "description": "Flexbox grid system with customizable columns and gaps, like Mantine Grid.",
