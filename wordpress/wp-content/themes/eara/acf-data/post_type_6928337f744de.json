@@ -59,7 +59,7 @@
     "menu_position": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-admin-post"
+        "value": "dashicons-sort"
     },
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -85,5 +85,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "ticker",
     "graphql_plural_name": "tickers",
-    "modified": 1764242774
+    "modified": 1768474157
 }

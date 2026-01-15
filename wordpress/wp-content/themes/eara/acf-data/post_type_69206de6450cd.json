@@ -59,7 +59,7 @@
     "menu_position": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-admin-post"
+        "value": "dashicons-businessman"
     },
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -88,5 +88,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "team",
     "graphql_plural_name": "allTeams",
-    "modified": 1763733206
+    "modified": 1768474026
 }

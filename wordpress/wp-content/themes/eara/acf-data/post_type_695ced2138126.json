@@ -59,7 +59,7 @@
     "menu_position": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-admin-post"
+        "value": "dashicons-format-aside"
     },
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -88,5 +88,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "pressRelease",
     "graphql_plural_name": "pressRelease",
-    "modified": 1767697755
+    "modified": 1768473930
 }

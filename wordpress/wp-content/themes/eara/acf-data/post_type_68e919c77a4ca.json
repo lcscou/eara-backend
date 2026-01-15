@@ -59,7 +59,7 @@
     "menu_position": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-admin-post"
+        "value": "dashicons-pets"
     },
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -89,5 +89,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "animal",
     "graphql_plural_name": "animals",
-    "modified": 1760361262
+    "modified": 1768473252
 }

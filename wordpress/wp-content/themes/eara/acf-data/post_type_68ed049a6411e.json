@@ -59,7 +59,7 @@
     "menu_position": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-admin-post"
+        "value": "dashicons-groups"
     },
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -89,5 +89,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "member",
     "graphql_plural_name": "members",
-    "modified": 1760363742
+    "modified": 1768473741
 }

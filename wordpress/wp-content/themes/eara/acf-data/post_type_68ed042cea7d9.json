@@ -59,7 +59,7 @@
     "menu_position": "",
     "menu_icon": {
         "type": "dashicons",
-        "value": "dashicons-admin-post"
+        "value": "dashicons-megaphone"
     },
     "rename_capabilities": false,
     "singular_capability_name": "post",
@@ -89,5 +89,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "news",
     "graphql_plural_name": "news",
-    "modified": 1760363616
+    "modified": 1768473785
 }
