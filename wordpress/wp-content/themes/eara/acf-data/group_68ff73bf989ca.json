@@ -323,31 +323,6 @@
             "graphql_non_null": 0
         },
         {
-            "key": "field_68ffb1c46736a",
-            "label": "Banner",
-            "name": "banner",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "Banner",
-            "default_value": 0,
-            "allow_in_bindings": 0,
-            "ui": 0,
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "banner",
-            "graphql_non_null": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
             "key": "field_68ffb1e374a29",
             "label": "Submitted by",
             "name": "submitted_by",
@@ -470,5 +445,5 @@
     "graphql_field_name": "cfMediaBank",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767720449
+    "modified": 1768571601
 }
