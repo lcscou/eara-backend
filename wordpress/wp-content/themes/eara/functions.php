@@ -8,6 +8,7 @@ include_once TEMPLATEPATH . '/inc/hero-home.php';
 include_once TEMPLATEPATH . '/inc/image-optimize.php';
 include_once TEMPLATEPATH . '/inc/country-field.php';
 include_once TEMPLATEPATH . '/inc/nextjs-revalidate.php';
+include_once TEMPLATEPATH . '/inc/algolia-config.php';
 
 
 
