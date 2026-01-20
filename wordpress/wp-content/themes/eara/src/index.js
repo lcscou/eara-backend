@@ -24,3 +24,4 @@ import './blocks/List';
 import './blocks/ListItem';
 import './blocks/Chart';
 import './blocks/SectionCard';
+import './blocks/NewsletterForm';

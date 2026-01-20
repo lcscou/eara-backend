@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/newsletter-form",
+  "title": "Newsletter Form",
+  "category": "eara",
+  "icon": "email",
+  "description": "A newsletter subscription form with multiple fields",
+  "supports": {
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "title": "Subscribe to our newsletter",
+      "description": "Subscribe to receive the latest updates from us."
+    }
+  },
+  "attributes": {
+    "renderMode": {
+      "type": "string",
+      "default": "inline",
+      "enum": ["inline", "modal"]
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Subscribe"
+    },
+    "title": {
+      "type": "string",
+      "default": "Subscribe to our newsletter"
+    },
+    "description": {
+      "type": "string",
+      "default": "Subscribe to receive the latest updates from us."
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}
