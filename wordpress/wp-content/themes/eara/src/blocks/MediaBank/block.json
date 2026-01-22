@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/media-bank",
+  "title": "Media Bank",
+  "category": "eara",
+  "icon": "format-image",
+  "description": "Select an image from Media Bank and display credits and links.",
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "mediaId": {
+      "type": "number",
+      "default": 0
+    },
+    "mediaTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "width": {
+      "type": "string",
+      "default": "auto"
+    },
+    "height": {
+      "type": "string",
+      "default": "auto"
+    },
+    "credits": {
+      "type": "string",
+      "default": ""
+    },
+    "creditWebsite": {
+      "type": "string",
+      "default": ""
+    },
+    "creditsMoreInfo": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}
