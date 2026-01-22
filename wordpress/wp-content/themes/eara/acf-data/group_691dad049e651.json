@@ -3,6 +3,40 @@
     "title": "Members",
     "fields": [
         {
+            "key": "field_69729e500ffc6",
+            "label": "Tier",
+            "name": "tier",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "gold": "Gold",
+                "silver": "Silver",
+                "bronze": "Bronze"
+            },
+            "default_value": "bronze",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "tier",
+            "graphql_non_null": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_691dad05453dc",
             "label": "Country",
             "name": "country",
@@ -399,5 +433,5 @@
     "graphql_field_name": "AcfMembers",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1768857185
+    "modified": 1769119380
 }
