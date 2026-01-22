@@ -92,6 +92,7 @@
                 "id": ""
             },
             "choices": {
+                "international": "International",
                 "afghanistan": "Afghanistan",
                 "albania": "Albania",
                 "algeria": "Algeria",
@@ -484,6 +485,81 @@
             "show_in_graphql": 1,
             "graphql_description": "",
             "graphql_field_name": "pageHeaderImage"
+        },
+        {
+            "key": "field_6972921b35abe",
+            "label": "Related News",
+            "name": "related_news",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "news"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 1,
+            "bidirectional_target": [
+                "field_69729283270c3"
+            ],
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "relatedNews",
+            "graphql_connection_type": "one_to_many"
+        },
+        {
+            "key": "field_6972924335abf",
+            "label": "Related Events",
+            "name": "related_events",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "events"
+            ],
+            "post_status": "",
+            "taxonomy": "",
+            "filters": [
+                "post_type"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 1,
+            "bidirectional_target": [
+                "field_69148e98f382e"
+            ],
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "relatedEvents",
+            "graphql_connection_type": "one_to_many"
         }
     ],
     "location": [
@@ -509,5 +585,5 @@
     "graphql_field_name": "customFields",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767705117
+    "modified": 1769116769
 }

@@ -66,78 +66,6 @@
             "bidirectional_target": []
         },
         {
-            "key": "field_69148d650091f",
-            "label": "Disease",
-            "name": "disease",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "diseases"
-            ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "return_format": "object",
-            "min": "",
-            "max": "",
-            "allow_in_bindings": 0,
-            "elements": "",
-            "bidirectional": 0,
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "disease",
-            "graphql_connection_type": "one_to_many",
-            "bidirectional_target": []
-        },
-        {
-            "key": "field_69148e98f382e",
-            "label": "Related News",
-            "name": "related_news",
-            "aria-label": "",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "news"
-            ],
-            "post_status": [
-                "publish"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "return_format": "object",
-            "min": "",
-            "max": "",
-            "allow_in_bindings": 0,
-            "elements": "",
-            "bidirectional": 0,
-            "show_in_graphql": 1,
-            "graphql_description": "",
-            "graphql_field_name": "relatedNews",
-            "graphql_connection_type": "one_to_many",
-            "bidirectional_target": []
-        },
-        {
             "key": "field_691d8b9881ac2",
             "label": "Country",
             "name": "country",
@@ -152,6 +80,7 @@
                 "id": ""
             },
             "choices": {
+                "international": "International",
                 "afghanistan": "Afghanistan",
                 "albania": "Albania",
                 "algeria": "Algeria",
@@ -439,6 +368,117 @@
             "show_in_graphql": 1,
             "graphql_description": "",
             "graphql_field_name": "pageHeaderImage"
+        },
+        {
+            "key": "field_69148d650091f",
+            "label": "Disease",
+            "name": "disease",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "diseases"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "disease",
+            "graphql_connection_type": "one_to_many",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_69148e98f382e",
+            "label": "Related News",
+            "name": "related_news",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "news"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "relatedNews",
+            "graphql_connection_type": "one_to_many",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_69729283270c3",
+            "label": "Related Events",
+            "name": "related_events",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "events"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "post_type",
+                "taxonomy"
+            ],
+            "return_format": "object",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "elements": "",
+            "bidirectional": 1,
+            "bidirectional_target": [
+                "field_6972921b35abe"
+            ],
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "relatedEvents",
+            "graphql_connection_type": "one_to_many"
         }
     ],
     "location": [
@@ -464,5 +504,5 @@
     "graphql_field_name": "AcfNews",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767704660
+    "modified": 1769116821
 }
