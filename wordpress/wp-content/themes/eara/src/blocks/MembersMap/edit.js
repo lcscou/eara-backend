@@ -1,7 +1,6 @@
 const { __ } = wp.i18n;
 const { InspectorControls, useBlockProps } = wp.blockEditor;
 const { PanelBody, TextControl } = wp.components;
-import "./editor.scss";
 
 // Construct the path to the image relative to the block
 const mapImageUrl = new URL('./members-map.png', import.meta.url).href;

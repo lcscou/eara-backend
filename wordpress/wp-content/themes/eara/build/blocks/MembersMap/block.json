@@ -6,6 +6,8 @@
   "category": "eara",
   "icon": "location-alt",
   "description": "Displays a static members map image with customizable dimensions and spacing.",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
   "supports": {
     "html": false,
     "spacing": {
