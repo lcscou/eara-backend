@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/members-map",
+  "title": "Members Map",
+  "category": "eara",
+  "icon": "location-alt",
+  "description": "Displays a static members map image with customizable dimensions and spacing.",
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "dimensions": {
+      "width": true,
+      "height": true
+    },
+    "interactivity": true,
+    "layout": true
+  },
+  "attributes": {
+    "width": {
+      "type": "string",
+      "default": "100%"
+    },
+    "height": {
+      "type": "string",
+      "default": "500px"
+    }
+  }
+}

@@ -1,2 +1,29 @@
-.wp-block-eara-media-bank .eara-media-bank__preview img{border-radius:6px}.wp-block-eara-media-bank .eara-media-bank__preview figcaption{font-size:12px;color:#666}
-.wp-block-eara-media-bank figure{margin:0}.wp-block-eara-media-bank .eara-media-bank__credits{margin-top:6px;color:#666}.wp-block-eara-media-bank .eara-media-bank__credits a{color:#1f6feb;text-decoration:none}.wp-block-eara-media-bank .eara-media-bank__credits a:hover{text-decoration:underline}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/MediaBank/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-media-bank .eara-media-bank__preview img {
+  border-radius: 6px;
+}
+.wp-block-eara-media-bank .eara-media-bank__preview figcaption {
+  font-size: 12px;
+  color: #666;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/MediaBank/styles.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-media-bank figure {
+  margin: 0;
+}
+.wp-block-eara-media-bank .eara-media-bank__credits {
+  margin-top: 6px;
+  color: #666;
+}
+.wp-block-eara-media-bank .eara-media-bank__credits a {
+  color: #1f6feb;
+  text-decoration: none;
+}
+.wp-block-eara-media-bank .eara-media-bank__credits a:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=index.css.map*/

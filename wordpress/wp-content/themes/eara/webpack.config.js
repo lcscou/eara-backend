@@ -46,8 +46,8 @@ function getBlockEntries() {
 }
 
 /**
- * Get copy patterns for block.json files
- * Copies all block.json files from src to build directory
+ * Get copy patterns for block.json files and static assets
+ * Copies all block.json files and images from src to build directory
  */
 function getBlockJsonCopyPatterns() {
     const blocksDir = path.resolve(process.cwd(), 'src', 'blocks');
@@ -68,6 +68,22 @@ function getBlockJsonCopyPatterns() {
             patterns.push({
                 from: blockJsonPath,
                 to: path.resolve(process.cwd(), 'build', 'blocks', blockName, 'block.json'),
+            });
+        }
+
+        // Copy image files (png, jpg, jpeg, gif, svg)
+        const blockDir = path.join(blocksDir, blockName);
+        const imageExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg'];
+        
+        if (fs.existsSync(blockDir)) {
+            fs.readdirSync(blockDir).forEach((file) => {
+                const ext = path.extname(file).toLowerCase();
+                if (imageExtensions.includes(ext)) {
+                    patterns.push({
+                        from: path.join(blockDir, file),
+                        to: path.resolve(process.cwd(), 'build', 'blocks', blockName, file),
+                    });
+                }
             });
         }
     });

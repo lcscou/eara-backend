@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/NewsletterForm/editor.css","mappings":";;;AACA;EACE;AAAF,C","sources":["webpack://eara-theme/./src/blocks/NewsletterForm/editor.scss"],"sourcesContent":["// Editor-specific styles for Newsletter Form block\n.wp-block-eara-newsletter-form {\n  margin: 20px 0;\n}\n"],"names":[],"sourceRoot":""}

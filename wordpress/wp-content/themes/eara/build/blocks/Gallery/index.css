@@ -1,1 +1,84 @@
-.wp-block-eara-gallery{padding:16px;border:1px dashed #ccc;border-radius:4px}.eara-gallery-editor{width:100%}.eara-gallery-placeholder{display:flex;justify-content:center;align-items:center;min-height:200px;background-color:#f5f5f5;border-radius:4px}.eara-gallery__grid{width:100%}.eara-gallery__item{position:relative;overflow:hidden;border-radius:4px;cursor:pointer}.eara-gallery__image-wrapper{position:relative;width:100%;overflow:hidden;background-color:#f5f5f5}.eara-gallery__image-wrapper:hover .eara-gallery__overlay{opacity:1}.eara-gallery__image{width:100%;height:auto;display:block;-o-object-fit:cover;object-fit:cover}.eara-gallery__overlay{position:absolute;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.7);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:opacity .3s ease}.wp-block-eara-gallery--grid .eara-gallery__grid{display:grid}.wp-block-eara-gallery--masonry .eara-gallery__grid{-moz-column-count:3;column-count:3;-moz-column-gap:16px;column-gap:16px}.wp-block-eara-gallery--masonry .eara-gallery__item{-moz-column-break-inside:avoid;break-inside:avoid;margin-bottom:16px}
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Gallery/editor.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/* Gallery Block Editor Styles */
+.wp-block-eara-gallery {
+  padding: 16px;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+}
+
+.eara-gallery-editor {
+  width: 100%;
+}
+
+.eara-gallery-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.eara-gallery__grid {
+  width: 100%;
+}
+
+.eara-gallery__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.eara-gallery__image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+.eara-gallery__image-wrapper:hover .eara-gallery__overlay {
+  opacity: 1;
+}
+
+.eara-gallery__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.eara-gallery__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wp-block-eara-gallery--grid .eara-gallery__grid {
+  display: grid;
+}
+
+.wp-block-eara-gallery--masonry .eara-gallery__grid {
+  -moz-column-count: 3;
+       column-count: 3;
+  -moz-column-gap: 16px;
+       column-gap: 16px;
+}
+.wp-block-eara-gallery--masonry .eara-gallery__item {
+  -moz-column-break-inside: avoid;
+       break-inside: avoid;
+  margin-bottom: 16px;
+}
+
+/*# sourceMappingURL=index.css.map*/

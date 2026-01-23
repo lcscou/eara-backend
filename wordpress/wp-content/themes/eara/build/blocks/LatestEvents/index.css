@@ -1,2 +1,65 @@
-.wp-block-eara-latest-events{padding:1rem 0}.wp-block-eara-latest-events .latest-events-grid{width:100%}.wp-block-eara-latest-events .latest-event-card{background:#f5f6fb;border-color:#e3e7f3;overflow:hidden}.wp-block-eara-latest-events .latest-event-card .mantine-Card-section{background:rgba(0,0,0,0)}.wp-block-eara-latest-events .latest-event-card:hover{box-shadow:0 16px 32px rgba(0,0,0,.12)}.wp-block-eara-latest-events .latest-event-card__badge{position:absolute;top:.75rem;left:.75rem;z-index:2;text-transform:uppercase;font-weight:700;letter-spacing:.02em}.wp-block-eara-latest-events .latest-event-card__body{display:flex;flex-direction:column;gap:.35rem}@media(max-width: 768px){.wp-block-eara-latest-events{grid-template-columns:1fr !important}.wp-block-eara-latest-events .latest-event-card__inner{grid-template-columns:1fr}.wp-block-eara-latest-events .latest-event-card__media img{height:200px}}
-.wp-block-eara-latest-events .mantine-Skeleton-root{background:linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);background-size:200% 100%;animation:shimmer 1.5s infinite}@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/LatestEvents/styles.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-latest-events {
+  padding: 1rem 0;
+}
+.wp-block-eara-latest-events .latest-events-grid {
+  width: 100%;
+}
+.wp-block-eara-latest-events .latest-event-card {
+  background: #f5f6fb;
+  border-color: #e3e7f3;
+  overflow: hidden;
+}
+.wp-block-eara-latest-events .latest-event-card .mantine-Card-section {
+  background: transparent;
+}
+.wp-block-eara-latest-events .latest-event-card:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+.wp-block-eara-latest-events .latest-event-card__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 2;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.wp-block-eara-latest-events .latest-event-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .wp-block-eara-latest-events {
+    grid-template-columns: 1fr !important;
+  }
+  .wp-block-eara-latest-events .latest-event-card__inner {
+    grid-template-columns: 1fr;
+  }
+  .wp-block-eara-latest-events .latest-event-card__media img {
+    height: 200px;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/LatestEvents/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-eara-latest-events .mantine-Skeleton-root {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/*# sourceMappingURL=index.css.map*/

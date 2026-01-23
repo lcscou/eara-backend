@@ -1,1 +1,46 @@
-.eara-hero-slide{position:relative;width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat}.eara-hero-slide__overlay{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none}.eara-hero-slide__content{position:relative;z-index:1;width:100%;max-width:1200px;padding:2rem}.eara-hero-slide__content--absolute{position:absolute}.eara-hero-slide__content--fixed{position:fixed}.eara-hero-slide__content--relative{position:relative}@media(max-width: 768px){.eara-hero-slide--mobile-bg{background-image:var(--mobile-bg-image) !important}}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/HeroSlide/styles.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Hero Slide styles */
+.eara-hero-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.eara-hero-slide__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+.eara-hero-slide__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+.eara-hero-slide__content--absolute {
+  position: absolute;
+}
+.eara-hero-slide__content--fixed {
+  position: fixed;
+}
+.eara-hero-slide__content--relative {
+  position: relative;
+}
+.eara-hero-slide {
+  /* Responsive background images */
+}
+@media (max-width: 768px) {
+  .eara-hero-slide--mobile-bg {
+    background-image: var(--mobile-bg-image) !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map*/

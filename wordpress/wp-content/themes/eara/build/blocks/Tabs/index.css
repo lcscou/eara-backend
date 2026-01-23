@@ -1,1 +1,67 @@
-.wp-block-eara-tabs.wp-block-eara-tabs--vertical{display:flex;gap:32px}.wp-block-eara-tabs.wp-block-eara-tabs--horizontal{display:block}.wp-block-eara-tabs__nav{display:flex;gap:12px;flex-direction:column;min-width:180px}.wp-block-eara-tabs--horizontal .wp-block-eara-tabs__nav{flex-direction:row;margin-bottom:24px;flex-wrap:wrap}.wp-block-eara-tabs__button{padding:12px 24px;border-radius:24px;border:none;background-color:#5b5fd9;color:#fff;cursor:pointer;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.5px;transition:background-color .3s ease}.wp-block-eara-tabs__button:hover{background-color:#4a4fbf}.wp-block-eara-tabs__button--active{background-color:#3a3a6b}.wp-block-eara-tabs__content{flex:1}.wp-block-eara-tabs__image{margin-bottom:24px}.wp-block-eara-tabs__image img{width:100%;height:auto;border-radius:8px;-o-object-fit:cover;object-fit:cover}.wp-block-eara-tabs__text h3{font-size:18px;font-weight:600;color:#3a3a6b;margin:0 0 12px 0}
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Tabs/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/* Tabs Block Editor Styles */
+.wp-block-eara-tabs.wp-block-eara-tabs--vertical {
+  display: flex;
+  gap: 32px;
+}
+.wp-block-eara-tabs.wp-block-eara-tabs--horizontal {
+  display: block;
+}
+
+.wp-block-eara-tabs__nav {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  min-width: 180px;
+}
+.wp-block-eara-tabs--horizontal .wp-block-eara-tabs__nav {
+  flex-direction: row;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.wp-block-eara-tabs__button {
+  padding: 12px 24px;
+  border-radius: 24px;
+  border: none;
+  background-color: #5b5fd9;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease;
+}
+.wp-block-eara-tabs__button:hover {
+  background-color: #4a4fbf;
+}
+.wp-block-eara-tabs__button--active {
+  background-color: #3a3a6b;
+}
+
+.wp-block-eara-tabs__content {
+  flex: 1;
+}
+
+.wp-block-eara-tabs__image {
+  margin-bottom: 24px;
+}
+.wp-block-eara-tabs__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.wp-block-eara-tabs__text h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3a3a6b;
+  margin: 0 0 12px 0;
+}
+
+/*# sourceMappingURL=index.css.map*/
