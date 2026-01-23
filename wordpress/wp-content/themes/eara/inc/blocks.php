@@ -123,42 +123,7 @@ function eara_registrar_blocos()
     }
 }
 add_action('init', 'eara_registrar_blocos');
-/**
- * Enqueue Google Maps block editor script
- */
-function eara_enqueue_google_maps_block()
-{
-    if (!is_admin()) {
-        return;
-    }
-
-    $theme = wp_get_theme();
-    $version = $theme->get('Version') ?: '1.0.0';
-    $google_maps_js = get_template_directory() . '/build/blocks/GoogleMaps/index.js';
-
-    if (file_exists($google_maps_js)) {
-        // Get asset dependencies
-        $asset_file = get_template_directory() . '/build/blocks/GoogleMaps/index.asset.php';
-        $asset_data = file_exists($asset_file) ? include($asset_file) : array('dependencies' => array(), 'version' => $version);
-
-        wp_enqueue_script(
-            'eara-google-maps-block',
-            esc_url(get_template_directory_uri() . '/build/blocks/GoogleMaps/index.js'),
-            $asset_data['dependencies'],
-            $asset_data['version'],
-            true
-        );
-
-        // Enqueue editor styles
-        wp_enqueue_style(
-            'eara-google-maps-editor',
-            esc_url(get_template_directory_uri() . '/build/blocks/GoogleMaps/index.css'),
-            array(),
-            $asset_data['version']
-        );
-    }
-}
-add_action('enqueue_block_editor_assets', 'eara_enqueue_google_maps_block');
+// Google Maps block assets are enqueued via block.json (script/style/editorStyle)
 /**
  * Enqueue Mantine styles for block editor
  */
