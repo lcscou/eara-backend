@@ -1,1 +1,0 @@
-{"version":3,"file":"blocks/ModalTrigger/style.css","mappings":";;;AAAA;AACA;EACE;EACA;AACF;AACE;EACE;AACJ,C","sources":["webpack://eara-theme/./src/blocks/ModalTrigger/styles.scss"],"sourcesContent":["/* Modal Trigger Frontend Styles */\n.eara-modal-trigger {\n  display: block;\n  width: 100%;\n\n  &:hover {\n    opacity: 0.8;\n  }\n}\n"],"names":[],"sourceRoot":""}
