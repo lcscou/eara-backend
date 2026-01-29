@@ -250,3 +250,64 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
     }
     return $query_args;
 }, 10, 5);
+
+/**
+ * Register unique countries query for News posts
+ */
+add_action('graphql_register_types', function () {
+    // Register the CountryOption type
+    register_graphql_object_type('CountryOption', [
+        'description' => __('Country option with value and label', 'eara'),
+        'fields'      => [
+            'value' => [
+                'type'        => 'String',
+                'description' => __('Country value', 'eara'),
+            ],
+            'label' => [
+                'type'        => 'String',
+                'description' => __('Country label', 'eara'),
+            ],
+        ],
+    ]);
+
+    register_graphql_field('RootQuery', 'newsCountries', [
+        'type'        => ['list_of' => 'CountryOption'],
+        'description' => __('Get all unique country values from News posts', 'eara'),
+        'resolve'     => function () {
+            $args = [
+                'post_type'      => 'news',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            ];
+
+            $query = new WP_Query($args);
+            $countries = [];
+
+            if ($query->have_posts()) {
+                foreach ($query->posts as $post_id) {
+                    $country = get_field('country', $post_id);
+                    if ($country) {
+                        $countries[] = $country;
+                    }
+                }
+            }
+
+            // Remove duplicates and sort
+            $unique_countries = array_unique($countries);
+            sort($unique_countries);
+
+            // Get countries map for labels
+            $countries_map = my_get_countries();
+
+            // Format as value/label pairs
+            $result = array_map(function ($country) use ($countries_map) {
+                return [
+                    'value' => $country,
+                    'label' => isset($countries_map[$country]) ? $countries_map[$country] : $country,
+                ];
+            }, array_values($unique_countries));
+
+            return $result;
+        },
+    ]);
+});
