@@ -29,6 +29,10 @@ add_action('graphql_register_types', function () {
         'type' => 'String',
         'description' => 'Filter News by country field',
     ]);
+    register_graphql_field('RootQueryToNewsConnectionWhereArgs', 'animal', [
+        'type' => 'String',
+        'description' => 'Filter News by animal field',
+    ]);
     register_graphql_field('RootQueryToMemberConnectionWhereArgs', 'country', [
         'type' => 'String',
         'description' => 'Filter Members by country field',
@@ -212,6 +216,13 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
         $query_args['meta_query'][] = [
             'key' => 'country',
             'value' => $args['where']['country'],
+            'compare' => 'LIKE',
+        ];
+    }
+    if (isset($args['where']['animal']) && $info->fieldName === 'allNews') {
+        $query_args['meta_query'][] = [
+            'key' => 'animal',
+            'value' => $args['where']['animal'],
             'compare' => 'LIKE',
         ];
     }
