@@ -21,6 +21,10 @@ add_action('graphql_register_types', function () {
         'type' => 'Boolean',
         'description' => 'Filter media bank by ACF field is_featured (featured for homepage)',
     ]);
+    register_graphql_field('RootQueryToMediaBankConnectionWhereArgs', 'country', [
+        'type' => 'String',
+        'description' => 'Filter media bank by country field',
+    ]);
     register_graphql_field('RootQueryToNewsConnectionWhereArgs', 'category', [
         'type' => 'String',
         'description' => 'Filter News by category field',
@@ -212,6 +216,13 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             'compare' => '=',
         ];
     }
+    if (isset($args['where']['country']) && ($info->fieldName === 'mediasBank' || $info->fieldName === 'mediaBank' || $info->fieldName === 'allMediaBank')) {
+        $query_args['meta_query'][] = [
+            'key' => 'country',
+            'value' => $args['where']['country'],
+            'compare' => 'LIKE',
+        ];
+    }
     if (isset($args['where']['country']) && $info->fieldName === 'allNews') {
         $query_args['meta_query'][] = [
             'key' => 'country',
@@ -257,7 +268,7 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
 add_action('graphql_register_types', function () {
     // Register the CountryOption type
     register_graphql_object_type('CountryOption', [
-        'description' => __('Country option with value and label', 'eara'),
+        'description' => __('Country option with value, label and count', 'eara'),
         'fields'      => [
             'value' => [
                 'type'        => 'String',
@@ -266,6 +277,10 @@ add_action('graphql_register_types', function () {
             'label' => [
                 'type'        => 'String',
                 'description' => __('Country label', 'eara'),
+            ],
+            'count' => [
+                'type'        => 'Int',
+                'description' => __('Number of occurrences', 'eara'),
             ],
         ],
     ]);
@@ -296,31 +311,34 @@ add_action('graphql_register_types', function () {
             ];
 
             $query = new WP_Query($args);
-            $countries = [];
+            $country_count = [];
 
             if ($query->have_posts()) {
                 foreach ($query->posts as $post_id) {
                     $country = get_field('country', $post_id);
                     if ($country) {
-                        $countries[] = $country;
+                        if (!isset($country_count[$country])) {
+                            $country_count[$country] = 0;
+                        }
+                        $country_count[$country]++;
                     }
                 }
             }
 
-            // Remove duplicates and sort
-            $unique_countries = array_unique($countries);
-            sort($unique_countries);
+            // Sort by key alphabetically
+            ksort($country_count);
 
             // Get countries map for labels
             $countries_map = my_get_countries();
 
-            // Format as value/label pairs
-            $result = array_map(function ($country) use ($countries_map) {
+            // Format as value/label/count triplets
+            $result = array_map(function ($country, $count) use ($countries_map) {
                 return [
                     'value' => $country,
                     'label' => isset($countries_map[$country]) ? $countries_map[$country] : $country,
+                    'count' => $count,
                 ];
-            }, array_values($unique_countries));
+            }, array_keys($country_count), array_values($country_count));
 
             return $result;
         },
@@ -361,6 +379,50 @@ add_action('graphql_register_types', function () {
                     'count' => $count,
                 ];
             }, array_keys($species_count), array_values($species_count));
+
+            return $result;
+        },
+    ]);
+
+    register_graphql_field('RootQuery', 'mediabanksCountries', [
+        'type'        => ['list_of' => 'CountryOption'],
+        'description' => __('Get all unique country values from MediaBank posts', 'eara'),
+        'resolve'     => function () {
+            $args = [
+                'post_type'      => 'media-bank',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            ];
+
+            $query = new WP_Query($args);
+            $country_count = [];
+
+            if ($query->have_posts()) {
+                foreach ($query->posts as $post_id) {
+                    $country = get_field('country', $post_id);
+                    if ($country) {
+                        if (!isset($country_count[$country])) {
+                            $country_count[$country] = 0;
+                        }
+                        $country_count[$country]++;
+                    }
+                }
+            }
+
+            // Sort by key alphabetically
+            ksort($country_count);
+
+            // Get countries map for labels
+            $countries_map = my_get_countries();
+
+            // Format as value/label/count triplets
+            $result = array_map(function ($country, $count) use ($countries_map) {
+                return [
+                    'value' => $country,
+                    'label' => isset($countries_map[$country]) ? $countries_map[$country] : $country,
+                    'count' => $count,
+                ];
+            }, array_keys($country_count), array_values($country_count));
 
             return $result;
         },
