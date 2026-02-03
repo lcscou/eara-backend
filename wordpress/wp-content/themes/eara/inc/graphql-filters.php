@@ -270,6 +270,21 @@ add_action('graphql_register_types', function () {
         ],
     ]);
 
+    // Register the SpeciesFeaturedOption type
+    register_graphql_object_type('SpeciesFeaturedOption', [
+        'description' => __('Species featured option with value and count', 'eara'),
+        'fields'      => [
+            'value' => [
+                'type'        => 'String',
+                'description' => __('Species featured value', 'eara'),
+            ],
+            'count' => [
+                'type'        => 'Int',
+                'description' => __('Number of occurrences', 'eara'),
+            ],
+        ],
+    ]);
+
     register_graphql_field('RootQuery', 'newsCountries', [
         'type'        => ['list_of' => 'CountryOption'],
         'description' => __('Get all unique country values from News posts', 'eara'),
@@ -306,6 +321,46 @@ add_action('graphql_register_types', function () {
                     'label' => isset($countries_map[$country]) ? $countries_map[$country] : $country,
                 ];
             }, array_values($unique_countries));
+
+            return $result;
+        },
+    ]);
+
+    register_graphql_field('RootQuery', 'mediabanksSpeciesFeatured', [
+        'type'        => ['list_of' => 'SpeciesFeaturedOption'],
+        'description' => __('Get all unique species_featured values from MediaBank posts with count', 'eara'),
+        'resolve'     => function () {
+            $args = [
+                'post_type'      => 'media-bank',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            ];
+
+            $query = new WP_Query($args);
+            $species_count = [];
+
+            if ($query->have_posts()) {
+                foreach ($query->posts as $post_id) {
+                    $species_featured = get_field('species_featured', $post_id);
+                    if ($species_featured) {
+                        if (!isset($species_count[$species_featured])) {
+                            $species_count[$species_featured] = 0;
+                        }
+                        $species_count[$species_featured]++;
+                    }
+                }
+            }
+
+            // Sort by key alphabetically
+            ksort($species_count);
+
+            // Format as value/count pairs
+            $result = array_map(function ($species, $count) {
+                return [
+                    'value' => $species,
+                    'count' => $count,
+                ];
+            }, array_keys($species_count), array_values($species_count));
 
             return $result;
         },
