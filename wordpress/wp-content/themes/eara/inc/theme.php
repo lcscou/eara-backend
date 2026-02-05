@@ -30,7 +30,7 @@ add_editor_style('/build/editor.css');
 
 add_action('enqueue_block_editor_assets', function () {
     wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap', [], null);
-    
+
     // Enqueue Tailwind CSS for editor
     // wp_enqueue_style(
     //     'eara-editor-styles',
@@ -40,6 +40,23 @@ add_action('enqueue_block_editor_assets', function () {
     // );
 });
 
+add_filter('retrieve_password_message', function ($message, $key, $user_login, $user_data) {
+    $frontend_url = 'https://eara-frontend.vercel.app/reset-password';
+    $reset_link = add_query_arg(
+        [
+            'key' => $key,
+            'login' => rawurlencode($user_login),
+        ],
+        $frontend_url
+    );
+
+    $message = "Someone has requested a password reset for your account.\r\n\r\n";
+    $message .= "If this was not you, please ignore this email.\r\n\r\n";
+    $message .= "To reset your password, please visit the link below:\r\n\r\n";
+    $message .= $reset_link . "\r\n";
+
+    return $message;
+}, 10, 4);
 
 
 // add_action('enqueue_block_editor_assets', function () {
