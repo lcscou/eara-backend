@@ -66,3 +66,19 @@ add_filter('retrieve_password_message', function ($message, $key, $user_login, $
 //         filemtime(get_template_directory() . '/build/editor.css')
 //     );
 // });
+
+add_action('init', function () {
+
+    if (!get_role('member')) {
+        add_role('member', 'Member', [
+            'read' => false
+        ]);
+    }
+});
+
+add_action('admin_init', function () {
+    if (is_user_logged_in() && current_user_can('member')) {
+        wp_safe_redirect(home_url());
+        exit;
+    }
+});

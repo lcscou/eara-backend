@@ -61,9 +61,9 @@
         "type": "dashicons",
         "value": "dashicons-groups"
     },
-    "rename_capabilities": false,
-    "singular_capability_name": "post",
-    "plural_capability_name": "posts",
+    "rename_capabilities": true,
+    "singular_capability_name": "member",
+    "plural_capability_name": "members",
     "supports": [
         "title",
         "author",
@@ -89,5 +89,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "member",
     "graphql_plural_name": "members",
-    "modified": 1768473741
+    "modified": 1770724191
 }
