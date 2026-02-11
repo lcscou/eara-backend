@@ -41,7 +41,7 @@ add_action('enqueue_block_editor_assets', function () {
 });
 
 add_filter('retrieve_password_message', function ($message, $key, $user_login, $user_data) {
-    $frontend_url = 'https://eara-frontend.vercel.app/reset-password';
+    $frontend_url = wp_get_environment_type() === 'development' ? 'http://localhost:3000/reset-password' : 'https://eara-frontend.vercel.app/reset-password';
     $reset_link = add_query_arg(
         [
             'key' => $key,
@@ -59,26 +59,41 @@ add_filter('retrieve_password_message', function ($message, $key, $user_login, $
 }, 10, 4);
 
 
-// add_action('enqueue_block_editor_assets', function () {
-//     wp_enqueue_style(
-//         'your-theme-or-plugin-editor-styles',
-//         get_template_directory_uri() . '/build/editor.css',
-//         filemtime(get_template_directory() . '/build/editor.css')
-//     );
-// });
 
 add_action('init', function () {
-
-    if (!get_role('member')) {
+    error_log(print_r($_SERVER, true));
+    $role = get_role('member');
+    if (!$role) {
         add_role('member', 'Member', [
-            'read' => false
+            'read' => true,
         ]);
+    }
+
+    if (!empty($role)) {
+        $role->add_cap('read');
+        $role->add_cap('read_private_pages');
+        $role->add_cap('read_private_posts');
     }
 });
 
 add_action('admin_init', function () {
-    if (is_user_logged_in() && current_user_can('member')) {
-        wp_safe_redirect(home_url());
-        exit;
-    }
+    // if (is_user_logged_in() && current_user_can('member')) {
+    //     wp_safe_redirect(home_url());
+    //     exit;
+    // }
 });
+
+// add_action('init', function () {
+//     // header('Access-Control-Allow-Origin: http://localhost:3000');
+//     // header('Access-Control-Allow-Credentials: true');
+//     $data = [
+//         'method' => $_SERVER['REQUEST_METHOD'] ?? null,
+//         'uri' => $_SERVER['REQUEST_URI'] ?? null,
+//         'query' => $_GET,
+//         'origin' => $_SERVER,
+//         'body' => file_get_contents('php://input'),
+//         'headers' => getallheaders(),
+//     ];
+
+//     error_log(print_r($data, true));
+// });
