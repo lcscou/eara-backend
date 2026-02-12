@@ -74,6 +74,10 @@ add_action('init', function () {
     if (!empty($role)) {
         $role->add_cap('read');
         $role->add_cap('read_private_pages');
+        $role->add_cap('edit_posts');
+        $role->add_cap('edit_private_posts');
+        $role->add_cap('edit_pages');
+        $role->add_cap('edit_private_pages');
         $role->add_cap('read_private_posts');
     }
 });
