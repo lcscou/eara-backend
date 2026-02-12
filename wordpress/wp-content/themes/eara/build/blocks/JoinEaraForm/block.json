@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/join-eara-form",
+  "title": "Join EARA Form",
+  "category": "eara",
+  "icon": "groups",
+  "description": "A form to join EARA with name, email, institution and country fields",
+  "supports": {
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Join EARA",
+      "description": "Fill out the form below to become a member of EARA."
+    }
+  },
+  "attributes": {
+    "buttonLabel": {
+      "type": "string",
+      "default": "Submit"
+    },
+    "title": {
+      "type": "string",
+      "default": "Join EARA"
+    },
+    "description": {
+      "type": "string",
+      "default": "Fill out the form below to become a member of EARA."
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}

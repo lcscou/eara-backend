@@ -25,5 +25,6 @@ import './blocks/ListItem';
 import './blocks/Chart';
 import './blocks/SectionCard';
 import './blocks/NewsletterForm';
+import './blocks/JoinEaraForm';
 import './blocks/MediaBank';
 import './blocks/MembersMap';
