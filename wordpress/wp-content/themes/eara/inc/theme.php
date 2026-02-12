@@ -66,6 +66,8 @@ add_action('init', function () {
     if (!$role) {
         add_role('member', 'Member', [
             'read' => true,
+            'read_private_pages' => true,
+            'read_private_posts' => true,
         ]);
     }
 
