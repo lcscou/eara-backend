@@ -61,7 +61,7 @@ add_filter('retrieve_password_message', function ($message, $key, $user_login, $
 
 
 add_action('init', function () {
-    error_log(print_r($_SERVER, true));
+    
     $role = get_role('member');
     if (!$role) {
         add_role('member', 'Member', [
