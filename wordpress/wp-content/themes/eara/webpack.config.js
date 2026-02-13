@@ -29,6 +29,12 @@ function getBlockEntries() {
             entries[`blocks/${blockName}/index`] = indexJsPath;
         }
 
+        // Add frontend JavaScript entry if frontend.js exists
+        const frontendJsPath = path.join(blockDir, 'frontend.js');
+        if (fs.existsSync(frontendJsPath)) {
+            entries[`blocks/${blockName}/frontend`] = frontendJsPath;
+        }
+
         // Add editor style entry if it exists
         const editorScssPath = path.join(blockDir, 'editor.scss');
         if (fs.existsSync(editorScssPath)) {

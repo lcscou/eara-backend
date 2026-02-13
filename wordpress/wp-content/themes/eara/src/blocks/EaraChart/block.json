@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/eara-chart",
+  "title": "Eara Chart",
+  "category": "eara",
+  "icon": "chart-bar",
+  "description": "Bloco de gráfico avançado com variantes BarChart e DonutChart usando Mantine Charts",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "variant": {
+      "type": "string",
+      "enum": ["bar", "donut"],
+      "default": "bar"
+    },
+    "chartLabel": {
+      "type": "string",
+      "default": "Chart Title"
+    },
+    "data": {
+      "type": "array",
+      "default": [
+        { "month": "January", "Smartphones": 1200, "Laptops": 900, "Tablets": 0 },
+        { "month": "February", "Smartphones": 1900, "Laptops": 1200, "Tablets": 400 },
+        { "month": "March", "Smartphones": 0, "Laptops": 1000, "Tablets": 200 },
+        { "month": "April", "Smartphones": 1000, "Laptops": 200, "Tablets": 800 },
+        { "month": "May", "Smartphones": 800, "Laptops": 0, "Tablets": 1200 },
+        { "month": "June", "Smartphones": 0, "Laptops": 600, "Tablets": 1000 }
+      ]
+    },
+    "series": {
+      "type": "array",
+      "default": [
+        { "name": "Smartphones", "color": "violet.6" },
+        { "name": "Laptops", "color": "blue.6" },
+        { "name": "Tablets", "color": "teal.6" }
+      ]
+    },
+    "dataKey": {
+      "type": "string",
+      "default": "month"
+    },
+    "orientation": {
+      "type": "string",
+      "enum": ["vertical", "horizontal"],
+      "default": "vertical"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["default", "stacked", "percent"],
+      "default": "default"
+    },
+    "unit": {
+      "type": "string",
+      "default": ""
+    },
+    "withBarValueLabel": {
+      "type": "boolean",
+      "default": false
+    },
+    "tooltipDataSource": {
+      "type": "string",
+      "enum": ["segment", "all"],
+      "default": "all"
+    },
+    "height": {
+      "type": "number",
+      "default": 300
+    },
+    "withLegend": {
+      "type": "boolean",
+      "default": true
+    },
+    "yAxisLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "xAxisLabel": {
+      "type": "string",
+      "default": ""
+    },
+    "gridAxis": {
+      "type": "string",
+      "enum": ["none", "x", "y", "xy"],
+      "default": "y"
+    },
+    "donutSize": {
+      "type": "number",
+      "default": 240
+    },
+    "donutThickness": {
+      "type": "number",
+      "default": 22
+    },
+    "donutWithLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "donutWithLabelsLine": {
+      "type": "boolean",
+      "default": true
+    },
+    "donutData": {
+      "type": "array",
+      "default": [
+        { "name": "USA", "value": 400, "color": "indigo.6" },
+        { "name": "India", "value": 300, "color": "yellow.6" },
+        { "name": "Japan", "value": 100, "color": "teal.6" },
+        { "name": "Other", "value": 200, "color": "gray.6" }
+      ]
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./index.css",
+  "viewScript": "file:./frontend.js"
+}

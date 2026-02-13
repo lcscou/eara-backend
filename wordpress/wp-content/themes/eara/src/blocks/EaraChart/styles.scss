@@ -1,0 +1,40 @@
+.wp-block-eara-eara-chart {
+  margin: 1rem 0;
+}
+
+.eara-eara-chart {
+  margin: 2rem 0;
+  padding: 1rem;
+
+  &__title {
+    margin-bottom: 1rem;
+
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a202c;
+      margin: 0;
+    }
+  }
+
+  &__mount {
+    min-height: 200px;
+  }
+
+  &__data {
+    display: none;
+  }
+}
+
+.eara-chart__preview {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin: 0 0 1rem 0;
+  }
+}
