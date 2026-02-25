@@ -103,3 +103,83 @@ add_action('admin_init', function () {
 
 //     error_log(print_r($data, true));
 // });
+
+add_filter('manage_media-bank_posts_columns', function ($columns) {
+    $updated_columns = [];
+
+    foreach ($columns as $key => $label) {
+        $updated_columns[$key] = $label;
+
+        if ($key === 'title') {
+            $updated_columns['media_preview'] = __('Preview', 'eara');
+        }
+    }
+
+    if (!isset($updated_columns['media_preview'])) {
+        $updated_columns['media_preview'] = __('Preview', 'eara');
+    }
+
+    return $updated_columns;
+});
+
+add_action('manage_media-bank_posts_custom_column', function ($column, $post_id) {
+    if ($column !== 'media_preview') {
+        return;
+    }
+
+    $media_type = get_field('media_type', $post_id);
+
+    if ($media_type === 'video') {
+        echo '<div class="eara-media-preview eara-media-preview--video" aria-hidden="true">';
+        echo '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">';
+        echo '<circle cx="12" cy="12" r="12" fill="#1d2327" opacity="0.85"/>';
+        echo '<path d="M10 8.75V15.25L15.5 12L10 8.75Z" fill="#ffffff"/>';
+        echo '</svg>';
+        echo '</div>';
+        return;
+    }
+
+    $image = get_field('image', $post_id);
+    $image_url = '';
+
+    if (is_array($image) && !empty($image['url'])) {
+        $image_url = $image['url'];
+    } elseif (is_numeric($image)) {
+        $image_url = wp_get_attachment_image_url((int) $image, 'thumbnail') ?: '';
+    } elseif (is_string($image)) {
+        $image_url = $image;
+    }
+
+    if (!empty($image_url)) {
+        echo '<img class="eara-media-preview" src="' . esc_url($image_url) . '" alt="" loading="lazy" />';
+        return;
+    }
+
+    echo '<span aria-hidden="true">—</span>';
+}, 10, 2);
+
+add_action('admin_head-edit.php', function () {
+    $screen = get_current_screen();
+
+    if (!$screen || $screen->post_type !== 'media-bank') {
+        return;
+    }
+
+    echo '<style>
+        .column-media_preview { width: 88px; }
+        .eara-media-preview {
+            width: 64px;
+            height: 64px;
+            border-radius: 4px;
+            object-fit: cover;
+            display: inline-block;
+            background: #f0f0f1;
+        }
+        .eara-media-preview--video {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #dcdcde;
+        }
+    </style>';
+});
