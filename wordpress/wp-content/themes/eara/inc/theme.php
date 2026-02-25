@@ -61,7 +61,7 @@ add_filter('retrieve_password_message', function ($message, $key, $user_login, $
 
 
 add_action('init', function () {
-    
+
     $role = get_role('member');
     if (!$role) {
         add_role('member', 'Member', [
@@ -182,4 +182,12 @@ add_action('admin_head-edit.php', function () {
             background: #dcdcde;
         }
     </style>';
+});
+
+
+add_action('add_attachment', function ($post_id) {
+    wp_update_post([
+        'ID' => $post_id,
+        'post_parent' => 0
+    ]);
 });
