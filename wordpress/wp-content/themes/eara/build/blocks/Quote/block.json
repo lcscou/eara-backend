@@ -32,13 +32,7 @@
     },
     "backgroundColor": {
       "type": "string",
-      "default": "white",
-      "enum": [
-        "white",
-        "light-blue",
-        "light-green",
-        "light-gray"
-      ]
+      "default": "#FFFFFF"
     },
     "showAvatar": {
       "type": "boolean",

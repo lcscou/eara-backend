@@ -7994,3 +7994,5 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
 .wp-block-eara-media-bank figure{margin:0}.wp-block-eara-media-bank .eara-media-bank__credits{margin-top:6px;color:#666}.wp-block-eara-media-bank .eara-media-bank__credits a{color:#1f6feb;text-decoration:none}.wp-block-eara-media-bank .eara-media-bank__credits a:hover{text-decoration:underline}
 .eara-members-map-editor{border:2px dashed #ccc;border-radius:4px;background-color:#f5f5f5}.eara-members-map img{display:block}
 .eara-members-map img{display:block}
+.wp-block-eara-protected-file .eara-protected-file__editor{border-radius:8px;padding:12px}.wp-block-eara-protected-file .eara-protected-file__upload input[type=file]{display:none}.wp-block-eara-protected-file .eara-protected-file__meta p{margin:0 0 8px}
+.wp-block-eara-protected-file{display:none}

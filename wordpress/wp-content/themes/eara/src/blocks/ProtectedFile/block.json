@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/protected-file",
+  "title": "Protected File",
+  "category": "eara",
+  "icon": "lock",
+  "description": "Upload a protected file and expose it only through authenticated GraphQL queries.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "attachmentId": {
+      "type": "number",
+      "default": 0
+    },
+    "fileName": {
+      "type": "string",
+      "default": ""
+    },
+    "mimeType": {
+      "type": "string",
+      "default": ""
+    },
+    "size": {
+      "type": "number",
+      "default": 0
+    }
+  }
+}

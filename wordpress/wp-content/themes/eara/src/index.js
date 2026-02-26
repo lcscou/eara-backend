@@ -28,3 +28,4 @@ import './blocks/NewsletterForm';
 import './blocks/JoinEaraForm';
 import './blocks/MediaBank';
 import './blocks/MembersMap';
+import './blocks/ProtectedFile';
