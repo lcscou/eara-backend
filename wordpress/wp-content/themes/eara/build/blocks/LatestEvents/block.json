@@ -15,6 +15,10 @@
       "type": "number",
       "default": 3
     },
+    "eventCategory": {
+      "type": "string",
+      "default": ""
+    },
     "columns": {
       "type": "number",
       "default": 3

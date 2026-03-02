@@ -6,7 +6,7 @@ add_action('graphql_register_types', function () {
     ]);
     register_graphql_field('RootQueryToEventsConnectionWhereArgs', 'category', [
         'type' => 'String',
-        'description' => 'Filter events by category field',
+        'description' => 'Filter events by category_events taxonomy slug',
     ]);
     register_graphql_field('RootQueryToEventsConnectionWhereArgs', 'locationType', [
         'type' => 'String',
@@ -189,10 +189,14 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
         ];
     }
     if (isset($args['where']['category']) && $info->fieldName === 'allEvents') {
-        $query_args['meta_query'][] = [
-            'key' => 'category',
-            'value' => $args['where']['category'],
-            'compare' => '=',
+        if (!isset($query_args['tax_query']) || !is_array($query_args['tax_query'])) {
+            $query_args['tax_query'] = [];
+        }
+
+        $query_args['tax_query'][] = [
+            'taxonomy' => 'category_events',
+            'field' => 'slug',
+            'terms' => $args['where']['category'],
         ];
     }
     if (isset($args['where']['locationType']) && $info->fieldName === 'allEvents') {

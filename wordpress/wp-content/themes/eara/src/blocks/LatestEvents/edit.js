@@ -12,12 +12,13 @@ import {
   Group,
 } from "@mantine/core";
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
-import { PanelBody, RangeControl } from "@wordpress/components";
+import { PanelBody, SelectControl } from "@wordpress/components";
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
-  const { postsPerPage, columns } = attributes;
+  const { postsPerPage, columns, eventCategory } = attributes;
   const [posts, setPosts] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const blockProps = useBlockProps({
@@ -25,11 +26,43 @@ export default function Edit(props) {
   });
 
   useEffect(() => {
-    // Fetch latest events posts
-    const fetchPosts = async () => {
+    const fetchCategories = async () => {
       try {
         const response = await fetch(
-          `/wp-json/wp/v2/events?_embed&per_page=${postsPerPage}&orderby=date&order=desc`
+          "/wp-json/wp/v2/category_events?hide_empty=true&per_page=100&_fields=id,name,slug,count"
+        );
+        const data = await response.json();
+        setCategories(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Error fetching event categories:", error);
+        setCategories([]);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  useEffect(() => {
+    // Fetch latest events posts
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const selectedCategory = categories.find(
+          (category) => category.slug === eventCategory
+        );
+        const params = new URLSearchParams({
+          _embed: "1",
+          per_page: String(postsPerPage),
+          orderby: "date",
+          order: "desc",
+        });
+
+        if (selectedCategory?.id) {
+          params.set("category_events", String(selectedCategory.id));
+        }
+
+        const response = await fetch(
+          `/wp-json/wp/v2/events?${params.toString()}`
         );
         const data = await response.json();
         setPosts(Array.isArray(data) ? data : []);
@@ -42,7 +75,7 @@ export default function Edit(props) {
     };
 
     fetchPosts();
-  }, [postsPerPage]);
+  }, [postsPerPage, eventCategory, categories]);
 
   const formatDate = (dateString) => {
     if (!dateString) return "";
@@ -69,6 +102,18 @@ export default function Edit(props) {
             title={__("Latest Events Settings", "eara")}
             initialOpen={true}
           >
+            <SelectControl
+              label={__("Category", "eara")}
+              value={eventCategory}
+              options={[
+                { label: __("All categories", "eara"), value: "" },
+                ...categories.map((category) => ({
+                  label: category.name,
+                  value: category.slug,
+                })),
+              ]}
+              onChange={(value) => setAttributes({ eventCategory: value })}
+            />
             {/* <RangeControl
               label={__("Number of Events", "eara")}
               value={postsPerPage}
