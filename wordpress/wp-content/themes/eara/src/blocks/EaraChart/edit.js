@@ -45,6 +45,28 @@ const toNumber = (value) => {
   return 0;
 };
 
+const toMaybeNumber = (value) => {
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return Number.isInteger(value) ? value : Math.trunc(value);
+  }
+
+  if (typeof value === 'string') {
+    const normalized = value.replace(',', '.').trim();
+    if (!normalized) {
+      return '';
+    }
+
+    const parsed = Number.parseFloat(normalized);
+    if (Number.isFinite(parsed)) {
+      return Number.isInteger(parsed) ? parsed : Math.trunc(parsed);
+    }
+
+    return value.trim();
+  }
+
+  return value ?? '';
+};
+
 const stripHtml = (value = '') => String(value).replace(/<[^>]*>/g, '').trim();
 
 const mapDataChartToMantine = (record) => {
@@ -77,6 +99,10 @@ const mapDataChartToMantine = (record) => {
     return undefined;
   };
 
+  const chartTypeFromSource = sourceData?.chartType;
+  const chartTypeRaw = chartTypeFromSource || getField('chart_type', 'chartType');
+  const chartType = chartTypeRaw === 'donut' ? 'donut' : 'bar';
+
   const rawDataKey = sourceData?.dataKey || getField('data_key', 'dataKey');
   const dataKey = typeof rawDataKey === 'string' && rawDataKey.trim() ? rawDataKey.trim() : 'label';
 
@@ -85,18 +111,41 @@ const mapDataChartToMantine = (record) => {
     : (Array.isArray(getField('series', 'ser')) ? getField('series', 'ser') : []);
   const rawRows = Array.isArray(sourceData?.rows)
     ? sourceData.rows
-    : (Array.isArray(getField('rows')) ? getField('rows') : []);
+    : (
+      Array.isArray(getField('data_bar_chart', 'dataBarChart'))
+        ? getField('data_bar_chart', 'dataBarChart')
+        : (Array.isArray(getField('rows')) ? getField('rows') : [])
+    );
+  const rawDonutData = Array.isArray(sourceData?.donutData)
+    ? sourceData.donutData
+    : (Array.isArray(getField('data_donut_chart', 'dataDonutChart')) ? getField('data_donut_chart', 'dataDonutChart') : []);
 
   const inferredSeriesNames = [];
   rawRows.forEach((row) => {
     const values = Array.isArray(row?.values) ? row.values : [];
-    values.forEach((valueRow) => {
+    values.forEach((valueRow, valueIndex) => {
       const seriesName = String(valueRow?.series_name || valueRow?.seriesName || valueRow?.name || '').trim();
       if (seriesName && !inferredSeriesNames.includes(seriesName)) {
         inferredSeriesNames.push(seriesName);
       }
+
+      if (!seriesName && rawSeries[valueIndex]?.name) {
+        const seriesNameByOrder = String(rawSeries[valueIndex].name).trim();
+        if (seriesNameByOrder && !inferredSeriesNames.includes(seriesNameByOrder)) {
+          inferredSeriesNames.push(seriesNameByOrder);
+        }
+      }
     });
   });
+
+  if (inferredSeriesNames.length === 0) {
+    rawRows.forEach((row) => {
+      const rowLabel = String(row?.label || '').trim();
+      if (rowLabel && rowLabel !== dataKey && !inferredSeriesNames.includes(rowLabel)) {
+        inferredSeriesNames.push(rowLabel);
+      }
+    });
+  }
 
   const resolvedSeries = (rawSeries.length > 0 ? rawSeries : inferredSeriesNames).map((seriesRow, index) => {
     if (typeof seriesRow === 'string') {
@@ -112,30 +161,73 @@ const mapDataChartToMantine = (record) => {
     return { name, color };
   }).filter((item) => item.name);
 
-  const data = rawRows.map((row, rowIndex) => {
-    const label = String(row?.label || `${__('Item', 'eara')} ${rowIndex + 1}`).trim();
-    const rowObject = { [dataKey]: label };
-    const values = Array.isArray(row?.values) ? row.values : [];
+  const hasSeriesNameInValues = rawRows.some((row) => (Array.isArray(row?.values) ? row.values : []).some(
+    (valueRow) => String(valueRow?.series_name || valueRow?.seriesName || valueRow?.name || '').trim()
+  ));
 
-    values.forEach((valueRow) => {
-      const seriesName = String(valueRow?.series_name || valueRow?.seriesName || valueRow?.name || '').trim();
-      if (!seriesName) {
-        return;
+  let data = [];
+
+  if (hasSeriesNameInValues) {
+    data = rawRows.map((row, rowIndex) => {
+      const label = String(row?.label || `${__('Item', 'eara')} ${rowIndex + 1}`).trim();
+      const rowObject = { [dataKey]: label };
+      const values = Array.isArray(row?.values) ? row.values : [];
+
+      values.forEach((valueRow) => {
+        const seriesName = String(valueRow?.series_name || valueRow?.seriesName || valueRow?.name || '').trim();
+        if (!seriesName) {
+          return;
+        }
+
+        rowObject[seriesName] = toMaybeNumber(valueRow?.value);
+      });
+
+      resolvedSeries.forEach((seriesItem) => {
+        if (rowObject[seriesItem.name] === undefined) {
+          rowObject[seriesItem.name] = 0;
+        }
+      });
+
+      return rowObject;
+    });
+  } else {
+    const columnRows = rawRows.filter((row) => String(row?.label || '').trim());
+    const columnMap = {};
+    let maxValuesLength = 0;
+
+    columnRows.forEach((row) => {
+      const key = String(row.label || '').trim();
+      const values = Array.isArray(row?.values) ? row.values : [];
+      const parsedValues = values.map((valueRow) => toMaybeNumber(valueRow?.value));
+      columnMap[key] = parsedValues;
+      if (parsedValues.length > maxValuesLength) {
+        maxValuesLength = parsedValues.length;
       }
-
-      rowObject[seriesName] = toNumber(valueRow?.value);
     });
 
-    resolvedSeries.forEach((seriesItem) => {
-      if (rowObject[seriesItem.name] === undefined) {
-        rowObject[seriesItem.name] = 0;
+    data = Array.from({ length: maxValuesLength }, (_, rowIndex) => {
+      const rowObject = {};
+
+      Object.keys(columnMap).forEach((columnLabel) => {
+        const value = columnMap[columnLabel][rowIndex];
+        rowObject[columnLabel] = value === undefined ? '' : value;
+      });
+
+      if (rowObject[dataKey] === undefined || rowObject[dataKey] === '') {
+        rowObject[dataKey] = `${__('Item', 'eara')} ${rowIndex + 1}`;
       }
+
+      resolvedSeries.forEach((seriesItem) => {
+        if (rowObject[seriesItem.name] === undefined || rowObject[seriesItem.name] === '') {
+          rowObject[seriesItem.name] = 0;
+        }
+      });
+
+      return rowObject;
     });
+  }
 
-    return rowObject;
-  });
-
-  const donutData = resolvedSeries.map((seriesItem) => {
+  const donutDataFromRows = resolvedSeries.map((seriesItem) => {
     const total = data.reduce((sum, row) => sum + toNumber(row[seriesItem.name]), 0);
     return {
       name: seriesItem.name,
@@ -144,9 +236,20 @@ const mapDataChartToMantine = (record) => {
     };
   });
 
+  const donutData = rawDonutData.length > 0
+    ? rawDonutData
+      .map((item, index) => ({
+        name: String(item?.name || '').trim(),
+        value: toNumber(item?.value),
+        color: String(item?.color || '').trim() || DEFAULT_SERIES_COLORS[index % DEFAULT_SERIES_COLORS.length],
+      }))
+      .filter((item) => item.name)
+    : donutDataFromRows;
+
   const chartLabel = stripHtml(sourceData?.chartLabel || record?.title?.rendered || '');
 
   return {
+    variant: chartType,
     dataKey,
     series: resolvedSeries,
     data,
@@ -210,6 +313,7 @@ export default function Edit(props) {
         }
 
         setAttributes({
+          variant: mapped.variant,
           dataKey: mapped.dataKey,
           series: mapped.series,
           data: mapped.data,

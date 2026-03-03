@@ -31,20 +31,20 @@
     "data": {
       "type": "array",
       "default": [
-        { "month": "January", "Smartphones": 1200, "Laptops": 900, "Tablets": 0 },
-        { "month": "February", "Smartphones": 1900, "Laptops": 1200, "Tablets": 400 },
-        { "month": "March", "Smartphones": 0, "Laptops": 1000, "Tablets": 200 },
-        { "month": "April", "Smartphones": 1000, "Laptops": 200, "Tablets": 800 },
-        { "month": "May", "Smartphones": 800, "Laptops": 0, "Tablets": 1200 },
-        { "month": "June", "Smartphones": 0, "Laptops": 600, "Tablets": 1000 }
+        { "month": "January", "Pigs": 1200, "Mice": 900, "Rats": 0 },
+        { "month": "February", "Pigs": 1900, "Mice": 1200, "Rats": 400 },
+        { "month": "March", "Pigs": 0, "Mice": 1000, "Rats": 200 },
+        { "month": "April", "Pigs": 1000, "Mice": 200, "Rats": 800 },
+        { "month": "May", "Pigs": 800, "Mice": 0, "Rats": 1200 },
+        { "month": "June", "Pigs": 0, "Mice": 600, "Rats": 1000 }
       ]
     },
     "series": {
       "type": "array",
       "default": [
-        { "name": "Smartphones", "color": "violet.6" },
-        { "name": "Laptops", "color": "blue.6" },
-        { "name": "Tablets", "color": "teal.6" }
+        { "name": "Pigs", "color": "violet.6" },
+        { "name": "Mice", "color": "blue.6" },
+        { "name": "Rats", "color": "teal.6" }
       ]
     },
     "dataKey": {
@@ -114,9 +114,9 @@
     "donutData": {
       "type": "array",
       "default": [
-        { "name": "USA", "value": 400, "color": "indigo.6" },
-        { "name": "India", "value": 300, "color": "yellow.6" },
-        { "name": "Japan", "value": 100, "color": "teal.6" },
+        { "name": "Pigs", "value": 400, "color": "indigo.6" },
+        { "name": "Mice", "value": 300, "color": "yellow.6" },
+        { "name": "Rats", "value": 100, "color": "teal.6" },
         { "name": "Other", "value": 200, "color": "gray.6" }
       ]
     }

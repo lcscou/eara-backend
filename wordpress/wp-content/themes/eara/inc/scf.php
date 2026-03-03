@@ -1,27 +1,56 @@
 <?php
-function eara_to_float($value)
+function eara_parse_value($value)
 {
-    if (is_numeric($value)) {
-        return (float) $value;
+    if (is_int($value)) {
+        return $value;
+    }
+
+    if (is_float($value)) {
+        return (int) $value;
     }
 
     if (is_string($value)) {
-        $normalized = str_replace(',', '.', trim($value));
-        return is_numeric($normalized) ? (float) $normalized : 0;
+        $normalized = trim($value);
+        if ($normalized === '') {
+            return '';
+        }
+
+        $numeric = str_replace(',', '.', $normalized);
+        if (is_numeric($numeric)) {
+            return (int) $numeric;
+        }
+
+        return sanitize_text_field($normalized);
     }
 
-    return 0;
+    return '';
 }
 
 function eara_get_data_chart_source($post_id)
 {
+    $chart_type = get_field('chart_type', $post_id);
+    if (!in_array($chart_type, ['bar', 'donut'], true)) {
+        $chart_type = 'bar';
+    }
+
     $data_key = get_field('data_key', $post_id);
     if (!is_string($data_key) || trim($data_key) === '') {
         $data_key = 'label';
     }
+    $data_key = sanitize_text_field($data_key);
 
     $raw_series = get_field('series', $post_id);
-    $raw_rows = get_field('rows', $post_id);
+    $raw_rows = get_field('data_bar_chart', $post_id);
+    $raw_donut = get_field('data_donut_chart', $post_id);
+
+    if (!is_array($raw_rows)) {
+        $legacy_rows = get_field('rows', $post_id);
+        $raw_rows = is_array($legacy_rows) ? $legacy_rows : [];
+    }
+
+    if (!is_array($raw_donut)) {
+        $raw_donut = [];
+    }
 
     if (!is_array($raw_series)) {
         $raw_series = [];
@@ -59,23 +88,16 @@ function eara_get_data_chart_source($post_id)
             $row_values = isset($row_item['values']) && is_array($row_item['values']) ? $row_item['values'] : [];
 
             $values = array_map(function ($value_item) {
-                $series_name = '';
-                $value = 0;
+                $value = '';
 
                 if (is_array($value_item)) {
-                    $series_name = isset($value_item['series_name']) ? sanitize_text_field((string) $value_item['series_name']) : '';
-                    $value = isset($value_item['value']) ? eara_to_float($value_item['value']) : 0;
+                    $value = isset($value_item['value']) ? eara_parse_value($value_item['value']) : '';
                 }
 
                 return [
-                    'series_name' => $series_name,
                     'value' => $value,
                 ];
             }, $row_values);
-
-            $values = array_values(array_filter($values, function ($item) {
-                return !empty($item['series_name']);
-            }));
         }
 
         return [
@@ -84,10 +106,34 @@ function eara_get_data_chart_source($post_id)
         ];
     }, $raw_rows);
 
+    $donut_data = array_map(function ($donut_item) {
+        $name = '';
+        $value = 0;
+        $color = '';
+
+        if (is_array($donut_item)) {
+            $name = isset($donut_item['name']) ? sanitize_text_field((string) $donut_item['name']) : '';
+            $value = isset($donut_item['value']) ? (int) eara_parse_value($donut_item['value']) : 0;
+            $color = isset($donut_item['color']) ? sanitize_text_field((string) $donut_item['color']) : '';
+        }
+
+        return [
+            'name' => $name,
+            'value' => $value,
+            'color' => $color,
+        ];
+    }, $raw_donut);
+
+    $donut_data = array_values(array_filter($donut_data, function ($item) {
+        return !empty($item['name']);
+    }));
+
     return [
+        'chartType' => $chart_type,
         'dataKey' => $data_key,
         'series' => $series,
         'rows' => $rows,
+        'donutData' => $donut_data,
         'chartLabel' => get_the_title($post_id),
     ];
 }

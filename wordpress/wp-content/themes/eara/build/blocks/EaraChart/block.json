@@ -39,39 +39,39 @@
       "default": [
         {
           "month": "January",
-          "Smartphones": 1200,
-          "Laptops": 900,
-          "Tablets": 0
+          "Pigs": 1200,
+          "Mice": 900,
+          "Rats": 0
         },
         {
           "month": "February",
-          "Smartphones": 1900,
-          "Laptops": 1200,
-          "Tablets": 400
+          "Pigs": 1900,
+          "Mice": 1200,
+          "Rats": 400
         },
         {
           "month": "March",
-          "Smartphones": 0,
-          "Laptops": 1000,
-          "Tablets": 200
+          "Pigs": 0,
+          "Mice": 1000,
+          "Rats": 200
         },
         {
           "month": "April",
-          "Smartphones": 1000,
-          "Laptops": 200,
-          "Tablets": 800
+          "Pigs": 1000,
+          "Mice": 200,
+          "Rats": 800
         },
         {
           "month": "May",
-          "Smartphones": 800,
-          "Laptops": 0,
-          "Tablets": 1200
+          "Pigs": 800,
+          "Mice": 0,
+          "Rats": 1200
         },
         {
           "month": "June",
-          "Smartphones": 0,
-          "Laptops": 600,
-          "Tablets": 1000
+          "Pigs": 0,
+          "Mice": 600,
+          "Rats": 1000
         }
       ]
     },
@@ -79,15 +79,15 @@
       "type": "array",
       "default": [
         {
-          "name": "Smartphones",
+          "name": "Pigs",
           "color": "violet.6"
         },
         {
-          "name": "Laptops",
+          "name": "Mice",
           "color": "blue.6"
         },
         {
-          "name": "Tablets",
+          "name": "Rats",
           "color": "teal.6"
         }
       ]
@@ -175,17 +175,17 @@
       "type": "array",
       "default": [
         {
-          "name": "USA",
+          "name": "Pigs",
           "value": 400,
           "color": "indigo.6"
         },
         {
-          "name": "India",
+          "name": "Mice",
           "value": 300,
           "color": "yellow.6"
         },
         {
-          "name": "Japan",
+          "name": "Rats",
           "value": 100,
           "color": "teal.6"
         },

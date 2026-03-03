@@ -3,6 +3,39 @@
     "title": "Data Charts",
     "fields": [
         {
+            "key": "field_69a75c22a2206",
+            "label": "Chart Type",
+            "name": "chart_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bar": "Bar Chart",
+                "donut": "Donut Chart"
+            },
+            "default_value": "donut",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "chartType",
+            "graphql_non_null": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_69a72c4045d6a",
             "label": "Data Key",
             "name": "data_key",
@@ -10,7 +43,15 @@
             "type": "text",
             "instructions": "Used to indicate which property is the X-axis.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a75c22a2206",
+                        "operator": "==",
+                        "value": "bar"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -35,7 +76,15 @@
             "type": "repeater",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a75c22a2206",
+                        "operator": "==",
+                        "value": "bar"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -110,9 +159,127 @@
             ]
         },
         {
-            "key": "field_69a734ac45ece",
-            "label": "Data",
-            "name": "data",
+            "key": "field_69a75e626ab2a",
+            "label": "Data Donut Chart",
+            "name": "data_donut_chart",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_69a75c22a2206",
+                        "operator": "==",
+                        "value": "donut"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "dataDonutChart",
+            "graphql_non_null": 0,
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_69a75e736ab2b",
+                    "label": "Name",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "E.g.: Rats, Pigs, Mice",
+                    "prepend": "",
+                    "append": "",
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "name",
+                    "graphql_non_null": 0,
+                    "parent_repeater": "field_69a75e626ab2a"
+                },
+                {
+                    "key": "field_69a75ec16ab2c",
+                    "label": "Value",
+                    "name": "value",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "min": "",
+                    "max": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "step": "",
+                    "prepend": "",
+                    "append": "",
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "value",
+                    "graphql_non_null": 0,
+                    "parent_repeater": "field_69a75e626ab2a"
+                },
+                {
+                    "key": "field_69a75ec96ab2d",
+                    "label": "Color",
+                    "name": "color",
+                    "aria-label": "",
+                    "type": "color_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "enable_opacity": 0,
+                    "return_format": "string",
+                    "allow_in_bindings": 0,
+                    "show_custom_palette": 0,
+                    "show_color_wheel": 1,
+                    "show_in_graphql": 1,
+                    "graphql_description": "",
+                    "graphql_field_name": "color",
+                    "graphql_non_null": 0,
+                    "custom_palette_source": "",
+                    "palette_colors": "",
+                    "parent_repeater": "field_69a75e626ab2a"
+                }
+            ]
+        },
+        {
+            "key": "field_69a76181a520b",
+            "label": "Data Bar Chart",
+            "name": "data_bar_chart",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -131,12 +298,12 @@
             "button_label": "Add Row",
             "show_in_graphql": 1,
             "graphql_description": "",
-            "graphql_field_name": "data",
+            "graphql_field_name": "dataBarChart",
             "graphql_non_null": 0,
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_69a734b645ecf",
+                    "key": "field_69a76199a520c",
                     "label": "Label",
                     "name": "label",
                     "aria-label": "",
@@ -152,17 +319,17 @@
                     "default_value": "",
                     "maxlength": "",
                     "allow_in_bindings": 0,
-                    "placeholder": "Eg.: species",
+                    "placeholder": "",
                     "prepend": "",
                     "append": "",
                     "show_in_graphql": 1,
                     "graphql_description": "",
                     "graphql_field_name": "label",
                     "graphql_non_null": 0,
-                    "parent_repeater": "field_69a734ac45ece"
+                    "parent_repeater": "field_69a76181a520b"
                 },
                 {
-                    "key": "field_69a734da45ed0",
+                    "key": "field_69a761a0a520d",
                     "label": "Values",
                     "name": "values",
                     "aria-label": "",
@@ -188,9 +355,9 @@
                     "rows_per_page": 20,
                     "sub_fields": [
                         {
-                            "key": "field_69a734f745ed1",
-                            "label": "Name",
-                            "name": "name",
+                            "key": "field_69a761b3a520e",
+                            "label": "Value",
+                            "name": "value",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -204,45 +371,17 @@
                             "default_value": "",
                             "maxlength": "",
                             "allow_in_bindings": 0,
-                            "placeholder": "Eg.: monkey",
-                            "prepend": "",
-                            "append": "",
-                            "show_in_graphql": 1,
-                            "graphql_description": "",
-                            "graphql_field_name": "name",
-                            "graphql_non_null": 0,
-                            "parent_repeater": "field_69a734da45ed0"
-                        },
-                        {
-                            "key": "field_69a734fe45ed2",
-                            "label": "Value",
-                            "name": "value",
-                            "aria-label": "",
-                            "type": "number",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "min": "",
-                            "max": "",
-                            "allow_in_bindings": 0,
-                            "placeholder": "Eg.: 12.4",
-                            "step": "",
+                            "placeholder": "",
                             "prepend": "",
                             "append": "",
                             "show_in_graphql": 1,
                             "graphql_description": "",
                             "graphql_field_name": "value",
                             "graphql_non_null": 0,
-                            "parent_repeater": "field_69a734da45ed0"
+                            "parent_repeater": "field_69a761a0a520d"
                         }
                     ],
-                    "parent_repeater": "field_69a734ac45ece"
+                    "parent_repeater": "field_69a76181a520b"
                 }
             ]
         }
@@ -270,5 +409,5 @@
     "graphql_field_name": "dataCharts",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1772565887
+    "modified": 1772577313
 }
