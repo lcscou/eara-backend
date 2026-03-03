@@ -1,4 +1,6 @@
 import { __ } from '@wordpress/i18n';
+import { useEffect, useState } from '@wordpress/element';
+import apiFetch from '@wordpress/api-fetch';
 import {
   InspectorControls,
   useBlockProps,
@@ -16,12 +18,150 @@ import {
 
 import { MantineProvider } from '@mantine/core';
 import { BarChart, DonutChart } from '@mantine/charts';
+import '@mantine/charts/styles.css';
+
+const DEFAULT_SERIES_COLORS = [
+  'violet.6',
+  'blue.6',
+  'teal.6',
+  'grape.6',
+  'orange.6',
+  'cyan.6',
+  'pink.6',
+  'indigo.6',
+];
+
+const toNumber = (value) => {
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return value;
+  }
+
+  if (typeof value === 'string') {
+    const normalized = value.replace(',', '.').trim();
+    const parsed = Number.parseFloat(normalized);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  return 0;
+};
+
+const stripHtml = (value = '') => String(value).replace(/<[^>]*>/g, '').trim();
+
+const mapDataChartToMantine = (record) => {
+  if (!record || typeof record !== 'object') {
+    return null;
+  }
+
+  const sourceData = record.eara_chart_source && typeof record.eara_chart_source === 'object'
+    ? record.eara_chart_source
+    : null;
+
+  const acfData = record.acf && typeof record.acf === 'object' ? record.acf : {};
+  const metaData = record.meta && typeof record.meta === 'object' ? record.meta : {};
+  const getField = (...keys) => {
+    for (let i = 0; i < keys.length; i += 1) {
+      const key = keys[i];
+      if (acfData[key] !== undefined) {
+        return acfData[key];
+      }
+
+      if (metaData[key] !== undefined) {
+        const value = metaData[key];
+        if (Array.isArray(value) && value.length === 1) {
+          return value[0];
+        }
+        return value;
+      }
+    }
+
+    return undefined;
+  };
+
+  const rawDataKey = sourceData?.dataKey || getField('data_key', 'dataKey');
+  const dataKey = typeof rawDataKey === 'string' && rawDataKey.trim() ? rawDataKey.trim() : 'label';
+
+  const rawSeries = Array.isArray(sourceData?.series)
+    ? sourceData.series
+    : (Array.isArray(getField('series', 'ser')) ? getField('series', 'ser') : []);
+  const rawRows = Array.isArray(sourceData?.rows)
+    ? sourceData.rows
+    : (Array.isArray(getField('rows')) ? getField('rows') : []);
+
+  const inferredSeriesNames = [];
+  rawRows.forEach((row) => {
+    const values = Array.isArray(row?.values) ? row.values : [];
+    values.forEach((valueRow) => {
+      const seriesName = String(valueRow?.series_name || valueRow?.seriesName || valueRow?.name || '').trim();
+      if (seriesName && !inferredSeriesNames.includes(seriesName)) {
+        inferredSeriesNames.push(seriesName);
+      }
+    });
+  });
+
+  const resolvedSeries = (rawSeries.length > 0 ? rawSeries : inferredSeriesNames).map((seriesRow, index) => {
+    if (typeof seriesRow === 'string') {
+      return {
+        name: seriesRow.trim(),
+        color: DEFAULT_SERIES_COLORS[index % DEFAULT_SERIES_COLORS.length],
+      };
+    }
+
+    const name = String(seriesRow?.name || seriesRow?.series_name || seriesRow?.seriesName || '').trim();
+    const color = String(seriesRow?.color || '').trim() || DEFAULT_SERIES_COLORS[index % DEFAULT_SERIES_COLORS.length];
+
+    return { name, color };
+  }).filter((item) => item.name);
+
+  const data = rawRows.map((row, rowIndex) => {
+    const label = String(row?.label || `${__('Item', 'eara')} ${rowIndex + 1}`).trim();
+    const rowObject = { [dataKey]: label };
+    const values = Array.isArray(row?.values) ? row.values : [];
+
+    values.forEach((valueRow) => {
+      const seriesName = String(valueRow?.series_name || valueRow?.seriesName || valueRow?.name || '').trim();
+      if (!seriesName) {
+        return;
+      }
+
+      rowObject[seriesName] = toNumber(valueRow?.value);
+    });
+
+    resolvedSeries.forEach((seriesItem) => {
+      if (rowObject[seriesItem.name] === undefined) {
+        rowObject[seriesItem.name] = 0;
+      }
+    });
+
+    return rowObject;
+  });
+
+  const donutData = resolvedSeries.map((seriesItem) => {
+    const total = data.reduce((sum, row) => sum + toNumber(row[seriesItem.name]), 0);
+    return {
+      name: seriesItem.name,
+      value: total,
+      color: seriesItem.color,
+    };
+  });
+
+  const chartLabel = stripHtml(sourceData?.chartLabel || record?.title?.rendered || '');
+
+  return {
+    dataKey,
+    series: resolvedSeries,
+    data,
+    donutData,
+    chartLabel,
+  };
+};
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
   const {
     variant = 'bar',
     chartLabel = 'Chart Title',
+    dataSourceType = 'manual',
+    dataChartId = 0,
     data,
     series,
     dataKey = 'month',
@@ -42,10 +182,115 @@ export default function Edit(props) {
     donutData,
   } = attributes;
 
+  const [dataCharts, setDataCharts] = useState([]);
+  const [isLoadingDataCharts, setIsLoadingDataCharts] = useState(false);
+  const [isApplyingDataChart, setIsApplyingDataChart] = useState(false);
+  const [dataChartError, setDataChartError] = useState('');
+  const [dataJsonText, setDataJsonText] = useState(JSON.stringify(Array.isArray(data) ? data : [], null, 2));
+  const [seriesJsonText, setSeriesJsonText] = useState(JSON.stringify(Array.isArray(series) ? series : [], null, 2));
+  const [dataJsonError, setDataJsonError] = useState('');
+  const [seriesJsonError, setSeriesJsonError] = useState('');
+
+  const applySelectedDataChart = (selectedId) => {
+    if (!selectedId) {
+      return Promise.resolve();
+    }
+
+    setIsApplyingDataChart(true);
+    setDataChartError('');
+
+    return apiFetch({
+      path: `/wp/v2/data-chart/${selectedId}?_fields=id,title.rendered,acf,meta,eara_chart_source`,
+    })
+      .then((response) => {
+        const mapped = mapDataChartToMantine(response);
+        if (!mapped) {
+          setDataChartError(__('Invalid data-chart payload.', 'eara'));
+          return;
+        }
+
+        setAttributes({
+          dataKey: mapped.dataKey,
+          series: mapped.series,
+          data: mapped.data,
+          donutData: mapped.donutData,
+          ...(mapped.chartLabel ? { chartLabel: mapped.chartLabel } : {}),
+        });
+      })
+      .catch(() => {
+        setDataChartError(__('Could not load selected data-chart.', 'eara'));
+      })
+      .finally(() => {
+        setIsApplyingDataChart(false);
+      });
+  };
+
+  useEffect(() => {
+    if (dataSourceType !== 'data-chart') {
+      return;
+    }
+
+    let mounted = true;
+    setIsLoadingDataCharts(true);
+    setDataChartError('');
+
+    apiFetch({
+      path: '/wp/v2/data-chart?per_page=100&_fields=id,title.rendered',
+    })
+      .then((response) => {
+        if (!mounted) {
+          return;
+        }
+
+        const options = Array.isArray(response)
+          ? response.map((item) => ({
+            id: item.id,
+            label: stripHtml(item?.title?.rendered || `${__('Data Chart', 'eara')} #${item.id}`),
+          }))
+          : [];
+
+        setDataCharts(options);
+      })
+      .catch(() => {
+        if (!mounted) {
+          return;
+        }
+
+        setDataChartError(__('Could not load data-chart records.', 'eara'));
+      })
+      .finally(() => {
+        if (mounted) {
+          setIsLoadingDataCharts(false);
+        }
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, [dataSourceType]);
+
+  useEffect(() => {
+    if (dataSourceType !== 'data-chart' || !dataChartId) {
+      return;
+    }
+
+    applySelectedDataChart(dataChartId);
+  }, [dataSourceType, dataChartId, setAttributes]);
+
+  useEffect(() => {
+    setDataJsonText(JSON.stringify(Array.isArray(data) ? data : [], null, 2));
+    setDataJsonError('');
+  }, [data]);
+
+  useEffect(() => {
+    setSeriesJsonText(JSON.stringify(Array.isArray(series) ? series : [], null, 2));
+    setSeriesJsonError('');
+  }, [series]);
+
   const blockProps = useBlockProps({ className: 'wp-block-eara-eara-chart' });
 
   // Safe defaults
-  const safeData = data || [
+  const safeData = Array.isArray(data) ? data : [
     { month: 'January', Smartphones: 1200, Laptops: 900, Tablets: 0 },
     { month: 'February', Smartphones: 1900, Laptops: 1200, Tablets: 400 },
     { month: 'March', Smartphones: 0, Laptops: 1000, Tablets: 200 },
@@ -54,7 +299,7 @@ export default function Edit(props) {
     { month: 'June', Smartphones: 0, Laptops: 600, Tablets: 1000 }
   ];
 
-  const safeSeries = series || [
+  const safeSeries = Array.isArray(series) ? series : [
     { name: 'Smartphones', color: 'violet.6' },
     { name: 'Laptops', color: 'blue.6' },
     { name: 'Tablets', color: 'teal.6' }
@@ -68,24 +313,46 @@ export default function Edit(props) {
   ];
 
   const handleDataChange = (value) => {
+    setDataJsonText(value);
+
+    if (value.trim() === '') {
+      setDataJsonError('');
+      setAttributes({ data: [] });
+      return;
+    }
+
     try {
       const parsed = JSON.parse(value);
       if (Array.isArray(parsed)) {
+        setDataJsonError('');
         setAttributes({ data: parsed });
+      } else {
+        setDataJsonError(__('Invalid JSON: expected an array.', 'eara'));
       }
-    } catch (e) {
-      // Invalid JSON, don't update
+    } catch {
+      setDataJsonError(__('Invalid JSON.', 'eara'));
     }
   };
 
   const handleSeriesChange = (value) => {
+    setSeriesJsonText(value);
+
+    if (value.trim() === '') {
+      setSeriesJsonError('');
+      setAttributes({ series: [] });
+      return;
+    }
+
     try {
       const parsed = JSON.parse(value);
       if (Array.isArray(parsed)) {
+        setSeriesJsonError('');
         setAttributes({ series: parsed });
+      } else {
+        setSeriesJsonError(__('Invalid JSON: expected an array.', 'eara'));
       }
-    } catch (e) {
-      // Invalid JSON, don't update
+    } catch {
+      setSeriesJsonError(__('Invalid JSON.', 'eara'));
     }
   };
 
@@ -106,18 +373,54 @@ export default function Edit(props) {
     yAxisProps.label = yAxisLabel;
   }
 
-  // Build grid config
-  const gridConfig = {};
-  if (gridAxis === 'x' || gridAxis === 'xy') {
-    gridConfig.x = true;
-  }
-  if (gridAxis === 'y' || gridAxis === 'xy') {
-    gridConfig.y = true;
-  }
+  const dataChartOptions = [
+    { label: __('Select a data-chart', 'eara'), value: '0' },
+    ...dataCharts.map((item) => ({ label: item.label, value: String(item.id) })),
+  ];
 
   return (
     <div {...blockProps}>
       <InspectorControls>
+        <PanelBody title={__('Data Source', 'eara')} initialOpen={true}>
+          <SelectControl
+            label={__('Source Type', 'eara')}
+            value={dataSourceType}
+            options={[
+              { label: __('Manual (JSON)', 'eara'), value: 'manual' },
+              { label: __('Data Chart Post Type', 'eara'), value: 'data-chart' },
+            ]}
+            onChange={(value) => setAttributes({ dataSourceType: value })}
+          />
+
+          {dataSourceType === 'data-chart' && (
+            <>
+              <SelectControl
+                label={__('Data Chart Record', 'eara')}
+                value={String(dataChartId || 0)}
+                options={dataChartOptions}
+                onChange={(value) => setAttributes({ dataChartId: Number(value) || 0 })}
+                help={isLoadingDataCharts ? __('Loading records...', 'eara') : ''}
+              />
+
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  if (dataChartId) {
+                    applySelectedDataChart(Number(dataChartId));
+                  }
+                }}
+                disabled={!dataChartId || isApplyingDataChart}
+              >
+                {isApplyingDataChart ? __('Applying...', 'eara') : __('Refresh from data-chart', 'eara')}
+              </Button>
+
+              {dataChartError ? (
+                <p>{dataChartError}</p>
+              ) : null}
+            </>
+          )}
+        </PanelBody>
+
         <PanelBody title={__('Chart Settings', 'eara')} initialOpen={true}>
           <SelectControl
             label={__('Variant', 'eara')}
@@ -221,20 +524,22 @@ export default function Edit(props) {
             <PanelBody title={__('Data Configuration', 'eara')} initialOpen={false}>
               <TextareaControl
                 label={__('Data (JSON)', 'eara')}
-                value={JSON.stringify(safeData, null, 2)}
+                value={dataJsonText}
                 onChange={handleDataChange}
                 rows={10}
-                help={__('Array of objects with dataKey and series names', 'eara')}
+                help={dataJsonError || __('Array of objects with dataKey and series names', 'eara')}
+                disabled={dataSourceType === 'data-chart'}
               />
             </PanelBody>
 
             <PanelBody title={__('Series Configuration', 'eara')} initialOpen={false}>
               <TextareaControl
                 label={__('Series (JSON)', 'eara')}
-                value={JSON.stringify(safeSeries, null, 2)}
+                value={seriesJsonText}
                 onChange={handleSeriesChange}
                 rows={8}
-                help={__('Array of objects with name and color properties', 'eara')}
+                help={seriesJsonError || __('Array of objects with name and color properties', 'eara')}
+                disabled={dataSourceType === 'data-chart'}
               />
             </PanelBody>
           </>
@@ -278,6 +583,7 @@ export default function Edit(props) {
                 onChange={handleDonutDataChange}
                 rows={8}
                 help={__('Array of objects with name, value, and color properties', 'eara')}
+                disabled={dataSourceType === 'data-chart'}
               />
             </PanelBody>
           </>

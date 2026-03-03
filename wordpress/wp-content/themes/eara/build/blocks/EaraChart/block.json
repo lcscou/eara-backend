@@ -22,6 +22,18 @@
       "type": "string",
       "default": "Chart Title"
     },
+    "dataSourceType": {
+      "type": "string",
+      "enum": [
+        "manual",
+        "data-chart"
+      ],
+      "default": "manual"
+    },
+    "dataChartId": {
+      "type": "number",
+      "default": 0
+    },
     "data": {
       "type": "array",
       "default": [

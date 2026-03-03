@@ -1,7 +1,7 @@
 // import './style.css'
 // import './editor.css'
 import '@mantine/core/styles.css';
-
+import '@mantine/charts/styles.css';
 // Import blocks
 import './blocks/Button';
 import './blocks/Container';

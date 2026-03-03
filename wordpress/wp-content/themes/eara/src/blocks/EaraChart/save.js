@@ -5,6 +5,8 @@ export default function Save(props) {
   const {
     variant,
     chartLabel,
+    dataSourceType,
+    dataChartId,
     data,
     series,
     dataKey,
@@ -28,6 +30,8 @@ export default function Save(props) {
   const config = {
     variant,
     chartLabel,
+    dataSourceType,
+    dataChartId,
     data,
     series,
     dataKey,
