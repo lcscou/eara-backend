@@ -222,6 +222,7 @@ function my_get_countries()
         'yemen' => 'Yemen',
         'zambia' => 'Zambia',
         'zimbabwe' => 'Zimbabwe',
+        'europe' => 'Europe',
     );
 }
 
