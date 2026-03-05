@@ -431,4 +431,50 @@ add_action('graphql_register_types', function () {
             return $result;
         },
     ]);
+
+    register_graphql_field('RootQuery', 'getAllCountriesInMembers', [
+        'type'        => ['list_of' => 'CountryOption'],
+        'description' => __('Get all unique country values from Members posts', 'eara'),
+        'resolve'     => function () {
+            $members_post_type = post_type_exists('member') ? 'member' : 'members';
+
+            $args = [
+                'post_type'      => $members_post_type,
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            ];
+
+            $query = new WP_Query($args);
+            $country_count = [];
+
+            if ($query->have_posts()) {
+                foreach ($query->posts as $post_id) {
+                    $country = get_field('country', $post_id);
+                    if ($country) {
+                        if (!isset($country_count[$country])) {
+                            $country_count[$country] = 0;
+                        }
+                        $country_count[$country]++;
+                    }
+                }
+            }
+
+            // Sort by key alphabetically.
+            ksort($country_count);
+
+            // Get countries map for labels.
+            $countries_map = my_get_countries();
+
+            // Format as value/label/count triplets.
+            $result = array_map(function ($country, $count) use ($countries_map) {
+                return [
+                    'value' => $country,
+                    'label' => isset($countries_map[$country]) ? $countries_map[$country] : $country,
+                    'count' => $count,
+                ];
+            }, array_keys($country_count), array_values($country_count));
+
+            return $result;
+        },
+    ]);
 });
