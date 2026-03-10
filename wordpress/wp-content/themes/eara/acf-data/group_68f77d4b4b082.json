@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": 0,
             "min": "",
             "max": "",
             "allow_in_bindings": 0,
@@ -310,7 +310,8 @@
                 "virgin-islands": "Virgin Islands",
                 "yemen": "Yemen",
                 "zambia": "Zambia",
-                "zimbabwe": "Zimbabwe"
+                "zimbabwe": "Zimbabwe",
+                "europe": "Europe"
             },
             "default_value": false,
             "return_format": "value",
@@ -589,5 +590,5 @@
     "graphql_field_name": "customFields",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1772491119
+    "modified": 1773103697
 }

@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": 0,
             "min": "",
             "max": "",
             "allow_in_bindings": 0,
@@ -82,5 +82,5 @@
     "graphql_field_name": "acfDiseases",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1767705651
+    "modified": 1773103688
 }

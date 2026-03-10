@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": 0,
             "min": "",
             "max": "",
             "allow_in_bindings": 0,
@@ -486,5 +486,5 @@
     "graphql_field_name": "AcfMembers",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1773103207
+    "modified": 1773103644
 }
