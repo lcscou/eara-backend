@@ -1,13 +1,15 @@
 const { InnerBlocks } = wp.blockEditor;
 
 export default function Save({ attributes }) {
-  const { variant, title, link, featuredImage, icon } = attributes;
+  const { variant, title, link, linkTarget, featuredImage, icon } = attributes;
 
   const CardWrapper = ({ children }) => {
     if (link) {
       return (
         <a 
           href={link} 
+          target={linkTarget}
+          rel={linkTarget === '_blank' ? 'noopener noreferrer' : undefined}
           className={`eara-card eara-card--${variant}`}
           style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}
         >

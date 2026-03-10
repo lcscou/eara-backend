@@ -28,6 +28,11 @@
       "type": "string",
       "default": ""
     },
+    "linkTarget": {
+      "type": "string",
+      "default": "_self",
+      "enum": ["_blank", "_self", "_parent", "_top", "framename"]
+    },
     "featuredImage": {
       "type": "object",
       "default": {

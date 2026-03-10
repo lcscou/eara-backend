@@ -26,7 +26,7 @@ import {
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
-  const { variant, title, link, featuredImage, icon, orientation } = attributes;
+  const { variant, title, link, linkTarget, featuredImage, icon, orientation } = attributes;
 
   const blockProps = useBlockProps({
     className: `wp-block-eara-card wp-block-eara-card--${variant}`,
@@ -41,6 +41,14 @@ export default function Edit(props) {
   const orientationOptions = [
     { label: __("Vertical", "eara"), value: "vertical" },
     { label: __("Horizontal", "eara"), value: "horizontal" },
+  ];
+
+  const targetOptions = [
+    { label: "_blank", value: "_blank" },
+    { label: "_self", value: "_self" },
+    { label: "_parent", value: "_parent" },
+    { label: "_top", value: "_top" },
+    { label: "framename", value: "framename" },
   ];
 
   const onSelectImage = (media) => {
@@ -95,6 +103,14 @@ export default function Edit(props) {
               value={link}
               onChange={(value) => setAttributes({ link: value })}
               help={__("Card link (optional)", "eara")}
+            />
+
+            <SelectControl
+              label={__("Link Target", "eara")}
+              value={linkTarget}
+              options={targetOptions}
+              onChange={(value) => setAttributes({ linkTarget: value })}
+              help={__("Choose the target attribute for the card link", "eara")}
             />
 
             <TextControl
