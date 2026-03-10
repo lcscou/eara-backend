@@ -3,6 +3,33 @@
     "title": "Members",
     "fields": [
         {
+            "key": "field_69af685cb7d48",
+            "label": "Order",
+            "name": "order",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "step": "",
+            "prepend": "",
+            "append": "",
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "order",
+            "graphql_non_null": 0
+        },
+        {
             "key": "field_69729e500ffc6",
             "label": "Tier",
             "name": "tier",
@@ -291,7 +318,8 @@
                 "virgin-islands": "Virgin Islands",
                 "yemen": "Yemen",
                 "zambia": "Zambia",
-                "zimbabwe": "Zimbabwe"
+                "zimbabwe": "Zimbabwe",
+                "europe": "Europe"
             },
             "default_value": false,
             "return_format": "value",
@@ -458,5 +486,5 @@
     "graphql_field_name": "AcfMembers",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1772632484
+    "modified": 1773103207
 }

@@ -180,6 +180,28 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
         }
     }
 
+    if (
+        $info->fieldName === 'allMembers'
+        || $info->fieldName === 'members'
+        || (isset($query_args['post_type']) && ($query_args['post_type'][0] === 'members' || $query_args['post_type'][0] === 'member'))
+    ) {
+        $members_settings = get_field('members', 'option');
+
+        if ($members_settings) {
+            $orderby = isset($members_settings['orderby-members']) ? $members_settings['orderby-members'] : 'date';
+            $order = isset($members_settings['order-members']) ? $members_settings['order-members'] : 'ASC';
+
+            if ($orderby === 'order') {
+                $query_args['orderby'] = 'meta_value_num';
+                $query_args['meta_key'] = 'order';
+            } else {
+                $query_args['orderby'] = $orderby;
+            }
+
+            $query_args['order'] = $order;
+        }
+    }
+
     if (isset($args['where']['organizer']) && $info->fieldName === 'allEvents') {
         $query_args['meta_query'][] = [
             'key' => 'organizer',
