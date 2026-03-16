@@ -4,12 +4,14 @@ const { PanelBody, TextControl, SelectControl } = wp.components;
 import "./editor.scss";
 
 export default function Edit({ attributes, setAttributes }) {
-  const { href, borderRadius, borderColor, borderWidth, borderStyle } = attributes;
+  const { href, borderRadius, borderColor, borderWidth, borderStyle, anchor } =
+    attributes;
 
   const borderStyles = {
-    border: borderWidth && borderStyle && borderColor 
-      ? `${borderWidth} ${borderStyle} ${borderColor}` 
-      : undefined,
+    border:
+      borderWidth && borderStyle && borderColor
+        ? `${borderWidth} ${borderStyle} ${borderColor}`
+        : undefined,
     borderRadius: borderRadius || undefined,
   };
 
@@ -55,6 +57,12 @@ export default function Edit({ attributes, setAttributes }) {
             placeholder={__("e.g. #000000 or rgba(0,0,0,0.1)", "eara")}
             help={__("Set the border color", "eara")}
           />
+        <TextControl
+          label={__("Anchor", "eara")}
+          value={anchor}
+          onChange={(v) => setAttributes({ anchor: v })}
+          help={__("Anchor ID for the section", "eara")}
+        />
         </PanelBody>
         <PanelBody title={__("Link Settings", "eara")}>
           <TextControl
@@ -68,7 +76,6 @@ export default function Edit({ attributes, setAttributes }) {
       </InspectorControls>
 
       <div {...blockProps}>
-      
         <InnerBlocks />
       </div>
     </>

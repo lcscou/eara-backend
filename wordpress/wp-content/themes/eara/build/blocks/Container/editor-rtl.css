@@ -1,1 +1,14 @@
-.wp-block-eara-container{border:1px dashed #ccc;min-height:50px}.wp-block-eara-container .block-editor-inner-blocks,.wp-block-eara-container .block-editor-block-list__layout{min-height:50px}
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Container/editor.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Container block */
+.wp-block-eara-container {
+  /* Add visual border in editor to show container boundaries */
+  border: 1px dashed #ccc;
+  min-height: 50px;
+  /* Ensure inner blocks are visible */
+}
+.wp-block-eara-container .block-editor-inner-blocks,
+.wp-block-eara-container .block-editor-block-list__layout {
+  min-height: 50px;
+}

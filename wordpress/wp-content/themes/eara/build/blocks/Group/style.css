@@ -1,1 +1,100 @@
-:root{--mantine-spacing-xs: 0.625rem;--mantine-spacing-sm: 0.75rem;--mantine-spacing-md: 1rem;--mantine-spacing-lg: 1.25rem;--mantine-spacing-xl: 2rem}.eara-group{display:flex;flex-direction:row}.eara-group[data-justify=flex-start]{justify-content:flex-start}.eara-group[data-justify=center]{justify-content:center}.eara-group[data-justify=flex-end]{justify-content:flex-end}.eara-group[data-justify=space-between]{justify-content:space-between}.eara-group[data-justify=space-around]{justify-content:space-around}.eara-group[data-justify=space-evenly]{justify-content:space-evenly}.eara-group[data-align=flex-start]{align-items:flex-start}.eara-group[data-align=center]{align-items:center}.eara-group[data-align=flex-end]{align-items:flex-end}.eara-group[data-align=baseline]{align-items:baseline}.eara-group[data-align=stretch]{align-items:stretch}.eara-group[data-gap=xs]{gap:var(--mantine-spacing-xs)}.eara-group[data-gap=sm]{gap:var(--mantine-spacing-sm)}.eara-group[data-gap=md]{gap:var(--mantine-spacing-md)}.eara-group[data-gap=lg]{gap:var(--mantine-spacing-lg)}.eara-group[data-gap=xl]{gap:var(--mantine-spacing-xl)}.eara-group[data-gap="0"]{gap:0}.eara-group[data-wrap=wrap]{flex-wrap:wrap}.eara-group[data-wrap=nowrap]{flex-wrap:nowrap}.eara-group[data-wrap=wrap-reverse]{flex-wrap:wrap-reverse}.eara-group[data-grow=true]>*{flex-grow:1}.eara-group[data-grow=true][data-prevent-grow-overflow=true]>*{min-width:0}
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/Group/styles.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/* Mantine-like Group styles */
+:root {
+  --mantine-spacing-xs: 0.625rem;
+  --mantine-spacing-sm: 0.75rem;
+  --mantine-spacing-md: 1rem;
+  --mantine-spacing-lg: 1.25rem;
+  --mantine-spacing-xl: 2rem;
+}
+
+.eara-group {
+  display: flex;
+  flex-direction: row;
+  /* Justify (horizontal alignment) */
+}
+.eara-group[data-justify=flex-start] {
+  justify-content: flex-start;
+}
+.eara-group[data-justify=center] {
+  justify-content: center;
+}
+.eara-group[data-justify=flex-end] {
+  justify-content: flex-end;
+}
+.eara-group[data-justify=space-between] {
+  justify-content: space-between;
+}
+.eara-group[data-justify=space-around] {
+  justify-content: space-around;
+}
+.eara-group[data-justify=space-evenly] {
+  justify-content: space-evenly;
+}
+.eara-group {
+  /* Align (vertical alignment) */
+}
+.eara-group[data-align=flex-start] {
+  align-items: flex-start;
+}
+.eara-group[data-align=center] {
+  align-items: center;
+}
+.eara-group[data-align=flex-end] {
+  align-items: flex-end;
+}
+.eara-group[data-align=baseline] {
+  align-items: baseline;
+}
+.eara-group[data-align=stretch] {
+  align-items: stretch;
+}
+.eara-group {
+  /* Gap */
+}
+.eara-group[data-gap=xs] {
+  gap: var(--mantine-spacing-xs);
+}
+.eara-group[data-gap=sm] {
+  gap: var(--mantine-spacing-sm);
+}
+.eara-group[data-gap=md] {
+  gap: var(--mantine-spacing-md);
+}
+.eara-group[data-gap=lg] {
+  gap: var(--mantine-spacing-lg);
+}
+.eara-group[data-gap=xl] {
+  gap: var(--mantine-spacing-xl);
+}
+.eara-group[data-gap="0"] {
+  gap: 0;
+}
+.eara-group {
+  /* Wrap */
+}
+.eara-group[data-wrap=wrap] {
+  flex-wrap: wrap;
+}
+.eara-group[data-wrap=nowrap] {
+  flex-wrap: nowrap;
+}
+.eara-group[data-wrap=wrap-reverse] {
+  flex-wrap: wrap-reverse;
+}
+.eara-group {
+  /* Grow - all children grow equally */
+}
+.eara-group[data-grow=true] > * {
+  flex-grow: 1;
+}
+.eara-group[data-grow=true] {
+  /* Prevent grow overflow */
+}
+.eara-group[data-grow=true][data-prevent-grow-overflow=true] > * {
+  min-width: 0;
+}
+
+/*# sourceMappingURL=style.css.map*/

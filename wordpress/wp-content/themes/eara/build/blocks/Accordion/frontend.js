@@ -1,1 +1,66 @@
-document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll(".eara-accordion-container").forEach(e=>{const t="true"===e.dataset.multiple,a=e.querySelectorAll(".eara-accordion__item");a.forEach(e=>{"true"===e.dataset.defaultOpened?e.setAttribute("aria-expanded","true"):e.setAttribute("aria-expanded","false")}),a.forEach(e=>{const r=e.querySelector(".eara-accordion__control"),n="true"===e.dataset.disabled;r&&!n&&(r.addEventListener("click",function(){const n="true"===e.getAttribute("aria-expanded");t||a.forEach(t=>{if(t!==e){t.setAttribute("aria-expanded","false");const e=t.querySelector(".eara-accordion__control");e&&e.setAttribute("aria-expanded","false")}});const d=!n;e.setAttribute("aria-expanded",d.toString()),r.setAttribute("aria-expanded",d.toString())}),r.addEventListener("keydown",function(e){"Enter"!==e.key&&" "!==e.key||(e.preventDefault(),r.click())}))})})});
+/******/ (function() { // webpackBootstrap
+/*!******************************************!*\
+  !*** ./src/blocks/Accordion/frontend.js ***!
+  \******************************************/
+/**
+ * Accordion frontend functionality
+ * Handles accordion item interactions on the frontend
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Initialize all accordion containers
+  const accordionContainers = document.querySelectorAll('.eara-accordion-container');
+  accordionContainers.forEach(container => {
+    const multiple = container.dataset.multiple === 'true';
+    const accordionItems = container.querySelectorAll('.eara-accordion__item');
+
+    // Set initial state based on default opened
+    accordionItems.forEach(item => {
+      const isDefaultOpened = item.dataset.defaultOpened === 'true';
+      if (isDefaultOpened) {
+        item.setAttribute('aria-expanded', 'true');
+      } else {
+        item.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // Add click handlers to all controls
+    accordionItems.forEach(item => {
+      const control = item.querySelector('.eara-accordion__control');
+      const isDisabled = item.dataset.disabled === 'true';
+      if (!control || isDisabled) return;
+      control.addEventListener('click', function () {
+        const isExpanded = item.getAttribute('aria-expanded') === 'true';
+
+        // If not multiple, close all other items
+        if (!multiple) {
+          accordionItems.forEach(otherItem => {
+            if (otherItem !== item) {
+              otherItem.setAttribute('aria-expanded', 'false');
+              const otherControl = otherItem.querySelector('.eara-accordion__control');
+              if (otherControl) {
+                otherControl.setAttribute('aria-expanded', 'false');
+              }
+            }
+          });
+        }
+
+        // Toggle current item
+        const newState = !isExpanded;
+        item.setAttribute('aria-expanded', newState.toString());
+        control.setAttribute('aria-expanded', newState.toString());
+      });
+
+      // Keyboard navigation
+      control.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          control.click();
+        }
+      });
+    });
+  });
+});
+/******/ })()
+;
+//# sourceMappingURL=frontend.js.map

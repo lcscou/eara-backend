@@ -49,6 +49,10 @@
     "borderStyle": {
       "type": "string",
       "default": "solid"
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "eara",

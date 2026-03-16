@@ -15,7 +15,7 @@ import { MantineProvider, Container } from "@mantine/core";
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
-  const { size, fluid, p, px, py } = attributes;
+  const { size, fluid, p, px, py, anchor } = attributes;
 
   const blockProps = useBlockProps();
 
@@ -43,6 +43,15 @@ export default function Edit(props) {
               checked={fluid}
               onChange={(value) => setAttributes({ fluid: value })}
               help={__("Enable to make container take 100% width.", "eara")}
+            />
+          </PanelBody>
+
+          <PanelBody title={__("Anchor", "eara")} initialOpen={false}>
+            <TextControl
+              label={__("Anchor ID", "eara")}
+              value={anchor}
+              onChange={(value) => setAttributes({ anchor: value })}
+              help={__("Anchor ID for the container", "eara")}
             />
           </PanelBody>
 

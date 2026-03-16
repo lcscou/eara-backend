@@ -38,6 +38,10 @@
     "containerSize": {
       "type": "string",
       "default": ""
+    },
+    "anchor": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "eara",

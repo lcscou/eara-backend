@@ -23,6 +23,7 @@ export default function Edit(props) {
     background,
     className,
     containerSize,
+    anchor,
   } = attributes;
 
   const blockProps = useBlockProps();
@@ -53,6 +54,12 @@ export default function Edit(props) {
               help={__("Description text below the title", "eara")}
               rows={4}
             />
+            <TextControl
+              label={__("Anchor", "eara")}
+              value={anchor}
+              onChange={(v) => setAttributes({ anchor: v })}
+              help={__("Anchor ID for the section", "eara")}
+            />
           </PanelBody>
           <PanelBody title={__("Section Settings", "eara")} initialOpen={false}>
             <ToggleControl
@@ -76,7 +83,7 @@ export default function Edit(props) {
               onChange={(v) => setAttributes({ containerSize: v })}
               help={__("Maximum width of the section container", "eara")}
             />
-{/* 
+            {/* 
             <SelectControl
               label={__("Vertical Padding", "eara")}
               value={py}

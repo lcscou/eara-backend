@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/ProtectedFile/style.css","mappings":";;;AAAA;EACE;AACF,C","sources":["webpack://eara-theme/./src/blocks/ProtectedFile/styles.scss"],"sourcesContent":[".wp-block-eara-protected-file {\n  display: none;\n}\n"],"names":[],"sourceRoot":""}

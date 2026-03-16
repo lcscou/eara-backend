@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/ModalTrigger/index.css","mappings":";;;AAAA;AAEE;EACE;AAAJ,C","sources":["webpack://eara-theme/./src/blocks/ModalTrigger/editor.scss"],"sourcesContent":["/* Modal Trigger Editor Styles */\n.wp-block-eara-modal-trigger {\n  &:hover {\n    border-color: #5B5FD9 !important;\n  }\n}\n"],"names":[],"sourceRoot":""}

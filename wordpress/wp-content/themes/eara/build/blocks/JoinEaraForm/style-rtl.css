@@ -1,1 +1,98 @@
-.join-eara-form{background-color:#f3f4f6;padding:40px;border-radius:8px}.join-eara-form__content{max-width:800px;margin:0 auto}.join-eara-form__title{font-size:2.5rem;font-weight:bold;margin-bottom:16px;color:#1a1a1a}.join-eara-form__description{font-size:1rem;margin-bottom:32px;color:#666}.join-eara-form__form{display:flex;flex-direction:column}.join-eara-form__fields{display:flex;flex-direction:column;gap:20px;margin-bottom:24px}.join-eara-form__field{display:flex;flex-direction:column}.join-eara-form__label{display:block;margin-bottom:8px;font-size:.95rem;font-weight:500;color:#1a1a1a}.join-eara-form__required{color:#e03131}.join-eara-form__input{background-color:#fff;border:1px solid #ddd;padding:12px;border-radius:4px;font-size:1rem;transition:border-color .2s}.join-eara-form__input:focus{outline:none;border-color:#5b21b6}.join-eara-form__input::-moz-placeholder{color:#999}.join-eara-form__input::placeholder{color:#999}.join-eara-form__privacy{font-size:.875rem;color:#666;margin-bottom:24px}.join-eara-form__privacy-link{color:#5b21b6;text-decoration:underline}.join-eara-form__privacy-link:hover{text-decoration:none}.join-eara-form__actions{display:flex;justify-content:flex-end}.join-eara-form__button{background-color:#5b21b6;color:#fff;padding:12px 32px;border-radius:4px;font-weight:600;border:none;cursor:pointer;transition:background-color .2s}.join-eara-form__button:hover{background-color:#4c1d95}.join-eara-form__button:focus{outline:2px solid #5b21b6;outline-offset:2px}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/JoinEaraForm/styles.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.join-eara-form {
+  background-color: #f3f4f6;
+  padding: 40px;
+  border-radius: 8px;
+}
+.join-eara-form__content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.join-eara-form__title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+.join-eara-form__description {
+  font-size: 1rem;
+  margin-bottom: 32px;
+  color: #666;
+}
+.join-eara-form__form {
+  display: flex;
+  flex-direction: column;
+}
+.join-eara-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.join-eara-form__field {
+  display: flex;
+  flex-direction: column;
+}
+.join-eara-form__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+.join-eara-form__required {
+  color: #e03131;
+}
+.join-eara-form__input {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.join-eara-form__input:focus {
+  outline: none;
+  border-color: #5b21b6;
+}
+.join-eara-form__input::-moz-placeholder {
+  color: #999;
+}
+.join-eara-form__input::placeholder {
+  color: #999;
+}
+.join-eara-form__privacy {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 24px;
+}
+.join-eara-form__privacy-link {
+  color: #5b21b6;
+  text-decoration: underline;
+}
+.join-eara-form__privacy-link:hover {
+  text-decoration: none;
+}
+.join-eara-form__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.join-eara-form__button {
+  background-color: #5b21b6;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.join-eara-form__button:hover {
+  background-color: #4c1d95;
+}
+.join-eara-form__button:focus {
+  outline: 2px solid #5b21b6;
+  outline-offset: 2px;
+}

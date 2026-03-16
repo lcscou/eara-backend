@@ -1,3 +1,6 @@
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@mantine/carousel/styles.css ***!
+  \***********************************************************************************************************************************************************************************************/
 .m_17884d0f {
   --carousel-height: auto;
   position: relative;
@@ -171,6 +174,9 @@
       margin-inline-end: var(--carousel-slide-gap);
     }
 
+/*!*******************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@mantine/core/styles.css ***!
+  \*******************************************************************************************************************************************************************************************/
 /* ----- CSS reset ----- */
 *,
 *::before,
@@ -7961,4 +7967,18 @@ fieldset:disabled .m_c9ade57f:where([data-inverted]),
       background-color: var(--mantine-color-dark-8);
 }
 
-.wp-block-eara-hero-carousel{margin:2rem 0}.wp-block-eara-hero-carousel .mantine-Carousel-root{width:100%}.wp-block-eara-hero-carousel .mantine-Carousel-viewport{border-radius:0}
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/HeroCarousel/editor.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/* Editor styles for Hero Carousel */
+.wp-block-eara-hero-carousel {
+  margin: 2rem 0;
+}
+.wp-block-eara-hero-carousel .mantine-Carousel-root {
+  width: 100%;
+}
+.wp-block-eara-hero-carousel .mantine-Carousel-viewport {
+  border-radius: 0;
+}
+
+/*# sourceMappingURL=index.css.map*/

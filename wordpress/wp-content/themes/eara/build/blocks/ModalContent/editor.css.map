@@ -1,0 +1,1 @@
+{"version":3,"file":"blocks/ModalContent/editor.css","mappings":";;;AAAA;AAEE;EACE;AAAJ,C","sources":["webpack://eara-theme/./src/blocks/ModalContent/editor.scss"],"sourcesContent":["/* Modal Content Editor Styles */\n.wp-block-eara-modal-content {\n  &:hover {\n    border-color: #5B5FD9 !important;\n  }\n}\n"],"names":[],"sourceRoot":""}
