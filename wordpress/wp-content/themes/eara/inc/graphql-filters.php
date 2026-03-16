@@ -100,6 +100,9 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             if ($orderby === 'order') {
                 $query_args['orderby'] = 'meta_value_num';
                 $query_args['meta_key'] = 'order';
+            } elseif ($orderby === 'event-date') {
+                $query_args['orderby'] = 'meta_value';
+                $query_args['meta_key'] = 'start_date';
             } else {
                 $query_args['orderby'] = $orderby;
             }
