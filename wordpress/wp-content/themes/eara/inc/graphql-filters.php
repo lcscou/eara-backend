@@ -52,13 +52,13 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
 
     // Apply Team ordering from ACF Settings
     if ($info->fieldName === 'teams' || (isset($query_args['post_type']) && $query_args['post_type'][0] === 'team')) {
-     
+
         $team_settings = get_field('team', 'option');
-        
+
         if ($team_settings) {
             $orderby = isset($team_settings['orderby-team']) ? $team_settings['orderby-team'] : 'title';
             $order = isset($team_settings['order-team']) ? $team_settings['order-team'] : 'ASC';
-            
+
             if ($orderby === 'order') {
                 // Order by custom field 'order'
                 $query_args['orderby'] = 'meta_value_num';
@@ -67,7 +67,7 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
                 // Order by date or title
                 $query_args['orderby'] = $orderby;
             }
-            
+
             $query_args['order'] = $order;
         }
     }
@@ -195,8 +195,18 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             $order = isset($members_settings['order-members']) ? $members_settings['order-members'] : 'ASC';
 
             if ($orderby === 'order') {
-                $query_args['orderby'] = 'meta_value_num';
-                $query_args['meta_key'] = 'order';
+                // Use a named meta_query clause to avoid a duplicate wp_postmeta JOIN
+                // when a meta_query filter (e.g. country) is also present, which
+                // would otherwise produce duplicate rows and break cursor pagination.
+                if (!isset($query_args['meta_query']) || !is_array($query_args['meta_query'])) {
+                    $query_args['meta_query'] = [];
+                }
+                $query_args['meta_query']['members_order_clause'] = [
+                    'key'     => 'order',
+                    'type'    => 'NUMERIC',
+                    'compare' => 'EXISTS',
+                ];
+                $query_args['orderby'] = ['members_order_clause' => $order];
             } else {
                 $query_args['orderby'] = $orderby;
             }
@@ -266,10 +276,13 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             'compare' => 'LIKE',
         ];
     }
-    if (isset($args['where']['country']) && $info->fieldName === 'members') {
+    if (isset($args['where']['country']) && ($info->fieldName === 'members' || $info->fieldName === 'allMembers')) {
+        if (!isset($query_args['meta_query']) || !is_array($query_args['meta_query'])) {
+            $query_args['meta_query'] = [];
+        }
         $query_args['meta_query'][] = [
-            'key' => 'country',
-            'value' => $args['where']['country'],
+            'key'     => 'country',
+            'value'   => $args['where']['country'],
             'compare' => 'LIKE',
         ];
     }
@@ -298,17 +311,17 @@ add_action('graphql_register_types', function () {
     // Register the CountryOption type
     register_graphql_object_type('CountryOption', [
         'description' => __('Country option with value, label and count', 'eara'),
-        'fields'      => [
+        'fields' => [
             'value' => [
-                'type'        => 'String',
+                'type' => 'String',
                 'description' => __('Country value', 'eara'),
             ],
             'label' => [
-                'type'        => 'String',
+                'type' => 'String',
                 'description' => __('Country label', 'eara'),
             ],
             'count' => [
-                'type'        => 'Int',
+                'type' => 'Int',
                 'description' => __('Number of occurrences', 'eara'),
             ],
         ],
@@ -317,26 +330,26 @@ add_action('graphql_register_types', function () {
     // Register the SpeciesFeaturedOption type
     register_graphql_object_type('SpeciesFeaturedOption', [
         'description' => __('Species featured option with value and count', 'eara'),
-        'fields'      => [
+        'fields' => [
             'value' => [
-                'type'        => 'String',
+                'type' => 'String',
                 'description' => __('Species featured value', 'eara'),
             ],
             'count' => [
-                'type'        => 'Int',
+                'type' => 'Int',
                 'description' => __('Number of occurrences', 'eara'),
             ],
         ],
     ]);
 
     register_graphql_field('RootQuery', 'newsCountries', [
-        'type'        => ['list_of' => 'CountryOption'],
+        'type' => ['list_of' => 'CountryOption'],
         'description' => __('Get all unique country values from News posts', 'eara'),
-        'resolve'     => function () {
+        'resolve' => function () {
             $args = [
-                'post_type'      => 'news',
+                'post_type' => 'news',
                 'posts_per_page' => -1,
-                'fields'         => 'ids',
+                'fields' => 'ids',
             ];
 
             $query = new WP_Query($args);
@@ -374,13 +387,13 @@ add_action('graphql_register_types', function () {
     ]);
 
     register_graphql_field('RootQuery', 'mediabanksSpeciesFeatured', [
-        'type'        => ['list_of' => 'SpeciesFeaturedOption'],
+        'type' => ['list_of' => 'SpeciesFeaturedOption'],
         'description' => __('Get all unique species_featured values from MediaBank posts with count', 'eara'),
-        'resolve'     => function () {
+        'resolve' => function () {
             $args = [
-                'post_type'      => 'media-bank',
+                'post_type' => 'media-bank',
                 'posts_per_page' => -1,
-                'fields'         => 'ids',
+                'fields' => 'ids',
             ];
 
             $query = new WP_Query($args);
@@ -414,13 +427,13 @@ add_action('graphql_register_types', function () {
     ]);
 
     register_graphql_field('RootQuery', 'mediabanksCountries', [
-        'type'        => ['list_of' => 'CountryOption'],
+        'type' => ['list_of' => 'CountryOption'],
         'description' => __('Get all unique country values from MediaBank posts', 'eara'),
-        'resolve'     => function () {
+        'resolve' => function () {
             $args = [
-                'post_type'      => 'media-bank',
+                'post_type' => 'media-bank',
                 'posts_per_page' => -1,
-                'fields'         => 'ids',
+                'fields' => 'ids',
             ];
 
             $query = new WP_Query($args);
@@ -458,15 +471,15 @@ add_action('graphql_register_types', function () {
     ]);
 
     register_graphql_field('RootQuery', 'getAllCountriesInMembers', [
-        'type'        => ['list_of' => 'CountryOption'],
+        'type' => ['list_of' => 'CountryOption'],
         'description' => __('Get all unique country values from Members posts', 'eara'),
-        'resolve'     => function () {
+        'resolve' => function () {
             $members_post_type = post_type_exists('member') ? 'member' : 'members';
 
             $args = [
-                'post_type'      => $members_post_type,
+                'post_type' => $members_post_type,
                 'posts_per_page' => -1,
-                'fields'         => 'ids',
+                'fields' => 'ids',
             ];
 
             $query = new WP_Query($args);
