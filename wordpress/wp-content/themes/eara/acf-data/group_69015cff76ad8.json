@@ -566,17 +566,18 @@
                     "choices": {
                         "date": "date",
                         "title": "title",
-                        "order": "order"
+                        "order": "order",
+                        "event-date": "event-date"
                     },
                     "default_value": false,
-                    "return_format": "",
+                    "return_format": "value",
                     "multiple": 0,
                     "allow_null": 0,
                     "allow_in_bindings": 0,
                     "ui": 0,
                     "show_in_graphql": 1,
                     "graphql_description": "",
-                    "graphql_field_name": "",
+                    "graphql_field_name": "orderbyEvents",
                     "graphql_non_null": 0,
                     "ajax": 0,
                     "placeholder": "",
@@ -1050,5 +1051,5 @@
     "graphql_field_name": "themeSettings",
     "map_graphql_types_from_location_rules": 0,
     "graphql_types": "",
-    "modified": 1773102810
+    "modified": 1773697627
 }
