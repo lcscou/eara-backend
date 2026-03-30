@@ -6,16 +6,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: 🚚 Get latest code
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     # - name: 🚀 Download Plugins
     #   uses: php-actions/composer@v6
       
     - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.6
       with:
-        server: ${{ secrets.SERVER }}
         username: ${{ secrets.USERNAME }}
+        server: ${{ secrets.SERVER }}
+        port: 65002
+        local_path: ./wordpress/wp-content/themes/eara/
+        remote_path: ./websites/nlcCpIU6b/public_html/wp-content/themes/eara/
+        # sftp_only: true
         password: ${{ secrets.PASSWORD }}
-        local-dir: ./wordpress/wp-content/themes/eara/
-        server-dir: ./eara/wp-content/themes/eara/
