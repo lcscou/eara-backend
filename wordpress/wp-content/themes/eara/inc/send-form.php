@@ -22,7 +22,7 @@ function eara_send_form_handle_payload(array $payload)
         return new WP_Error('eara_missing_message', __('Message is required.', 'eara'), ['status' => 400]);
     }
 
-    $to = get_option('admin_email');
+    $to = get_field('receipt_form', 'option');
     if (empty($to) || !is_email($to)) {
         return new WP_Error('eara_missing_recipient', __('Recipient email is not configured.', 'eara'), ['status' => 500]);
     }
@@ -32,7 +32,7 @@ function eara_send_form_handle_payload(array $payload)
         'Reply-To: ' . $email,
     ];
 
-    $full_message = "Email: {$email}\n\nMessage:\n{$message}";
+    $full_message = "{$message}";
     $sent = wp_mail($to, $subject, $full_message, $headers);
 
     if (!$sent) {
