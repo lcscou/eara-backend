@@ -100,63 +100,30 @@ add_action('template_redirect', function () {
         return;
     }
 
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type, Authorization');
-    header('Access-Control-Max-Age: 86400');
-
-    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-        wp_send_json([], 204);
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        header('Allow: POST');
+        wp_send_json_error([
+            'code' => 'eara_method_not_allowed',
+            'message' => __('Method not allowed. Use POST.', 'eara'),
+        ], 405);
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $payload = eara_get_send_form_payload_from_raw_request();
-        $result = eara_send_form_handle_payload($payload);
+    $payload = eara_get_send_form_payload_from_raw_request();
+    $result = eara_send_form_handle_payload($payload);
 
-        if (is_wp_error($result)) {
-            $status = (int) $result->get_error_data('status');
-            if ($status <= 0) {
-                $status = 500;
-            }
-
-            wp_send_json_error([
-                'code' => $result->get_error_code(),
-                'message' => $result->get_error_message(),
-            ], $status);
+    if (is_wp_error($result)) {
+        $status = (int) $result->get_error_data('status');
+        if ($status <= 0) {
+            $status = 500;
         }
 
-        wp_send_json($result, 200);
+        wp_send_json_error([
+            'code' => $result->get_error_code(),
+            'message' => $result->get_error_message(),
+        ], $status);
     }
 
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $payload = [
-            'email' => isset($_GET['email']) ? sanitize_email((string) $_GET['email']) : '',
-            'subject' => isset($_GET['subject']) ? sanitize_text_field((string) $_GET['subject']) : '',
-            'message' => isset($_GET['message']) ? sanitize_textarea_field((string) $_GET['message']) : '',
-        ];
-
-        $result = eara_send_form_handle_payload($payload);
-
-        if (is_wp_error($result)) {
-            $status = (int) $result->get_error_data('status');
-            if ($status <= 0) {
-                $status = 500;
-            }
-
-            wp_send_json_error([
-                'code' => $result->get_error_code(),
-                'message' => $result->get_error_message(),
-            ], $status);
-        }
-
-        wp_send_json($result, 200);
-    }
-
-    header('Allow: GET, POST, OPTIONS');
-    wp_send_json_error([
-        'code' => 'eara_method_not_allowed',
-        'message' => __('Method not allowed. Use GET, POST, or OPTIONS.', 'eara'),
-    ], 405);
+    wp_send_json($result, 200);
 });
 
 add_action('after_switch_theme', function () {
