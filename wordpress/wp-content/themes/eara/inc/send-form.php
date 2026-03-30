@@ -33,11 +33,20 @@ function eara_send_form_handle_payload(array $payload)
     ];
 
     $full_message = "{$message}";
-    $sent = wp_mail($to, $subject, $full_message, $headers);
+    $sent_to_admin = wp_mail($to, $subject, $full_message, $headers);
 
-    if (!$sent) {
+    if (!$sent_to_admin) {
         return new WP_Error('eara_email_send_failed', __('Failed to send email.', 'eara'), ['status' => 500]);
     }
+
+    $user_headers = [
+        'Content-Type: text/plain; charset=UTF-8',
+    ];
+
+    $user_subject = 'EARA | We received your request';
+    $user_message = 'Thank you for your interest, we will contact you soon.';
+
+    wp_mail($email, $user_subject, $user_message, $user_headers);
 
     return [
         'success' => true,
