@@ -8,7 +8,7 @@ function eara_send_form_handle_payload(array $payload)
 {
     $email = isset($payload['email']) ? sanitize_email((string) $payload['email']) : '';
     $subject = isset($payload['subject']) ? sanitize_text_field((string) $payload['subject']) : '';
-    $message = isset($payload['message']) ? sanitize_textarea_field((string) $payload['message']) : '';
+    $message = isset($payload['message']) ? (string) $payload['message'] : '';
 
     if (empty($email) || !is_email($email)) {
         return new WP_Error('eara_invalid_email', __('Invalid email.', 'eara'), ['status' => 400]);
@@ -27,12 +27,12 @@ function eara_send_form_handle_payload(array $payload)
         return new WP_Error('eara_missing_recipient', __('Recipient email is not configured.', 'eara'), ['status' => 500]);
     }
 
-    $headers = [
-        'Content-Type: text/plain; charset=UTF-8',
-        'Reply-To: ' . $email,
-    ];
+        $headers = [
+                'Content-Type: text/html; charset=UTF-8',
+                'Reply-To: ' . $email,
+        ];
 
-    $full_message = "{$message}";
+        $full_message = $message;
     $sent_to_admin = wp_mail($to, $subject, $full_message, $headers);
 
     if (!$sent_to_admin) {
@@ -40,11 +40,48 @@ function eara_send_form_handle_payload(array $payload)
     }
 
     $user_headers = [
-        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Type: text/html; charset=UTF-8',
     ];
 
-    $user_subject = 'EARA | We received your request';
-    $user_message = 'Thank you for your interest, we will contact you soon.';
+        $user_subject = 'EARA | We received your request';
+        $user_message = <<<'HTML'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Email</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f2f2f2;font-family:Arial,Helvetica,sans-serif;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f2f2f2;padding:40px 0;">
+        <tr>
+            <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff;border-radius:16px;padding:40px;text-align:center;">
+          
+                    <tr>
+                        <td style="padding-bottom:20px;">
+                            <img src="https://www.eara.eu/logo-eara.svg" alt="EARA Logo" style="display:block;margin:0 auto;">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:20px;font-weight:bold;color:#000000;padding-bottom:15px;">
+                            Thank you for your interest in being part of EARA.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-size:14px;color:#555555;line-height:1.5;">
+                            We have received your request and will contact you shortly.
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+HTML;
 
     wp_mail($email, $user_subject, $user_message, $user_headers);
 
