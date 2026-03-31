@@ -76,6 +76,31 @@
             "graphql_non_null": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_69cbb6da6b735",
+            "label": "Not clickable?",
+            "name": "not_clickable",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "show_in_graphql": 1,
+            "graphql_description": "",
+            "graphql_field_name": "notClickable",
+            "graphql_non_null": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -96,11 +121,12 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
+    "display_title": "",
     "show_in_graphql": 1,
     "graphql_field_name": "menuAcf",
     "map_graphql_types_from_location_rules": 1,
     "graphql_types": [
         "MenuItem"
     ],
-    "modified": 1761257887
+    "modified": 1774958385
 }

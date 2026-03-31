@@ -11,7 +11,3 @@ include_once TEMPLATEPATH . '/inc/nextjs-revalidate.php';
 include_once TEMPLATEPATH . '/inc/algolia-config.php';
 include_once TEMPLATEPATH . '/inc/protected-files.php';
 include_once TEMPLATEPATH . '/inc/send-form.php';
-
-
-// deploy teste
-
