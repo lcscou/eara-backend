@@ -29,27 +29,17 @@ function eara_ap_get_wp_content_private_gate_path()
     return wp_normalize_path(trailingslashit(WP_CONTENT_DIR) . 'private-gate.php');
 }
 
-function eara_ap_ensure_required_private_htaccess()
+function eara_ap_log_setup_issue($issue_key, $message)
 {
-    $private_dir = wp_normalize_path(trailingslashit(WP_CONTENT_DIR) . 'private-uploads');
+    $transient_key = 'eara_ap_issue_' . sanitize_key($issue_key);
+    $already_logged = get_transient($transient_key);
 
-    if (!is_dir($private_dir)) {
-        wp_mkdir_p($private_dir);
+    if ($already_logged) {
+        return;
     }
 
-    if (!is_dir($private_dir) || !is_writable($private_dir)) {
-        return false;
-    }
-
-    $htaccess_file = trailingslashit($private_dir) . '.htaccess';
-    $required = eara_ap_get_private_htaccess_contents();
-    $current = file_exists($htaccess_file) ? (string) file_get_contents($htaccess_file) : '';
-
-    if ($current !== $required) {
-        file_put_contents($htaccess_file, $required);
-    }
-
-    return true;
+    error_log('[eara attachment protection] ' . $message);
+    set_transient($transient_key, 1, HOUR_IN_SECONDS);
 }
 
 function eara_ap_sync_private_gate_file()
@@ -58,6 +48,7 @@ function eara_ap_sync_private_gate_file()
     $target = eara_ap_get_wp_content_private_gate_path();
 
     if (!file_exists($template) || !is_readable($template)) {
+        eara_ap_log_setup_issue('private_gate_template_missing', 'Private gate template is missing or unreadable: ' . $template);
         return false;
     }
 
@@ -65,7 +56,11 @@ function eara_ap_sync_private_gate_file()
     $current_contents = file_exists($target) ? (string) file_get_contents($target) : '';
 
     if ($template_contents !== $current_contents) {
-        file_put_contents($target, $template_contents);
+        $written = file_put_contents($target, $template_contents);
+        if ($written === false) {
+            eara_ap_log_setup_issue('private_gate_write_failed', 'Could not write private gate file: ' . $target);
+            return false;
+        }
     }
 
     return true;
@@ -85,35 +80,56 @@ function eara_ap_ensure_private_base_dir()
     $private_dir = eara_ap_get_private_base_dir();
 
     if (!is_dir($private_dir)) {
-        wp_mkdir_p($private_dir);
+        $created = wp_mkdir_p($private_dir);
+        if (!$created) {
+            eara_ap_log_setup_issue('private_uploads_create_failed', 'Could not create private uploads directory: ' . $private_dir);
+            return false;
+        }
     }
 
     if (!is_dir($private_dir) || !is_writable($private_dir)) {
+        eara_ap_log_setup_issue('private_uploads_not_writable', 'Private uploads directory is missing or not writable: ' . $private_dir);
         return false;
     }
 
     $index_file = trailingslashit($private_dir) . 'index.php';
     if (!file_exists($index_file)) {
-        file_put_contents($index_file, "<?php\n");
+        $index_written = file_put_contents($index_file, "<?php\n");
+        if ($index_written === false) {
+            eara_ap_log_setup_issue('private_uploads_index_write_failed', 'Could not write index.php in private uploads directory: ' . $index_file);
+        }
     }
 
     $htaccess_file = trailingslashit($private_dir) . '.htaccess';
     $required_htaccess = eara_ap_get_private_htaccess_contents();
     $current_htaccess = file_exists($htaccess_file) ? (string) file_get_contents($htaccess_file) : '';
     if ($current_htaccess !== $required_htaccess) {
-        file_put_contents($htaccess_file, $required_htaccess);
+        $htaccess_written = file_put_contents($htaccess_file, $required_htaccess);
+        if ($htaccess_written === false) {
+            eara_ap_log_setup_issue('private_uploads_htaccess_write_failed', 'Could not write .htaccess in private uploads directory: ' . $htaccess_file);
+            return false;
+        }
     }
 
     return true;
 }
 
 add_action('init', function () {
-    eara_ap_ensure_required_private_htaccess();
+    eara_ap_ensure_private_base_dir();
     eara_ap_sync_private_gate_file();
 });
 
 add_action('after_switch_theme', function () {
-    eara_ap_ensure_required_private_htaccess();
+    eara_ap_ensure_private_base_dir();
+    eara_ap_sync_private_gate_file();
+});
+
+add_action('admin_init', function () {
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    eara_ap_ensure_private_base_dir();
     eara_ap_sync_private_gate_file();
 });
 
