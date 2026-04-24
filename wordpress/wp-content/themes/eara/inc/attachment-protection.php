@@ -31,7 +31,7 @@ function eara_ap_get_wp_content_private_gate_path()
 
 function eara_ap_ensure_required_private_htaccess()
 {
-    $private_dir = wp_normalize_path(trailingslashit(WP_CONTENT_DIR) . 'private');
+    $private_dir = wp_normalize_path(trailingslashit(WP_CONTENT_DIR) . 'private-uploads');
 
     if (!is_dir($private_dir)) {
         wp_mkdir_p($private_dir);
