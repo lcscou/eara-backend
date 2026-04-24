@@ -1,5 +1,5 @@
-const { InspectorControls, useBlockProps } = wp.blockEditor;
-const { PanelBody, SelectControl, ToggleControl, TextControl } = wp.components;
+const { InspectorControls, useBlockProps, MediaUpload, MediaUploadCheck } = wp.blockEditor;
+const { PanelBody, SelectControl, ToggleControl, TextControl, Button: WPButton } = wp.components;
 const { __ } = wp.i18n;
 import { IconArrowRight } from "@tabler/icons-react";
 import { MantineProvider, Button } from "@mantine/core";
@@ -10,6 +10,7 @@ export default function Edit(props) {
     label,
     link,
     target,
+    download,
     variant,
     size,
     color,
@@ -43,6 +44,27 @@ export default function Edit(props) {
               value={link}
               onChange={(v) => setAttributes({ link: v })}
               placeholder="https://example.com"
+            />
+            <MediaUploadCheck>
+              <MediaUpload
+                onSelect={(media) => setAttributes({ link: media.url })}
+                allowedTypes={["image", "video", "audio", "application"]}
+                render={({ open }) => (
+                  <WPButton
+                    variant="secondary"
+                    onClick={open}
+                    style={{ marginBottom: "16px", width: "100%" }}
+                  >
+                    {__("Select from Media Library", "eara")}
+                  </WPButton>
+                )}
+              />
+            </MediaUploadCheck>
+            <ToggleControl
+              label={__("Download", "eara")}
+              checked={download}
+              onChange={(v) => setAttributes({ download: v })}
+              help={__("Force the link to download the file", "eara")}
             />
             <SelectControl
               label={__("Link Target", "eara")}

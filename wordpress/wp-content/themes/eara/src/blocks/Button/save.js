@@ -3,7 +3,8 @@ export default function Save(props) {
   const { 
     label, 
     link, 
-    target, 
+    target,
+    download,
     variant, 
     size, 
     color, 
@@ -18,7 +19,7 @@ export default function Save(props) {
 
   const Element = link && link !== '#' ? 'a' : 'button';
   const elementProps = Element === 'a' 
-    ? { href: link, target: target, rel: target === '_blank' ? 'noopener noreferrer' : undefined }
+    ? { href: link, target: target, rel: target === '_blank' ? 'noopener noreferrer' : undefined, ...(download ? { download: true } : {}) }
     : { type: 'button', disabled: disabled };
 
   const className = `eara-button ${fullWidth ? 'eara-button--full-width' : ''} ${loading ? 'eara-button--loading' : ''}`;

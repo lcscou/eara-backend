@@ -1,6 +1,3 @@
-/*!***********************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@mantine/carousel/styles.css ***!
-  \***********************************************************************************************************************************************************************************************/
 .m_17884d0f {
   --carousel-height: auto;
   position: relative;
@@ -174,5 +171,3 @@
       margin-inline-end: var(--carousel-slide-gap);
     }
 
-
-/*# sourceMappingURL=index.css.map*/

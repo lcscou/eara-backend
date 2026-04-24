@@ -27,6 +27,10 @@
       "type": "string",
       "default": "_self"
     },
+    "download": {
+      "type": "boolean",
+      "default": false
+    },
     "variant": {
       "type": "string",
       "default": "filled"
