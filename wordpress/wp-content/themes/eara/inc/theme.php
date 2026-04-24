@@ -41,7 +41,7 @@ add_action('enqueue_block_editor_assets', function () {
 });
 
 add_filter('retrieve_password_message', function ($message, $key, $user_login, $user_data) {
-    $frontend_url = wp_get_environment_type() === 'development' ? 'http://localhost:3000/reset-password' : 'https://eara-frontend.vercel.app/reset-password';
+    $frontend_url = wp_get_environment_type() === 'development' ? 'http://localhost:3000/reset-password' : 'https://lightskyblue-camel-505374.hostingersite.com/reset-password';
     $reset_link = add_query_arg(
         [
             'key' => $key,
