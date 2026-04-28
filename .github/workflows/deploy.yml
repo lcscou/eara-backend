@@ -18,6 +18,6 @@ jobs:
         server: ${{ secrets.SERVER }}
         port: 65002
         local_path: ./wordpress/wp-content/themes/eara/
-        remote_path: ./websites/nlcCpIU6b/public_html/wp-content/themes/
+        remote_path: ./websites/4Fr8PN8Hl/public_html/wp-content/themes/
         # sftp_only: true
         password: ${{ secrets.PASSWORD }}
