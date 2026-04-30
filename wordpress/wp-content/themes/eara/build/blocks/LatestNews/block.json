@@ -18,6 +18,14 @@
     "columns": {
       "type": "number",
       "default": 3
+    },
+    "mode": {
+      "type": "string",
+      "default": "latest"
+    },
+    "selectedNews": {
+      "type": "array",
+      "default": []
     }
   },
   "textdomain": "eara",

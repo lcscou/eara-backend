@@ -13,12 +13,19 @@ import {
   Title,
 } from "@mantine/core";
 import { InspectorControls, useBlockProps } from "@wordpress/block-editor";
-import { PanelBody, RangeControl } from "@wordpress/components";
+import {
+  PanelBody,
+  CheckboxControl,
+  SelectControl,
+  Notice,
+} from "@wordpress/components";
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
-  const { postsPerPage, columns } = attributes;
+  const { mode, selectedNews = [] } = attributes;
+  const postsPerPage = 3;
   const [posts, setPosts] = useState([]);
+  const [newsOptions, setNewsOptions] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const blockProps = useBlockProps({
@@ -26,12 +33,36 @@ export default function Edit(props) {
   });
 
   useEffect(() => {
-    // Fetch latest news posts
-    const fetchPosts = async () => {
+    const fetchNewsOptions = async () => {
       try {
         const response = await fetch(
-          `/wp-json/wp/v2/news?_embed&per_page=${postsPerPage}&orderby=date&order=desc`
+          "/wp-json/wp/v2/news?per_page=100&_fields=id,title"
         );
+        const data = await response.json();
+        setNewsOptions(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error("Error fetching news options:", error);
+        setNewsOptions([]);
+      }
+    };
+
+    fetchNewsOptions();
+  }, []);
+
+  useEffect(() => {
+    // Fetch posts based on mode
+    const fetchPosts = async () => {
+      setLoading(true);
+
+      try {
+        const endpoint =
+          mode === "highlight" && selectedNews.length > 0
+            ? `/wp-json/wp/v2/news?_embed&include=${selectedNews
+                .slice(0, 3)
+                .join(",")}&orderby=include&per_page=3`
+            : `/wp-json/wp/v2/news?_embed&per_page=${postsPerPage}&orderby=date&order=desc`;
+
+        const response = await fetch(endpoint);
         const data = await response.json();
         setPosts(Array.isArray(data) ? data : []);
       } catch (error) {
@@ -43,7 +74,24 @@ export default function Edit(props) {
     };
 
     fetchPosts();
-  }, [postsPerPage]);
+  }, [mode, selectedNews]);
+
+  const handleToggleNews = (postId) => {
+    const isSelected = selectedNews.includes(postId);
+
+    if (isSelected) {
+      setAttributes({
+        selectedNews: selectedNews.filter((id) => id !== postId),
+      });
+      return;
+    }
+
+    if (selectedNews.length >= 3) {
+      return;
+    }
+
+    setAttributes({ selectedNews: [...selectedNews, postId] });
+  };
 
   // Helper to compute a simple reading time for preview
   const getReadingTime = (content) => {
@@ -59,27 +107,50 @@ export default function Edit(props) {
   return (
     <div {...blockProps}>
       <MantineProvider>
-        {/* <InspectorControls>
-          <PanelBody title={__('Latest News Settings', 'eara')} initialOpen={true}>
-            <RangeControl
-              label={__('Number of Posts', 'eara')}
-              value={postsPerPage}
-              onChange={(v) => setAttributes({ postsPerPage: v })}
-              min={1}
-              max={12}
-              help={__('How many posts to display', 'eara')}
+        <InspectorControls>
+          <PanelBody title={__("Latest News Settings", "eara")} initialOpen={true}>
+            <SelectControl
+              label={__("Mode", "eara")}
+              value={mode}
+              options={[
+                { label: __("Latest", "eara"), value: "latest" },
+                { label: __("Highlight", "eara"), value: "highlight" },
+              ]}
+              onChange={(value) => setAttributes({ mode: value })}
             />
 
-            <RangeControl
-              label={__('Columns', 'eara')}
-              value={columns}
-              onChange={(v) => setAttributes({ columns: v })}
-              min={1}
-              max={4}
-              help={__('Number of columns in the grid', 'eara')}
-            />
+            {mode === "highlight" && (
+              <>
+                <p>{__("News", "eara")}</p>
+
+                {selectedNews.length >= 3 && (
+                  <Notice status="warning" isDismissible={false}>
+                    {__("You can select up to 3 news posts.", "eara")}
+                  </Notice>
+                )}
+
+                {newsOptions.length === 0 ? (
+                  <p>{__("No news posts found.", "eara")}</p>
+                ) : (
+                  newsOptions.map((post) => {
+                    const isChecked = selectedNews.includes(post.id);
+                    const isDisabled = !isChecked && selectedNews.length >= 3;
+
+                    return (
+                      <CheckboxControl
+                        key={post.id}
+                        label={post.title?.rendered || __("Untitled", "eara")}
+                        checked={isChecked}
+                        disabled={isDisabled}
+                        onChange={() => handleToggleNews(post.id)}
+                      />
+                    );
+                  })
+                )}
+              </>
+            )}
           </PanelBody>
-        </InspectorControls> */}
+        </InspectorControls>
 
         <div className="grid gap-8 sm:grid-cols-4 sm:grid-rows-4">
           {loading ? (
