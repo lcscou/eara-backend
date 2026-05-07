@@ -37,6 +37,14 @@ add_action('graphql_register_types', function () {
         'type' => 'String',
         'description' => 'Filter News by animal field',
     ]);
+    register_graphql_field('RootQueryToNewsConnectionWhereArgs', 'researchAreasNews', [
+        'type' => 'String',
+        'description' => 'Filter News by research-areas-news taxonomy slug',
+    ]);
+    register_graphql_field('RootQueryToNewsConnectionWhereArgs', 'animalsNews', [
+        'type' => 'String',
+        'description' => 'Filter News by animals-news taxonomy slug',
+    ]);
     register_graphql_field('RootQueryToMemberConnectionWhereArgs', 'country', [
         'type' => 'String',
         'description' => 'Filter Members by country field',
@@ -292,6 +300,20 @@ add_filter('graphql_post_object_connection_query_args', function ($query_args, $
             'taxonomy' => 'categories-news',
             'field' => 'slug',
             'terms' => $args['where']['category'],
+        ];
+    }
+    if (isset($args['where']['researchAreasNews']) && $info->fieldName === 'allNews') {
+        $query_args['tax_query'][] = [
+            'taxonomy' => 'research-areas-news',
+            'field' => 'slug',
+            'terms' => $args['where']['researchAreasNews'],
+        ];
+    }
+    if (isset($args['where']['animalsNews']) && $info->fieldName === 'allNews') {
+        $query_args['tax_query'][] = [
+            'taxonomy' => 'animals-news',
+            'field' => 'slug',
+            'terms' => $args['where']['animalsNews'],
         ];
     }
     if (isset($args['where']['institution']) && $info->fieldName === 'allCaseStudies') {

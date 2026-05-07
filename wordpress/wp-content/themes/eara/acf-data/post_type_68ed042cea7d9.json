@@ -71,7 +71,11 @@
         "thumbnail",
         "custom-fields"
     ],
-    "taxonomies": "",
+    "taxonomies": [
+        "animals-news",
+        "categories-news",
+        "research-areas-news"
+    ],
     "has_archive": false,
     "has_archive_slug": "",
     "rewrite": {
@@ -89,5 +93,5 @@
     "show_in_graphql": 1,
     "graphql_single_name": "news",
     "graphql_plural_name": "news",
-    "modified": 1768473785
+    "modified": 1778148467
 }
