@@ -191,3 +191,137 @@ add_action('add_attachment', function ($post_id) {
         'post_parent' => 0
     ]);
 });
+
+function eara_is_sitemap_request()
+{
+    $request_uri = $_SERVER['REQUEST_URI'] ?? '';
+    $path = wp_parse_url($request_uri, PHP_URL_PATH);
+
+    if (!is_string($path) || $path === '') {
+        return false;
+    }
+
+    $path = '/' . ltrim($path, '/');
+
+    if ($path === '/sitemap.xml' || $path === '/wp-sitemap.xml') {
+        return true;
+    }
+
+    if (strpos($path, '/wp-sitemap-') === 0 && substr($path, -4) === '.xml') {
+        return true;
+    }
+
+    return false;
+}
+
+function eara_host_matches_allowed_domain($request_host, $allowed_host)
+{
+    $request_host = strtolower(trim((string) $request_host));
+    $allowed_host = strtolower(trim((string) $allowed_host));
+
+    if ($request_host === '' || $allowed_host === '') {
+        return false;
+    }
+
+    if ($request_host === $allowed_host) {
+        return true;
+    }
+
+    $suffix = '.' . $allowed_host;
+
+    return substr($request_host, -strlen($suffix)) === $suffix;
+}
+
+function eara_is_authorized_sitemap_request()
+{
+    $default_token = defined('EARA_HEADLESS_SITEMAP_TOKEN') ? (string) EARA_HEADLESS_SITEMAP_TOKEN : '';
+    $token = (string) apply_filters('eara_headless_sitemap_token', $default_token);
+    $provided_token = (string) ($_SERVER['HTTP_X_EARA_SITEMAP_TOKEN'] ?? '');
+
+    if ($token !== '' && hash_equals($token, $provided_token)) {
+        return true;
+    }
+
+    $default_allowed_domains = [
+        'eara.eu',
+        'www.eara.eu',
+    ];
+
+    if (defined('EARA_HEADLESS_FRONTEND_HOST') && is_string(EARA_HEADLESS_FRONTEND_HOST) && EARA_HEADLESS_FRONTEND_HOST !== '') {
+        $default_allowed_domains[] = EARA_HEADLESS_FRONTEND_HOST;
+    }
+
+    $allowed_domains = apply_filters('eara_headless_allowed_frontend_hosts', $default_allowed_domains);
+
+    if (!is_array($allowed_domains) || empty($allowed_domains)) {
+        return false;
+    }
+
+    $candidate_hosts = [];
+
+    foreach (['HTTP_ORIGIN', 'HTTP_REFERER'] as $header) {
+        $value = $_SERVER[$header] ?? '';
+
+        if (!is_string($value) || $value === '') {
+            continue;
+        }
+
+        $host = wp_parse_url($value, PHP_URL_HOST);
+
+        if (is_string($host) && $host !== '') {
+            $candidate_hosts[] = $host;
+        }
+    }
+
+    foreach ($candidate_hosts as $candidate_host) {
+        foreach ($allowed_domains as $allowed_domain) {
+            if (eara_host_matches_allowed_domain($candidate_host, $allowed_domain)) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+add_action('template_redirect', function () {
+    if (is_admin() || wp_doing_ajax() || wp_doing_cron()) {
+        return;
+    }
+
+    if (defined('REST_REQUEST') && REST_REQUEST) {
+        return;
+    }
+
+    if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
+        return;
+    }
+
+    if (eara_is_sitemap_request()) {
+        if (eara_is_authorized_sitemap_request()) {
+            return;
+        }
+
+        status_header(403);
+        nocache_headers();
+        wp_die('Forbidden', 'Forbidden', ['response' => 403]);
+    }
+
+    global $wp_query;
+
+    if ($wp_query instanceof WP_Query) {
+        $wp_query->set_404();
+    }
+
+    status_header(404);
+    nocache_headers();
+
+    $template_404 = get_404_template();
+
+    if (is_string($template_404) && $template_404 !== '') {
+        include $template_404;
+        exit;
+    }
+
+    wp_die('Not Found', 'Not Found', ['response' => 404]);
+});
