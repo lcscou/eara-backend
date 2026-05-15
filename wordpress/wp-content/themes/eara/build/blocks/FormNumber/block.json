@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/form-number",
+  "title": "Number Field",
+  "category": "eara",
+  "icon": "calculator",
+  "description": "A numeric input field.",
+  "parent": [
+    "eara/form-container"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Number"
+    },
+    "description": {
+      "type": "string",
+      "default": ""
+    },
+    "placeholder": {
+      "type": "string",
+      "default": ""
+    },
+    "required": {
+      "type": "boolean",
+      "default": false
+    },
+    "min": {
+      "type": "string",
+      "default": ""
+    },
+    "max": {
+      "type": "string",
+      "default": ""
+    },
+    "step": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}

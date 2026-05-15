@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/form-submit",
+  "title": "Submit Button",
+  "category": "eara",
+  "icon": "button",
+  "description": "A submit button for the form.",
+  "parent": [
+    "eara/form-container"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "label": {
+      "type": "string",
+      "default": "Submit"
+    },
+    "loadingLabel": {
+      "type": "string",
+      "default": "Sending..."
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}

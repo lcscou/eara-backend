@@ -1,0 +1,25 @@
+/* Editor styles for Form Container block */
+.wp-block-eara-form-container {
+  border: 2px dashed #007cba;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+
+  .eara-form-container {
+    &__recipient-badge {
+      background: #e8f4fd;
+      border: 1px solid #007cba;
+      border-radius: 3px;
+      color: #007cba;
+      font-size: 12px;
+      margin-bottom: 1rem;
+      padding: 4px 8px;
+    }
+  }
+
+  .block-editor-inner-blocks,
+  .block-editor-block-list__layout {
+    min-height: 80px;
+  }
+}

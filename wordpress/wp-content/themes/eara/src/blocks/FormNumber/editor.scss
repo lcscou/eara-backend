@@ -1,0 +1,32 @@
+/* Editor styles for Number Field block */
+.wp-block-eara-form-number {
+  .eara-form-field {
+    &__label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    &__required {
+      color: #cc0000;
+    }
+
+    &__input {
+      background: #f8f8f8;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      color: #555;
+      font-size: 13px;
+      padding: 6px 10px;
+      width: 100%;
+    }
+
+    &__description {
+      color: #666;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+  }
+}

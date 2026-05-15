@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "eara/form-container",
+  "title": "Form Container",
+  "category": "eara",
+  "icon": "feedback",
+  "description": "A flexible form container. Add input blocks inside to build your form.",
+  "supports": {
+    "html": false,
+    "spacing": {
+      "padding": true,
+      "margin": true
+    }
+  },
+  "attributes": {
+    "recipient": {
+      "type": "string",
+      "default": ""
+    },
+    "successMessage": {
+      "type": "string",
+      "default": "Thank you! Your message has been sent."
+    },
+    "errorMessage": {
+      "type": "string",
+      "default": "Something went wrong. Please try again."
+    }
+  },
+  "textdomain": "eara",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.scss",
+  "style": "file:./styles.scss"
+}
