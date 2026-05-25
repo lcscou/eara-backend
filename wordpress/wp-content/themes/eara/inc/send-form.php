@@ -27,12 +27,12 @@ function eara_send_form_handle_payload(array $payload)
         return new WP_Error('eara_missing_recipient', __('Recipient email is not configured.', 'eara'), ['status' => 500]);
     }
 
-        $headers = [
-                'Content-Type: text/html; charset=UTF-8',
-                'Reply-To: ' . $email,
-        ];
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+        'Reply-To: ' . $email,
+    ];
 
-        $full_message = $message;
+    $full_message = $message;
     $sent_to_admin = wp_mail($to, $subject, $full_message, $headers);
 
     if (!$sent_to_admin) {
@@ -43,8 +43,8 @@ function eara_send_form_handle_payload(array $payload)
         'Content-Type: text/html; charset=UTF-8',
     ];
 
-        $user_subject = 'EARA | We received your request';
-        $user_message = <<<'HTML'
+    $user_subject = 'EARA | We received your request';
+    $user_message = <<<'HTML'
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -123,17 +123,55 @@ function eara_get_send_form_payload_from_raw_request()
     return [];
 }
 
+function eara_send_email_handle_payload(array $payload)
+{
+    $recipient = isset($payload['recipient']) ? sanitize_email((string) $payload['recipient']) : '';
+    if (empty($recipient) && isset($payload['Recipient'])) {
+        $recipient = sanitize_email((string) $payload['Recipient']);
+    }
+
+    $subject = isset($payload['subject']) ? sanitize_text_field((string) $payload['subject']) : __('EARA | Notification', 'eara');
+    $html = isset($payload['html']) ? (string) $payload['html'] : '';
+
+    if (empty($recipient) || !is_email($recipient)) {
+        return new WP_Error('eara_invalid_recipient', __('Invalid recipient.', 'eara'), ['status' => 400]);
+    }
+
+    if (empty($html)) {
+        return new WP_Error('eara_missing_html', __('HTML payload is required.', 'eara'), ['status' => 400]);
+    }
+
+    $headers = [
+        'Content-Type: text/html; charset=UTF-8',
+    ];
+
+    $sent = wp_mail($recipient, $subject, $html, $headers);
+    if (!$sent) {
+        return new WP_Error('eara_email_send_failed', __('Failed to send email.', 'eara'), ['status' => 500]);
+    }
+
+    return [
+        'success' => true,
+        'message' => __('Email sent successfully.', 'eara'),
+    ];
+}
+
 add_filter('query_vars', function ($vars) {
     $vars[] = 'eara_send_form';
+    $vars[] = 'eara_send_email';
     return $vars;
 });
 
 add_action('init', function () {
     add_rewrite_rule('^send-form/?$', 'index.php?eara_send_form=1', 'top');
+    add_rewrite_rule('^send-email/?$', 'index.php?eara_send_email=1', 'top');
 });
 
 add_action('template_redirect', function () {
-    if ((int) get_query_var('eara_send_form') !== 1) {
+    $is_send_form = (int) get_query_var('eara_send_form') === 1;
+    $is_send_email = (int) get_query_var('eara_send_email') === 1;
+
+    if (!$is_send_form && !$is_send_email) {
         return;
     }
 
@@ -146,7 +184,9 @@ add_action('template_redirect', function () {
     }
 
     $payload = eara_get_send_form_payload_from_raw_request();
-    $result = eara_send_form_handle_payload($payload);
+    $result = $is_send_email
+        ? eara_send_email_handle_payload($payload)
+        : eara_send_form_handle_payload($payload);
 
     if (is_wp_error($result)) {
         $status = (int) $result->get_error_data('status');
@@ -165,18 +205,20 @@ add_action('template_redirect', function () {
 
 add_action('after_switch_theme', function () {
     add_rewrite_rule('^send-form/?$', 'index.php?eara_send_form=1', 'top');
+    add_rewrite_rule('^send-email/?$', 'index.php?eara_send_email=1', 'top');
     flush_rewrite_rules(false);
 });
 
 add_action('admin_init', function () {
     $rewrite_version = get_option('eara_send_form_rewrite_version');
-    if ($rewrite_version === '1') {
+    if ($rewrite_version === '2') {
         return;
     }
 
     add_rewrite_rule('^send-form/?$', 'index.php?eara_send_form=1', 'top');
+    add_rewrite_rule('^send-email/?$', 'index.php?eara_send_email=1', 'top');
     flush_rewrite_rules(false);
-    update_option('eara_send_form_rewrite_version', '1', false);
+    update_option('eara_send_form_rewrite_version', '2', false);
 });
 
 add_action('rest_api_init', function () {
@@ -186,6 +228,21 @@ add_action('rest_api_init', function () {
         'callback' => function ($request) {
             $payload = eara_get_send_form_payload($request);
             $result = eara_send_form_handle_payload($payload);
+
+            if (is_wp_error($result)) {
+                return $result;
+            }
+
+            return rest_ensure_response($result);
+        },
+    ]);
+
+    register_rest_route('eara/v1', '/send-email', [
+        'methods' => 'POST',
+        'permission_callback' => '__return_true',
+        'callback' => function ($request) {
+            $payload = eara_get_send_form_payload($request);
+            $result = eara_send_email_handle_payload($payload);
 
             if (is_wp_error($result)) {
                 return $result;
