@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Eara Theme - Blocks Configuration
  * 
@@ -79,26 +80,26 @@ function eara_registrar_blocos()
         error_log('Eara Theme: No blocks found to register');
         return;
     }
-    
+
     error_log('Eara Theme: Found ' . count($blocks) . ' block directories');
-    
+
     foreach ($blocks as $block_path) {
         $block_name = basename($block_path);
-        
+
         // Validate block path
         if (!is_dir($block_path) || !is_readable($block_path)) {
             error_log('Eara Theme: Block directory not readable: ' . $block_name);
             continue;
         }
-        
+
         $block_json_path = $block_path . '/block.json';
-        
+
         // Register block if block.json exists
         if (file_exists($block_json_path) && is_readable($block_json_path)) {
             try {
                 error_log('Eara Theme: Attempting to register block: ' . $block_name);
                 $result = register_block_type($block_path);
-                
+
                 if ($result) {
                     error_log('Eara Theme: Successfully registered block: ' . $result->name);
                 } else {
