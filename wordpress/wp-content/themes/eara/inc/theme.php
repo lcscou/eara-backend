@@ -158,6 +158,61 @@ add_action('manage_media-bank_posts_custom_column', function ($column, $post_id)
     echo '<span aria-hidden="true">—</span>';
 }, 10, 2);
 
+add_filter('manage_members_posts_columns', function ($columns) {
+    $updated_columns = [];
+
+    foreach ($columns as $key => $label) {
+        $updated_columns[$key] = $label;
+
+        if ($key === 'title') {
+            $updated_columns['country'] = __('Country', 'eara');
+        }
+    }
+
+    if (!isset($updated_columns['country'])) {
+        $updated_columns['country'] = __('Country', 'eara');
+    }
+
+    return $updated_columns;
+});
+
+add_action('manage_members_posts_custom_column', function ($column, $post_id) {
+    if ($column !== 'country') {
+        return;
+    }
+
+    $country = get_field('country', $post_id);
+
+    if (empty($country)) {
+        echo '<span aria-hidden="true">—</span>';
+        return;
+    }
+
+    $field_object = get_field_object('country', $post_id);
+    $label = $field_object['choices'][$country] ?? $country;
+
+    echo esc_html($label);
+}, 10, 2);
+
+add_filter('manage_edit-members_sortable_columns', function ($columns) {
+    $columns['country'] = 'country';
+
+    return $columns;
+});
+
+add_action('pre_get_posts', function ($query) {
+    if (!is_admin() || !$query->is_main_query()) {
+        return;
+    }
+
+    if ($query->get('post_type') !== 'members' || $query->get('orderby') !== 'country') {
+        return;
+    }
+
+    $query->set('meta_key', 'country');
+    $query->set('orderby', 'meta_value');
+});
+
 add_action('admin_head-edit.php', function () {
     $screen = get_current_screen();
 
