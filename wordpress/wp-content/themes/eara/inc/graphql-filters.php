@@ -500,15 +500,23 @@ add_action('graphql_register_types', function () {
 
             $args = [
                 'post_type' => $members_post_type,
+                'post_status' => 'publish',
                 'posts_per_page' => -1,
                 'fields' => 'ids',
             ];
 
             $query = new WP_Query($args);
             $country_count = [];
+            $seen_post_ids = [];
 
             if ($query->have_posts()) {
                 foreach ($query->posts as $post_id) {
+                    // Guard against duplicate IDs (can happen with joined queries).
+                    if (isset($seen_post_ids[$post_id])) {
+                        continue;
+                    }
+                    $seen_post_ids[$post_id] = true;
+
                     $country = get_field('country', $post_id);
                     if ($country) {
                         if (!isset($country_count[$country])) {
