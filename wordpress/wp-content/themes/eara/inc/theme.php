@@ -390,54 +390,54 @@ function eara_is_authorized_sitemap_request()
     return false;
 }
 
-add_action('init', function () {
-    if (eara_should_bypass_headless_lockdown()) {
-        return;
-    }
+// add_action('init', function () {
+//     if (eara_should_bypass_headless_lockdown()) {
+//         return;
+//     }
 
-    if (!eara_is_sitemap_request()) {
-        return;
-    }
+//     if (!eara_is_sitemap_request()) {
+//         return;
+//     }
 
-    if (eara_is_authorized_sitemap_request()) {
-        return;
-    }
+//     if (eara_is_authorized_sitemap_request()) {
+//         return;
+//     }
 
-    status_header(403);
-    nocache_headers();
-    wp_die('Forbidden', 'Forbidden', ['response' => 403]);
-}, -9999);
+//     status_header(403);
+//     nocache_headers();
+//     wp_die('Forbidden', 'Forbidden', ['response' => 403]);
+// }, -9999);
 
-add_action('template_redirect', function () {
-    if (eara_should_bypass_headless_lockdown()) {
-        return;
-    }
+// add_action('template_redirect', function () {
+//     if (eara_should_bypass_headless_lockdown()) {
+//         return;
+//     }
 
-    if (eara_is_sitemap_request()) {
-        if (eara_is_authorized_sitemap_request()) {
-            return;
-        }
+//     if (eara_is_sitemap_request()) {
+//         if (eara_is_authorized_sitemap_request()) {
+//             return;
+//         }
 
-        status_header(403);
-        nocache_headers();
-        wp_die('Forbidden', 'Forbidden', ['response' => 403]);
-    }
+//         status_header(403);
+//         nocache_headers();
+//         wp_die('Forbidden', 'Forbidden', ['response' => 403]);
+//     }
 
-    global $wp_query;
+//     global $wp_query;
 
-    if ($wp_query instanceof WP_Query) {
-        $wp_query->set_404();
-    }
+//     if ($wp_query instanceof WP_Query) {
+//         $wp_query->set_404();
+//     }
 
-    status_header(404);
-    nocache_headers();
+//     status_header(404);
+//     nocache_headers();
 
-    $template_404 = get_404_template();
+//     $template_404 = get_404_template();
 
-    if (is_string($template_404) && $template_404 !== '') {
-        include $template_404;
-        exit;
-    }
+//     if (is_string($template_404) && $template_404 !== '') {
+//         include $template_404;
+//         exit;
+//     }
 
-    wp_die('Not Found', 'Not Found', ['response' => 404]);
-}, -1000);
+//     wp_die('Not Found', 'Not Found', ['response' => 404]);
+// }, -1000);
