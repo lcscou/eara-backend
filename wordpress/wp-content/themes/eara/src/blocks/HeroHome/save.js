@@ -1,4 +1,5 @@
 const { InnerBlocks, useBlockProps } = wp.blockEditor;
+import { getHeroBackgroundStyle } from "../hero-background";
 
 export default function save({ attributes }) {
   const { backgroundImage, innerContainer, overlayColor, overlayOpacity } = attributes;
@@ -7,7 +8,8 @@ export default function save({ attributes }) {
     backgroundImage: backgroundImage?.url ? `url(${backgroundImage.url})` : undefined,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    width: '100%'
+    width: '100%',
+    ...getHeroBackgroundStyle(attributes),
   };
 
   const blockProps = useBlockProps.save({ className: 'eara-hero-home', style });

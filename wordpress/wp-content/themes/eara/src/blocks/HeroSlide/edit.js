@@ -1,5 +1,7 @@
 import { Carousel } from "@mantine/carousel";
 import { MantineProvider } from "@mantine/core";
+import HeroBackgroundControls from "../HeroBackgroundControls";
+import { getHeroBackgroundStyle } from "../hero-background";
 const {
   InspectorControls,
   InnerBlocks,
@@ -71,6 +73,7 @@ export default function Edit(props) {
     display: "flex",
     alignItems: contentVerticalAlignment,
     justifyContent: contentAlignment,
+    ...getHeroBackgroundStyle(attributes),
   };
 
   const overlayStyle =
@@ -98,6 +101,8 @@ export default function Edit(props) {
   return (
     <>
       <InspectorControls>
+        <HeroBackgroundControls attributes={attributes} setAttributes={setAttributes} />
+        {attributes.backgroundType === "image" && (
         <PanelBody title={__("Background Images", "eara")} initialOpen={true}>
           <p>
             <strong>{__("Desktop Background", "eara")}</strong>
@@ -191,6 +196,7 @@ export default function Edit(props) {
             />
           </MediaUploadCheck>
         </PanelBody>
+        )}
 
         <PanelBody title={__("Content Positioning", "eara")} initialOpen={true}>
           <SelectControl

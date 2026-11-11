@@ -2,6 +2,8 @@ const { InspectorControls, InnerBlocks, useBlockProps } = wp.blockEditor;
 const { PanelBody, Notice, ToggleControl, RangeControl, ColorPicker } = wp.components;
 const { __ } = wp.i18n;
 const { useEffect, useMemo, useState } = wp.element;
+import HeroBackgroundControls from "../HeroBackgroundControls";
+import { getHeroBackgroundStyle } from "../hero-background";
 
 export default function Edit(props) {
   const { attributes, setAttributes } = props;
@@ -67,12 +69,14 @@ export default function Edit(props) {
     backgroundImage: previewBg ? `url(${previewBg})` : undefined,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    width: '100%'
+    width: '100%',
+    ...getHeroBackgroundStyle(attributes),
   };
 
   return (
     <div {...blockProps}>
       <InspectorControls>
+        <HeroBackgroundControls attributes={attributes} setAttributes={setAttributes} />
         <PanelBody title={__('Configuração', 'eara')} initialOpen={true}>
           <ToggleControl
             label={__('Usar container interno', 'eara')}

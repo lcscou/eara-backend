@@ -10,6 +10,34 @@
     "html": false
   },
   "attributes": {
+    "backgroundType": {
+      "type": "string",
+      "default": "image"
+    },
+    "backgroundValue": {
+      "type": "string",
+      "default": ""
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#312f86"
+    },
+    "gradientStartColor": {
+      "type": "string",
+      "default": "#312f86"
+    },
+    "gradientEndColor": {
+      "type": "string",
+      "default": "#8fbf29"
+    },
+    "gradientType": {
+      "type": "string",
+      "default": "linear"
+    },
+    "gradientAngle": {
+      "type": "number",
+      "default": 135
+    },
     "backgroundImage": {
       "type": "object",
       "default": {
